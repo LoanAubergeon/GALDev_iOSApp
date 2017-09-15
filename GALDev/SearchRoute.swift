@@ -70,6 +70,7 @@ class SearchRoute: UIViewController, CLLocationManagerDelegate {
         locationManager.requestWhenInUseAuthorization()
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.startUpdatingLocation()
+        
     }
     
     
@@ -110,6 +111,12 @@ class SearchRoute: UIViewController, CLLocationManagerDelegate {
                 TransfertDonnee.reccurenceT.append("Sunday")
             }
         }
+        
+        // On vide ces tableaux 
+        nameOfRoutesEnd = []
+        nameOfRoutesStart = []
+        driver = []
+        myIndex = 0
         
     }
     
