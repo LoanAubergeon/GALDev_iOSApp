@@ -112,11 +112,6 @@ class SearchRoute: UIViewController, CLLocationManagerDelegate {
             }
         }
         
-        // On vide ces tableaux 
-        nameOfRoutesEnd = []
-        nameOfRoutesStart = []
-        driver = []
-        myIndex = 0
         
     }
     

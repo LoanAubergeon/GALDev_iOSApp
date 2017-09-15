@@ -36,6 +36,13 @@ class RouteList : UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     override func viewDidLoad() {
         
+        // On vide ces tableaux
+        nameOfRoutesEnd = []
+        nameOfRoutesStart = []
+        driver = []
+        myIndex = 0
+        
+        
         self.routeList()
         routeTableView.dataSource = self
         routeTableView.delegate = self
