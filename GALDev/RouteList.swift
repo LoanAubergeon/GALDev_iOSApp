@@ -35,6 +35,7 @@ class RouteList : UIViewController, UITableViewDataSource, UITableViewDelegate {
     var mapTasks = MapTasks()
     
     override func viewDidLoad() {
+        
         self.routeList()
         routeTableView.dataSource = self
         routeTableView.delegate = self

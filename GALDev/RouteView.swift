@@ -23,18 +23,21 @@ class RouteView : UIViewController {
     
     var mapTasks = MapTasks()
     
+    var token = Home.GlobalsVariables.userToken
     var origin : String = nameOfRoutesStart[myIndex]
     var destination : String = nameOfRoutesEnd[myIndex]
     var driverIndex = driver[myIndex]
     
     @IBOutlet var originLabel : UILabel?
     @IBOutlet var destinationLabel : UILabel?
+    @IBOutlet var usernameDriverLabel : UILabel?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         originLabel?.text = nameOfRoutesStart[myIndex]
         destinationLabel?.text = nameOfRoutesEnd[myIndex]
         self.createRoute()
+        self.driverName()
     }
     
 
@@ -54,6 +57,52 @@ class RouteView : UIViewController {
                 print(status)
             }
         })
+        
+    }
+    
+    func driverName() {
+        
+        let driverID = String(driverIndex)
+        
+        let urlString : String = "http://169.254.111.193:3000/api/users/"+driverID
+        
+        let url = NSURL(string: urlString)!
+        
+        var request = URLRequest(url: url as URL)
+        
+        request.setValue(token, forHTTPHeaderField: "x-access-token")
+        
+        request.httpMethod = "GET"
+        
+        
+        let task = URLSession.shared.dataTask(with: request as URLRequest) {
+            data, response, error in
+            
+            // Check for error
+            if error != nil
+            {
+                print("Error")
+                return
+            }
+            
+            do {
+                let jsonResult = try JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions.mutableContainers) as! NSArray
+                
+                DispatchQueue.main.async(execute: {
+                    for index in 0...(jsonResult).count-1 {
+                        let jsonObjects = (jsonResult[index]) as AnyObject
+
+                        self.usernameDriverLabel?.text = jsonObjects["username"] as? String
+
+                    }
+                })
+                
+            } catch { // On catch les erreurs potentielles
+                print(error)
+            }
+            
+        }
+        task.resume()
         
     }
     
