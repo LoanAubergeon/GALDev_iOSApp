@@ -11,6 +11,7 @@ import UIKit
 var nameOfRoutesStart: [String] = []
 var nameOfRoutesEnd: [String] = []
 var driver: [Int] = []
+var id: [Int] = []
 var myIndex : Int = 0
 
 
@@ -22,9 +23,6 @@ class RouteList : UIViewController, UITableViewDataSource, UITableViewDelegate {
     var token = Home.GlobalsVariables.userToken
     
     @IBOutlet var routeTableView : UITableView!
-    
-    // Route id
-    var id: [Int] = []
     
     // Coordonate
     var xStartingPoint: [Float] = []
@@ -41,6 +39,7 @@ class RouteList : UIViewController, UITableViewDataSource, UITableViewDelegate {
         nameOfRoutesStart = []
         driver = []
         myIndex = 0
+        id = []
         
         
         self.routeList()
@@ -56,7 +55,7 @@ class RouteList : UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section {
-        case 0: return self.id.count
+        case 0: return id.count
         default: return 0
         }
     }
@@ -70,7 +69,7 @@ class RouteList : UIViewController, UITableViewDataSource, UITableViewDelegate {
     //Cellule à l'index concerné
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: .default, reuseIdentifier: "basic")
-        for i in 0...self.id.count-1 {
+        for i in 0...id.count-1 {
             if (indexPath.row == i) {
                 
                 cell.textLabel?.text = nameOfRoutesStart[i]+"  --->  "+nameOfRoutesEnd[i]+" - driver : " + String(driver[i])
@@ -142,7 +141,7 @@ class RouteList : UIViewController, UITableViewDataSource, UITableViewDelegate {
                             let startingPoint = jsonObjects["startingPoint"] as AnyObject
                             let endPoint = jsonObjects["endPoint"] as AnyObject
                             
-                            self.id.append(jsonObjects["id"] as! Int)
+                            id.append(jsonObjects["id"] as! Int)
                             driver.append(jsonObjects["driver"] as! Int)
                             
                             let xStart = startingPoint["x"] as! Float

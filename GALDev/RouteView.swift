@@ -31,6 +31,7 @@ class RouteView : UIViewController {
     @IBOutlet var originLabel : UILabel?
     @IBOutlet var destinationLabel : UILabel?
     @IBOutlet var usernameDriverLabel : UILabel?
+    @IBOutlet var dateLabel : UILabel?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,6 +39,7 @@ class RouteView : UIViewController {
         destinationLabel?.text = nameOfRoutesEnd[myIndex]
         self.createRoute()
         self.driverName()
+        self.routeDate()
     }
     
 
@@ -106,6 +108,53 @@ class RouteView : UIViewController {
         
     }
     
+    func routeDate() {
+        
+        let routeID = String(id[myIndex])
+        
+        let urlString : String = ServerAdress+":3000/api/routedate/"+routeID
+        
+        let url = NSURL(string: urlString)!
+        
+        var request = URLRequest(url: url as URL)
+        
+        request.setValue(token, forHTTPHeaderField: "x-access-token")
+        
+        request.httpMethod = "GET"
+        
+        
+        let task = URLSession.shared.dataTask(with: request as URLRequest) {
+            data, response, error in
+            
+            // Check for error
+            if error != nil
+            {
+                print("Error")
+                return
+            }
+            
+            do {
+                let jsonResult = try JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions.mutableContainers) as! NSArray
+                
+                DispatchQueue.main.async(execute: {
+                    for index in 0...(jsonResult).count-1 {
+                        let jsonObjects = (jsonResult[index]) as AnyObject
+                        let string = jsonObjects["route_date"] as? String
+                        
+                        self.dateLabel?.text = string?.replacingOccurrences(of:"T", with: " ").replacingOccurrences(of:"Z", with: " ")
+                        
+                    }
+                })
+                
+            } catch { // On catch les erreurs potentielles
+                print(error)
+            }
+            
+        }
+        task.resume()
+        
+    }
+    
     
     
     func drawRoute() {
@@ -119,7 +168,7 @@ class RouteView : UIViewController {
     }
     
     func configureMapAndMarkersForRoute() {
-        viewMap?.camera = GMSCameraPosition.camera(withTarget: mapTasks.originCoordinate, zoom: 8.0)
+        viewMap?.camera = GMSCameraPosition.camera(withTarget: mapTasks.originCoordinate, zoom: 10.0)
         
         originMarker = GMSMarker(position: self.mapTasks.originCoordinate)
         originMarker.map = self.viewMap

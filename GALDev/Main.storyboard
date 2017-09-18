@@ -356,6 +356,21 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OVk-XX-AlX">
+                                <rect key="frame" x="16" y="556" width="33.5" height="15"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="None" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E5O-XA-vGK">
+                                <rect key="frame" x="58" y="553" width="30" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="QH0-gM-sDf"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -368,6 +383,9 @@
                             <constraint firstItem="sai-WN-F2a" firstAttribute="leading" secondItem="hJJ-rD-oK9" secondAttribute="leadingMargin" id="FgD-5A-dh0"/>
                             <constraint firstItem="6Sc-MV-4k2" firstAttribute="top" secondItem="sai-WN-F2a" secondAttribute="bottom" constant="7" id="JZ0-mu-0pW"/>
                             <constraint firstItem="TZy-g1-yA4" firstAttribute="leading" secondItem="hJJ-rD-oK9" secondAttribute="leadingMargin" id="LyI-kX-UOL"/>
+                            <constraint firstItem="OVk-XX-AlX" firstAttribute="top" secondItem="Nhe-Zs-sXA" secondAttribute="bottom" constant="47" id="Pgr-Gg-t2U"/>
+                            <constraint firstItem="E5O-XA-vGK" firstAttribute="top" secondItem="Nhe-Zs-sXA" secondAttribute="bottom" constant="44" id="PiD-dM-JCA"/>
+                            <constraint firstItem="OVk-XX-AlX" firstAttribute="leading" secondItem="hJJ-rD-oK9" secondAttribute="leadingMargin" id="Pl0-g1-FFY"/>
                             <constraint firstItem="Nhe-Zs-sXA" firstAttribute="leading" secondItem="hJJ-rD-oK9" secondAttribute="leading" id="PzT-WL-lHx"/>
                             <constraint firstItem="sai-WN-F2a" firstAttribute="top" secondItem="Q9c-VH-Gqs" secondAttribute="bottom" constant="7" id="Rea-zV-RLE"/>
                             <constraint firstItem="PJF-7w-aP8" firstAttribute="top" secondItem="Nhe-Zs-sXA" secondAttribute="bottom" constant="76" id="SIy-cG-YMw"/>
@@ -382,12 +400,14 @@
                             <constraint firstItem="sai-WN-F2a" firstAttribute="leading" secondItem="hJJ-rD-oK9" secondAttribute="leadingMargin" id="gMN-QE-cK4"/>
                             <constraint firstAttribute="trailing" secondItem="Nhe-Zs-sXA" secondAttribute="trailing" id="gcp-rv-DbD"/>
                             <constraint firstItem="DpD-Oc-N2n" firstAttribute="top" secondItem="Nhe-Zs-sXA" secondAttribute="bottom" constant="133" id="iDq-2n-6wC"/>
+                            <constraint firstItem="E5O-XA-vGK" firstAttribute="leading" secondItem="OVk-XX-AlX" secondAttribute="trailing" constant="8.5" id="k7z-14-Rkx"/>
                             <constraint firstItem="Q9c-VH-Gqs" firstAttribute="firstBaseline" secondItem="TZy-g1-yA4" secondAttribute="firstBaseline" id="kFO-gX-DKb"/>
                             <constraint firstItem="Nhe-Zs-sXA" firstAttribute="top" secondItem="BtX-j2-wtD" secondAttribute="bottom" id="laM-Xe-p4G"/>
                             <constraint firstItem="Q9c-VH-Gqs" firstAttribute="baseline" secondItem="TZy-g1-yA4" secondAttribute="baseline" id="rRq-es-jPw"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="dateLabel" destination="E5O-XA-vGK" id="zgl-MU-1gL"/>
                         <outlet property="destinationLabel" destination="DpD-Oc-N2n" id="oKW-xE-w7Q"/>
                         <outlet property="originLabel" destination="Q9c-VH-Gqs" id="5nG-Uo-fm1"/>
                         <outlet property="usernameDriverLabel" destination="6wH-nN-pSa" id="PBz-bt-JZN"/>
