@@ -144,7 +144,7 @@ class Home: UIViewController {
     
     
     /** 
-     To create alerts
+     To create alerts in the app
     */
     func alert(_ title: String, message: String) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
