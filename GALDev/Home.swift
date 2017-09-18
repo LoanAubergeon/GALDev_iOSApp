@@ -56,7 +56,7 @@ class Home: UIViewController {
         
         let login = "name="+username!+"&password="+password!
         
-        let url = NSURL(string: ServerAdress+"/api/auth")!
+        let url = NSURL(string: ServerAdress+":3000/api/auth")!
         
         var request = URLRequest(url: url as URL)
         
