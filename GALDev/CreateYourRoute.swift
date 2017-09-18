@@ -26,6 +26,7 @@ class CreateYourRoute : UIViewController, CLLocationManagerDelegate {
     
     
     
+    
     // Variables utilisés pour afficher la map
     @IBOutlet var viewMap : GMSMapView?
     
@@ -81,9 +82,11 @@ class CreateYourRoute : UIViewController, CLLocationManagerDelegate {
         
         //let parameters = ["token" : token, "startLat": self.startLat, "endLat": self.endLat, "startLng": self.startLng, "endLng": self.endLng, "driverId": 2, "dates" : "[]" ] as [String : Any]
         
+        let reccurenceString : String = (self.reccurence ? "1" : "0")
+        
         let driverId = userDictionary["id"] as! Int
 
-        let url = NSURL(string: "http://169.254.111.193:3000/api/routes")!
+        let url = NSURL(string: ServerAdress+":3000/api/routes")!
         
         var request = URLRequest(url: url as URL)
         
@@ -92,7 +95,7 @@ class CreateYourRoute : UIViewController, CLLocationManagerDelegate {
         request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
         request.addValue(token, forHTTPHeaderField: "x-access-token")
         
-        let postString = "startLat="+String(self.startLat)+"&endLat="+String(self.endLat)+"&startLng="+String(self.startLng)+"&endLng="+String(self.endLng)+"&driverId="+String(driverId)+"&dates=[]"
+        let postString = "startLat="+String(self.startLat)+"&endLat="+String(self.endLat)+"&startLng="+String(self.startLng)+"&endLng="+String(self.endLng)+"&driverId="+String(driverId)+"&dates="+self.date+" "+self.time+";"+reccurenceString
         
         request.httpBody = postString.data(using: .utf8)
             

@@ -113,7 +113,7 @@ class RouteList : UIViewController, UITableViewDataSource, UITableViewDelegate {
     // Requete pour avoir la liste des routes
     func routeList(){
     
-        let url = NSURL(string: "http://169.254.111.193:3000/api/routes/")!
+        let url = NSURL(string: ServerAdress+":3000/api/routes/")!
         
         var request = URLRequest(url: url as URL)
         

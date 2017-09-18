@@ -64,7 +64,7 @@ class RouteView : UIViewController {
         
         let driverID = String(driverIndex)
         
-        let urlString : String = "http://169.254.111.193:3000/api/users/"+driverID
+        let urlString : String = ServerAdress+":3000/api/users/"+driverID
         
         let url = NSURL(string: urlString)!
         

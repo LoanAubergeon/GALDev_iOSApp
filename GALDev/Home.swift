@@ -8,6 +8,7 @@
 
 import UIKit
 
+var ServerAdress : String = "http://169.254.174.170"
 
 // ----------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -55,7 +56,7 @@ class Home: UIViewController {
         
         let login = "name="+username!+"&password="+password!
         
-        let url = NSURL(string: "http://169.254.111.193:3000/api/auth")!
+        let url = NSURL(string: ServerAdress+"/api/auth")!
         
         var request = URLRequest(url: url as URL)
         

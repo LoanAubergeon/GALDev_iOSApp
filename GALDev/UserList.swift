@@ -76,7 +76,7 @@ class UserList : UIViewController, UITableViewDataSource, UITableViewDelegate {
         
         //let tokenString = "token="+token
         
-        let url = NSURL(string: "http://169.254.111.193:3000/api/users/")!
+        let url = NSURL(string: ServerAdress+":3000/api/users/")!
         
         var request = URLRequest(url: url as URL)
         
