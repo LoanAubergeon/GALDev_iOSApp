@@ -586,7 +586,7 @@
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="O91-cj-WX2">
-                                <rect key="frame" x="0.0" y="28" width="375" height="545"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="585"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="c5F-ZC-DQp">
@@ -620,9 +620,9 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="yTa-GF-fpx" firstAttribute="top" secondItem="O91-cj-WX2" secondAttribute="bottom" constant="50" id="D8h-Mg-cPW"/>
+                            <constraint firstItem="yTa-GF-fpx" firstAttribute="top" secondItem="O91-cj-WX2" secondAttribute="bottom" constant="18" id="D8h-Mg-cPW"/>
                             <constraint firstItem="yTa-GF-fpx" firstAttribute="centerX" secondItem="ZpP-Xv-gPU" secondAttribute="centerX" id="G6z-io-Qdw"/>
-                            <constraint firstItem="O91-cj-WX2" firstAttribute="top" secondItem="XIP-0S-axT" secondAttribute="bottom" constant="8" id="HbU-BD-nDg"/>
+                            <constraint firstItem="O91-cj-WX2" firstAttribute="top" secondItem="XIP-0S-axT" secondAttribute="bottom" id="HbU-BD-nDg"/>
                             <constraint firstItem="Do7-B3-wM5" firstAttribute="top" secondItem="yTa-GF-fpx" secondAttribute="bottom" constant="14" id="N7V-pg-G9d"/>
                             <constraint firstItem="O91-cj-WX2" firstAttribute="centerX" secondItem="yTa-GF-fpx" secondAttribute="centerX" id="WKo-sn-TgG"/>
                             <constraint firstItem="O91-cj-WX2" firstAttribute="leading" secondItem="ZpP-Xv-gPU" secondAttribute="leading" id="ZhG-vW-Ojf"/>

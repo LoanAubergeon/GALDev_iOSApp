@@ -147,6 +147,7 @@ class RouteView : UIViewController {
                         
                         self.dateLabel?.text = string?.replacingOccurrences(of:"T", with: " ").replacingOccurrences(of:"Z", with: " ")
                         
+                        
                         let intRec = jsonObjects["weekly_repeat"] as? Int
                         if intRec == 1 {
                             self.weeklyreccurenceLabel?.text = "True"

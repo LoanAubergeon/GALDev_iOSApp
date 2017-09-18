@@ -140,10 +140,7 @@ class RouteList : UIViewController, UITableViewDataSource, UITableViewDelegate {
                             })
                             self.routeTableView.reloadData()
                     }
-                self.routeTableView.reloadData()
-                
-                
-                
+
             } catch { // On catch les erreurs potentielles
                 print(error)
             }
