@@ -44,6 +44,7 @@
 		4C47EAF81F55743700FD60DC /* CreateYourRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C47EAF71F55743700FD60DC /* CreateYourRoute.swift */; };
 		4C47EAFA1F56B25300FD60DC /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C47EAF91F56B25300FD60DC /* Menu.swift */; };
 		4C47EAFC1F56DA5A00FD60DC /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C47EAFB1F56DA5A00FD60DC /* UserProfile.swift */; };
+		4C50CD711F6FD27800B7E14E /* DriverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C50CD701F6FD27800B7E14E /* DriverView.swift */; };
 		4CF30A4C1F66A4D5001B3AF3 /* RouteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CF30A4B1F66A4D5001B3AF3 /* RouteView.swift */; };
 /* End PBXBuildFile section */
 
@@ -88,6 +89,7 @@
 		4C47EAF71F55743700FD60DC /* CreateYourRoute.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateYourRoute.swift; sourceTree = "<group>"; };
 		4C47EAF91F56B25300FD60DC /* Menu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Menu.swift; sourceTree = "<group>"; };
 		4C47EAFB1F56DA5A00FD60DC /* UserProfile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
+		4C50CD701F6FD27800B7E14E /* DriverView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DriverView.swift; sourceTree = "<group>"; };
 		4CF30A4B1F66A4D5001B3AF3 /* RouteView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouteView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -206,6 +208,7 @@
 				4C312AE41F5016E200555D0E /* UserList.swift */,
 				4C47EAF51F5570A800FD60DC /* RouteList.swift */,
 				4CF30A4B1F66A4D5001B3AF3 /* RouteView.swift */,
+				4C50CD701F6FD27800B7E14E /* DriverView.swift */,
 				4C47EAF71F55743700FD60DC /* CreateYourRoute.swift */,
 				4C47EAF91F56B25300FD60DC /* Menu.swift */,
 				4C47EAFB1F56DA5A00FD60DC /* UserProfile.swift */,
@@ -299,6 +302,7 @@
 				4C47EAFC1F56DA5A00FD60DC /* UserProfile.swift in Sources */,
 				4C312A891F4EE7F800555D0E /* CreateAccount.swift in Sources */,
 				4C312ADA1F4F341500555D0E /* SWRevealViewController.m in Sources */,
+				4C50CD711F6FD27800B7E14E /* DriverView.swift in Sources */,
 				4C312A511F4EE5B000555D0E /* ViewController.swift in Sources */,
 				4C47EAFA1F56B25300FD60DC /* Menu.swift in Sources */,
 				4C312AE51F5016E200555D0E /* UserList.swift in Sources */,

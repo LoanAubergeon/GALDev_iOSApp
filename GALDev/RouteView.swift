@@ -32,6 +32,7 @@ class RouteView : UIViewController {
     @IBOutlet var destinationLabel : UILabel?
     @IBOutlet var usernameDriverLabel : UILabel?
     @IBOutlet var dateLabel : UILabel?
+    @IBOutlet var weeklyreccurenceLabel : UILabel?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -142,6 +143,13 @@ class RouteView : UIViewController {
                         let string = jsonObjects["route_date"] as? String
                         
                         self.dateLabel?.text = string?.replacingOccurrences(of:"T", with: " ").replacingOccurrences(of:"Z", with: " ")
+                        
+                        let intRec = jsonObjects["weekly_repeat"] as? Int
+                        if intRec == 1 {
+                            self.weeklyreccurenceLabel?.text = "True"
+                        } else {
+                            self.weeklyreccurenceLabel?.text = "False"
+                        }
                         
                     }
                 })
