@@ -11,7 +11,7 @@ import GoogleMaps
 
 class SearchRoute: UIViewController, CLLocationManagerDelegate {
     
-    var affichageJour = true
+    var affichageJour = false
     
     let locationManager = CLLocationManager()
     
@@ -23,7 +23,9 @@ class SearchRoute: UIViewController, CLLocationManagerDelegate {
     @IBOutlet var viewMap : GMSMapView?
     
     @IBOutlet var hourTextField: UITextField!
+    @IBOutlet var dateTextField: UITextField!
     
+    /*
     @IBOutlet var buttonMonday : UIButton!
     @IBOutlet var buttonTuesday : UIButton!
     @IBOutlet var buttonWednesday : UIButton!
@@ -31,6 +33,7 @@ class SearchRoute: UIViewController, CLLocationManagerDelegate {
     @IBOutlet var buttonFriday : UIButton!
     @IBOutlet var buttonSaturday : UIButton!
     @IBOutlet var buttonSunday : UIButton!
+    */
     
     @IBOutlet var originTextField : UITextField!
     @IBOutlet var destinationTextField : UITextField!
@@ -39,8 +42,9 @@ class SearchRoute: UIViewController, CLLocationManagerDelegate {
     struct TransfertDonnee {
         static var originT : String = ""
         static var destinationT : String = ""
+        static var dateT : String = ""
         static var timeT : String = ""
-        static var reccurenceT : Array<String> = [""]
+        static var reccurenceT : Bool = false
     }
     
     
@@ -48,13 +52,13 @@ class SearchRoute: UIViewController, CLLocationManagerDelegate {
     override func awakeFromNib() {
         self.view.layoutIfNeeded()
         
-        buttonMonday.isSelected = false
+        /*buttonMonday.isSelected = false
         buttonTuesday.isSelected = false
         buttonWednesday.isSelected = false
         buttonThursday.isSelected = false
         buttonFriday.isSelected = false
         buttonSaturday.isSelected = false
-        buttonSunday.isSelected = false
+        buttonSunday.isSelected = false*/
     }
     
     
@@ -64,7 +68,8 @@ class SearchRoute: UIViewController, CLLocationManagerDelegate {
         TransfertDonnee.originT = ""
         TransfertDonnee.destinationT = ""
         TransfertDonnee.timeT = ""
-        TransfertDonnee.reccurenceT = [""]
+        TransfertDonnee.dateT = ""
+        TransfertDonnee.reccurenceT = false
         
         locationManager.delegate = self
         locationManager.requestWhenInUseAuthorization()
@@ -86,8 +91,18 @@ class SearchRoute: UIViewController, CLLocationManagerDelegate {
         TransfertDonnee.originT = originTextField.text!
         TransfertDonnee.destinationT = destinationTextField.text!
         TransfertDonnee.timeT = hourTextField.text!
+        TransfertDonnee.dateT = dateTextField.text!
+        
+        if affichageJour {
+            TransfertDonnee.reccurenceT = true
+        } else {
+            TransfertDonnee.reccurenceT = false
+        }
+        
+        
         
         // Pour enregistrer la reccurence
+        /*
         if affichageJour {
             if buttonMonday.isSelected == true{
                 TransfertDonnee.reccurenceT.append("Monday")
@@ -110,15 +125,26 @@ class SearchRoute: UIViewController, CLLocationManagerDelegate {
             if buttonSunday.isSelected == true{
                 TransfertDonnee.reccurenceT.append("Sunday")
             }
-        }
+        }*/
         
         
     }
     
+    @IBAction func textFieldEditingDate(sender: UITextField) {
+
+        let datePickerView:UIDatePicker = UIDatePicker()
+        
+        datePickerView.datePickerMode = UIDatePickerMode.date
+        
+        sender.inputView = datePickerView
+        
+        datePickerView.addTarget(self, action: #selector(self.datePickerChanged), for: UIControlEvents.valueChanged)
+        
+    }
 
     
     
-    @IBAction func textFieldEditing(sender: UITextField) {
+    @IBAction func textFieldEditingTime(sender: UITextField) {
 
         let datePickerView:UIDatePicker = UIDatePicker()
         
@@ -132,13 +158,13 @@ class SearchRoute: UIViewController, CLLocationManagerDelegate {
     
     @IBAction func autoOnOff (sender : UISwitch) {
         affichageJour = sender.isOn    //On attribue à modeAuto la valeur du UISwitch
-        buttonMonday.isHidden = !affichageJour  //Cache la vue
+        /*buttonMonday.isHidden = !affichageJour  //Cache la vue
         buttonTuesday.isHidden = !affichageJour  //Cache la vue
         buttonWednesday.isHidden = !affichageJour  //Cache la vue
         buttonThursday.isHidden = !affichageJour  //Cache la vue
         buttonFriday.isHidden = !affichageJour  //Cache la vue
         buttonSaturday.isHidden = !affichageJour  //Cache la vue
-        buttonSunday.isHidden = !affichageJour  //Cache la vue
+        buttonSunday.isHidden = !affichageJour */ //Cache la vue
     }
     
     
@@ -167,6 +193,14 @@ class SearchRoute: UIViewController, CLLocationManagerDelegate {
         let timeFormatter = DateFormatter()
         timeFormatter.timeStyle = DateFormatter.Style.short
         hourTextField.text = timeFormatter.string(for: sender.date)
+    }
+    
+    func datePickerChanged(sender: UIDatePicker) {
+
+        let dateFormatter = DateFormatter()
+        //dateFormatter.dateStyle = DateFormatter.Style.short
+        dateFormatter.dateFormat = "YYYY-MM-dd"
+        dateTextField.text = dateFormatter.string(for: sender.date)
     }
 
     

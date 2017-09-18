@@ -20,7 +20,9 @@ class CreateYourRoute : UIViewController, CLLocationManagerDelegate {
     var destination : String! = SearchRoute.TransfertDonnee.destinationT
     
     var time : String! = SearchRoute.TransfertDonnee.timeT
-    var reccurence : Array<String> = SearchRoute.TransfertDonnee.reccurenceT
+    var date : String! = SearchRoute.TransfertDonnee.dateT
+    
+    var reccurence : Bool = SearchRoute.TransfertDonnee.reccurenceT
     
     
     
@@ -54,9 +56,15 @@ class CreateYourRoute : UIViewController, CLLocationManagerDelegate {
         
         //originLabel?.text = origin
         //destinationLabel?.text = destination
-        timeLabel?.text = time
-        // Afficher le contenue du tableau
-        var reccurenceString : String = ""
+        timeLabel?.text = date+" "+time
+        
+        if reccurence {
+            reccurenceLabel?.text = "True"
+        } else {
+            reccurenceLabel?.text = "False"
+        }
+        
+        /*
         if reccurence.count-1 != 0{
             for index in 1...(reccurence.count-1) {
                 let string = reccurence[index] as String
@@ -65,7 +73,7 @@ class CreateYourRoute : UIViewController, CLLocationManagerDelegate {
 
             }
             reccurenceLabel?.text = reccurenceString
-        }
+        }*/
         createRoute()
     }
     
