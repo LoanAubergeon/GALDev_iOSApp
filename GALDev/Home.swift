@@ -14,6 +14,8 @@ var ServerAdress : String = "http://169.254.174.170"
 /**
  The first page that opens when you launch the application
  */
+
+
 class Home: UIViewController {
     
     //  #################### Variables ####################
@@ -30,11 +32,12 @@ class Home: UIViewController {
     
     /**
     Structure to access token, and informations about the user who are connected
-     - Parameters : 
+      - Parameter :
         - userToken : The user's Token given by the database.
         - userName : The user's username.
-        - user : Informations frome the database about the user.
+        - user : Informations from the database about the user.
     */
+    
     struct GlobalsVariables {
         static var userToken : String = ""
         static var userName : String = ""
@@ -44,7 +47,7 @@ class Home: UIViewController {
 
     //  #################### Functions ####################
     
-    /** Function to manage the authentification */
+    /** Function to manage the authentification*/
     @IBAction func authentification(sender :UIButton){
         
         // Recovery of identifiers
