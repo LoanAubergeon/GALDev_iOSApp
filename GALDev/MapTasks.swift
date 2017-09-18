@@ -197,17 +197,16 @@ class MapTasks : NSObject, CLLocationManagerDelegate {
         
         
         let distanceInKilometers: Double = Double(totalDistanceInMeters / 1000)
-        totalDistance = "Total Distance: \(distanceInKilometers) Km"
+        totalDistance = "\(distanceInKilometers) Km"
         
         
         let mins = totalDurationInSeconds / 60
         let hours = mins / 60
-        let days = hours / 24
-        let remainingHours = hours % 24
-        let remainingMins = mins % 60
-        let remainingSecs = totalDurationInSeconds % 60
         
-        totalDuration = "Duration: \(days) d, \(remainingHours) h, \(remainingMins) mins, \(remainingSecs) secs"
+        let remainingHours = hours
+        let remainingMins = mins % 60
+        
+        totalDuration = "\(remainingHours) h, \(remainingMins) mins"
     }
     
     

@@ -33,6 +33,8 @@ class RouteView : UIViewController {
     @IBOutlet var usernameDriverLabel : UILabel?
     @IBOutlet var dateLabel : UILabel?
     @IBOutlet var weeklyreccurenceLabel : UILabel?
+    @IBOutlet var durationLabel : UILabel?
+    @IBOutlet var distanceLabel : UILabel?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,6 +53,7 @@ class RouteView : UIViewController {
                 self.viewMap?.clear()
                 self.configureMapAndMarkersForRoute()
                 self.drawRoute()
+                self.displayRouteInfo()
                 
                 DispatchQueue.main.async(execute: {
                 })
@@ -187,7 +190,14 @@ class RouteView : UIViewController {
         destinationMarker.map = self.viewMap
         destinationMarker.icon = GMSMarker.markerImage(with: UIColor.red)
         destinationMarker.title = self.mapTasks.destinationAddress
-
+        
+    }
+    
+    func displayRouteInfo() {
+        DispatchQueue.main.async() {
+            self.durationLabel?.text = self.mapTasks.totalDuration
+            self.distanceLabel?.text = self.mapTasks.totalDistance
+        }
     }
     
 

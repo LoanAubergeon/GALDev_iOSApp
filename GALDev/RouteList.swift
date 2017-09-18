@@ -86,28 +86,7 @@ class RouteList : UIViewController, UITableViewDataSource, UITableViewDelegate {
         performSegue(withIdentifier: "segue", sender: self)
     }
     
-    
-    
-    
-    /*func findNameByCoords(){
-        // Fonction pour trouver les noms d'une route a partir des coordonnées
-        
-        for j in 0...(self.id.count-1) {
-            
-            let addressStart = String(self.xStartingPoint[j])+" "+String(self.yStartingPoint[j])
-            let addressEnd = String(self.xEndPoint[j])+" "+String(self.yEndPoint[j])
-            
-            self.mapTasks.getDirections(origin: addressStart, destination: addressEnd, waypoints: nil, travelMode: nil, completionHandler: { (status, success) -> Void in
-                if success{
-                    self.nameOfRoutes.append(self.mapTasks.originAddress)
-                    self.nameOfRoutes.append(self.mapTasks.destinationAddress)
-                } else {
-                    print(status)
-                }
-            })
-        }
 
-    }*/
     
     // Requete pour avoir la liste des routes
     func routeList(){
@@ -133,8 +112,6 @@ class RouteList : UIViewController, UITableViewDataSource, UITableViewDelegate {
             do {
                 let jsonResult = try JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions.mutableContainers) as! NSArray
                 
-                DispatchQueue.main.async(execute: {
-                    //if jsonResult.count-1 > 0 {
                         for index in 0...(jsonResult).count-1 {
                             let jsonObjects = (jsonResult[index]) as AnyObject
                             
@@ -160,16 +137,10 @@ class RouteList : UIViewController, UITableViewDataSource, UITableViewDelegate {
                                     print(status)
                                     print("Erreur")
                                 }
-                                self.routeTableView.reloadData()
-                                
                             })
-                            
-                            // Position théorique du reloadData, sinon tester en enlevant le DispatchQueu.main... pour voir si la liste s'affiche directement, ou ajouter un delay en plus.. ou je ne sais pas :) 
-                            
-                        }
-                    //}
-                   
-                })
+                            self.routeTableView.reloadData()
+                    }
+                self.routeTableView.reloadData()
                 
                 
                 
