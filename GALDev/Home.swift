@@ -9,7 +9,7 @@
 import UIKit
 
 /// The address of the server user
-var ServerAdress : String = "http://169.254.174.170"
+var ServerAdress : String = "http://169.254.63.107"
 
 
 ///The first page that opens when you launch the application
