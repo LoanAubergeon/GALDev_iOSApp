@@ -10,7 +10,10 @@ import UIKit
 import GoogleMaps
 
 
+<<<<<<< HEAD
 /// The first view of the app when you are authenticated
+=======
+>>>>>>> dev
 class FirstView: UIViewController, CLLocationManagerDelegate {
 
 
