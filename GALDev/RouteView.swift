@@ -143,9 +143,11 @@ class RouteView : UIViewController {
                 DispatchQueue.main.async(execute: {
                     for index in 0...(jsonResult).count-1 {
                         let jsonObjects = (jsonResult[index]) as AnyObject
-                        let string = jsonObjects["route_date"] as? String
-                        
-                        self.dateLabel?.text = string?.replacingOccurrences(of:"T", with: " ").replacingOccurrences(of:"Z", with: " ")
+                        let stringDate = jsonObjects["route_date"] as? String
+                        /*for i in 0...(2) {
+                            stringDate?.remove(at: (stringDate?.endIndex)!)
+                        }*/
+                        self.dateLabel?.text = stringDate?.replacingOccurrences(of:"T", with: " ").replacingOccurrences(of:"Z", with: " ")
                         
                         
                         let intRec = jsonObjects["weekly_repeat"] as? Int

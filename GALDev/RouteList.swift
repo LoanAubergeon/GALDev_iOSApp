@@ -69,7 +69,7 @@ class RouteList : UIViewController, UITableViewDataSource, UITableViewDelegate {
     //Cellule à l'index concerné
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: .default, reuseIdentifier: "basic")
-        for i in 0...nameOfRoutesStart.count-1 {
+        for i in 0...nameOfRoutesStart.count {
             if (indexPath.row == i) {
                 cell.textLabel?.text = nameOfRoutesStart[i]+"  --->  "+nameOfRoutesEnd[i]+" - driver : " + String(driver[i])
                 cell.textLabel?.numberOfLines = 0;
