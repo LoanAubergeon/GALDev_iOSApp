@@ -10,24 +10,52 @@ import Foundation
 import GoogleMaps
 
 
-
+/// Classe permettant d'afficher les informations d'une route existente
 class RouteView : UIViewController {
     
+    //  #################### Variables ####################
+    
+    /// Variables des Maps
+    
+    /// The map
     @IBOutlet var viewMap : GMSMapView?
     
+    /// Markers
     var originMarker: GMSMarker!
-    
     var destinationMarker: GMSMarker!
     
+    /// The route (draw)
     var routePolyline: GMSPolyline!
     
+    
+    /// Tasks
     var mapTasks = MapTasks()
+    var routeTasks = RouteTasks()
+    var userTasks = UserTasks()
     
+    
+    /// User's Token
     var token = Home.GlobalsVariables.userToken
-    var origin : String = nameOfRoutesStart[myIndex]
-    var destination : String = nameOfRoutesEnd[myIndex]
-    var driverIndex = driver[myIndex]
     
+    
+    /// Adress
+    var origin : String!
+    var destination : String!
+    
+    /// Driver's Id
+    var driverIndex : Int!
+    
+    /// Liste d'origines l'ensembles des routes
+    var nameOfRoutesStart: [String] = []
+    var nameOfRoutesEnd: [String] = []
+    
+    ///Listes des conducteurs
+    var driver: [Int] = []
+    
+    /// Listes de Id des routes
+    var routeId: [Int] = []
+    
+    /// Labels pour affichage des informations
     @IBOutlet var originLabel : UILabel?
     @IBOutlet var destinationLabel : UILabel?
     @IBOutlet var usernameDriverLabel : UILabel?
@@ -38,11 +66,37 @@ class RouteView : UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        originLabel?.text = nameOfRoutesStart[myIndex]
-        destinationLabel?.text = nameOfRoutesEnd[myIndex]
-        self.createRoute()
-        self.driverName()
-        self.routeDate()
+        
+        self.routeTasks.route(completionHandler: { (status, success) -> Void in
+            if success {
+                self.nameOfRoutesStart = self.routeTasks.nameOfRoutesStart
+                self.nameOfRoutesEnd = self.routeTasks.nameOfRoutesEnd
+                self.driver = self.routeTasks.driver
+                self.routeId = self.routeTasks.routeId
+                
+                self.origin = self.nameOfRoutesStart[myIndex]
+                self.destination = self.nameOfRoutesEnd[myIndex]
+                self.driverIndex = self.driver[myIndex]
+                
+                self.originLabel?.text = self.nameOfRoutesStart[myIndex]
+                self.destinationLabel?.text = self.nameOfRoutesEnd[myIndex]
+                
+                // On place ca ici car on doit attendre que la requete soit termine
+                self.userTasks.user(driverId: self.driverIndex, completionHandler: { (status, success) -> Void in
+                    if success {
+                        self.usernameDriverLabel?.text = self.userTasks.username
+                        
+                        self.createRoute()
+                        self.routeDate()
+                    }
+                })
+                
+            }
+        })
+        
+        
+        
+        
     }
     
 
@@ -66,55 +120,11 @@ class RouteView : UIViewController {
         
     }
     
-    func driverName() {
-        
-        let driverID = String(driverIndex)
-        
-        let urlString : String = ServerAdress+":3000/api/users/"+driverID
-        
-        let url = NSURL(string: urlString)!
-        
-        var request = URLRequest(url: url as URL)
-        
-        request.setValue(token, forHTTPHeaderField: "x-access-token")
-        
-        request.httpMethod = "GET"
-        
-        
-        let task = URLSession.shared.dataTask(with: request as URLRequest) {
-            data, response, error in
-            
-            // Check for error
-            if error != nil
-            {
-                print("Error")
-                return
-            }
-            
-            do {
-                let jsonResult = try JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions.mutableContainers) as! NSArray
-                
-                DispatchQueue.main.async(execute: {
-                    for index in 0...(jsonResult).count-1 {
-                        let jsonObjects = (jsonResult[index]) as AnyObject
-
-                        self.usernameDriverLabel?.text = jsonObjects["username"] as? String
-
-                    }
-                })
-                
-            } catch { // On catch les erreurs potentielles
-                print(error)
-            }
-            
-        }
-        task.resume()
-        
-    }
+   
     
     func routeDate() {
         
-        let routeID = String(id[myIndex])
+        let routeID = String(self.routeId[myIndex])
         
         let urlString : String = ServerAdress+":3000/api/routedate/"+routeID
         

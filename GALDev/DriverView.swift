@@ -13,13 +13,16 @@ import MessageUI
 class DriverView : UIViewController, MFMailComposeViewControllerDelegate {
     
     var userTasks = UserTasks()
+    var routeTasks = RouteTasks()
     
     var token = Home.GlobalsVariables.userToken
     
-    var driverId = driver[myIndex]
+    var driverId : Int!
     
     var driverEmail = ""
     var mobileNumber = ""
+    
+    var driver: [Int] = []
     
     @IBOutlet var firstNameLabel : UILabel!
     @IBOutlet var lastNameLabel : UILabel!
@@ -28,7 +31,17 @@ class DriverView : UIViewController, MFMailComposeViewControllerDelegate {
     @IBOutlet var emailLabel : UILabel!
     
     override func viewDidLoad() {
-        self.userTasks.user(driverId: driverId, completionHandler: { (status, success) -> Void in
+        
+        self.routeTasks.route(completionHandler: { (status, success) -> Void in
+            if success {
+                
+                self.driver = self.routeTasks.driver
+            }
+        })
+        
+        self.driverId = self.driver[myIndex]
+        
+        self.userTasks.user(driverId: self.driverId, completionHandler: { (status, success) -> Void in
             if success {
                 self.firstNameLabel?.text = self.userTasks.name
                 self.lastNameLabel?.text = self.userTasks.surname
@@ -39,6 +52,9 @@ class DriverView : UIViewController, MFMailComposeViewControllerDelegate {
                 self.emailLabel?.text = self.userTasks.email
             }
         })
+        
+        
+        
     }
     
     
