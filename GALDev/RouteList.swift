@@ -75,6 +75,7 @@ class RouteList : UIViewController, UITableViewDataSource, UITableViewDelegate {
             if (indexPath.row == i) {
                 cell.originLabel.text = nameOfRoutesStart[i]
                 cell.destinationLabel.text = nameOfRoutesEnd[i]
+                
                 let id = driver[i]
                 self.userTasks.user(driverId: id, completionHandler: { (status, success) -> Void in
                     if success {
