@@ -22,7 +22,7 @@ class UserTasks {
     var mobileNumber : String!
     
     
-    func user(driverId: Int!) {
+    func user(driverId: Int!, completionHandler: @escaping ((_ status: String, _ success: Bool) -> Void)) {
         
             let driverIdString = String(driverId)
         
@@ -60,10 +60,12 @@ class UserTasks {
                         self.username = jsonObjects["username"] as? String
                         self.mobileNumber = jsonObjects["mobileNumber"] as? String
                         self.email = (jsonObjects["email"] as? String)!
+                        completionHandler("Ok", true)
 
                     })
                 } catch { // On catch les erreurs potentielles
                     print(error)
+                    completionHandler("", false)
                 }
             }
             task.resume()

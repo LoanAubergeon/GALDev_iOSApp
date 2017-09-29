@@ -76,8 +76,11 @@ class RouteList : UIViewController, UITableViewDataSource, UITableViewDelegate {
                 cell.originLabel.text = nameOfRoutesStart[i]
                 cell.destinationLabel.text = nameOfRoutesEnd[i]
                 let id = driver[i]
-                self.userTasks.user(driverId: id)
-                cell.driverLabel.text = self.userTasks.username
+                self.userTasks.user(driverId: id, completionHandler: { (status, success) -> Void in
+                    if success {
+                        cell.driverLabel.text = self.userTasks.username
+                    }
+                })
                 cell.textLabel?.lineBreakMode = NSLineBreakMode.byWordWrapping
             }
         }

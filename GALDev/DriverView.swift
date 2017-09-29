@@ -12,6 +12,8 @@ import MessageUI
 
 class DriverView : UIViewController, MFMailComposeViewControllerDelegate {
     
+    var userTasks = UserTasks()
+    
     var token = Home.GlobalsVariables.userToken
     
     var driverId = driver[myIndex]
@@ -26,7 +28,17 @@ class DriverView : UIViewController, MFMailComposeViewControllerDelegate {
     @IBOutlet var emailLabel : UILabel!
     
     override func viewDidLoad() {
-        self.driverInformations()
+        self.userTasks.user(driverId: driverId, completionHandler: { (status, success) -> Void in
+            if success {
+                self.firstNameLabel?.text = self.userTasks.name
+                self.lastNameLabel?.text = self.userTasks.surname
+                self.usernameLabel?.text = self.userTasks.username
+                self.mobileNumberLabel?.text = self.userTasks.mobileNumber
+                self.driverEmail = self.userTasks.email
+                self.mobileNumber = self.userTasks.mobileNumber
+                self.emailLabel?.text = self.userTasks.email
+            }
+        })
     }
     
     
@@ -62,60 +74,4 @@ class DriverView : UIViewController, MFMailComposeViewControllerDelegate {
             }
         }
     }
-    
-    
-    func driverInformations() {
-        
-        let driverIdString = String(driverId)
-        
-        let urlString : String = ServerAdress+":3000/api/users/"+driverIdString
-        
-        let url = NSURL(string: urlString)!
-        
-        var request = URLRequest(url: url as URL)
-        
-        request.setValue(token, forHTTPHeaderField: "x-access-token")
-        
-        request.httpMethod = "GET"
-        
-        
-        let task = URLSession.shared.dataTask(with: request as URLRequest) {
-            data, response, error in
-            
-            // Check for error
-            if error != nil
-            {
-                print("Error")
-                return
-            }
-            
-            do {
-                let jsonResult = try JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions.mutableContainers) as! NSArray
-                
-                DispatchQueue.main.async(execute: {
-
-                    let jsonObjects = (jsonResult[0]) as AnyObject
-
-                    self.firstNameLabel?.text = jsonObjects["name"] as? String
-                    self.lastNameLabel?.text = jsonObjects["surname"] as? String
-                    self.usernameLabel?.text = jsonObjects["username"] as? String
-                    self.mobileNumberLabel?.text = jsonObjects["mobileNumber"] as? String
-                    self.driverEmail = (jsonObjects["email"] as? String)!
-                    self.mobileNumber = (jsonObjects["mobileNumber"] as? String)!
-                    self.emailLabel?.text = jsonObjects["email"] as? String
-                    
-                    
-                    
-                })
-                
-            } catch { // On catch les erreurs potentielles
-                print(error)
-            }
-            
-        }
-        task.resume()
-        
-    }
-    
-    
 }
