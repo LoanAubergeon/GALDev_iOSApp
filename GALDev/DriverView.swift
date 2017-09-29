@@ -36,22 +36,31 @@ class DriverView : UIViewController, MFMailComposeViewControllerDelegate {
             if success {
                 
                 self.driver = self.routeTasks.driver
+                
+                // Position anormale
+                self.driverId = self.driver[myIndex]
+                
+                // Position anormale
+                self.userTasks.user(driverId: self.driverId, completionHandler: { (status, success) -> Void in
+                    if success {
+                        self.firstNameLabel?.text = self.userTasks.name
+                        self.lastNameLabel?.text = self.userTasks.surname
+                        self.usernameLabel?.text = self.userTasks.username
+                        self.mobileNumberLabel?.text = self.userTasks.mobileNumber
+                        self.driverEmail = self.userTasks.email
+                        self.mobileNumber = self.userTasks.mobileNumber
+                        self.emailLabel?.text = self.userTasks.email
+                    }
+                })
+                
+                
+                
             }
         })
         
-        self.driverId = self.driver[myIndex]
         
-        self.userTasks.user(driverId: self.driverId, completionHandler: { (status, success) -> Void in
-            if success {
-                self.firstNameLabel?.text = self.userTasks.name
-                self.lastNameLabel?.text = self.userTasks.surname
-                self.usernameLabel?.text = self.userTasks.username
-                self.mobileNumberLabel?.text = self.userTasks.mobileNumber
-                self.driverEmail = self.userTasks.email
-                self.mobileNumber = self.userTasks.mobileNumber
-                self.emailLabel?.text = self.userTasks.email
-            }
-        })
+        
+        
         
         
         

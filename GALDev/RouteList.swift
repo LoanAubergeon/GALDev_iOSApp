@@ -42,8 +42,6 @@ class RouteList : UIViewController, UITableViewDataSource, UITableViewDelegate {
 
         routeTableView.dataSource = self
         routeTableView.delegate = self
-        routeTableView.reloadData()
-        
     }
     
     //Nombre de sections en tout

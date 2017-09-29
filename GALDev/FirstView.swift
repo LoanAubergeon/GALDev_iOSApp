@@ -22,8 +22,6 @@ class FirstView: UIViewController, CLLocationManagerDelegate {
 
     @IBOutlet var viewMap : GMSMapView?
 
-    @IBOutlet var lblInfo : UILabel?
-
     let locationManager = CLLocationManager()
 
     var didFindMyLocation = false
@@ -31,18 +29,6 @@ class FirstView: UIViewController, CLLocationManagerDelegate {
     var mapTasks = MapTasks()
 
     var locationMarker: GMSMarker!
-
-
-
-    var originMarker: GMSMarker!
-
-    var destinationMarker: GMSMarker!
-
-    var routePolyline: GMSPolyline!
-
-
-
-
 
 
     // ***********************************************************************************************************************
@@ -108,86 +94,6 @@ class FirstView: UIViewController, CLLocationManagerDelegate {
     }
 
 
-    @IBAction func findAddress(sender: AnyObject) {
-        let addressAlert = UIAlertController(title: "Address Finder", message: "Type the address you want to find:", preferredStyle: UIAlertControllerStyle.alert)
-
-        addressAlert.addTextField { (textField) -> Void in
-            textField.placeholder = "Address?"
-        }
-
-        let findAction = UIAlertAction(title: "Find Address", style: UIAlertActionStyle.default) { (alertAction) -> Void in
-            let address = (addressAlert.textFields![0] as UITextField).text!
-
-            self.mapTasks.geocodeAddress(address: address, withCompletionHandler: { (status, success) -> Void in
-                if !success {
-                    print(status)
-
-                    if status == "ZERO_RESULTS" {
-                        self.showAlertWithMessage(message: "The location could not be found.")
-                    }
-                }
-                else {
-                    self.viewMap?.clear()
-                    let coordinate = CLLocationCoordinate2D(latitude: self.mapTasks.fetchedAddressLatitude, longitude: self.mapTasks.fetchedAddressLongitude)
-                    self.viewMap?.camera = GMSCameraPosition.camera(withTarget: coordinate, zoom: 15.0)
-                    self.setuplocationMarker(coordinate: coordinate)
-                }
-            })
-
-        }
-
-        let closeAction = UIAlertAction(title: "Close", style: UIAlertActionStyle.cancel) { (alertAction) -> Void in
-
-        }
-
-        addressAlert.addAction(findAction)
-        addressAlert.addAction(closeAction)
-
-        present(addressAlert, animated: true, completion: nil)
-    }
-
-
-
-    @IBAction func createRoute(sender: AnyObject) {
-        let addressAlert = UIAlertController(title: "Create Route", message: "Connect locations with a route:", preferredStyle: UIAlertControllerStyle.alert)
-
-        addressAlert.addTextField { (textField) -> Void in
-            textField.placeholder = "Origin?"
-        }
-
-        addressAlert.addTextField { (textField) -> Void in
-            textField.placeholder = "Destination?"
-        }
-
-
-        let createRouteAction = UIAlertAction(title: "Create Route", style: UIAlertActionStyle.default) { (alertAction) -> Void in
-
-            let origin = (addressAlert.textFields![0] ).text!
-            let destination = (addressAlert.textFields![1] ).text!
-
-            self.mapTasks.getDirections(origin: origin, destination: destination, waypoints: nil, travelMode: nil, completionHandler: { (status, success) -> Void in
-                if success {
-                    self.viewMap?.clear()
-                    self.configureMapAndMarkersForRoute()
-                    self.drawRoute()
-                    self.displayRouteInfo()
-                }
-                else {
-                    print(status)
-                }
-            })
-        }
-
-        let closeAction = UIAlertAction(title: "Close", style: UIAlertActionStyle.cancel) { (alertAction) -> Void in
-
-        }
-
-        addressAlert.addAction(createRouteAction)
-        addressAlert.addAction(closeAction)
-
-        present(addressAlert, animated: true, completion: nil)
-    }
-
 
     // ***********************************************************************************************************************
 
@@ -224,49 +130,5 @@ class FirstView: UIViewController, CLLocationManagerDelegate {
 
         present(alertController, animated: true, completion: nil)
     }
-
-
-    // Fonction pour ajouter a marker au lieu rechercher
-    func setuplocationMarker(coordinate: CLLocationCoordinate2D) {
-        locationMarker = GMSMarker(position: coordinate)
-        locationMarker.map = viewMap
-        locationMarker.title = mapTasks.fetchedFormattedAddress
-        //locationMarker.appearAnimation = kGMSMarkerAnimationPop
-        //locationMarker.icon = GMSMarker.markerImage(with: UIColor.blue)
-        locationMarker.opacity = 0.75
-    }
-
-
-    func configureMapAndMarkersForRoute() {
-        viewMap?.camera = GMSCameraPosition.camera(withTarget: mapTasks.originCoordinate, zoom: 15.0)
-
-        originMarker = GMSMarker(position: self.mapTasks.originCoordinate)
-        originMarker.map = self.viewMap
-        originMarker.icon = GMSMarker.markerImage(with: UIColor.green)
-        originMarker.title = self.mapTasks.originAddress
-
-        destinationMarker = GMSMarker(position: self.mapTasks.destinationCoordinate)
-        destinationMarker.map = self.viewMap
-        destinationMarker.icon = GMSMarker.markerImage(with: UIColor.red)
-        destinationMarker.title = self.mapTasks.destinationAddress
-    }
-
-    func drawRoute() {
-        let route = mapTasks.overviewPolyline["points"] as! String
-
-        let path: GMSPath = GMSPath(fromEncodedPath: route)!
-        routePolyline = GMSPolyline(path: path)
-        routePolyline.strokeWidth = 5
-        routePolyline.strokeColor = UIColor.blue
-        routePolyline.map = viewMap
-    }
-
-    func displayRouteInfo() {
-        DispatchQueue.main.async() {
-            self.lblInfo?.text = self.mapTasks.totalDistance + " " + self.mapTasks.totalDuration
-        }
-    }
-
-
 
 }
