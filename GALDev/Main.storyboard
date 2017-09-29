@@ -977,7 +977,7 @@
                                 </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" text="admin" borderStyle="roundedRect" placeholder="Password" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NOf-Xs-nh8">
                                 <rect key="frame" x="112" y="278" width="150" height="30"/>
@@ -986,7 +986,7 @@
                                 </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="done" enablesReturnKeyAutomatically="YES" secureTextEntry="YES"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YOl-l3-Ns3">
                                 <rect key="frame" x="129" y="617" width="117" height="30"/>
@@ -1568,11 +1568,11 @@
         <image name="view" width="24" height="24"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="KBQ-go-8kH"/>
-        <segue reference="Wcv-Mm-O9M"/>
         <segue reference="mTJ-wW-0N0"/>
+        <segue reference="nG3-VM-F9e"/>
+        <segue reference="mbS-uh-XRv"/>
         <segue reference="WVl-ad-OcA"/>
         <segue reference="qIk-Pg-8Xp"/>
-        <segue reference="mbS-uh-XRv"/>
+        <segue reference="KBQ-go-8kH"/>
     </inferredMetricsTieBreakers>
 </document>
