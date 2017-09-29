@@ -31,6 +31,7 @@ class RouteList : UIViewController, UITableViewDataSource, UITableViewDelegate {
     var yEndPoint: [Float] = []
     
     var mapTasks = MapTasks()
+    var userTasks = UserTasks()
     
     override func viewDidLoad() {
         
@@ -66,14 +67,18 @@ class RouteList : UIViewController, UITableViewDataSource, UITableViewDelegate {
         }
     }
     
+    
     //Cellule à l'index concerné
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell(style: .default, reuseIdentifier: "basic")
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! MyCustomCell
         for i in 0...nameOfRoutesStart.count {
             if (indexPath.row == i) {
-                cell.textLabel?.text = nameOfRoutesStart[i]+"  --->  "+nameOfRoutesEnd[i]+" - driver : " + String(driver[i])
-                cell.textLabel?.numberOfLines = 0;
-                cell.textLabel?.lineBreakMode = .byWordWrapping;
+                cell.originLabel.text = nameOfRoutesStart[i]
+                cell.destinationLabel.text = nameOfRoutesEnd[i]
+                let id = driver[i]
+                self.userTasks.user(driverId: id)
+                cell.driverLabel.text = self.userTasks.username
+                cell.textLabel?.lineBreakMode = NSLineBreakMode.byWordWrapping
             }
         }
         return cell

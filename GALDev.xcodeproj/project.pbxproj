@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		4C312A4F1F4EE5B000555D0E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C312A4E1F4EE5B000555D0E /* AppDelegate.swift */; };
-		4C312A511F4EE5B000555D0E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C312A501F4EE5B000555D0E /* ViewController.swift */; };
 		4C312A591F4EE5B000555D0E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C312A571F4EE5B000555D0E /* LaunchScreen.storyboard */; };
 		4C312A621F4EE6AB00555D0E /* GoogleMapsBase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C312A611F4EE6AB00555D0E /* GoogleMapsBase.framework */; };
 		4C312A651F4EE6C800555D0E /* GoogleMaps.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C312A631F4EE6C800555D0E /* GoogleMaps.framework */; };
@@ -40,6 +39,8 @@
 		4C312ADE1F4F3F2B00555D0E /* BoutonArrondi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C312ADD1F4F3F2B00555D0E /* BoutonArrondi.swift */; };
 		4C312AE51F5016E200555D0E /* UserList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C312AE41F5016E200555D0E /* UserList.swift */; };
 		4C312AE71F50404A00555D0E /* SelectedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C312AE61F50404A00555D0E /* SelectedButton.swift */; };
+		4C3EF1711F7E4050001F4F8C /* MyCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C3EF1701F7E4050001F4F8C /* MyCustomCell.swift */; };
+		4C3EF1731F7E4513001F4F8C /* UserTasks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C3EF1721F7E4513001F4F8C /* UserTasks.swift */; };
 		4C47EAF61F5570A800FD60DC /* RouteList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C47EAF51F5570A800FD60DC /* RouteList.swift */; };
 		4C47EAF81F55743700FD60DC /* CreateYourRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C47EAF71F55743700FD60DC /* CreateYourRoute.swift */; };
 		4C47EAFA1F56B25300FD60DC /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C47EAF91F56B25300FD60DC /* Menu.swift */; };
@@ -51,7 +52,6 @@
 /* Begin PBXFileReference section */
 		4C312A4B1F4EE5B000555D0E /* GALDev.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GALDev.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C312A4E1F4EE5B000555D0E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		4C312A501F4EE5B000555D0E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		4C312A581F4EE5B000555D0E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4C312A611F4EE6AB00555D0E /* GoogleMapsBase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleMapsBase.framework; sourceTree = "<group>"; };
 		4C312A631F4EE6C800555D0E /* GoogleMaps.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleMaps.framework; sourceTree = "<group>"; };
@@ -85,6 +85,8 @@
 		4C312ADD1F4F3F2B00555D0E /* BoutonArrondi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoutonArrondi.swift; sourceTree = "<group>"; };
 		4C312AE41F5016E200555D0E /* UserList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserList.swift; sourceTree = "<group>"; };
 		4C312AE61F50404A00555D0E /* SelectedButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectedButton.swift; sourceTree = "<group>"; };
+		4C3EF1701F7E4050001F4F8C /* MyCustomCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyCustomCell.swift; sourceTree = "<group>"; };
+		4C3EF1721F7E4513001F4F8C /* UserTasks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserTasks.swift; sourceTree = "<group>"; };
 		4C47EAF51F5570A800FD60DC /* RouteList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouteList.swift; sourceTree = "<group>"; };
 		4C47EAF71F55743700FD60DC /* CreateYourRoute.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateYourRoute.swift; sourceTree = "<group>"; };
 		4C47EAF91F56B25300FD60DC /* Menu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Menu.swift; sourceTree = "<group>"; };
@@ -143,8 +145,9 @@
 			children = (
 				4C312A4E1F4EE5B000555D0E /* AppDelegate.swift */,
 				4C312ADF1F4F577B00555D0E /* Controllers */,
-				4C312A501F4EE5B000555D0E /* ViewController.swift */,
 				4C312A841F4EE7E500555D0E /* MapTasks.swift */,
+				4C3EF1721F7E4513001F4F8C /* UserTasks.swift */,
+				4C3EF1701F7E4050001F4F8C /* MyCustomCell.swift */,
 				4C312ADD1F4F3F2B00555D0E /* BoutonArrondi.swift */,
 				4C312AE61F50404A00555D0E /* SelectedButton.swift */,
 				4C312A8C1F4EE82500555D0E /* Main.storyboard */,
@@ -303,10 +306,11 @@
 				4C312A891F4EE7F800555D0E /* CreateAccount.swift in Sources */,
 				4C312ADA1F4F341500555D0E /* SWRevealViewController.m in Sources */,
 				4C50CD711F6FD27800B7E14E /* DriverView.swift in Sources */,
-				4C312A511F4EE5B000555D0E /* ViewController.swift in Sources */,
+				4C3EF1731F7E4513001F4F8C /* UserTasks.swift in Sources */,
 				4C47EAFA1F56B25300FD60DC /* Menu.swift in Sources */,
 				4C312AE51F5016E200555D0E /* UserList.swift in Sources */,
 				4C47EAF81F55743700FD60DC /* CreateYourRoute.swift in Sources */,
+				4C3EF1711F7E4050001F4F8C /* MyCustomCell.swift in Sources */,
 				4C312A8B1F4EE7FD00555D0E /* Home.swift in Sources */,
 				4C312AE71F50404A00555D0E /* SelectedButton.swift in Sources */,
 				4C312A4F1F4EE5B000555D0E /* AppDelegate.swift in Sources */,
