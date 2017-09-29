@@ -575,10 +575,10 @@
             </objects>
             <point key="canvasLocation" x="3096.8000000000002" y="-1378.56071964018"/>
         </scene>
-        <!--Avaible Drive-->
+        <!--Drives available-->
         <scene sceneID="95V-7v-2A8">
             <objects>
-                <viewController title="Avaible Drive" id="y9Q-07-qPH" customClass="RouteList" customModule="GALDev" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Drives available" id="y9Q-07-qPH" customClass="RouteList" customModule="GALDev" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="XIP-0S-axT"/>
                         <viewControllerLayoutGuide type="bottom" id="Do7-B3-wM5"/>
