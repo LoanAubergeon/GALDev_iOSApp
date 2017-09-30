@@ -43,7 +43,9 @@ class CreateYourRoute : UIViewController, CLLocationManagerDelegate {
     @IBOutlet var originLabel : UILabel?
     @IBOutlet var destinationLabel : UILabel?
     @IBOutlet var timeLabel : UILabel?
-    @IBOutlet var reccurenceLabel : UILabel?
+    @IBOutlet var wReccurence : UIImageView!
+    @IBOutlet var durationLabel : UILabel?
+    @IBOutlet var distanceLabel : UILabel?
     
     
     // Variable pour ajouter la route dans la base de donnée
@@ -53,18 +55,15 @@ class CreateYourRoute : UIViewController, CLLocationManagerDelegate {
     var startLng : Float = 0.0
     var endLng : Float = 0.0
     
+    @IBOutlet var button : UIButton?
+    
     override func viewDidLoad() {
-        
         //originLabel?.text = origin
         //destinationLabel?.text = destination
         timeLabel?.text = date+" "+time
-        
-        if reccurence {
-            reccurenceLabel?.text = "True"
-        } else {
-            reccurenceLabel?.text = "False"
-        }
+        self.wReccurence.isHidden = !reccurence
         createRoute()
+    
     }
     
     @IBAction func routeOnDataBase() {
@@ -122,6 +121,7 @@ class CreateYourRoute : UIViewController, CLLocationManagerDelegate {
                 self.viewMap?.clear()
                 self.configureMapAndMarkersForRoute()
                 self.drawRoute()
+                self.displayRouteInfo()
                 
                 DispatchQueue.main.async(execute: {
                     self.startLat = Float(self.mapTasks.originCoordinate.latitude)
@@ -146,12 +146,12 @@ class CreateYourRoute : UIViewController, CLLocationManagerDelegate {
         let path: GMSPath = GMSPath(fromEncodedPath: route)!
         routePolyline = GMSPolyline(path: path)
         routePolyline.strokeWidth = 5
-        routePolyline.strokeColor = UIColor.cyan
+        routePolyline.strokeColor = UIColor.blue
         routePolyline.map = viewMap
     }
     
     func configureMapAndMarkersForRoute() {
-        viewMap?.camera = GMSCameraPosition.camera(withTarget: mapTasks.originCoordinate, zoom: 10.0)
+        viewMap?.camera = GMSCameraPosition.camera(withTarget: mapTasks.originCoordinate, zoom: 12.0)
         
         originMarker = GMSMarker(position: self.mapTasks.originCoordinate)
         originMarker.map = self.viewMap
@@ -168,6 +168,13 @@ class CreateYourRoute : UIViewController, CLLocationManagerDelegate {
             self.originLabel?.text = self.mapTasks.originAddress
             self.destinationLabel?.text = self.mapTasks.destinationAddress
         })
+    }
+    
+    func displayRouteInfo() {
+        DispatchQueue.main.async() {
+            self.durationLabel?.text = self.mapTasks.totalDuration
+            self.distanceLabel?.text = self.mapTasks.totalDistance
+        }
     }
     
     

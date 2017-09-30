@@ -60,7 +60,7 @@ class RouteView : UIViewController {
     @IBOutlet var destinationLabel : UILabel?
     @IBOutlet var usernameDriverLabel : UILabel?
     @IBOutlet var dateLabel : UILabel?
-    @IBOutlet var weeklyreccurenceLabel : UILabel?
+    @IBOutlet var weeklyreccurence : UIImageView!
     @IBOutlet var durationLabel : UILabel?
     @IBOutlet var distanceLabel : UILabel?
     
@@ -161,9 +161,9 @@ class RouteView : UIViewController {
                         
                         let intRec = jsonObjects["weekly_repeat"] as? Int
                         if intRec == 1 {
-                            self.weeklyreccurenceLabel?.text = "True"
+                            self.weeklyreccurence.isHidden = false
                         } else {
-                            self.weeklyreccurenceLabel?.text = "False"
+                            self.weeklyreccurence.isHidden = true
                         }
                         
                     }

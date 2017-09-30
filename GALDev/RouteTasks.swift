@@ -43,6 +43,7 @@ class RouteTasks {
             do {
                 let jsonResult = try JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions.mutableContainers) as! NSArray
                 
+                DispatchQueue.main.async(execute: {
                 for index in 0...(jsonResult).count-1 {
                     let jsonObjects = (jsonResult[index]) as AnyObject
                     
@@ -73,6 +74,7 @@ class RouteTasks {
                         }
                     })
                 }
+                })
                 
             } catch { // On catch les erreurs potentielles
                 print(error)
