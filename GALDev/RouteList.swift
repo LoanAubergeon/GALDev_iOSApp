@@ -37,10 +37,10 @@ class RouteList : UIViewController, UITableViewDataSource, UITableViewDelegate {
                 self.nameOfRoutesEnd = self.routeTasks.nameOfRoutesEnd
                 self.driver = self.routeTasks.driver
                 self.routeId = self.routeTasks.routeId
-                
+                self.routeTableView.reloadData()
             }
         })
-        self.routeTableView.reloadData()
+        
         routeTableView.dataSource = self
         routeTableView.delegate = self
     }

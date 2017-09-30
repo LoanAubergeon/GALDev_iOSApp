@@ -67,7 +67,7 @@ class RouteView : UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        DispatchQueue.main.sync(execute: {
+        DispatchQueue.main.async{
             self.routeTasks.route(completionHandler: { (status, success) -> Void in
                 if success {
                     self.nameOfRoutesStart = self.routeTasks.nameOfRoutesStart
@@ -81,19 +81,24 @@ class RouteView : UIViewController {
                     
                     self.originLabel?.text = self.nameOfRoutesStart[myIndex]
                     self.destinationLabel?.text = self.nameOfRoutesEnd[myIndex]
-
+                    
+                    
+                    self.userTasks.user(driverId: self.driverIndex, completionHandler: { (status, success) -> Void in
+                        if success {
+                            self.usernameDriverLabel?.text = self.userTasks.username
+                            
+                            self.createRoute()
+                            self.routeDate()
+                        }
+                    })
+                    
                 }
             })
             
-            self.userTasks.user(driverId: self.driverIndex, completionHandler: { (status, success) -> Void in
-                if success {
-                    self.usernameDriverLabel?.text = self.userTasks.username
-                }
-            })
             
-            self.createRoute()
-            self.routeDate()
-        })
+            
+            
+        }
     }
     
 
