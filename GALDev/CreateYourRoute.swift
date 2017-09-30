@@ -64,17 +64,6 @@ class CreateYourRoute : UIViewController, CLLocationManagerDelegate {
         } else {
             reccurenceLabel?.text = "False"
         }
-        
-        /*
-        if reccurence.count-1 != 0{
-            for index in 1...(reccurence.count-1) {
-                let string = reccurence[index] as String
-                reccurenceString.append(string)
-                reccurenceString.append(" ; ")
-
-            }
-            reccurenceLabel?.text = reccurenceString
-        }*/
         createRoute()
     }
     

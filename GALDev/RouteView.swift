@@ -67,36 +67,33 @@ class RouteView : UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.routeTasks.route(completionHandler: { (status, success) -> Void in
-            if success {
-                self.nameOfRoutesStart = self.routeTasks.nameOfRoutesStart
-                self.nameOfRoutesEnd = self.routeTasks.nameOfRoutesEnd
-                self.driver = self.routeTasks.driver
-                self.routeId = self.routeTasks.routeId
-                
-                self.origin = self.nameOfRoutesStart[myIndex]
-                self.destination = self.nameOfRoutesEnd[myIndex]
-                self.driverIndex = self.driver[myIndex]
-                
-                self.originLabel?.text = self.nameOfRoutesStart[myIndex]
-                self.destinationLabel?.text = self.nameOfRoutesEnd[myIndex]
-                
-                // On place ca ici car on doit attendre que la requete soit termine
-                self.userTasks.user(driverId: self.driverIndex, completionHandler: { (status, success) -> Void in
-                    if success {
-                        self.usernameDriverLabel?.text = self.userTasks.username
-                        
-                        self.createRoute()
-                        self.routeDate()
-                    }
-                })
-                
-            }
+        DispatchQueue.main.sync(execute: {
+            self.routeTasks.route(completionHandler: { (status, success) -> Void in
+                if success {
+                    self.nameOfRoutesStart = self.routeTasks.nameOfRoutesStart
+                    self.nameOfRoutesEnd = self.routeTasks.nameOfRoutesEnd
+                    self.driver = self.routeTasks.driver
+                    self.routeId = self.routeTasks.routeId
+                    
+                    self.origin = self.nameOfRoutesStart[myIndex]
+                    self.destination = self.nameOfRoutesEnd[myIndex]
+                    self.driverIndex = self.driver[myIndex]
+                    
+                    self.originLabel?.text = self.nameOfRoutesStart[myIndex]
+                    self.destinationLabel?.text = self.nameOfRoutesEnd[myIndex]
+
+                }
+            })
+            
+            self.userTasks.user(driverId: self.driverIndex, completionHandler: { (status, success) -> Void in
+                if success {
+                    self.usernameDriverLabel?.text = self.userTasks.username
+                }
+            })
+            
+            self.createRoute()
+            self.routeDate()
         })
-        
-        
-        
-        
     }
     
 
@@ -108,9 +105,6 @@ class RouteView : UIViewController {
                 self.configureMapAndMarkersForRoute()
                 self.drawRoute()
                 self.displayRouteInfo()
-                
-                DispatchQueue.main.async(execute: {
-                })
                 
             }
             else {

@@ -47,6 +47,7 @@
 		4C47EAFA1F56B25300FD60DC /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C47EAF91F56B25300FD60DC /* Menu.swift */; };
 		4C47EAFC1F56DA5A00FD60DC /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C47EAFB1F56DA5A00FD60DC /* UserProfile.swift */; };
 		4C50CD711F6FD27800B7E14E /* DriverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C50CD701F6FD27800B7E14E /* DriverView.swift */; };
+		4C56C9D11F7F991F005DFD99 /* DateTasks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C56C9D01F7F991F005DFD99 /* DateTasks.swift */; };
 		4CF30A4C1F66A4D5001B3AF3 /* RouteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CF30A4B1F66A4D5001B3AF3 /* RouteView.swift */; };
 /* End PBXBuildFile section */
 
@@ -94,6 +95,7 @@
 		4C47EAF91F56B25300FD60DC /* Menu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Menu.swift; sourceTree = "<group>"; };
 		4C47EAFB1F56DA5A00FD60DC /* UserProfile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
 		4C50CD701F6FD27800B7E14E /* DriverView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DriverView.swift; sourceTree = "<group>"; };
+		4C56C9D01F7F991F005DFD99 /* DateTasks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateTasks.swift; sourceTree = "<group>"; };
 		4CF30A4B1F66A4D5001B3AF3 /* RouteView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouteView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -150,6 +152,7 @@
 				4C312A841F4EE7E500555D0E /* MapTasks.swift */,
 				4C3EF1721F7E4513001F4F8C /* UserTasks.swift */,
 				4C3EF1741F7E6DDC001F4F8C /* RouteTasks.swift */,
+				4C56C9D01F7F991F005DFD99 /* DateTasks.swift */,
 				4C3EF1701F7E4050001F4F8C /* MyCustomCell.swift */,
 				4C312ADD1F4F3F2B00555D0E /* BoutonArrondi.swift */,
 				4C312AE61F50404A00555D0E /* SelectedButton.swift */,
@@ -303,6 +306,7 @@
 				4C312A851F4EE7E500555D0E /* MapTasks.swift in Sources */,
 				4C312A951F4F157B00555D0E /* SearchRoute.swift in Sources */,
 				4CF30A4C1F66A4D5001B3AF3 /* RouteView.swift in Sources */,
+				4C56C9D11F7F991F005DFD99 /* DateTasks.swift in Sources */,
 				4C312A871F4EE7F000555D0E /* FirstView.swift in Sources */,
 				4C312ADE1F4F3F2B00555D0E /* BoutonArrondi.swift in Sources */,
 				4C47EAF61F5570A800FD60DC /* RouteList.swift in Sources */,

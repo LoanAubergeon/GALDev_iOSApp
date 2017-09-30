@@ -65,7 +65,9 @@ class RouteTasks {
                         if success{
                             self.nameOfRoutesStart.append(self.mapTasks.originAddress)
                             self.nameOfRoutesEnd.append(self.mapTasks.destinationAddress)
+
                             completionHandler("Ok", true)
+                            
                         } else {
                             completionHandler(status, false)
                         }

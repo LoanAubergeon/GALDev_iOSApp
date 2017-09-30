@@ -61,6 +61,7 @@ class UserTasks {
                         self.mobileNumber = jsonObjects["mobileNumber"] as? String
                         self.email = (jsonObjects["email"] as? String)!
                         completionHandler("Ok", true)
+                        
 
                     })
                 } catch { // On catch les erreurs potentielles

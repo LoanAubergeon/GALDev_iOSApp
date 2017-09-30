@@ -12,4 +12,6 @@ class MyCustomCell: UITableViewCell {
     @IBOutlet weak var originLabel: UILabel!
     @IBOutlet weak var destinationLabel: UILabel!
     @IBOutlet weak var driverLabel: UILabel!
+    @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var reccurence: UIImageView!
 }

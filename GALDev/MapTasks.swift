@@ -96,8 +96,8 @@ class MapTasks : NSObject, CLLocationManagerDelegate {
                         let geometry = self.lookupAddressResults["geometry"] as! NSDictionary
                         self.fetchedAddressLongitude = ((geometry["location"] as! NSDictionary)["lng"] as! NSNumber).doubleValue
                         self.fetchedAddressLatitude = ((geometry["location"] as! NSDictionary)["lat"] as! NSNumber).doubleValue
-                        
                         completionHandler(status, true)
+                        
                     }
                     else {
                         completionHandler("No valid address.", false)
@@ -161,7 +161,9 @@ class MapTasks : NSObject, CLLocationManagerDelegate {
                             self.destinationAddress = legs[legs.count - 1]["end_address"] as! String
                             
                             self.calculateTotalDistanceAndDuration()
+                            
                             completionHandler(status, true)
+                            
                         }
                         else {
                             completionHandler(status, false)

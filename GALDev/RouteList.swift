@@ -27,6 +27,7 @@ class RouteList : UIViewController, UITableViewDataSource, UITableViewDelegate {
     var mapTasks = MapTasks()
     var userTasks = UserTasks()
     var routeTasks = RouteTasks()
+    var dateTasks = DateTasks()
     
     override func viewDidLoad() {
     
@@ -36,10 +37,10 @@ class RouteList : UIViewController, UITableViewDataSource, UITableViewDelegate {
                 self.nameOfRoutesEnd = self.routeTasks.nameOfRoutesEnd
                 self.driver = self.routeTasks.driver
                 self.routeId = self.routeTasks.routeId
-                self.routeTableView.reloadData()
+                
             }
         })
-
+        self.routeTableView.reloadData()
         routeTableView.dataSource = self
         routeTableView.delegate = self
     }
@@ -77,6 +78,15 @@ class RouteList : UIViewController, UITableViewDataSource, UITableViewDelegate {
                     if success {
                         cell.driverLabel.text = self.userTasks.username
                     }
+                })
+                
+                let rId : Int = self.routeId[i]
+                self.dateTasks.date(routeId: rId, completionHandler: { (status, success) -> Void in
+                    if success {
+                        cell.dateLabel.text = self.dateTasks.date
+                        cell.reccurence.isHidden = !self.dateTasks.weeklyReccurence
+                    }
+                    
                 })
                 cell.textLabel?.lineBreakMode = NSLineBreakMode.byWordWrapping
             }
