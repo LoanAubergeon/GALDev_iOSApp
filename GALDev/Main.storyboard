@@ -129,7 +129,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Weekly reccurence :" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lrD-1I-SbE">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Weekly recurence :" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lrD-1I-SbE">
                                 <rect key="frame" x="58" y="382" width="155" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -211,9 +211,9 @@
                                 <rect key="frame" x="15" y="382" width="31" height="18"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WVq-ha-Y1e" customClass="BoutonArrondi" customModule="GALDev" customModuleProvider="target">
-                                <rect key="frame" x="21" y="597" width="332" height="50"/>
+                                <rect key="frame" x="21" y="612" width="332" height="35"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="qfT-CV-10d"/>
+                                    <constraint firstAttribute="height" constant="35" id="qfT-CV-10d"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="16"/>
                                 <state key="normal" title="Let's go !">
@@ -261,7 +261,7 @@
                             <constraint firstAttribute="trailingMargin" secondItem="NLf-C8-4qg" secondAttribute="trailing" constant="55" id="hhq-yD-jnF"/>
                             <constraint firstItem="2t7-Ns-gPw" firstAttribute="leading" secondItem="Sys-0u-r0g" secondAttribute="leadingMargin" constant="37" id="ipI-05-cn4"/>
                             <constraint firstItem="WFq-hC-esT" firstAttribute="top" secondItem="WVq-ha-Y1e" secondAttribute="bottom" constant="20" id="ji5-gq-3cN"/>
-                            <constraint firstItem="WVq-ha-Y1e" firstAttribute="top" secondItem="BJZ-Fh-Myz" secondAttribute="bottom" constant="197" id="mW2-cc-EdV"/>
+                            <constraint firstItem="WVq-ha-Y1e" firstAttribute="top" secondItem="BJZ-Fh-Myz" secondAttribute="bottom" constant="212" id="mW2-cc-EdV"/>
                             <constraint firstItem="2t7-Ns-gPw" firstAttribute="top" secondItem="1vC-GW-Hwy" secondAttribute="bottom" constant="10" id="oac-fR-pgL"/>
                             <constraint firstItem="1vC-GW-Hwy" firstAttribute="leading" secondItem="0eu-wv-jkH" secondAttribute="leading" id="ohd-zF-cRl"/>
                             <constraint firstItem="BJZ-Fh-Myz" firstAttribute="top" secondItem="IGa-bT-mT1" secondAttribute="bottom" constant="29" id="pFZ-DX-1p6"/>
