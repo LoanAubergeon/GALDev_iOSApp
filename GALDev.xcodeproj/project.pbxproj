@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4C1788901F815D2E00D9B3BD /* help.html in Resources */ = {isa = PBXBuildFile; fileRef = 4C17888F1F815D2E00D9B3BD /* help.html */; };
 		4C312A4F1F4EE5B000555D0E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C312A4E1F4EE5B000555D0E /* AppDelegate.swift */; };
 		4C312A591F4EE5B000555D0E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C312A571F4EE5B000555D0E /* LaunchScreen.storyboard */; };
 		4C312A621F4EE6AB00555D0E /* GoogleMapsBase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C312A611F4EE6AB00555D0E /* GoogleMapsBase.framework */; };
@@ -52,6 +53,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4C17888F1F815D2E00D9B3BD /* help.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = help.html; sourceTree = "<group>"; };
 		4C312A4B1F4EE5B000555D0E /* GALDev.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GALDev.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C312A4E1F4EE5B000555D0E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4C312A581F4EE5B000555D0E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -160,6 +162,7 @@
 				4C312A901F4EE93F00555D0E /* Assets.xcassets */,
 				4C312A8E1F4EE88900555D0E /* Info.plist */,
 				4C312A571F4EE5B000555D0E /* LaunchScreen.storyboard */,
+				4C17888F1F815D2E00D9B3BD /* help.html */,
 				4C312AD61F4F33F400555D0E /* SWRevealViewController */,
 			);
 			path = GALDev;
@@ -287,6 +290,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4C312A591F4EE5B000555D0E /* LaunchScreen.storyboard in Resources */,
+				4C1788901F815D2E00D9B3BD /* help.html in Resources */,
 				4C312A8D1F4EE82500555D0E /* Main.storyboard in Resources */,
 				4C312A8F1F4EE88900555D0E /* Info.plist in Resources */,
 				4C312A681F4EE6E200555D0E /* GoogleMaps.bundle in Resources */,
