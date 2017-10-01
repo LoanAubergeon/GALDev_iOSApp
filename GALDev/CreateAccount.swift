@@ -28,10 +28,7 @@ class CreateAccount : UIViewController {
         let mobileNumber = mobileNumberF.text?.replacingOccurrences(of:" ", with: "").replacingOccurrences(of: ",", with: "")
         
         
-        if (username == "") || (password == "") || (name == "") || (surname == "") || (email == "") || (mobileNumber == ""){
-            //retourner message erreur
-            return
-        }
+        
         
         let account = "username="+username!+"&password="+password!+"&name="+name!+"&surname="+surname!+"&email="+email!+"&mobileNumber="+mobileNumber!
         
@@ -39,51 +36,63 @@ class CreateAccount : UIViewController {
         
         var request = URLRequest(url: url as URL)
         
-        do {
-            // Set the request content type to JSON
-            request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
+        
+        if (username != "") && (password != "") && (name != "") && (surname != "") && (email != "") && (mobileNumber != ""){
+            do {
+                // Set the request content type to JSON
+                request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
             
-            // The magic...set the HTTP request method to POST
-            request.httpMethod = "POST"
+                // The magic...set the HTTP request method to POST
+                request.httpMethod = "POST"
             
-            // Add the JSON serialized login data to the body
-            request.httpBody = account.data(using: String.Encoding.utf8)
+                // Add the JSON serialized login data to the body
+                request.httpBody = account.data(using: String.Encoding.utf8)
             
             
-            // Execute the request
-            let task = URLSession.shared.dataTask(with: request as URLRequest) {
-                data, response, error in
+                // Execute the request
+                let task = URLSession.shared.dataTask(with: request as URLRequest) {
+                    data, response, error in
                 
-                // Check for error
-                if error != nil
-                {
-                    print("Error")
-                    return
-                }
-                // Convert server json response to NSDictionary
-                do {
-                    let json = try JSONSerialization.jsonObject(with: data!, options: .mutableContainers) as? NSDictionary
-                    
-                    if let parseJSON = json {
-                        
-                        DispatchQueue.main.async() { // Permet de mettre a jour l'UI sans attendre la fin du task
-                            
-                            let success = parseJSON["success"] as? Bool
-                            if success! {
-                                print("Utilisateur ajouté")
-                            }
-                            self.performSegue(withIdentifier: "backSegue", sender: nil)
-                        }
+                    // Check for error
+                    if error != nil
+                    {
+                        print("Error")
+                        self.errorAlert(title: "Error",message: "Bad coonection")
                     }
-                } catch let error as NSError {
-                    print(error.localizedDescription)
+                    // Convert server json response to NSDictionary
+                    do {
+                        let json = try JSONSerialization.jsonObject(with: data!, options: .mutableContainers) as? NSDictionary
+                    
+                        if let parseJSON = json {
+                            DispatchQueue.main.async() { // Permet de mettre a jour l'UI sans attendre la fin du task
+                            
+                                let success = parseJSON["success"] as? Bool
+                                if success! {
+                                    let alertController = UIAlertController(title: "Success", message: "User has been added", preferredStyle: .alert)
+                                    let defaultAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
+                                    alertController.addAction(defaultAction)
+                                }
+                            
+                                self.performSegue(withIdentifier: "backSegue", sender: nil)
+                            }
+                        }
+                    } catch let error as NSError {
+                        print(error.localizedDescription)
+                    }
                 }
-                
+                task.resume()
             }
-            task.resume()
+        } else {
+            self.errorAlert(title: "Error",message: "Please complete all fields")
         }
     }
     
+    func errorAlert(title: String, message: String){
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let defaultAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
+        alertController.addAction(defaultAction)
+        present(alertController, animated: true, completion: nil)
+    }
     // Ferme le clavier quand l'utilisateur touche l'ecran
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)

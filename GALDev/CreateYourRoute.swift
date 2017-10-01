@@ -93,7 +93,9 @@ class CreateYourRoute : UIViewController, CLLocationManagerDelegate {
             print(error.localizedDescription)
         }*/
             
-        
+        let alertController = UIAlertController(title: "Route added", message: "The route has been added", preferredStyle: .alert)
+        let defaultAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
+        alertController.addAction(defaultAction)
         
         
         do {

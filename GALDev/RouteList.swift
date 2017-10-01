@@ -12,24 +12,33 @@ var myIndex : Int = 0
 
 class RouteList : UIViewController, UITableViewDataSource, UITableViewDelegate {
     
-    // Route recherché 
+    /// Date about the searched route
     var origin : String! = SearchRoute.TransfertDonnee.originT
     var destination : String! = SearchRoute.TransfertDonnee.destinationT
+    var time : String! = SearchRoute.TransfertDonnee.timeT
+    var date : String! = SearchRoute.TransfertDonnee.dateT
+
+    /// User's token
     var token = Home.GlobalsVariables.userToken
     
+    /// Table for show the list of available route
     @IBOutlet var routeTableView : UITableView!
     
+    /// Data array for show routes one by one
     var nameOfRoutesStart: [String] = []
     var nameOfRoutesEnd: [String] = []
     var driver: [Int] = []
     var routeId: [Int] = []
     
+    /// Differents tasks
     var mapTasks = MapTasks()
     var userTasks = UserTasks()
     var routeTasks = RouteTasks()
     var dateTasks = DateTasks()
     
     override func viewDidLoad() {
+        
+        let fullDate : String = self.date+" "+self.time
     
         self.routeTasks.route(completionHandler: { (status, success) -> Void in
             if success {
