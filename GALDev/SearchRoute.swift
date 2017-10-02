@@ -88,6 +88,7 @@ class SearchRoute: UIViewController, CLLocationManagerDelegate {
     }
     
     @IBAction func go(sender: UIButton){
+        
         TransfertDonnee.originT = originTextField.text!
         TransfertDonnee.destinationT = destinationTextField.text!
         TransfertDonnee.timeT = hourTextField.text!

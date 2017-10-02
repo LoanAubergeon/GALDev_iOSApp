@@ -37,21 +37,20 @@ class RouteList : UIViewController, UITableViewDataSource, UITableViewDelegate {
     var dateTasks = DateTasks()
     
     override func viewDidLoad() {
+        routeTableView.dataSource = self
+        routeTableView.delegate = self
         
-        let fullDate : String = self.date+" "+self.time
-    
         self.routeTasks.route(completionHandler: { (status, success) -> Void in
             if success {
                 self.nameOfRoutesStart = self.routeTasks.nameOfRoutesStart
                 self.nameOfRoutesEnd = self.routeTasks.nameOfRoutesEnd
                 self.driver = self.routeTasks.driver
                 self.routeId = self.routeTasks.routeId
+                
                 self.routeTableView.reloadData()
             }
+           
         })
-        
-        routeTableView.dataSource = self
-        routeTableView.delegate = self
     }
     
     //Nombre de sections en tout
@@ -61,26 +60,27 @@ class RouteList : UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section {
-        case 0: return driver.count
+        case 0: return self.routeId.count
         default: return 0
         }
     }
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+    /*func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         switch section {
         case 0: return "Routes : "
         default: return ""
         }
-    }
+    }*/
     
     
     //Cellule à l'index concerné
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! MyCustomCell
-        for i in 0...nameOfRoutesStart.count {
+        
+        for i in 0...self.routeId.count {
+            
             if (indexPath.row == i) {
-                
-                cell.originLabel.text = nameOfRoutesStart[i]
-                cell.destinationLabel.text = nameOfRoutesEnd[i]
+                cell.originLabel.text = self.nameOfRoutesStart[i]
+                cell.destinationLabel.text = self.nameOfRoutesEnd[i]
                 
                 let id = driver[i]
                 self.userTasks.user(driverId: id, completionHandler: { (status, success) -> Void in
@@ -95,7 +95,6 @@ class RouteList : UIViewController, UITableViewDataSource, UITableViewDelegate {
                         cell.dateLabel.text = self.dateTasks.date
                         cell.reccurence.isHidden = !self.dateTasks.weeklyReccurence
                     }
-                    
                 })
                 cell.textLabel?.lineBreakMode = NSLineBreakMode.byWordWrapping
             }

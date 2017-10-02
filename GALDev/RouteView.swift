@@ -32,6 +32,7 @@ class RouteView : UIViewController {
     var mapTasks = MapTasks()
     var routeTasks = RouteTasks()
     var userTasks = UserTasks()
+    var dateTasks = DateTasks()
     
     
     /// User's Token
@@ -60,14 +61,12 @@ class RouteView : UIViewController {
     @IBOutlet var destinationLabel : UILabel?
     @IBOutlet var usernameDriverLabel : UILabel?
     @IBOutlet var dateLabel : UILabel?
-    @IBOutlet var weeklyreccurence : UIImageView!
+    @IBOutlet var weeklyReccurence : UIImageView!
     @IBOutlet var durationLabel : UILabel?
     @IBOutlet var distanceLabel : UILabel?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        DispatchQueue.main.async{
             self.routeTasks.route(completionHandler: { (status, success) -> Void in
                 if success {
                     self.nameOfRoutesStart = self.routeTasks.nameOfRoutesStart
@@ -88,7 +87,19 @@ class RouteView : UIViewController {
                             self.usernameDriverLabel?.text = self.userTasks.username
                             
                             self.createRoute()
-                            self.routeDate()
+
+                            let rId = self.routeId[myIndex]
+                            self.dateTasks.date(routeId: rId, completionHandler: { (status, success) -> Void in
+                                if success {
+                                    self.dateLabel?.text = self.dateTasks.date
+                                    self.weeklyReccurence.isHidden = !self.dateTasks.weeklyReccurence
+                                    
+                                    self.sizeToFit()
+                                    
+                                }
+                                
+                            })
+                            
                         }
                     })
                     
@@ -98,8 +109,9 @@ class RouteView : UIViewController {
             
             
             
-        }
+    
     }
+    
     
 
     func createRoute() {
@@ -119,66 +131,14 @@ class RouteView : UIViewController {
         
     }
     
-   
-    
-    func routeDate() {
-        
-        let routeID = String(self.routeId[myIndex])
-        
-        let urlString : String = ServerAdress+":3000/api/routedate/"+routeID
-        
-        let url = NSURL(string: urlString)!
-        
-        var request = URLRequest(url: url as URL)
-        
-        request.setValue(token, forHTTPHeaderField: "x-access-token")
-        
-        request.httpMethod = "GET"
-        
-        
-        let task = URLSession.shared.dataTask(with: request as URLRequest) {
-            data, response, error in
-            
-            // Check for error
-            if error != nil
-            {
-                print("Error")
-                return
-            }
-            
-            do {
-                let jsonResult = try JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions.mutableContainers) as! NSArray
-                
-                DispatchQueue.main.async(execute: {
-                    for index in 0...(jsonResult).count-1 {
-                        let jsonObjects = (jsonResult[index]) as AnyObject
-                        let stringDate = jsonObjects["route_date"] as? String
-                        /*for i in 0...(2) {
-                            stringDate?.remove(at: (stringDate?.endIndex)!)
-                        }*/
-                        self.dateLabel?.text = stringDate?.replacingOccurrences(of:"T", with: " ").replacingOccurrences(of:"Z", with: " ")
-                        
-                        
-                        let intRec = jsonObjects["weekly_repeat"] as? Int
-                        if intRec == 1 {
-                            self.weeklyreccurence.isHidden = false
-                        } else {
-                            self.weeklyreccurence.isHidden = true
-                        }
-                        
-                    }
-                })
-                
-            } catch { // On catch les erreurs potentielles
-                print(error)
-            }
-            
-        }
-        task.resume()
-        
+    func sizeToFit(){
+        self.originLabel?.sizeToFit()
+        self.destinationLabel?.sizeToFit()
+        self.usernameDriverLabel?.sizeToFit()
+        self.dateLabel?.sizeToFit()
+        self.durationLabel?.sizeToFit()
+        self.distanceLabel?.sizeToFit()
     }
-    
-    
     
     func drawRoute() {
         let route = mapTasks.overviewPolyline["points"] as! String

@@ -118,20 +118,20 @@ class CreateYourRoute : UIViewController, CLLocationManagerDelegate {
     
     func createRoute() {
         // Requete à Google pour creer une route
-        self.mapTasks.getDirections(origin: origin, destination: destination, waypoints: nil, travelMode: nil, completionHandler: { (status, success) -> Void in
+        self.mapTasks.getDirections(origin: self.origin, destination: self.destination, waypoints: nil, travelMode: nil, completionHandler: { (status, success) -> Void in
             if success {
-                self.viewMap?.clear()
-                self.configureMapAndMarkersForRoute()
-                self.drawRoute()
-                self.displayRouteInfo()
-                
                 DispatchQueue.main.async(execute: {
+                    
                     self.startLat = Float(self.mapTasks.originCoordinate.latitude)
                     self.endLat = Float(self.mapTasks.destinationCoordinate.latitude)
                     self.startLng = Float(self.mapTasks.originCoordinate.longitude)
                     self.endLng = Float(self.mapTasks.destinationCoordinate.longitude)
+                    
+                    self.viewMap?.clear()
+                    self.configureMapAndMarkersForRoute()
+                    self.drawRoute()
+                    self.displayRouteInfo()
                 })
-                //self.displayRouteInfo()
             }
             else {
                 print(status)
@@ -169,6 +169,7 @@ class CreateYourRoute : UIViewController, CLLocationManagerDelegate {
         DispatchQueue.main.async(execute: {
             self.originLabel?.text = self.mapTasks.originAddress
             self.destinationLabel?.text = self.mapTasks.destinationAddress
+
         })
     }
     

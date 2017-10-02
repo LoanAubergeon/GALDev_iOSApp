@@ -47,27 +47,27 @@ class DateTasks {
                 let jsonResult = try JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions.mutableContainers) as! NSArray
                 
                 DispatchQueue.main.async(execute: {
-                    for index in 0...(jsonResult).count-1 {
+                    if ((jsonResult).count-1) >= 0{
+                        for index in 0...(jsonResult).count-1 {
                         
-                        let jsonObjects = (jsonResult[index]) as AnyObject
-                        let stringDate = jsonObjects["route_date"] as? String
-                        let dateP = (stringDate?.replacingOccurrences(of:"T", with: " ").replacingOccurrences(of:"Z", with: " "))!
-                        self.date = String(dateP.characters.prefix(17).dropLast())
+                            let jsonObjects = (jsonResult[index]) as AnyObject
+                            let stringDate = jsonObjects["route_date"] as? String
+                            let dateP = (stringDate?.replacingOccurrences(of:"T", with: " ").replacingOccurrences(of:"Z", with: " "))!
+                            self.date = String(dateP.characters.prefix(17).dropLast())
                         
-                        
-                        let intRec = jsonObjects["weekly_repeat"] as? Int
-                        if intRec == 1 {
-                            self.weeklyReccurence = true
-                        } else {
-                            self.weeklyReccurence = false
-                        }
+                            let intRec = jsonObjects["weekly_repeat"] as? Int
+                            if intRec == 1 {
+                                self.weeklyReccurence = true
+                            } else {
+                                self.weeklyReccurence = false
+                            }
                         
 
-                        completionHandler("Ok", true)
-                        
-                        
+                            completionHandler("Ok", true)
+                        }
                     }
                 })
+    
                 
             } catch { // On catch les erreurs potentielles
                 print(error)
