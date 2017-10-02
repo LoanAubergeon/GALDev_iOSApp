@@ -69,10 +69,10 @@ class RouteTasks {
                     let addressStart = String(xStart)+" "+String(yStart)
                     let addressEnd = String(xEnd)+" "+String(yEnd)
                     
-                    print(jsonObjects)
-                    print(addressStart)
-                    print(addressEnd)
-                    print(self.routeId)
+                    //print(jsonObjects)
+                    //print(addressStart)
+                    //print(addressEnd)
+                    //print(self.routeId)
                         
                     
                         
