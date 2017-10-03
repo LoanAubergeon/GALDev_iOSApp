@@ -65,9 +65,13 @@ class RouteView : UIViewController {
     @IBOutlet var durationLabel : UILabel?
     @IBOutlet var distanceLabel : UILabel?
     
+    var time : String! = SearchRoute.TransfertDonnee.timeT
+    var date : String! = SearchRoute.TransfertDonnee.dateT
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-            self.routeTasks.route(date: "", completionHandler: { (status, success) -> Void in
+        let fullDate : String = date+""+time
+            self.routeTasks.route(date: fullDate, completionHandler: { (status, success) -> Void in
                 if success {
                     self.nameOfRoutesStart = self.routeTasks.nameOfRoutesStart
                     self.nameOfRoutesEnd = self.routeTasks.nameOfRoutesEnd

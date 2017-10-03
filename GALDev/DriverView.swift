@@ -24,15 +24,21 @@ class DriverView : UIViewController, MFMailComposeViewControllerDelegate, MFMess
     
     var driver: [Int] = []
     
+    var time : String! = SearchRoute.TransfertDonnee.timeT
+    var date : String! = SearchRoute.TransfertDonnee.dateT
+    
     @IBOutlet var firstNameLabel : UILabel!
     @IBOutlet var lastNameLabel : UILabel!
     @IBOutlet var usernameLabel : UILabel!
     @IBOutlet var mobileNumberLabel : UILabel!
     @IBOutlet var emailLabel : UILabel!
     
+    
+    
     override func viewDidLoad() {
         
-        self.routeTasks.route(date: "", completionHandler: { (status, success) -> Void in
+        let fullDate : String = date+""+time
+        self.routeTasks.route(date: fullDate, completionHandler: { (status, success) -> Void in
             
             if success {
                 
