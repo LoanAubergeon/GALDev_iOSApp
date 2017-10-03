@@ -10,7 +10,7 @@ import UIKit
 import MessageUI
 
 
-class DriverView : UIViewController, MFMailComposeViewControllerDelegate {
+class DriverView : UIViewController, MFMailComposeViewControllerDelegate, MFMessageComposeViewControllerDelegate {
     
     var userTasks = UserTasks()
     var routeTasks = RouteTasks()
@@ -53,19 +53,36 @@ class DriverView : UIViewController, MFMailComposeViewControllerDelegate {
                         self.emailLabel?.text = self.userTasks.email
                     }
                 })
-                
-                
-                
             }
         })
-        
-        
-        
-        
-        
-        
-        
     }
+    
+    @IBAction func sendMessage(sender: AnyObject) {
+        let messageVC = MFMessageComposeViewController()
+        
+        messageVC.body = "Hello, I am interested for traveling this route with you";
+        messageVC.recipients = [self.mobileNumber]
+        messageVC.messageComposeDelegate = self;
+        
+        self.present(messageVC, animated: false, completion: nil)
+    }
+    
+    func messageComposeViewController(_ controller: MFMessageComposeViewController, didFinishWith result: MessageComposeResult) {
+        switch (result.rawValue) {
+        case MessageComposeResult.cancelled.rawValue:
+            print("Message was cancelled")
+            self.dismiss(animated: true, completion: nil)
+        case MessageComposeResult.failed.rawValue:
+            print("Message failed")
+            self.dismiss(animated: true, completion: nil)
+        case MessageComposeResult.sent.rawValue:
+            print("Message was sent")
+            self.dismiss(animated: true, completion: nil)
+        default:
+            break;
+        }
+    }
+    
     
     
     @IBAction func mailCompose (sender: Any){

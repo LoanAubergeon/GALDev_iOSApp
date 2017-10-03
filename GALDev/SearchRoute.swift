@@ -9,6 +9,8 @@
 import UIKit
 import GoogleMaps
 
+
+
 class SearchRoute: UIViewController, CLLocationManagerDelegate {
     
     var affichageJour = false
@@ -190,13 +192,13 @@ class SearchRoute: UIViewController, CLLocationManagerDelegate {
     
     
     
-    func timePickerChanged(sender: UIDatePicker) {
+    @objc func timePickerChanged(sender: UIDatePicker) {
         let timeFormatter = DateFormatter()
         timeFormatter.timeStyle = DateFormatter.Style.short
         hourTextField.text = timeFormatter.string(for: sender.date)
     }
     
-    func datePickerChanged(sender: UIDatePicker) {
+    @objc func datePickerChanged(sender: UIDatePicker) {
 
         let dateFormatter = DateFormatter()
         //dateFormatter.dateStyle = DateFormatter.Style.short
