@@ -40,7 +40,9 @@ class RouteList : UIViewController, UITableViewDataSource, UITableViewDelegate {
         routeTableView.dataSource = self
         routeTableView.delegate = self
         
-        self.routeTasks.route(completionHandler: { (status, success) -> Void in
+        let fullDate : String = date+""+time
+        
+        self.routeTasks.route(date: fullDate, completionHandler: { (status, success) -> Void in
             if success {
                 self.nameOfRoutesStart = self.routeTasks.nameOfRoutesStart
                 self.nameOfRoutesEnd = self.routeTasks.nameOfRoutesEnd

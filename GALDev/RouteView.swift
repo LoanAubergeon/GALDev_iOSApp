@@ -67,7 +67,7 @@ class RouteView : UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-            self.routeTasks.route(completionHandler: { (status, success) -> Void in
+            self.routeTasks.route(date: "", completionHandler: { (status, success) -> Void in
                 if success {
                     self.nameOfRoutesStart = self.routeTasks.nameOfRoutesStart
                     self.nameOfRoutesEnd = self.routeTasks.nameOfRoutesEnd

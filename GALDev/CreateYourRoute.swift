@@ -94,8 +94,16 @@ class CreateYourRoute : UIViewController, CLLocationManagerDelegate {
         }*/
             
         let alertController = UIAlertController(title: "Route added", message: "The route has been added", preferredStyle: .alert)
-        let defaultAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
+        let defaultAction = UIAlertAction(title: "Ok", style: .default, handler: {
+            action in
+            
+            let viewController = self.storyboard?.instantiateViewController(withIdentifier: "transitionPage")
+            self.present(viewController!, animated: true, completion: nil)
+
+            
+        })
         alertController.addAction(defaultAction)
+        self.present(alertController, animated: true, completion: nil)
         
         
         do {
