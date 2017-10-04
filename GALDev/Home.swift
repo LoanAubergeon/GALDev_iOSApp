@@ -9,7 +9,7 @@
 import UIKit
 
 /// The address of the server user
-var ServerAdress : String = "http://169.254.19.42"
+var ServerAdress : String = "http://169.254.113.113"
 
 
 
@@ -40,7 +40,7 @@ class Home: UIViewController {
         static var user : NSDictionary = [:]
     }
     
-
+    
     //  #################### Functions ####################
     
     ///Function to manage the authentification
@@ -52,93 +52,90 @@ class Home: UIViewController {
         
         /// If they are null we display an error
         if (username == "") || (password == "") {
-            self.texteTest.textColor = UIColor.red
-            self.texteTest.text = "Please enter your username"
-            return
-        }
-        
-        /// String to transmit the identifiers to the request
-        let login = "name="+username!+"&password="+password!
-        
-        /// The URL
-        let url = NSURL(string: ServerAdress+":3000/api/auth")!
-        
-        /// The request
-        var request = URLRequest(url: url as URL)
-        
-        do {
-            /// Set the request content type to JSON
-            request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
+            self.alert("Authentication failed", message: "Please complete all fields")
+        } else {
             
-            /// Set the HTTP request method to POST
-            request.httpMethod = "POST"
+            /// String to transmit the identifiers to the request
+            let login = "name="+username!+"&password="+password!
             
-            /// Add the JSON serialized login data to the body
-            request.httpBody = login.data(using: String.Encoding.utf8)
-
-            /// Execute the request
-            let task = URLSession.shared.dataTask(with: request as URLRequest) {
-                data, response, error in
+            /// The URL
+            let url = NSURL(string: ServerAdress+":3000/api/auth")!
+            
+            /// The request
+            var request = URLRequest(url: url as URL)
+            
+            do {
+                /// Set the request content type to JSON
+                request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
                 
-                /// Check for error
-                if error != nil
-                {
-                    print("Error")
-                    return
-                }
-                /// Convert server json response to NSDictionary
-                do {
-                    let json = try JSONSerialization.jsonObject(with: data!, options: .mutableContainers) as? NSDictionary
+                /// Set the HTTP request method to POST
+                request.httpMethod = "POST"
+                
+                /// Add the JSON serialized login data to the body
+                request.httpBody = login.data(using: String.Encoding.utf8)
+                
+                /// Execute the request
+                let task = URLSession.shared.dataTask(with: request as URLRequest) {
+                    data, response, error in
                     
-                    if let parseJSON = json {
-                        
-                        /// The application is not expected to be completed
-                        DispatchQueue.main.async() {
+                    /// Check for error
+                    if error != nil
+                    {
+                        self.alert("Error", message: "No connexion")
+                    } else {
+                        /// Convert server json response to NSDictionary
+                        do {
+                            let json = try JSONSerialization.jsonObject(with: data!, options: .mutableContainers) as? NSDictionary
                             
-                            /// Recovery of the user's token
-                            let token = parseJSON["token"] as? String
-                            GlobalsVariables.userToken = token!
-                            
-                            /// Recovery of user's information
-                            let user = (parseJSON["user"]) as! NSDictionary
-                            GlobalsVariables.user = user
-                            
-                            /// Recovery of user's name
-                            let username = user["username"] as! String
-                            GlobalsVariables.userName = String(describing: username)
-                            
-                            /// Recovery of request state
-                            let success = parseJSON["success"] as? Bool
-                            
-                            /// If the request has worked
-                            if success == true {
+                            if let parseJSON = json {
                                 
-                                /// show the first view with a delay !
-                                DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(0), execute: {
+                                /// The application is not expected to be completed
+                                DispatchQueue.main.async() {
                                     
-                                    /// Recovery Main.storyboard
-                                    let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                                    /// Recovery of request state
+                                    let success = parseJSON["success"] as? Bool
                                     
-                                    /// Create a transition page to access the main page
-                                    let transitionPage = storyboard.instantiateViewController(withIdentifier: "transitionPage") as! SWRevealViewController
-                                    
-                                    /// Acces to the main page
-                                    self.present(transitionPage, animated: true, completion: nil)
-                                })
-                            } else { /// If the request hasn't worked we show the error
-                                self.texteTest.textColor = UIColor.red
-                                self.texteTest.text = "Authentification failed"
+                                    /// If the request has worked
+                                    if success == true {
+                                        
+                                        /// show the first view with a delay !
+                                        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(0), execute: {
+                                            
+                                            /// Recovery of the user's token
+                                            let token = parseJSON["token"] as? String
+                                            GlobalsVariables.userToken = token!
+                                            
+                                            /// Recovery of user's information
+                                            let user = (parseJSON["user"]) as! NSDictionary
+                                            GlobalsVariables.user = user
+                                            
+                                            /// Recovery of user's name
+                                            let username = user["username"] as! String
+                                            GlobalsVariables.userName = String(describing: username)
+                                            
+                                            /// Recovery Main.storyboard
+                                            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                                            
+                                            /// Create a transition page to access the main page
+                                            let transitionPage = storyboard.instantiateViewController(withIdentifier: "transitionPage") as! SWRevealViewController
+                                            
+                                            /// Acces to the main page
+                                            self.present(transitionPage, animated: true, completion: nil)
+                                        })
+                                    } else { /// If the request hasn't worked we show the error
+                                        self.alert("Authentication failed", message: "Wrong identifiers")
+                                    }
+                                }
                             }
+                        } catch let error as NSError { /// If the request hasn't worked we show the error
+                            print(error.localizedDescription)
+                            self.alert("Error", message: "")
                         }
                     }
-                } catch let error as NSError { /// If the request hasn't worked we show the error
-                    print(error.localizedDescription)
                 }
-                
+                task.resume()
             }
-            task.resume()
         }
-        
     }
     
     
