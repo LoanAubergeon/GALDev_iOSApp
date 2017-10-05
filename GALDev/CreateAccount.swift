@@ -27,9 +27,6 @@ class CreateAccount : UIViewController {
         let email = emailF.text?.replacingOccurrences(of:" ", with: "").replacingOccurrences(of: ",", with: "")
         let mobileNumber = mobileNumberF.text?.replacingOccurrences(of:" ", with: "").replacingOccurrences(of: ",", with: "")
         
-        
-        
-        
         let account = "username="+username!+"&password="+password!+"&name="+name!+"&surname="+surname!+"&email="+email!+"&mobileNumber="+mobileNumber!
         
         let url = NSURL(string: ServerAdress+":3000/api/users")!

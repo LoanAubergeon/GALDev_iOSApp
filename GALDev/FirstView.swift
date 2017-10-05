@@ -56,6 +56,7 @@ class FirstView: UIViewController, CLLocationManagerDelegate {
         locationManager.requestWhenInUseAuthorization()
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.startUpdatingLocation()
+        
     }
 
     override func didReceiveMemoryWarning() {

@@ -12,7 +12,6 @@ class UserTasks {
     
     var token = Home.GlobalsVariables.userToken
     
-    
     // User's informations
     var userDictionary : NSDictionary!
     var username : String!
@@ -20,7 +19,6 @@ class UserTasks {
     var name : String!
     var email : String!
     var mobileNumber : String!
-    
     
     func user(driverId: Int!, completionHandler: @escaping ((_ status: String, _ success: Bool) -> Void)) {
         
