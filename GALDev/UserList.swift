@@ -16,11 +16,8 @@ class UserList : UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     var token = Home.GlobalsVariables.userToken
     
-    
-    var id: [Int] = []
-    var username: [String] = []
-    var name: [String] = []
-    var surname: [String] = []
+    // The list of Users
+    var users : [User] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,7 +45,7 @@ class UserList : UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section {
-        case 0: return self.id.count
+        case 0: return self.users.count
         default: return 0
         }
     }
@@ -62,9 +59,9 @@ class UserList : UIViewController, UITableViewDataSource, UITableViewDelegate {
     //Cellule à l'index concerné
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: .default, reuseIdentifier: "basic")
-        for i in 0...self.id.count-1 {
+        for i in 0...self.users.count-1 {
             if (indexPath.row == i) {
-                cell.textLabel?.text = self.username[i]+" : "+self.name[i]+" "+self.surname[i]
+                cell.textLabel?.text = self.users[i].username+" : "+self.users[i].name+" "+self.users[i].surname
             }
         }
         return cell
@@ -103,11 +100,15 @@ class UserList : UIViewController, UITableViewDataSource, UITableViewDelegate {
                 DispatchQueue.main.async(execute: {
                     for index in 0...(jsonResult).count-1 {
                         let jsonObjects = (jsonResult[index]) as AnyObject
-                        self.id.append(jsonObjects["id"] as! Int)
-                        self.username.append(jsonObjects["username"] as! String)
-                        self.name.append(jsonObjects["name"] as! String)
-                        self.surname.append(jsonObjects["surname"] as! String)
-                        //self.userTableView.reloadData()
+                        
+                        let id = jsonObjects["id"] as! Int
+                        let username = jsonObjects["username"] as! String
+                        let name = jsonObjects["name"] as! String
+                        let surname = (jsonObjects["surname"] as! String)
+                        
+                        let user = User.init(id: id,username: username, name: name, surname: surname, email: "", mobileNumber: "")
+                        
+                        self.users.append(user)
                     }
                     self.userTableView.reloadData()
                 })

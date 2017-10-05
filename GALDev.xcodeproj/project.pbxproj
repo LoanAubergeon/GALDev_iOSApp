@@ -51,6 +51,9 @@
 		4C50CD711F6FD27800B7E14E /* DriverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C50CD701F6FD27800B7E14E /* DriverView.swift */; };
 		4C56C9D11F7F991F005DFD99 /* DateTasks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C56C9D01F7F991F005DFD99 /* DateTasks.swift */; };
 		4C76FAC41F838DF800A4FFF6 /* myRoutes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C76FAC31F838DF800A4FFF6 /* myRoutes.swift */; };
+		4CAA29251F86944B00813FA9 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAA29241F86944B00813FA9 /* User.swift */; };
+		4CAA29271F8695F200813FA9 /* Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAA29261F8695F200813FA9 /* Route.swift */; };
+		4CAA29291F8696E600813FA9 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAA29281F8696E600813FA9 /* Date.swift */; };
 		4CF30A4C1F66A4D5001B3AF3 /* RouteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CF30A4B1F66A4D5001B3AF3 /* RouteView.swift */; };
 /* End PBXBuildFile section */
 
@@ -115,6 +118,9 @@
 		4C50CD701F6FD27800B7E14E /* DriverView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DriverView.swift; sourceTree = "<group>"; };
 		4C56C9D01F7F991F005DFD99 /* DateTasks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateTasks.swift; sourceTree = "<group>"; };
 		4C76FAC31F838DF800A4FFF6 /* myRoutes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = myRoutes.swift; sourceTree = "<group>"; };
+		4CAA29241F86944B00813FA9 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		4CAA29261F8695F200813FA9 /* Route.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Route.swift; sourceTree = "<group>"; };
+		4CAA29281F8696E600813FA9 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		4CF30A4B1F66A4D5001B3AF3 /* RouteView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouteView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -285,6 +291,9 @@
 		4CAA29211F86723300813FA9 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				4CAA29241F86944B00813FA9 /* User.swift */,
+				4CAA29261F8695F200813FA9 /* Route.swift */,
+				4CAA29281F8696E600813FA9 /* Date.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -403,6 +412,7 @@
 				4C312A951F4F157B00555D0E /* SearchRoute.swift in Sources */,
 				4CF30A4C1F66A4D5001B3AF3 /* RouteView.swift in Sources */,
 				4C56C9D11F7F991F005DFD99 /* DateTasks.swift in Sources */,
+				4CAA29291F8696E600813FA9 /* Date.swift in Sources */,
 				4C312A871F4EE7F000555D0E /* FirstView.swift in Sources */,
 				4C312ADE1F4F3F2B00555D0E /* BoutonArrondi.swift in Sources */,
 				4C47EAF61F5570A800FD60DC /* RouteList.swift in Sources */,
@@ -418,7 +428,9 @@
 				4C3EF1711F7E4050001F4F8C /* MyCustomCell.swift in Sources */,
 				4C312A8B1F4EE7FD00555D0E /* Home.swift in Sources */,
 				4C312AE71F50404A00555D0E /* SelectedButton.swift in Sources */,
+				4CAA29271F8695F200813FA9 /* Route.swift in Sources */,
 				4C312A4F1F4EE5B000555D0E /* AppDelegate.swift in Sources */,
+				4CAA29251F86944B00813FA9 /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
