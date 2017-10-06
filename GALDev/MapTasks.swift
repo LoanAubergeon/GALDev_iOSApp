@@ -208,7 +208,7 @@ class MapTasks : NSObject, CLLocationManagerDelegate {
         let remainingHours = hours
         let remainingMins = mins % 60
         
-        totalDuration = "\(remainingHours) h, \(remainingMins) mins"
+        totalDuration = "\(remainingHours) h \(remainingMins) m"
     }
     
     

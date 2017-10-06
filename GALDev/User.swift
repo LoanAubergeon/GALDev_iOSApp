@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct User{
+struct User {
     
     var id : Int!
     var username : String!
@@ -18,6 +18,7 @@ struct User{
     var mobileNumber : String!
     
     init(){
+        
     }
     
     init(id: Int, username : String, name: String, surname : String, email : String, mobileNumber: String){

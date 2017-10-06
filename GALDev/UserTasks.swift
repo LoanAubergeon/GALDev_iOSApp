@@ -12,13 +12,7 @@ class UserTasks {
     
     var token = Home.GlobalsVariables.userToken
     
-    // User's informations
-    var userDictionary : NSDictionary!
-    var username : String!
-    var surname : String!
-    var name : String!
-    var email : String!
-    var mobileNumber : String!
+    var user : User = User.init()
     
     func user(driverId: Int!, completionHandler: @escaping ((_ status: String, _ success: Bool) -> Void)) {
         
@@ -50,12 +44,14 @@ class UserTasks {
                 
                 let jsonObjects = (jsonResult[0]) as AnyObject
                 
-                self.userDictionary = jsonResult[0] as! NSDictionary
-                self.name = jsonObjects["name"] as? String
-                self.surname = jsonObjects["surname"] as? String
-                self.username = jsonObjects["username"] as? String
-                self.mobileNumber = jsonObjects["mobileNumber"] as? String
-                self.email = (jsonObjects["email"] as? String)!
+                let id = jsonObjects["id"] as? Int
+                let name = jsonObjects["name"] as? String
+                let surname = jsonObjects["surname"] as? String
+                let username = jsonObjects["username"] as? String
+                let mobileNumber = jsonObjects["mobileNumber"] as? String
+                let email = (jsonObjects["email"] as? String)
+                
+                self.user = User.init(id: id!, username : username!, name: name!, surname : surname!, email : email!, mobileNumber: mobileNumber!)
                 
                 completionHandler("Ok", true)
                 

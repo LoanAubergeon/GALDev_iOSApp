@@ -81,7 +81,7 @@ class RouteList : UIViewController, UITableViewDataSource, UITableViewDelegate {
                 self.userTasks.user(driverId: id, completionHandler: { (status, success) -> Void in
                     if success {
                         DispatchQueue.main.async {
-                            cell.driverLabel.text = self.userTasks.username
+                            cell.driverLabel.text = self.userTasks.user.username
                         }
                     }
                 })

@@ -77,7 +77,7 @@ class RouteView : UIViewController {
                 self.userTasks.user(driverId: driverIndex, completionHandler: { (status, success) -> Void in
                     if success {
                         DispatchQueue.main.async() {
-                            self.usernameDriverLabel?.text = self.userTasks.username
+                            self.usernameDriverLabel?.text = self.userTasks.user.username
                         }
                         
                         let origin = self.routes[myIndex].originName

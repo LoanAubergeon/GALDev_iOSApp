@@ -46,44 +46,43 @@ class RouteTasks {
                 if (jsonResult).count > 0 {
                     for index in 0...(jsonResult).count-1 {
                         
-                        DispatchQueue.main.async(execute: {
-                            
-                            let jsonObjects = (jsonResult[index]) as AnyObject
-                            
-                            let driverId = (jsonObjects["driver"] as! Int)
-                            let routeId = (jsonObjects["route"] as! Int)
-                            
-                            let startingPoint = jsonObjects["startingPoint"] as AnyObject
-                            let endPoint = jsonObjects["endPoint"] as AnyObject
-                            
-                            let xStart = startingPoint["x"] as! Float
-                            let yStart = startingPoint["y"] as! Float
-                            let xEnd = endPoint["x"] as! Float
-                            let yEnd = endPoint["y"] as! Float
-                            
-                            let addressStart = String(xStart)+" "+String(yStart)
-                            let addressEnd = String(xEnd)+" "+String(yEnd)
-                            
-                            self.mapTasks.getDirections(origin: addressStart, destination: addressEnd, waypoints: nil, travelMode: nil, completionHandler: { (status, success) -> Void in
-                                if success{
-
-                                    let originName = (self.mapTasks.originAddress)
-                                    let destinationName = (self.mapTasks.destinationAddress)
-                                    
-                                    let route = Route.init(id: routeId, originName: originName!, destinationName: destinationName!, driver: driverId)
-                                    self.routes.append(route)
-                                    
-                                    if compteur == (jsonResult).count-1 {
-                                        completionHandler("Ok", true)
-                                    }
-
-                                    compteur = compteur + 1
-
-                                } else {
-                                    completionHandler(status, false)
+                        
+                        let jsonObjects = (jsonResult[index]) as AnyObject
+                        
+                        let driverId = (jsonObjects["driver"] as! Int)
+                        let routeId = (jsonObjects["route"] as! Int)
+                        
+                        let startingPoint = jsonObjects["startingPoint"] as AnyObject
+                        let endPoint = jsonObjects["endPoint"] as AnyObject
+                        
+                        let xStart = startingPoint["x"] as! Float
+                        let yStart = startingPoint["y"] as! Float
+                        let xEnd = endPoint["x"] as! Float
+                        let yEnd = endPoint["y"] as! Float
+                        
+                        let addressStart = String(xStart)+" "+String(yStart)
+                        let addressEnd = String(xEnd)+" "+String(yEnd)
+                        
+                        self.mapTasks.getDirections(origin: addressStart, destination: addressEnd, waypoints: nil, travelMode: nil, completionHandler: { (status, success) -> Void in
+                            if success{
+                                
+                                let originName = (self.mapTasks.originAddress)
+                                let destinationName = (self.mapTasks.destinationAddress)
+                                
+                                let route = Route.init(id: routeId, originName: originName!, destinationName: destinationName!, driver: driverId)
+                                self.routes.append(route)
+                                
+                                if compteur == (jsonResult).count-1 {
+                                    completionHandler("Ok", true)
                                 }
-                            })
+                                
+                                compteur = compteur + 1
+                                
+                            } else {
+                                completionHandler(status, false)
+                            }
                         })
+                        
                     }
                 }
                 
