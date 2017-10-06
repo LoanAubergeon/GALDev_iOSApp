@@ -159,7 +159,7 @@ class RouteView : UIViewController {
         
         let centerCoordinate = CLLocationCoordinate2DMake(self.calculationForMapDisplay.xCenter as Double, self.calculationForMapDisplay.xCenter as Double)
         
-        viewMap?.camera = GMSCameraPosition.camera(withTarget: centerCoordinate, zoom: 10.0)
+        viewMap?.camera = GMSCameraPosition.camera(withTarget: self.mapTasks.originCoordinate, zoom: 10.0)
         
         originMarker = GMSMarker(position: self.mapTasks.originCoordinate)
         originMarker.map = self.viewMap
