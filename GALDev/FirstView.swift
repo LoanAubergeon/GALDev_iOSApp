@@ -35,7 +35,7 @@ class FirstView: UIViewController, CLLocationManagerDelegate {
     var locationMarker: GMSMarker!
     
     /// The user's token
-    var token = Home.GlobalsVariables.userToken
+    var token = Home.UserConnectedInformations.userToken
     
     
     //  #################### Functions ####################

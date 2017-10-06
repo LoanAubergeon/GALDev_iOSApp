@@ -14,7 +14,7 @@
     <a title="RouteView Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html"> Docs</a> (3% documented)</p>
+        <p><a href="../index.html"> Docs</a> (12% documented)</p>
       </div>
     </header>
     <div class="content-wrapper">
@@ -43,6 +43,9 @@
                 <a href="../Classes/CreateYourRoute.html">CreateYourRoute</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/DateTasks.html">DateTasks</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/DriverView.html">DriverView</a>
               </li>
               <li class="nav-group-task">
@@ -64,7 +67,13 @@
                 <a href="../Classes/Menu.html">Menu</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/MyCustomCell.html">MyCustomCell</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/RouteList.html">RouteList</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/RouteTasks.html">RouteTasks</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/RouteView.html">RouteView</a>
@@ -85,7 +94,10 @@
                 <a href="../Classes/UserProfile.html">UserProfile</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Classes/ViewController.html">ViewController</a>
+                <a href="../Classes/UserTasks.html">UserTasks</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/myRoutes.html">myRoutes</a>
               </li>
             </ul>
           </li>
@@ -93,22 +105,21 @@
             <a href="../Global Variables.html">Global Variables</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="../Global Variables.html#/s:v6GALDev12ServerAdressSS">ServerAdress</a>
+                <a href="../Global Variables.html#/s:6GALDev12ServerAdressSSv">ServerAdress</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Global Variables.html#/s:v6GALDev6driverGSaSi_">driver</a>
+                <a href="../Global Variables.html#/s:6GALDev7myIndexSiv">myIndex</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Structs.html">Structs</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Structs/Route.html">Route</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Global Variables.html#/s:v6GALDev2idGSaSi_">id</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Global Variables.html#/s:v6GALDev7myIndexSi">myIndex</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Global Variables.html#/s:v6GALDev15nameOfRoutesEndGSaSS_">nameOfRoutesEnd</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Global Variables.html#/s:v6GALDev17nameOfRoutesStartGSaSS_">nameOfRoutesStart</a>
+                <a href="../Structs/User.html">User</a>
               </li>
             </ul>
           </li>
@@ -118,7 +129,13 @@
         <section>
           <section class="section">
             <h1>RouteView</h1>
-            <p>Undocumented</p>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight"><code><span class="kd">class</span> <span class="kt">RouteView</span> <span class="p">:</span> <span class="kt">UIViewController</span></code></pre>
+
+                </div>
+              </div>
+            <p>Classe permettant d&#39;afficher les informations d&#39;une route existente</p>
 
           </section>
           <section class="section task-group-section">
@@ -127,9 +144,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:vC6GALDev9RouteView7viewMapGSqCSo10GMSMapView_"></a>
+                    <a name="/c:@M@GALDev@objc(cs)RouteView(py)viewMap"></a>
                     <a name="//apple_ref/swift/Property/viewMap" class="dashAnchor"></a>
-                    <a class="token" href="#/s:vC6GALDev9RouteView7viewMapGSqCSo10GMSMapView_">viewMap</a>
+                    <a class="token" href="#/c:@M@GALDev@objc(cs)RouteView(py)viewMap">viewMap</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -137,8 +154,17 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Variables des Maps
+The map</p>
 
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">@IBOutlet</span> <span class="k">var</span> <span class="nv">viewMap</span> <span class="p">:</span> <span class="kt">GMSMapView</span><span class="p">?</span></code></pre>
+
+                        </div>
                       </div>
                     </section>
                   </div>
@@ -146,9 +172,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:vC6GALDev9RouteView12originMarkerGSQCSo9GMSMarker_"></a>
+                    <a name="/c:@M@GALDev@objc(cs)RouteView(py)originMarker"></a>
                     <a name="//apple_ref/swift/Property/originMarker" class="dashAnchor"></a>
-                    <a class="token" href="#/s:vC6GALDev9RouteView12originMarkerGSQCSo9GMSMarker_">originMarker</a>
+                    <a class="token" href="#/c:@M@GALDev@objc(cs)RouteView(py)originMarker">originMarker</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -156,8 +182,16 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Markers</p>
 
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">var</span> <span class="nv">originMarker</span><span class="p">:</span> <span class="kt">GMSMarker</span><span class="o">!</span></code></pre>
+
+                        </div>
                       </div>
                     </section>
                   </div>
@@ -165,9 +199,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:vC6GALDev9RouteView17destinationMarkerGSQCSo9GMSMarker_"></a>
+                    <a name="/c:@M@GALDev@objc(cs)RouteView(py)destinationMarker"></a>
                     <a name="//apple_ref/swift/Property/destinationMarker" class="dashAnchor"></a>
-                    <a class="token" href="#/s:vC6GALDev9RouteView17destinationMarkerGSQCSo9GMSMarker_">destinationMarker</a>
+                    <a class="token" href="#/c:@M@GALDev@objc(cs)RouteView(py)destinationMarker">destinationMarker</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -178,15 +212,23 @@
                         <p>Undocumented</p>
 
                       </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">class</span> <span class="kt">RouteView</span> <span class="p">:</span> <span class="kt">UIViewController</span></code></pre>
+
+                        </div>
+                      </div>
                     </section>
                   </div>
                 </li>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:vC6GALDev9RouteView13routePolylineGSQCSo11GMSPolyline_"></a>
+                    <a name="/c:@M@GALDev@objc(cs)RouteView(py)routePolyline"></a>
                     <a name="//apple_ref/swift/Property/routePolyline" class="dashAnchor"></a>
-                    <a class="token" href="#/s:vC6GALDev9RouteView13routePolylineGSQCSo11GMSPolyline_">routePolyline</a>
+                    <a class="token" href="#/c:@M@GALDev@objc(cs)RouteView(py)routePolyline">routePolyline</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -194,8 +236,16 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>The route (draw)</p>
 
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">var</span> <span class="nv">routePolyline</span><span class="p">:</span> <span class="kt">GMSPolyline</span><span class="o">!</span></code></pre>
+
+                        </div>
                       </div>
                     </section>
                   </div>
@@ -203,9 +253,36 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:vC6GALDev9RouteView8mapTasksCS_8MapTasks"></a>
+                    <a name="/c:@M@GALDev@objc(cs)RouteView(py)mapTasks"></a>
                     <a name="//apple_ref/swift/Property/mapTasks" class="dashAnchor"></a>
-                    <a class="token" href="#/s:vC6GALDev9RouteView8mapTasksCS_8MapTasks">mapTasks</a>
+                    <a class="token" href="#/c:@M@GALDev@objc(cs)RouteView(py)mapTasks">mapTasks</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Tasks</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">var</span> <span class="nv">mapTasks</span> <span class="o">=</span> <span class="kt"><a href="../Classes/MapTasks.html">MapTasks</a></span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:6GALDev9RouteViewC10routeTasksAA0bE0Cv"></a>
+                    <a name="//apple_ref/swift/Property/routeTasks" class="dashAnchor"></a>
+                    <a class="token" href="#/s:6GALDev9RouteViewC10routeTasksAA0bE0Cv">routeTasks</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -216,15 +293,104 @@
                         <p>Undocumented</p>
 
                       </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">class</span> <span class="kt">RouteView</span> <span class="p">:</span> <span class="kt">UIViewController</span></code></pre>
+
+                        </div>
+                      </div>
                     </section>
                   </div>
                 </li>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:vC6GALDev9RouteView5tokenSS"></a>
+                    <a name="/s:6GALDev9RouteViewC9userTasksAA04UserE0Cv"></a>
+                    <a name="//apple_ref/swift/Property/userTasks" class="dashAnchor"></a>
+                    <a class="token" href="#/s:6GALDev9RouteViewC9userTasksAA04UserE0Cv">userTasks</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">class</span> <span class="kt">RouteView</span> <span class="p">:</span> <span class="kt">UIViewController</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:6GALDev9RouteViewC9dateTasksAA04DateE0Cv"></a>
+                    <a name="//apple_ref/swift/Property/dateTasks" class="dashAnchor"></a>
+                    <a class="token" href="#/s:6GALDev9RouteViewC9dateTasksAA04DateE0Cv">dateTasks</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">class</span> <span class="kt">RouteView</span> <span class="p">:</span> <span class="kt">UIViewController</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@GALDev@objc(cs)RouteView(py)token"></a>
                     <a name="//apple_ref/swift/Property/token" class="dashAnchor"></a>
-                    <a class="token" href="#/s:vC6GALDev9RouteView5tokenSS">token</a>
+                    <a class="token" href="#/c:@M@GALDev@objc(cs)RouteView(py)token">token</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>User&rsquo;s Token</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">var</span> <span class="nv">token</span> <span class="o">=</span> <span class="kt"><a href="../Classes/Home.html">Home</a></span><span class="o">.</span><span class="kt">GlobalsVariables</span><span class="o">.</span><span class="n">userToken</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:6GALDev9RouteViewC6routesSayAA0B0VGv"></a>
+                    <a name="//apple_ref/swift/Property/routes" class="dashAnchor"></a>
+                    <a class="token" href="#/s:6GALDev9RouteViewC6routesSayAA0B0VGv">routes</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -235,24 +401,13 @@
                         <p>Undocumented</p>
 
                       </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:vC6GALDev9RouteView6originSS"></a>
-                    <a name="//apple_ref/swift/Property/origin" class="dashAnchor"></a>
-                    <a class="token" href="#/s:vC6GALDev9RouteView6originSS">origin</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Undocumented</p>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">class</span> <span class="kt">RouteView</span> <span class="p">:</span> <span class="kt">UIViewController</span></code></pre>
 
+                        </div>
                       </div>
                     </section>
                   </div>
@@ -260,47 +415,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:vC6GALDev9RouteView11destinationSS"></a>
-                    <a name="//apple_ref/swift/Property/destination" class="dashAnchor"></a>
-                    <a class="token" href="#/s:vC6GALDev9RouteView11destinationSS">destination</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Undocumented</p>
-
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:vC6GALDev9RouteView11driverIndexSi"></a>
-                    <a name="//apple_ref/swift/Property/driverIndex" class="dashAnchor"></a>
-                    <a class="token" href="#/s:vC6GALDev9RouteView11driverIndexSi">driverIndex</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Undocumented</p>
-
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:vC6GALDev9RouteView11originLabelGSqCSo7UILabel_"></a>
+                    <a name="/c:@M@GALDev@objc(cs)RouteView(py)originLabel"></a>
                     <a name="//apple_ref/swift/Property/originLabel" class="dashAnchor"></a>
-                    <a class="token" href="#/s:vC6GALDev9RouteView11originLabelGSqCSo7UILabel_">originLabel</a>
+                    <a class="token" href="#/c:@M@GALDev@objc(cs)RouteView(py)originLabel">originLabel</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -308,8 +425,16 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Labels pour affichage des informations</p>
 
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">@IBOutlet</span> <span class="k">var</span> <span class="nv">originLabel</span> <span class="p">:</span> <span class="kt">UILabel</span><span class="p">?</span></code></pre>
+
+                        </div>
                       </div>
                     </section>
                   </div>
@@ -317,9 +442,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:vC6GALDev9RouteView16destinationLabelGSqCSo7UILabel_"></a>
+                    <a name="/c:@M@GALDev@objc(cs)RouteView(py)destinationLabel"></a>
                     <a name="//apple_ref/swift/Property/destinationLabel" class="dashAnchor"></a>
-                    <a class="token" href="#/s:vC6GALDev9RouteView16destinationLabelGSqCSo7UILabel_">destinationLabel</a>
+                    <a class="token" href="#/c:@M@GALDev@objc(cs)RouteView(py)destinationLabel">destinationLabel</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -330,15 +455,23 @@
                         <p>Undocumented</p>
 
                       </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">class</span> <span class="kt">RouteView</span> <span class="p">:</span> <span class="kt">UIViewController</span></code></pre>
+
+                        </div>
+                      </div>
                     </section>
                   </div>
                 </li>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:vC6GALDev9RouteView19usernameDriverLabelGSqCSo7UILabel_"></a>
+                    <a name="/c:@M@GALDev@objc(cs)RouteView(py)usernameDriverLabel"></a>
                     <a name="//apple_ref/swift/Property/usernameDriverLabel" class="dashAnchor"></a>
-                    <a class="token" href="#/s:vC6GALDev9RouteView19usernameDriverLabelGSqCSo7UILabel_">usernameDriverLabel</a>
+                    <a class="token" href="#/c:@M@GALDev@objc(cs)RouteView(py)usernameDriverLabel">usernameDriverLabel</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -349,15 +482,23 @@
                         <p>Undocumented</p>
 
                       </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">class</span> <span class="kt">RouteView</span> <span class="p">:</span> <span class="kt">UIViewController</span></code></pre>
+
+                        </div>
+                      </div>
                     </section>
                   </div>
                 </li>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:vC6GALDev9RouteView9dateLabelGSqCSo7UILabel_"></a>
+                    <a name="/c:@M@GALDev@objc(cs)RouteView(py)dateLabel"></a>
                     <a name="//apple_ref/swift/Property/dateLabel" class="dashAnchor"></a>
-                    <a class="token" href="#/s:vC6GALDev9RouteView9dateLabelGSqCSo7UILabel_">dateLabel</a>
+                    <a class="token" href="#/c:@M@GALDev@objc(cs)RouteView(py)dateLabel">dateLabel</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -368,15 +509,23 @@
                         <p>Undocumented</p>
 
                       </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">class</span> <span class="kt">RouteView</span> <span class="p">:</span> <span class="kt">UIViewController</span></code></pre>
+
+                        </div>
+                      </div>
                     </section>
                   </div>
                 </li>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:vC6GALDev9RouteView21weeklyreccurenceLabelGSqCSo7UILabel_"></a>
-                    <a name="//apple_ref/swift/Property/weeklyreccurenceLabel" class="dashAnchor"></a>
-                    <a class="token" href="#/s:vC6GALDev9RouteView21weeklyreccurenceLabelGSqCSo7UILabel_">weeklyreccurenceLabel</a>
+                    <a name="/c:@M@GALDev@objc(cs)RouteView(py)weeklyReccurence"></a>
+                    <a name="//apple_ref/swift/Property/weeklyReccurence" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@GALDev@objc(cs)RouteView(py)weeklyReccurence">weeklyReccurence</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -387,15 +536,23 @@
                         <p>Undocumented</p>
 
                       </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">class</span> <span class="kt">RouteView</span> <span class="p">:</span> <span class="kt">UIViewController</span></code></pre>
+
+                        </div>
+                      </div>
                     </section>
                   </div>
                 </li>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:vC6GALDev9RouteView13durationLabelGSqCSo7UILabel_"></a>
+                    <a name="/c:@M@GALDev@objc(cs)RouteView(py)durationLabel"></a>
                     <a name="//apple_ref/swift/Property/durationLabel" class="dashAnchor"></a>
-                    <a class="token" href="#/s:vC6GALDev9RouteView13durationLabelGSqCSo7UILabel_">durationLabel</a>
+                    <a class="token" href="#/c:@M@GALDev@objc(cs)RouteView(py)durationLabel">durationLabel</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -406,15 +563,23 @@
                         <p>Undocumented</p>
 
                       </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">class</span> <span class="kt">RouteView</span> <span class="p">:</span> <span class="kt">UIViewController</span></code></pre>
+
+                        </div>
+                      </div>
                     </section>
                   </div>
                 </li>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:vC6GALDev9RouteView13distanceLabelGSqCSo7UILabel_"></a>
+                    <a name="/c:@M@GALDev@objc(cs)RouteView(py)distanceLabel"></a>
                     <a name="//apple_ref/swift/Property/distanceLabel" class="dashAnchor"></a>
-                    <a class="token" href="#/s:vC6GALDev9RouteView13distanceLabelGSqCSo7UILabel_">distanceLabel</a>
+                    <a class="token" href="#/c:@M@GALDev@objc(cs)RouteView(py)distanceLabel">distanceLabel</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -425,15 +590,50 @@
                         <p>Undocumented</p>
 
                       </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">class</span> <span class="kt">RouteView</span> <span class="p">:</span> <span class="kt">UIViewController</span></code></pre>
+
+                        </div>
+                      </div>
                     </section>
                   </div>
                 </li>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FC6GALDev9RouteView11viewDidLoadFT_T_"></a>
+                    <a name="/s:6GALDev9RouteViewC08searchedB0AA0B0Vv"></a>
+                    <a name="//apple_ref/swift/Property/searchedRoute" class="dashAnchor"></a>
+                    <a class="token" href="#/s:6GALDev9RouteViewC08searchedB0AA0B0Vv">searchedRoute</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">class</span> <span class="kt">RouteView</span> <span class="p">:</span> <span class="kt">UIViewController</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@GALDev@objc(cs)RouteView(im)viewDidLoad"></a>
                     <a name="//apple_ref/swift/Method/viewDidLoad()" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FC6GALDev9RouteView11viewDidLoadFT_T_">viewDidLoad()</a>
+                    <a class="token" href="#/c:@M@GALDev@objc(cs)RouteView(im)viewDidLoad">viewDidLoad()</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -444,15 +644,23 @@
                         <p>Undocumented</p>
 
                       </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">class</span> <span class="kt">RouteView</span> <span class="p">:</span> <span class="kt">UIViewController</span></code></pre>
+
+                        </div>
+                      </div>
                     </section>
                   </div>
                 </li>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FC6GALDev9RouteView11createRouteFT_T_"></a>
-                    <a name="//apple_ref/swift/Method/createRoute()" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FC6GALDev9RouteView11createRouteFT_T_">createRoute()</a>
+                    <a name="/c:@M@GALDev@objc(cs)RouteView(im)routeDisplay"></a>
+                    <a name="//apple_ref/swift/Method/routeDisplay()" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@GALDev@objc(cs)RouteView(im)routeDisplay">routeDisplay()</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -463,15 +671,23 @@
                         <p>Undocumented</p>
 
                       </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">class</span> <span class="kt">RouteView</span> <span class="p">:</span> <span class="kt">UIViewController</span></code></pre>
+
+                        </div>
+                      </div>
                     </section>
                   </div>
                 </li>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FC6GALDev9RouteView10driverNameFT_T_"></a>
-                    <a name="//apple_ref/swift/Method/driverName()" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FC6GALDev9RouteView10driverNameFT_T_">driverName()</a>
+                    <a name="/c:@M@GALDev@objc(cs)RouteView(im)createRouteWithOrigin:destination:"></a>
+                    <a name="//apple_ref/swift/Method/createRoute(origin:destination:)" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@GALDev@objc(cs)RouteView(im)createRouteWithOrigin:destination:">createRoute(origin:destination:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -482,15 +698,23 @@
                         <p>Undocumented</p>
 
                       </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">class</span> <span class="kt">RouteView</span> <span class="p">:</span> <span class="kt">UIViewController</span></code></pre>
+
+                        </div>
+                      </div>
                     </section>
                   </div>
                 </li>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FC6GALDev9RouteView9routeDateFT_T_"></a>
-                    <a name="//apple_ref/swift/Method/routeDate()" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FC6GALDev9RouteView9routeDateFT_T_">routeDate()</a>
+                    <a name="/c:@M@GALDev@objc(cs)RouteView(im)sizeToFit"></a>
+                    <a name="//apple_ref/swift/Method/sizeToFit()" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@GALDev@objc(cs)RouteView(im)sizeToFit">sizeToFit()</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -501,15 +725,23 @@
                         <p>Undocumented</p>
 
                       </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">class</span> <span class="kt">RouteView</span> <span class="p">:</span> <span class="kt">UIViewController</span></code></pre>
+
+                        </div>
+                      </div>
                     </section>
                   </div>
                 </li>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FC6GALDev9RouteView9drawRouteFT_T_"></a>
+                    <a name="/c:@M@GALDev@objc(cs)RouteView(im)drawRoute"></a>
                     <a name="//apple_ref/swift/Method/drawRoute()" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FC6GALDev9RouteView9drawRouteFT_T_">drawRoute()</a>
+                    <a class="token" href="#/c:@M@GALDev@objc(cs)RouteView(im)drawRoute">drawRoute()</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -520,15 +752,23 @@
                         <p>Undocumented</p>
 
                       </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">class</span> <span class="kt">RouteView</span> <span class="p">:</span> <span class="kt">UIViewController</span></code></pre>
+
+                        </div>
+                      </div>
                     </section>
                   </div>
                 </li>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FC6GALDev9RouteView30configureMapAndMarkersForRouteFT_T_"></a>
+                    <a name="/c:@M@GALDev@objc(cs)RouteView(im)configureMapAndMarkersForRoute"></a>
                     <a name="//apple_ref/swift/Method/configureMapAndMarkersForRoute()" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FC6GALDev9RouteView30configureMapAndMarkersForRouteFT_T_">configureMapAndMarkersForRoute()</a>
+                    <a class="token" href="#/c:@M@GALDev@objc(cs)RouteView(im)configureMapAndMarkersForRoute">configureMapAndMarkersForRoute()</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -539,15 +779,23 @@
                         <p>Undocumented</p>
 
                       </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">class</span> <span class="kt">RouteView</span> <span class="p">:</span> <span class="kt">UIViewController</span></code></pre>
+
+                        </div>
+                      </div>
                     </section>
                   </div>
                 </li>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FC6GALDev9RouteView16displayRouteInfoFT_T_"></a>
+                    <a name="/c:@M@GALDev@objc(cs)RouteView(im)displayRouteInfo"></a>
                     <a name="//apple_ref/swift/Method/displayRouteInfo()" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FC6GALDev9RouteView16displayRouteInfoFT_T_">displayRouteInfo()</a>
+                    <a class="token" href="#/c:@M@GALDev@objc(cs)RouteView(im)displayRouteInfo">displayRouteInfo()</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -557,6 +805,14 @@
                       <div class="abstract">
                         <p>Undocumented</p>
 
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">class</span> <span class="kt">RouteView</span> <span class="p">:</span> <span class="kt">UIViewController</span></code></pre>
+
+                        </div>
                       </div>
                     </section>
                   </div>
@@ -566,7 +822,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2017 <a class="link" href="" target="_blank" rel="external"></a>. All rights reserved. (Last updated: 2017-09-19)</p>
+          <p>&copy; 2017 <a class="link" href="" target="_blank" rel="external"></a>. All rights reserved. (Last updated: 2017-10-06)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.8.3</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>

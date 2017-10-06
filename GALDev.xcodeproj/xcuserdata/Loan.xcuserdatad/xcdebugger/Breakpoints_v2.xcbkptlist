@@ -56,7 +56,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "GALDev/UserList.swift"
-            timestampString = "528992489.964388"
+            timestampString = "529002958.466966"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "86"
@@ -120,11 +120,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "GALDev/Home.swift"
-            timestampString = "528993794.960799"
+            timestampString = "529002958.467456"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "98"
-            endingLineNumber = "98"
+            startingLineNumber = "94"
+            endingLineNumber = "94"
             landmarkName = "authentification(sender:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -150,7 +150,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "GALDev/RouteList.swift"
-            timestampString = "528993794.961146"
+            timestampString = "529002958.467839"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "109"
@@ -166,7 +166,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "GALDev/RouteList.swift"
-            timestampString = "528993794.961264"
+            timestampString = "529002958.468051"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "110"
@@ -180,11 +180,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "GALDev/Home.swift"
-            timestampString = "528993794.961354"
+            timestampString = "529002958.468268"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "53"
-            endingLineNumber = "53"
+            startingLineNumber = "52"
+            endingLineNumber = "52"
             landmarkName = "authentification(sender:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -196,12 +196,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "GALDev/Home.swift"
-            timestampString = "528993794.96141"
+            timestampString = "529002958.468517"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "40"
-            endingLineNumber = "40"
-            landmarkName = "GlobalsVariables"
+            startingLineNumber = "39"
+            endingLineNumber = "39"
+            landmarkName = "UserConnectedInformations"
             landmarkType = "14">
          </BreakpointContent>
       </BreakpointProxy>
@@ -212,7 +212,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "GALDev/Home.swift"
-            timestampString = "528993794.961463"
+            timestampString = "529002958.468856"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "24"
@@ -228,7 +228,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "GALDev/DateTasks.swift"
-            timestampString = "528984491.074179"
+            timestampString = "529002958.469127"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "18"
@@ -244,13 +244,61 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "GALDev/DateTasks.swift"
-            timestampString = "528984491.075725"
+            timestampString = "529002958.469253"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "25"
             endingLineNumber = "25"
             landmarkName = "date(routeId:completionHandler:)"
             landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GALDevTests/UserTests.swift"
+            timestampString = "529002958.469448"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "28"
+            endingLineNumber = "28"
+            landmarkName = "testUserInitNil()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "GALDevTests.UserTests.testUserInitNil() -&gt; ()"
+                  moduleName = "GALDevTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Loan/Documents/STAGE/GetALift_STAGE/GALDev/GALDevTests/UserTests.swift"
+                  timestampString = "528999545.50506"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "28"
+                  endingLineNumber = "28"
+                  offsetFromSymbolStart = "468">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "implicit closure #1 : @autoclosure () throws -&gt; Swift.Optional&lt;Any&gt; in GALDevTests.UserTests.testUserInitNil() -&gt; ()"
+                  moduleName = "GALDevTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Loan/Documents/STAGE/GetALift_STAGE/GALDev/GALDevTests/UserTests.swift"
+                  timestampString = "528999545.51124"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "28"
+                  endingLineNumber = "28"
+                  offsetFromSymbolStart = "439">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

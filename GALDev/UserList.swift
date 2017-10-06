@@ -14,7 +14,7 @@ class UserList : UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet var userTableView : UITableView!
     
-    var token = Home.GlobalsVariables.userToken
+    var token = Home.UserConnectedInformations.userToken
     
     // The list of Users
     var users : [User] = []

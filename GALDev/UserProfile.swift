@@ -13,7 +13,7 @@ class UserProfile : UIViewController {
     
     @IBOutlet weak var menuButton:UIBarButtonItem!
     
-    var userDictionary = Home.GlobalsVariables.user
+    var user : User = Home.UserConnectedInformations.user
     
     @IBOutlet var firstNameLabel : UILabel!
     @IBOutlet var lastNameLabel : UILabel!
@@ -29,11 +29,11 @@ class UserProfile : UIViewController {
             self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         }
         
-        firstNameLabel.text = userDictionary["name"] as? String
-        lastNameLabel.text = userDictionary["surname"] as? String
-        usernameLabel.text = userDictionary["username"] as? String
-        mobileNumberLabel.text = userDictionary["mobileNumber"] as? String
-        emailLabel.text = userDictionary["email"] as? String
+        firstNameLabel.text = user.name
+        lastNameLabel.text = user.surname
+        usernameLabel.text = user.username
+        mobileNumberLabel.text = user.mobileNumber
+        emailLabel.text = user.email
         
     }
 }

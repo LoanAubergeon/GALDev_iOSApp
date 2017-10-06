@@ -15,7 +15,7 @@ class DriverView : UIViewController, MFMailComposeViewControllerDelegate, MFMess
     var userTasks = UserTasks()
     var routeTasks = RouteTasks()
     
-    var token = Home.GlobalsVariables.userToken
+    var token = Home.UserConnectedInformations.userToken
     
     var driverId : Int!
     

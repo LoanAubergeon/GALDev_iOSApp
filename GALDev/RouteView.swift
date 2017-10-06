@@ -33,10 +33,11 @@ class RouteView : UIViewController {
     var routeTasks = RouteTasks()
     var userTasks = UserTasks()
     var dateTasks = DateTasks()
+    var calculationForMapDisplay = CalculationForMapDisplay()
     
     
     /// User's Token
-    var token = Home.GlobalsVariables.userToken
+    var token = Home.UserConnectedInformations.userToken
     
     var routes : [Route] = []
     
@@ -147,7 +148,18 @@ class RouteView : UIViewController {
     }
     
     func configureMapAndMarkersForRoute() {
-        viewMap?.camera = GMSCameraPosition.camera(withTarget: mapTasks.originCoordinate, zoom: 10.0)
+        
+        // A refaire !!!
+        let oLat = mapTasks.originCoordinate.latitude
+        let oLong = mapTasks.originCoordinate.longitude
+        let dLat = mapTasks.destinationCoordinate.latitude
+        let dLong = mapTasks.destinationCoordinate.longitude
+        
+        self.calculationForMapDisplay.centerCalcul(xLat: oLat, yLat: dLat, xLong: oLong, yLong: dLong)
+        
+        let centerCoordinate = CLLocationCoordinate2DMake(self.calculationForMapDisplay.xCenter as Double, self.calculationForMapDisplay.xCenter as Double)
+        
+        viewMap?.camera = GMSCameraPosition.camera(withTarget: centerCoordinate, zoom: 10.0)
         
         originMarker = GMSMarker(position: self.mapTasks.originCoordinate)
         originMarker.map = self.viewMap

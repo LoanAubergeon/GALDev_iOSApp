@@ -16,7 +16,7 @@ class RouteList : UIViewController, UITableViewDataSource, UITableViewDelegate {
     var searchedRoute : Route = SearchRoute.TransfertDonnee.routeTransfer
     
     /// User's token
-    var token = Home.GlobalsVariables.userToken
+    var token = Home.UserConnectedInformations.userToken
     
     /// Table for show the list of available route
     @IBOutlet var routeTableView : UITableView!

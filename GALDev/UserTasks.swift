@@ -10,7 +10,7 @@ import UIKit
 
 class UserTasks {
     
-    var token = Home.GlobalsVariables.userToken
+    var token = Home.UserConnectedInformations.userToken
     
     var user : User = User.init()
     

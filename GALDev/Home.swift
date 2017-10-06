@@ -34,10 +34,9 @@ class Home: UIViewController {
     ///    - userToken : The user's Token given by the database.
     ///    - userName : The user's username.
     ///    - user : Informations from the database about the user.
-    struct GlobalsVariables {
+    struct UserConnectedInformations {
         static var userToken : String = ""
-        static var userName : String = ""
-        static var user : NSDictionary = [:]
+        static var user : User = User.init()
     }
     
     
@@ -88,44 +87,43 @@ class Home: UIViewController {
                             let json = try JSONSerialization.jsonObject(with: data!, options: .mutableContainers) as? NSDictionary
                             
                             if let parseJSON = json {
+            
+                                /// Recovery of request state
+                                let success = parseJSON["success"] as? Bool
                                 
-                                /// The application is not expected to be completed
-                                DispatchQueue.main.async() {
+                                /// If the request has worked
+                                if success == true {
                                     
-                                    /// Recovery of request state
-                                    let success = parseJSON["success"] as? Bool
+                                    /// Recovery of the user's token
+                                    let token = parseJSON["token"] as? String
+                                    UserConnectedInformations.userToken = token!
                                     
-                                    /// If the request has worked
-                                    if success == true {
+                                    /// Recovery of user's information
+                                    let user = (parseJSON["user"]) as! NSDictionary
+                                    let id = user["id"] as! Int
+                                    let username = user["username"] as! String
+                                    let name = user["name"] as! String
+                                    let surname = user["surname"] as! String
+                                    let email = user["email"] as! String
+                                    let mobileNumber = user["username"] as! String
+                                    let userObject : User = User.init(id: id, username: username, name: name, surname: surname, email: email, mobileNumber: mobileNumber)
+                                    UserConnectedInformations.user = userObject
+                                    
+                                    DispatchQueue.main.async() {
+                                        /// Recovery Main.storyboard
+                                        let storyboard = UIStoryboard(name: "Main", bundle: nil)
                                         
-                                        /// show the first view with a delay !
-                                        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(0), execute: {
-                                            
-                                            /// Recovery of the user's token
-                                            let token = parseJSON["token"] as? String
-                                            GlobalsVariables.userToken = token!
-                                            
-                                            /// Recovery of user's information
-                                            let user = (parseJSON["user"]) as! NSDictionary
-                                            GlobalsVariables.user = user
-                                            
-                                            /// Recovery of user's name
-                                            let username = user["username"] as! String
-                                            GlobalsVariables.userName = String(describing: username)
-                                            
-                                            /// Recovery Main.storyboard
-                                            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                                            
-                                            /// Create a transition page to access the main page
-                                            let transitionPage = storyboard.instantiateViewController(withIdentifier: "transitionPage") as! SWRevealViewController
-                                            
-                                            /// Acces to the main page
-                                            self.present(transitionPage, animated: true, completion: nil)
-                                        })
-                                    } else { /// If the request hasn't worked we show the error
-                                        self.alert("Authentication failed", message: "Wrong identifiers")
+                                        /// Create a transition page to access the main page
+                                        let transitionPage = storyboard.instantiateViewController(withIdentifier: "transitionPage") as! SWRevealViewController
+                                        
+                                        /// Acces to the main page
+                                        self.present(transitionPage, animated: true, completion: nil)
                                     }
+                                    
+                                } else { /// If the request hasn't worked we show the error
+                                    self.alert("Authentication failed", message: "Wrong identifiers")
                                 }
+                                
                             }
                         } catch let error as NSError { /// If the request hasn't worked we show the error
                             print(error.localizedDescription)

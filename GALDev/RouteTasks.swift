@@ -10,7 +10,7 @@ import Foundation
 
 class RouteTasks {
     
-    var token = Home.GlobalsVariables.userToken
+    var token = Home.UserConnectedInformations.userToken
     
     var mapTasks = MapTasks()
     

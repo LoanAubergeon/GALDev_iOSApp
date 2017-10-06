@@ -10,7 +10,7 @@ import Foundation
 
 class DateTasks {
     
-    var token = Home.GlobalsVariables.userToken
+    var token = Home.UserConnectedInformations.userToken
     
     /// Variables de stockage 
     

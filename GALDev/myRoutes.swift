@@ -12,7 +12,7 @@ class myRoutes : UIViewController {
     
     @IBOutlet weak var menuButton:UIBarButtonItem!
     
-    var userDictionary = Home.GlobalsVariables.user
+    var userDictionary = Home.UserConnectedInformations.user
     
     override func viewDidLoad() {
         super.viewDidLoad()

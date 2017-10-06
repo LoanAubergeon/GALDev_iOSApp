@@ -13,8 +13,8 @@ class CreateYourRoute : UIViewController, CLLocationManagerDelegate {
     
     
     // Variables transmises par la requetes
-    var userDictionary = Home.GlobalsVariables.user
-    var token = Home.GlobalsVariables.userToken
+    var user : User = Home.UserConnectedInformations.user
+    var token = Home.UserConnectedInformations.userToken
     
     var origin : String! = SearchRoute.TransfertDonnee.routeTransfer.originName
     var destination : String! = SearchRoute.TransfertDonnee.routeTransfer.destinationName
@@ -72,7 +72,7 @@ class CreateYourRoute : UIViewController, CLLocationManagerDelegate {
         
         let reccurenceString : String = (self.reccurence ? "1" : "0")
         
-        let driverId = userDictionary["id"] as! Int
+        let driverId = user.id as! Int
         
         let url = NSURL(string: ServerAdress+":3000/api/routes")!
         

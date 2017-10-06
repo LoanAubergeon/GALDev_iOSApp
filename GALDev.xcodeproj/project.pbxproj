@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4C057C291F87DF75002178E5 /* UserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C057C281F87DF75002178E5 /* UserTests.swift */; };
+		4C057C2B1F87EC49002178E5 /* CalculationForMapDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C057C2A1F87EC49002178E5 /* CalculationForMapDisplay.swift */; };
 		4C1788901F815D2E00D9B3BD /* help.html in Resources */ = {isa = PBXBuildFile; fileRef = 4C17888F1F815D2E00D9B3BD /* help.html */; };
 		4C312A4F1F4EE5B000555D0E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C312A4E1F4EE5B000555D0E /* AppDelegate.swift */; };
 		4C312A591F4EE5B000555D0E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C312A571F4EE5B000555D0E /* LaunchScreen.storyboard */; };
@@ -68,6 +70,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4C057C281F87DF75002178E5 /* UserTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTests.swift; sourceTree = "<group>"; };
+		4C057C2A1F87EC49002178E5 /* CalculationForMapDisplay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculationForMapDisplay.swift; sourceTree = "<group>"; };
 		4C17888F1F815D2E00D9B3BD /* help.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = help.html; sourceTree = "<group>"; };
 		4C312A4B1F4EE5B000555D0E /* GALDev.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GALDev.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C312A4E1F4EE5B000555D0E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -158,6 +162,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4C057C2C1F87EC5A002178E5 /* Others */ = {
+			isa = PBXGroup;
+			children = (
+				4C057C2A1F87EC49002178E5 /* CalculationForMapDisplay.swift */,
+			);
+			name = Others;
+			sourceTree = "<group>";
+		};
 		4C312A421F4EE5B000555D0E = {
 			isa = PBXGroup;
 			children = (
@@ -185,6 +197,7 @@
 				4C312ADF1F4F577B00555D0E /* Controllers */,
 				4CAA29211F86723300813FA9 /* Models */,
 				4C3F10621F86492500D10178 /* Tasks */,
+				4C057C2C1F87EC5A002178E5 /* Others */,
 				4C3F10631F86496B00D10178 /* CustomItem */,
 				4C312A8C1F4EE82500555D0E /* Main.storyboard */,
 				4C312A901F4EE93F00555D0E /* Assets.xcassets */,
@@ -283,6 +296,7 @@
 			children = (
 				4C3F10711F86507300D10178 /* GALDevTests.swift */,
 				4C3F10791F8650C000D10178 /* HomeTests.swift */,
+				4C057C281F87DF75002178E5 /* UserTests.swift */,
 				4C3F10731F86507300D10178 /* Info.plist */,
 			);
 			path = GALDevTests;
@@ -421,6 +435,7 @@
 				4C312ADA1F4F341500555D0E /* SWRevealViewController.m in Sources */,
 				4C50CD711F6FD27800B7E14E /* DriverView.swift in Sources */,
 				4C76FAC41F838DF800A4FFF6 /* myRoutes.swift in Sources */,
+				4C057C2B1F87EC49002178E5 /* CalculationForMapDisplay.swift in Sources */,
 				4C3EF1731F7E4513001F4F8C /* UserTasks.swift in Sources */,
 				4C47EAFA1F56B25300FD60DC /* Menu.swift in Sources */,
 				4C312AE51F5016E200555D0E /* UserList.swift in Sources */,
@@ -438,6 +453,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4C057C291F87DF75002178E5 /* UserTests.swift in Sources */,
 				4C3F107A1F8650C000D10178 /* HomeTests.swift in Sources */,
 				4C3F10721F86507300D10178 /* GALDevTests.swift in Sources */,
 			);
