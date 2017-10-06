@@ -11,19 +11,31 @@ import Foundation
 struct Route {
     
     var id : Int!
-    var origin : String!
-    var destination : String!
+    var originName : String!
+    var destinationName : String!
     var driver : Int!
+    var date : String!
+    var time : String!
+    var recurrence : Bool!
     
     init(){
         
     }
     
-    init(id: Int, origin: String, destination: String, driver: Int){
+    init(id: Int, originName: String, destinationName: String, driver: Int){
         self.id = id
-        self.origin = origin
-        self.destination = destination
+        self.originName = originName
+        self.destinationName = destinationName
         self.driver = driver
     }
+    
+    init(originName: String, destinationName : String, date : String, time : String, recurrence : Bool){
+        self.originName = originName
+        self.destinationName = destinationName
+        self.date = date
+        self.time = time
+        self.recurrence = recurrence
+    }
+    
     
 }

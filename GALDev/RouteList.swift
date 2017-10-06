@@ -13,11 +13,8 @@ var myIndex : Int = 0
 class RouteList : UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     /// Date about the searched route
-    var origin : String! = SearchRoute.TransfertDonnee.originT
-    var destination : String! = SearchRoute.TransfertDonnee.destinationT
-    var time : String! = SearchRoute.TransfertDonnee.timeT
-    var date : String! = SearchRoute.TransfertDonnee.dateT
-
+    var searchedRoute : Route = SearchRoute.TransfertDonnee.routeTransfer
+    
     /// User's token
     var token = Home.GlobalsVariables.userToken
     
@@ -25,10 +22,7 @@ class RouteList : UIViewController, UITableViewDataSource, UITableViewDelegate {
     @IBOutlet var routeTableView : UITableView!
     
     /// Data array for show routes one by one
-    var nameOfRoutesStart: [String] = []
-    var nameOfRoutesEnd: [String] = []
-    var driver: [Int] = []
-    var routeId: [Int] = []
+    var routes : [Route] = []
     
     /// Differents tasks
     var mapTasks = MapTasks()
@@ -40,18 +34,15 @@ class RouteList : UIViewController, UITableViewDataSource, UITableViewDelegate {
         routeTableView.dataSource = self
         routeTableView.delegate = self
         
-        let fullDate : String = date+""+time
+        let fullDate : String = self.searchedRoute.date+""+self.searchedRoute.time
         
         self.routeTasks.route(date: fullDate, completionHandler: { (status, success) -> Void in
             if success {
-                self.nameOfRoutesStart = self.routeTasks.nameOfRoutesStart
-                self.nameOfRoutesEnd = self.routeTasks.nameOfRoutesEnd
-                self.driver = self.routeTasks.driver
-                self.routeId = self.routeTasks.routeId
-                
-                self.routeTableView.reloadData()
+                DispatchQueue.main.async {
+                    self.routes = self.routeTasks.routes
+                    self.routeTableView.reloadData()
+                }
             }
-           
         })
     }
     
@@ -62,7 +53,7 @@ class RouteList : UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section {
-        case 0: return self.routeId.count
+        case 0: return self.routes.count
         default: return 0
         }
     }
@@ -78,24 +69,30 @@ class RouteList : UIViewController, UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! MyCustomCell
         
-        for i in 0...self.routeId.count {
+        for i in 0...self.routes.count {
             
             if (indexPath.row == i) {
-                cell.originLabel.text = self.nameOfRoutesStart[i]
-                cell.destinationLabel.text = self.nameOfRoutesEnd[i]
+                DispatchQueue.main.async {
+                    cell.originLabel.text = self.routes[i].originName
+                    cell.destinationLabel.text = self.routes[i].destinationName
+                }
                 
-                let id = driver[i]
+                let id = routes[i].driver
                 self.userTasks.user(driverId: id, completionHandler: { (status, success) -> Void in
                     if success {
-                        cell.driverLabel.text = self.userTasks.username
+                        DispatchQueue.main.async {
+                            cell.driverLabel.text = self.userTasks.username
+                        }
                     }
                 })
                 
-                let rId : Int = self.routeId[i]
-                self.dateTasks.date(routeId: rId, completionHandler: { (status, success) -> Void in
+                let routeId : Int = routes[i].id
+                self.dateTasks.date(routeId: routeId, completionHandler: { (status, success) -> Void in
                     if success {
-                        cell.dateLabel.text = self.dateTasks.date
-                        cell.reccurence.isHidden = !self.dateTasks.weeklyReccurence
+                        DispatchQueue.main.async {
+                            cell.dateLabel.text = self.dateTasks.date
+                            cell.reccurence.isHidden = !self.dateTasks.weeklyReccurence
+                        }
                     }
                 })
                 cell.textLabel?.lineBreakMode = NSLineBreakMode.byWordWrapping

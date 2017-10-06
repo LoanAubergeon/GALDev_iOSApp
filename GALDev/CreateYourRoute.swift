@@ -16,13 +16,13 @@ class CreateYourRoute : UIViewController, CLLocationManagerDelegate {
     var userDictionary = Home.GlobalsVariables.user
     var token = Home.GlobalsVariables.userToken
     
-    var origin : String! = SearchRoute.TransfertDonnee.originT
-    var destination : String! = SearchRoute.TransfertDonnee.destinationT
+    var origin : String! = SearchRoute.TransfertDonnee.routeTransfer.originName
+    var destination : String! = SearchRoute.TransfertDonnee.routeTransfer.destinationName
     
-    var time : String! = SearchRoute.TransfertDonnee.timeT
-    var date : String! = SearchRoute.TransfertDonnee.dateT
+    var time : String! = SearchRoute.TransfertDonnee.routeTransfer.time
+    var date : String! = SearchRoute.TransfertDonnee.routeTransfer.date
     
-    var reccurence : Bool = SearchRoute.TransfertDonnee.reccurenceT
+    var reccurence : Bool = SearchRoute.TransfertDonnee.routeTransfer.recurrence
     
     
     
@@ -63,7 +63,7 @@ class CreateYourRoute : UIViewController, CLLocationManagerDelegate {
         timeLabel?.text = date+" "+time
         self.wReccurence.isHidden = !reccurence
         createRoute()
-    
+        
     }
     
     @IBAction func routeOnDataBase() {
@@ -73,7 +73,7 @@ class CreateYourRoute : UIViewController, CLLocationManagerDelegate {
         let reccurenceString : String = (self.reccurence ? "1" : "0")
         
         let driverId = userDictionary["id"] as! Int
-
+        
         let url = NSURL(string: ServerAdress+":3000/api/routes")!
         
         var request = URLRequest(url: url as URL)
@@ -86,20 +86,20 @@ class CreateYourRoute : UIViewController, CLLocationManagerDelegate {
         let postString = "startLat="+String(self.startLat)+"&endLat="+String(self.endLat)+"&startLng="+String(self.startLng)+"&endLng="+String(self.endLng)+"&driverId="+String(driverId)+"&dates="+self.date+" "+self.time+";"+reccurenceString
         
         request.httpBody = postString.data(using: .utf8)
-            
+        
         /*do {
-            request.httpBody = try JSONSerialization.data(withJSONObject: parameters, options: .prettyPrinted) // pass dictionary to nsdata object and set it as request body
-        } catch let error {
-            print(error.localizedDescription)
-        }*/
-            
+         request.httpBody = try JSONSerialization.data(withJSONObject: parameters, options: .prettyPrinted) // pass dictionary to nsdata object and set it as request body
+         } catch let error {
+         print(error.localizedDescription)
+         }*/
+        
         let alertController = UIAlertController(title: "Route added", message: "The route has been added", preferredStyle: .alert)
         let defaultAction = UIAlertAction(title: "Ok", style: .default, handler: {
             action in
             
             let viewController = self.storyboard?.instantiateViewController(withIdentifier: "transitionPage")
             self.present(viewController!, animated: true, completion: nil)
-
+            
             
         })
         alertController.addAction(defaultAction)
@@ -177,7 +177,7 @@ class CreateYourRoute : UIViewController, CLLocationManagerDelegate {
         DispatchQueue.main.async(execute: {
             self.originLabel?.text = self.mapTasks.originAddress
             self.destinationLabel?.text = self.mapTasks.destinationAddress
-
+            
         })
     }
     
@@ -190,3 +190,4 @@ class CreateYourRoute : UIViewController, CLLocationManagerDelegate {
     
     
 }
+

@@ -16,13 +16,9 @@ class RouteTasks {
     
     
     // Variable de stockage
-    var nameOfRoutesStart: [String] = []
-    var nameOfRoutesEnd: [String] = []
-    var driver: [Int] = []
-    var routeId: [Int] = []
+    var routes : [Route] = []
     
     func route(date: String, completionHandler: @escaping ((_ status: String, _ success: Bool) -> Void)) {
-        
         
         let url = NSURL(string: ServerAdress+":3000/api/search?date="+date)!
         
@@ -54,12 +50,11 @@ class RouteTasks {
                             
                             let jsonObjects = (jsonResult[index]) as AnyObject
                             
+                            let driverId = (jsonObjects["driver"] as! Int)
+                            let routeId = (jsonObjects["route"] as! Int)
+                            
                             let startingPoint = jsonObjects["startingPoint"] as AnyObject
                             let endPoint = jsonObjects["endPoint"] as AnyObject
-                            
-                            self.driver.append(jsonObjects["driver"] as! Int)
-                            
-                            self.routeId.append(jsonObjects["route"] as! Int)
                             
                             let xStart = startingPoint["x"] as! Float
                             let yStart = startingPoint["y"] as! Float
@@ -69,39 +64,21 @@ class RouteTasks {
                             let addressStart = String(xStart)+" "+String(yStart)
                             let addressEnd = String(xEnd)+" "+String(yEnd)
                             
-                            //print(jsonObjects)
-                            //print(addressStart)
-                            //print(addressEnd)
-                            //print(self.routeId)
-                            
                             self.mapTasks.getDirections(origin: addressStart, destination: addressEnd, waypoints: nil, travelMode: nil, completionHandler: { (status, success) -> Void in
-                                //print(" ###################### ETAPE : "+String(index)+" #########################")
                                 if success{
-                                    //print(status)
-                                    //print("Etape1 : Ajout du nom des routes")
-                                    //print(self.nameOfRoutesStart.count)
-                                    self.nameOfRoutesStart.append(self.mapTasks.originAddress)
-                                    self.nameOfRoutesEnd.append(self.mapTasks.destinationAddress)
-                                    //print("Etape2 : Route ajouté")
-                                    //print(self.nameOfRoutesStart.count)
+
+                                    let originName = (self.mapTasks.originAddress)
+                                    let destinationName = (self.mapTasks.destinationAddress)
                                     
-                                    
-                                    //print("Etape 3 : Verification du compteur")
-                                    //print("Compteur : "+String(compteur))
-                                    //print("Condition : "+String((jsonResult).count-1))
+                                    let route = Route.init(id: routeId, originName: originName!, destinationName: destinationName!, driver: driverId)
+                                    self.routes.append(route)
                                     
                                     if compteur == (jsonResult).count-1 {
-                                        //print("Entré dans la boucle")
-                                        //print(self.nameOfRoutesStart.count)
-                                        //self.nameOfRoutesStart.append(self.mapTasks.originAddress)
-                                        //self.nameOfRoutesEnd.append(self.mapTasks.destinationAddress)
-                                        //print("Etape4 : DerniereRoute ajouté")
-                                        //print(self.nameOfRoutesStart.count)
                                         completionHandler("Ok", true)
                                     }
-                                    //print("Etape 5 : Fin de la boucle, #############################################")
+
                                     compteur = compteur + 1
-                                    //print("Compteur : "+String(compteur))
+
                                 } else {
                                     completionHandler(status, false)
                                 }

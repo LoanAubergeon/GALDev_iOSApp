@@ -24,8 +24,7 @@ class DriverView : UIViewController, MFMailComposeViewControllerDelegate, MFMess
     
     var driver: [Int] = []
     
-    var time : String! = SearchRoute.TransfertDonnee.timeT
-    var date : String! = SearchRoute.TransfertDonnee.dateT
+    var searchedRoute : Route = SearchRoute.TransfertDonnee.routeTransfer
     
     @IBOutlet var firstNameLabel : UILabel!
     @IBOutlet var lastNameLabel : UILabel!
@@ -37,17 +36,12 @@ class DriverView : UIViewController, MFMailComposeViewControllerDelegate, MFMess
     
     override func viewDidLoad() {
         
-        let fullDate : String = date+""+time
+        let fullDate : String = self.searchedRoute.date+""+self.searchedRoute.time
         self.routeTasks.route(date: fullDate, completionHandler: { (status, success) -> Void in
             
             if success {
+                self.driverId = self.routeTasks.routes[myIndex].driver
                 
-                self.driver = self.routeTasks.driver
-                
-                // Position anormale
-                self.driverId = self.driver[myIndex]
-                
-                // Position anormale
                 self.userTasks.user(driverId: self.driverId, completionHandler: { (status, success) -> Void in
                     if success {
                         self.firstNameLabel?.text = self.userTasks.name

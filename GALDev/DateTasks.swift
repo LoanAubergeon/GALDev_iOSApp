@@ -46,7 +46,6 @@ class DateTasks {
             do {
                 let jsonResult = try JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions.mutableContainers) as! NSArray
                 
-                DispatchQueue.main.async(execute: {
                     if ((jsonResult).count-1) >= 0{
                         for index in 0...(jsonResult).count-1 {
                         
@@ -66,9 +65,6 @@ class DateTasks {
                             completionHandler("Ok", true)
                         }
                     }
-                })
-    
-                
             } catch { // On catch les erreurs potentielles
                 print(error)
                 completionHandler(error as! String, false)
