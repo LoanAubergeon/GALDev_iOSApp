@@ -66,7 +66,6 @@ class RouteView : UIViewController {
         self.routeTasks.route(date: dateParameter, completionHandler: { (status, success) -> Void in
             if success {
                 self.routes = self.routeTasks.routes
-                print(self.routes)
                 let driverIndex = self.routes[myIndex].driver
                 
                 DispatchQueue.main.async() {

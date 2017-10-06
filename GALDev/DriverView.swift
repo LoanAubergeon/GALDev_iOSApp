@@ -44,13 +44,15 @@ class DriverView : UIViewController, MFMailComposeViewControllerDelegate, MFMess
                 
                 self.userTasks.user(driverId: self.driverId, completionHandler: { (status, success) -> Void in
                     if success {
-                        self.firstNameLabel?.text = self.userTasks.user.name
-                        self.lastNameLabel?.text = self.userTasks.user.surname
-                        self.usernameLabel?.text = self.userTasks.user.username
-                        self.mobileNumberLabel?.text = self.userTasks.user.mobileNumber
+                        DispatchQueue.main.async() {
+                            self.firstNameLabel?.text = self.userTasks.user.name
+                            self.lastNameLabel?.text = self.userTasks.user.surname
+                            self.usernameLabel?.text = self.userTasks.user.username
+                            self.mobileNumberLabel?.text = self.userTasks.user.mobileNumber
+                            self.emailLabel?.text = self.userTasks.user.email
+                        }
                         self.driverEmail = self.userTasks.user.email
                         self.mobileNumber = self.userTasks.user.mobileNumber
-                        self.emailLabel?.text = self.userTasks.user.email
                     }
                 })
             }
