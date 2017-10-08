@@ -38,6 +38,8 @@ class CreateYourRoute : UIViewController, CLLocationManagerDelegate {
     
     var mapTasks = MapTasks()
     
+    var calculationForMapDisplay = CalculationForMapDisplay()
+    
     // Variables pour l'affichage des données
     
     @IBOutlet var originLabel : UILabel?
@@ -161,8 +163,22 @@ class CreateYourRoute : UIViewController, CLLocationManagerDelegate {
     }
     
     func configureMapAndMarkersForRoute() {
-        viewMap?.camera = GMSCameraPosition.camera(withTarget: mapTasks.originCoordinate, zoom: 12.0)
         
+        // On recupere les coordonner des deux points
+        let oLat = mapTasks.originCoordinate.latitude
+        let oLong = mapTasks.originCoordinate.longitude
+        let dLat = mapTasks.destinationCoordinate.latitude
+        let dLong = mapTasks.destinationCoordinate.longitude
+        
+        self.calculationForMapDisplay.centerCalcul(xA: oLat, yA: oLong, xB: dLat, yB: dLong)
+        // On centre la camera par rapport au deux points
+        // On applique le zoom en fonction de la distance
+        let zoom : Float = self.calculationForMapDisplay.zoomCalcul(distance: Double(self.mapTasks.totalDistanceInMeters/1000))
+        
+        viewMap?.camera = GMSCameraPosition.camera(withLatitude: self.calculationForMapDisplay.xCenter, longitude: self.calculationForMapDisplay.yCenter, zoom: zoom)
+        
+        
+        // Mise en place des marqueurs
         originMarker = GMSMarker(position: self.mapTasks.originCoordinate)
         originMarker.map = self.viewMap
         originMarker.icon = GMSMarker.markerImage(with: UIColor.green)

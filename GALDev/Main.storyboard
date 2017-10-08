@@ -31,6 +31,11 @@
                                             <action selector="changeMapTypeWithSender:" destination="EuE-R5-o9Z" id="sjN-Ff-BBU"/>
                                         </connections>
                                     </barButtonItem>
+                                    <barButtonItem title="Zoom" id="n5I-GK-OVL">
+                                        <connections>
+                                            <action selector="getZoom" destination="EuE-R5-o9Z" id="9JZ-zh-Ruw"/>
+                                        </connections>
+                                    </barButtonItem>
                                 </items>
                             </toolbar>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1qA-zJ-GLD" customClass="GMSMapView">

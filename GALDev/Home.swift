@@ -9,7 +9,7 @@
 import UIKit
 
 /// The address of the server user
-var ServerAdress : String = "http://169.254.100.183"
+var ServerAdress : String = "http://10.148.241.18"
 
 
 

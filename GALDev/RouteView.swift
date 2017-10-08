@@ -149,17 +149,18 @@ class RouteView : UIViewController {
     
     func configureMapAndMarkersForRoute() {
         
-        // A refaire !!!
+        // On recupere les coordonner des deux points
         let oLat = mapTasks.originCoordinate.latitude
         let oLong = mapTasks.originCoordinate.longitude
         let dLat = mapTasks.destinationCoordinate.latitude
         let dLong = mapTasks.destinationCoordinate.longitude
         
-        self.calculationForMapDisplay.centerCalcul(xLat: oLat, yLat: dLat, xLong: oLong, yLong: dLong)
+        self.calculationForMapDisplay.centerCalcul(xA: oLat, yA: oLong, xB: dLat, yB: dLong)
+        // On centre la camera par rapport au deux points
+        // On applique le zoom en fonction de la distance
+        let zoom : Float = self.calculationForMapDisplay.zoomCalcul(distance: Double(self.mapTasks.totalDistanceInMeters/1000))
         
-        let centerCoordinate = CLLocationCoordinate2DMake(self.calculationForMapDisplay.xCenter as Double, self.calculationForMapDisplay.xCenter as Double)
-        
-        viewMap?.camera = GMSCameraPosition.camera(withTarget: self.mapTasks.originCoordinate, zoom: 10.0)
+        viewMap?.camera = GMSCameraPosition.camera(withLatitude: self.calculationForMapDisplay.xCenter, longitude: self.calculationForMapDisplay.yCenter, zoom: zoom)
         
         originMarker = GMSMarker(position: self.mapTasks.originCoordinate)
         originMarker.map = self.viewMap

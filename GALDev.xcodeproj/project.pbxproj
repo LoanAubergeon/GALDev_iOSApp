@@ -53,6 +53,7 @@
 		4C50CD711F6FD27800B7E14E /* DriverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C50CD701F6FD27800B7E14E /* DriverView.swift */; };
 		4C56C9D11F7F991F005DFD99 /* DateTasks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C56C9D01F7F991F005DFD99 /* DateTasks.swift */; };
 		4C76FAC41F838DF800A4FFF6 /* myRoutes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C76FAC31F838DF800A4FFF6 /* myRoutes.swift */; };
+		4CA18F301F8829370055E327 /* CalculationForMapDisplayTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CA18F2F1F8829370055E327 /* CalculationForMapDisplayTests.swift */; };
 		4CAA29251F86944B00813FA9 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAA29241F86944B00813FA9 /* User.swift */; };
 		4CAA29271F8695F200813FA9 /* Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAA29261F8695F200813FA9 /* Route.swift */; };
 		4CAA29291F8696E600813FA9 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAA29281F8696E600813FA9 /* Date.swift */; };
@@ -122,6 +123,7 @@
 		4C50CD701F6FD27800B7E14E /* DriverView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DriverView.swift; sourceTree = "<group>"; };
 		4C56C9D01F7F991F005DFD99 /* DateTasks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateTasks.swift; sourceTree = "<group>"; };
 		4C76FAC31F838DF800A4FFF6 /* myRoutes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = myRoutes.swift; sourceTree = "<group>"; };
+		4CA18F2F1F8829370055E327 /* CalculationForMapDisplayTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculationForMapDisplayTests.swift; sourceTree = "<group>"; };
 		4CAA29241F86944B00813FA9 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		4CAA29261F8695F200813FA9 /* Route.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Route.swift; sourceTree = "<group>"; };
 		4CAA29281F8696E600813FA9 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
@@ -297,6 +299,7 @@
 				4C3F10711F86507300D10178 /* GALDevTests.swift */,
 				4C3F10791F8650C000D10178 /* HomeTests.swift */,
 				4C057C281F87DF75002178E5 /* UserTests.swift */,
+				4CA18F2F1F8829370055E327 /* CalculationForMapDisplayTests.swift */,
 				4C3F10731F86507300D10178 /* Info.plist */,
 			);
 			path = GALDevTests;
@@ -456,6 +459,7 @@
 				4C057C291F87DF75002178E5 /* UserTests.swift in Sources */,
 				4C3F107A1F8650C000D10178 /* HomeTests.swift in Sources */,
 				4C3F10721F86507300D10178 /* GALDevTests.swift in Sources */,
+				4CA18F301F8829370055E327 /* CalculationForMapDisplayTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
