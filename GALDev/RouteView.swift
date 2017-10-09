@@ -82,30 +82,35 @@ class RouteView : UIViewController {
                         
                         let origin = self.routes[myIndex].originName
                         let destination = self.routes[myIndex].destinationName
-                        DispatchQueue.main.async() {
-                            self.createRoute(origin: origin, destination: destination)
-                        }
-                        let routeId = self.routes[myIndex].id
                         
-                        self.dateTasks.date(routeId: routeId, completionHandler: { (status, success) -> Void in
+                        //self.createRoute(origin: self.routes[myIndex].originName, destination: self.routes[myIndex].destinationName)
+                        
+                        self.mapTasks.getDirections(origin: origin, destination: destination, waypoints: nil, travelMode: nil, completionHandler: { (status, success) -> Void in
                             if success {
                                 DispatchQueue.main.async() {
-                                    self.dateLabel?.text = self.dateTasks.date
-                                    self.dateLabel?.sizeToFit()
-                                    self.weeklyReccurence.isHidden = !self.dateTasks.weeklyReccurence
+                                    self.viewMap?.clear()
+                                    self.configureMapAndMarkersForRoute()
+                                    self.drawRoute()
+                                    self.displayRouteInfo()
                                 }
                                 
+                                let routeId = self.routes[myIndex].id
                                 
+                                self.dateTasks.date(routeId: routeId, completionHandler: { (status, success) -> Void in
+                                    if success {
+                                        DispatchQueue.main.async() {
+                                            self.dateLabel?.text = self.dateTasks.date
+                                            self.dateLabel?.sizeToFit()
+                                            self.weeklyReccurence.isHidden = !self.dateTasks.weeklyReccurence
+                                        }
+                                    }
+                                })
                             }
-                            
                         })
-                        
                     }
                 })
-                
             }
         })
-        
     }
     
     
