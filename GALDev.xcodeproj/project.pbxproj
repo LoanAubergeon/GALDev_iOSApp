@@ -57,6 +57,7 @@
 		4CAA29251F86944B00813FA9 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAA29241F86944B00813FA9 /* User.swift */; };
 		4CAA29271F8695F200813FA9 /* Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAA29261F8695F200813FA9 /* Route.swift */; };
 		4CAA29291F8696E600813FA9 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAA29281F8696E600813FA9 /* Date.swift */; };
+		4CBC78921F8B847D00C9930F /* SearchTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CBC78911F8B847D00C9930F /* SearchTextField.swift */; };
 		4CF30A4C1F66A4D5001B3AF3 /* RouteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CF30A4B1F66A4D5001B3AF3 /* RouteView.swift */; };
 /* End PBXBuildFile section */
 
@@ -127,6 +128,7 @@
 		4CAA29241F86944B00813FA9 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		4CAA29261F8695F200813FA9 /* Route.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Route.swift; sourceTree = "<group>"; };
 		4CAA29281F8696E600813FA9 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
+		4CBC78911F8B847D00C9930F /* SearchTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTextField.swift; sourceTree = "<group>"; };
 		4CF30A4B1F66A4D5001B3AF3 /* RouteView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouteView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -167,6 +169,7 @@
 		4C057C2C1F87EC5A002178E5 /* Others */ = {
 			isa = PBXGroup;
 			children = (
+				4CBC78911F8B847D00C9930F /* SearchTextField.swift */,
 				4C057C2A1F87EC49002178E5 /* CalculationForMapDisplay.swift */,
 			);
 			name = Others;
@@ -440,6 +443,7 @@
 				4C76FAC41F838DF800A4FFF6 /* myRoutes.swift in Sources */,
 				4C057C2B1F87EC49002178E5 /* CalculationForMapDisplay.swift in Sources */,
 				4C3EF1731F7E4513001F4F8C /* UserTasks.swift in Sources */,
+				4CBC78921F8B847D00C9930F /* SearchTextField.swift in Sources */,
 				4C47EAFA1F56B25300FD60DC /* Menu.swift in Sources */,
 				4C312AE51F5016E200555D0E /* UserList.swift in Sources */,
 				4C47EAF81F55743700FD60DC /* CreateYourRoute.swift in Sources */,

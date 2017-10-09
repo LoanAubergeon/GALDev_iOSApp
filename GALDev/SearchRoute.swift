@@ -26,16 +26,14 @@ class SearchRoute: UIViewController, CLLocationManagerDelegate {
     
     @IBOutlet var hourTextField: UITextField!
     @IBOutlet var dateTextField: UITextField!
-        
-    @IBOutlet var originTextField : UITextField!
-    @IBOutlet var destinationTextField : UITextField!
+    
+    @IBOutlet var originTextField : SearchTextField!
+    @IBOutlet var destinationTextField : SearchTextField!
     
     
     struct TransfertDonnee {
         static var routeTransfer : Route = Route.init()
     }
-    
-    
     
     override func awakeFromNib() {
         self.view.layoutIfNeeded()
@@ -46,6 +44,13 @@ class SearchRoute: UIViewController, CLLocationManagerDelegate {
     override func viewDidLoad() {
         // On reinitialise le transfert de donnée si jamais on veut refaire une nouvelle recherche 
         TransfertDonnee.routeTransfer = Route.init()
+        
+       // Suggestions 
+        originTextField.theme = SearchTextFieldTheme.darkTheme()
+        destinationTextField.theme = SearchTextFieldTheme.darkTheme()
+        originTextField.filterStrings(["Attard","Balzan","Birgu","Birkirkara","Birzebbuga","Bormla","Dingli","Fgura","Fontana","Ghajnsielem","Gharb","Gharghur","Ghasri","Ghaxaq","Gudja","Gzira","Hamrun","Iklin","Imdina","Imgarr","Imqabba","Imsida","Imtarfa","Isla","Kalkara","Kercem","Kirkop","Lija","Luqa","Marsa","Marsaskala","Mellieha","Mosta","Munxar","Nadur","Naxxar","Paola","Pembroke","Pieta","Qala","Qormi","Qrendi","Rabat","Rabat","Safi","San Gwann","San Giljan","San Lawrenz","Saint Lucia","Saint Pauls Bay","Saint Venera","Sannat","Siggiewi","Sliema","Swieqi","Tarxien","Ta Xbiex","Valletta","Xaghra","Xewkija","Xghajra","Zabbar","Zebbug","Zebbug","Zejtun","Zurrieq"])
+        
+        destinationTextField.filterStrings(["Attard","Balzan","Birgu","Birkirkara","Birzebbuga","Bormla","Dingli","Fgura","Fontana","Ghajnsielem","Gharb","Gharghur","Ghasri","Ghaxaq","Gudja","Gzira","Hamrun","Iklin","Imdina","Imgarr","Imqabba","Imsida","Imtarfa","Isla","Kalkara","Kercem","Kirkop","Lija","Luqa","Marsa","Marsaskala","Mellieha","Mosta","Munxar","Nadur","Naxxar","Paola","Pembroke","Pieta","Qala","Qormi","Qrendi","Rabat","Rabat","Safi","San Gwann","San Giljan","San Lawrenz","Saint Lucia","Saint Pauls Bay","Saint Venera","Sannat","Siggiewi","Sliema","Swieqi","Tarxien","Ta Xbiex","Valletta","Xaghra","Xewkija","Xghajra","Zabbar","Zebbug","Zebbug","Zejtun","Zurrieq"])
         
         locationManager.delegate = self
         locationManager.requestWhenInUseAuthorization()
@@ -81,7 +86,7 @@ class SearchRoute: UIViewController, CLLocationManagerDelegate {
     
     
     @IBAction func textFieldEditingDate(sender: UITextField) {
-
+        
         let datePickerView:UIDatePicker = UIDatePicker()
         
         datePickerView.datePickerMode = UIDatePickerMode.date
@@ -91,11 +96,11 @@ class SearchRoute: UIViewController, CLLocationManagerDelegate {
         datePickerView.addTarget(self, action: #selector(self.datePickerChanged), for: UIControlEvents.valueChanged)
         
     }
-
+    
     
     
     @IBAction func textFieldEditingTime(sender: UITextField) {
-
+        
         let datePickerView:UIDatePicker = UIDatePicker()
         
         datePickerView.datePickerMode = UIDatePickerMode.time
@@ -137,13 +142,13 @@ class SearchRoute: UIViewController, CLLocationManagerDelegate {
     }
     
     @objc func datePickerChanged(sender: UIDatePicker) {
-
+        
         let dateFormatter = DateFormatter()
         //dateFormatter.dateStyle = DateFormatter.Style.short
         dateFormatter.dateFormat = "YYYY-MM-dd"
         dateTextField.text = dateFormatter.string(for: sender.date)
     }
-
+    
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)

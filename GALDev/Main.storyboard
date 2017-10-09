@@ -137,13 +137,13 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter a starting point" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2t7-Ns-gPw">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter a starting point" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2t7-Ns-gPw" customClass="SearchTextField" customModule="GALDev" customModuleProvider="target">
                                 <rect key="frame" x="57" y="169" width="279" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter a destination point" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SRV-B2-uqK">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter a destination point" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SRV-B2-uqK" customClass="SearchTextField" customModule="GALDev" customModuleProvider="target">
                                 <rect key="frame" x="57" y="250" width="279" height="67"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -288,9 +288,9 @@
                     </navigationItem>
                     <connections>
                         <outlet property="dateTextField" destination="d5s-qz-fFa" id="nF1-FS-u5m"/>
-                        <outlet property="destinationTextField" destination="SRV-B2-uqK" id="91v-Ak-i71"/>
+                        <outlet property="destinationTextField" destination="SRV-B2-uqK" id="12e-Q9-n5N"/>
                         <outlet property="hourTextField" destination="NLf-C8-4qg" id="cCY-yT-Qru"/>
-                        <outlet property="originTextField" destination="2t7-Ns-gPw" id="8VU-Nm-cn3"/>
+                        <outlet property="originTextField" destination="2t7-Ns-gPw" id="1mX-cq-NNh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jy7-09-Iqw" userLabel="First Responder" sceneMemberID="firstResponder"/>
