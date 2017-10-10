@@ -11,30 +11,85 @@ import Foundation
 struct Route {
     
     var id : Int!
-    var originName : String!
-    var destinationName : String!
+    
+    var overviewPolyline : NSDictionary!
+    
+    var nameOfStartingPoint : String!
+    var nameOfEndpoint : String!
+    
+    var latitudeOfStartigPoint : Double!
+    var longitudeOfStartingPoint : Double!
+    var latitudeOfEndPoint : Double!
+    var longitudeOfEndPoint : Double!
+    
     var driver : Int!
+
     var date : String!
     var time : String!
     var recurrence : Bool!
+    var distance : String!
+    var duration : String!
     
     init(){
         
     }
     
-    init(id: Int, originName: String, destinationName: String, driver: Int){
+    init(id: Int, nameOfStartingPoint: String, nameOfEndpoint: String, driver: Int){
         self.id = id
-        self.originName = originName
-        self.destinationName = destinationName
+        self.nameOfStartingPoint = nameOfStartingPoint
+        self.nameOfEndpoint = nameOfEndpoint
         self.driver = driver
     }
     
-    init(originName: String, destinationName : String, date : String, time : String, recurrence : Bool){
-        self.originName = originName
-        self.destinationName = destinationName
+    init(nameOfStartingPoint: String, nameOfEndpoint : String, date : String, time : String, recurrence : Bool){
+        self.nameOfStartingPoint = nameOfStartingPoint
+        self.nameOfEndpoint = nameOfEndpoint
         self.date = date
         self.time = time
         self.recurrence = recurrence
+    }
+    
+    init(nameOfStartingPoint : String, latitudeOfStartigPoint : Double, longitudeOfStartingPoint : Double, nameOfEndpoint : String, latitudeOfEndPoint : Double, longitudeOfEndPoint : Double, date : String, time : String, driver : Int, recurrence : Bool, distance : String, duration : String){
+        self.nameOfStartingPoint = nameOfStartingPoint
+        self.latitudeOfStartigPoint = latitudeOfStartigPoint
+        self.longitudeOfStartingPoint = longitudeOfStartingPoint
+        self.nameOfEndpoint = nameOfEndpoint
+        self.latitudeOfEndPoint = latitudeOfEndPoint
+        self.longitudeOfEndPoint = longitudeOfEndPoint
+        self.date = date
+        self.time = time
+        self.recurrence = recurrence
+        self.distance = distance
+        self.duration = duration
+    }
+    
+    // Route pour RouteTasks
+    init(id : Int, nameOfStartingPoint : String, latitudeOfStartigPoint : Double, longitudeOfStartingPoint : Double, nameOfEndpoint : String, latitudeOfEndPoint : Double, longitudeOfEndPoint : Double, driver : Int, distance : String, duration : String){
+        self.id = id
+        self.nameOfStartingPoint = nameOfStartingPoint
+        self.latitudeOfStartigPoint = latitudeOfStartigPoint
+        self.longitudeOfStartingPoint = longitudeOfStartingPoint
+        self.nameOfEndpoint = nameOfEndpoint
+        self.latitudeOfEndPoint = latitudeOfEndPoint
+        self.longitudeOfEndPoint = longitudeOfEndPoint
+        self.distance = distance
+        self.duration = duration
+    }
+    
+    // Route pour la route recherché
+    init(nameOfStartingPoint : String, latitudeOfStartigPoint : Double, longitudeOfStartingPoint : Double, nameOfEndpoint : String, latitudeOfEndPoint : Double, longitudeOfEndPoint : Double, overviewPolyline : NSDictionary, date : String, time : String, driver : Int, recurrence : Bool, distance : String, duration : String){
+        self.nameOfStartingPoint = nameOfStartingPoint
+        self.latitudeOfStartigPoint = latitudeOfStartigPoint
+        self.longitudeOfStartingPoint = longitudeOfStartingPoint
+        self.nameOfEndpoint = nameOfEndpoint
+        self.latitudeOfEndPoint = latitudeOfEndPoint
+        self.longitudeOfEndPoint = longitudeOfEndPoint
+        self.overviewPolyline = overviewPolyline
+        self.date = date
+        self.time = time
+        self.recurrence = recurrence
+        self.distance = distance
+        self.duration = duration
     }
     
     

@@ -30,9 +30,10 @@ class SearchRoute: UIViewController, CLLocationManagerDelegate {
     @IBOutlet var originTextField : SearchTextField!
     @IBOutlet var destinationTextField : SearchTextField!
     
+    var mapTasks = MapTasks()
     
-    struct TransfertDonnee {
-        static var routeTransfer : Route = Route.init()
+    struct SearchedRoute {
+        static var searchedRoute : Route = Route.init()
     }
     
     override func awakeFromNib() {
@@ -43,9 +44,9 @@ class SearchRoute: UIViewController, CLLocationManagerDelegate {
     
     override func viewDidLoad() {
         // On reinitialise le transfert de donnée si jamais on veut refaire une nouvelle recherche 
-        TransfertDonnee.routeTransfer = Route.init()
+        SearchedRoute.searchedRoute = Route.init()
         
-       // Suggestions 
+       // Suggestions
         originTextField.theme = SearchTextFieldTheme.darkTheme()
         destinationTextField.theme = SearchTextFieldTheme.darkTheme()
         originTextField.filterStrings(["Attard","Balzan","Birgu","Birkirkara","Birzebbuga","Bormla","Dingli","Fgura","Fontana","Ghajnsielem","Gharb","Gharghur","Ghasri","Ghaxaq","Gudja","Gzira","Hamrun","Iklin","Imdina","Imgarr","Imqabba","Imsida","Imtarfa","Isla","Kalkara","Kercem","Kirkop","Lija","Luqa","Marsa","Marsaskala","Mellieha","Mosta","Munxar","Nadur","Naxxar","Paola","Pembroke","Pieta","Qala","Qormi","Qrendi","Rabat","Rabat","Safi","San Gwann","San Giljan","San Lawrenz","Saint Lucia","Saint Pauls Bay","Saint Venera","Sannat","Siggiewi","Sliema","Swieqi","Tarxien","Ta Xbiex","Valletta","Xaghra","Xewkija","Xghajra","Zabbar","Zebbug","Zebbug","Zejtun","Zurrieq"])
@@ -74,14 +75,42 @@ class SearchRoute: UIViewController, CLLocationManagerDelegate {
         let destination = destinationTextField.text!
         let time = hourTextField.text!
         let date = dateTextField.text!
-        var recurrence = false
-        if affichageJour {
-            recurrence = true
-        } else {
-            recurrence = false
-        }
+        let recurrence : Bool = affichageJour ? true : false
         
-        TransfertDonnee.routeTransfer = Route.init(originName: origin, destinationName: destination, date: date, time: time, recurrence: recurrence)
+        self.mapTasks.getDirections(origin: origin, destination: destination, waypoints: nil, travelMode: nil, completionHandler: { (status, success) -> Void in
+            if success {
+                let originAdress = self.mapTasks.originAddress!
+                let destinationAdress = self.mapTasks.destinationAddress!
+                let latitudeOfOrigin = self.mapTasks.originCoordinate.latitude
+                let longitudeOfOrigin = self.mapTasks.originCoordinate.longitude
+                let latitudeOfDestination = self.mapTasks.destinationCoordinate.latitude
+                let longititudeOfDestination = self.mapTasks.destinationCoordinate.longitude
+                self.mapTasks.calculateTotalDistanceAndDuration()
+                let distance = self.mapTasks.totalDistance!
+                let duration = self.mapTasks.totalDuration!
+                let overviewPolyline = self.mapTasks.overviewPolyline
+                
+                SearchedRoute.searchedRoute = Route.init(
+                    nameOfStartingPoint: originAdress,
+                    latitudeOfStartigPoint: latitudeOfOrigin,
+                    longitudeOfStartingPoint: longitudeOfOrigin,
+                    nameOfEndpoint: destinationAdress,
+                    latitudeOfEndPoint: latitudeOfDestination,
+                    longitudeOfEndPoint: longititudeOfDestination,
+                    overviewPolyline: overviewPolyline,
+                    date: date,
+                    time: time,
+                    driver: Home.UserConnectedInformations.user.id,
+                    recurrence: recurrence,
+                    distance: distance,
+                    duration: duration
+                )
+                
+            } else {
+                // Afficher une erreur
+            }
+        })
+        
     }
     
     

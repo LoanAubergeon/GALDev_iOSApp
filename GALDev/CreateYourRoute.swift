@@ -16,15 +16,18 @@ class CreateYourRoute : UIViewController, CLLocationManagerDelegate {
     var user : User = Home.UserConnectedInformations.user
     var token = Home.UserConnectedInformations.userToken
     
-    var origin : String! = SearchRoute.TransfertDonnee.routeTransfer.originName
-    var destination : String! = SearchRoute.TransfertDonnee.routeTransfer.destinationName
-    
-    var time : String! = SearchRoute.TransfertDonnee.routeTransfer.time
-    var date : String! = SearchRoute.TransfertDonnee.routeTransfer.date
-    
-    var reccurence : Bool = SearchRoute.TransfertDonnee.routeTransfer.recurrence
-    
-    
+    var origin : String! = SearchRoute.SearchedRoute.searchedRoute.nameOfStartingPoint
+    var latitudeOfOrigin : Double! = SearchRoute.SearchedRoute.searchedRoute.latitudeOfStartigPoint
+    var longitudeOfOrigin : Double! = SearchRoute.SearchedRoute.searchedRoute.longitudeOfStartingPoint
+    var destination : String! = SearchRoute.SearchedRoute.searchedRoute.nameOfEndpoint
+    var latitudeOfDestination : Double! = SearchRoute.SearchedRoute.searchedRoute.latitudeOfEndPoint
+    var longitudeOfDestination : Double! = SearchRoute.SearchedRoute.searchedRoute.longitudeOfEndPoint
+    var overviewPolyline : NSDictionary! = SearchRoute.SearchedRoute.searchedRoute.overviewPolyline
+    var time : String! = SearchRoute.SearchedRoute.searchedRoute.time
+    var date : String! = SearchRoute.SearchedRoute.searchedRoute.date
+    var reccurence : Bool = SearchRoute.SearchedRoute.searchedRoute.recurrence
+    var distance : String! = SearchRoute.SearchedRoute.searchedRoute.distance
+    var duration : String! = SearchRoute.SearchedRoute.searchedRoute.duration
     
     
     // Variables utilisés pour afficher la map
@@ -52,25 +55,20 @@ class CreateYourRoute : UIViewController, CLLocationManagerDelegate {
     
     // Variable pour ajouter la route dans la base de donnée
     
-    var startLat : Float = 0.0
-    var endLat : Float = 0.0
-    var startLng : Float = 0.0
-    var endLng : Float = 0.0
-    
     @IBOutlet var button : UIButton?
     
     override func viewDidLoad() {
-        //originLabel?.text = origin
-        //destinationLabel?.text = destination
+        // Display
         timeLabel?.text = date+" "+time
         self.wReccurence.isHidden = !reccurence
+        
+        
+        
         createRoute()
         
     }
     
     @IBAction func routeOnDataBase() {
-        
-        //let parameters = ["token" : token, "startLat": self.startLat, "endLat": self.endLat, "startLng": self.startLng, "endLng": self.endLng, "driverId": 2, "dates" : "[]" ] as [String : Any]
         
         let reccurenceString : String = (self.reccurence ? "1" : "0")
         
@@ -85,7 +83,7 @@ class CreateYourRoute : UIViewController, CLLocationManagerDelegate {
         request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
         request.addValue(token, forHTTPHeaderField: "x-access-token")
         
-        let postString = "startLat="+String(self.startLat)+"&endLat="+String(self.endLat)+"&startLng="+String(self.startLng)+"&endLng="+String(self.endLng)+"&driverId="+String(driverId)+"&dates="+self.date+" "+self.time+";"+reccurenceString
+        let postString = "startLat="+String(self.latitudeOfOrigin)+"&endLat="+String(self.latitudeOfDestination)+"&startLng="+String(self.longitudeOfOrigin)+"&endLng="+String(self.longitudeOfDestination)+"&origin="+self.origin+"&destination="+self.destination+"&distance="+self.distance+"&duration="+self.duration+"&driverId="+String(driverId)+"&dates="+self.date+" "+self.time+";"+reccurenceString
         
         request.httpBody = postString.data(using: .utf8)
         
@@ -127,33 +125,16 @@ class CreateYourRoute : UIViewController, CLLocationManagerDelegate {
     
     
     func createRoute() {
-        // Requete à Google pour creer une route
-        self.mapTasks.getDirections(origin: self.origin, destination: self.destination, waypoints: nil, travelMode: nil, completionHandler: { (status, success) -> Void in
-            if success {
-                DispatchQueue.main.async(execute: {
-                    
-                    self.startLat = Float(self.mapTasks.originCoordinate.latitude)
-                    self.endLat = Float(self.mapTasks.destinationCoordinate.latitude)
-                    self.startLng = Float(self.mapTasks.originCoordinate.longitude)
-                    self.endLng = Float(self.mapTasks.destinationCoordinate.longitude)
-                    
-                    self.viewMap?.clear()
-                    self.configureMapAndMarkersForRoute()
-                    self.drawRoute()
-                    self.displayRouteInfo()
-                })
-            }
-            else {
-                print(status)
-            }
-        })
-        
+        self.viewMap?.clear()
+        self.configureMapAndMarkersForRoute()
+        self.drawRoute()
+        self.displayRouteInfo()
     }
     
     
     
     func drawRoute() {
-        let route = mapTasks.overviewPolyline["points"] as! String
+        let route = self.overviewPolyline["points"] as! String
         
         let path: GMSPath = GMSPath(fromEncodedPath: route)!
         routePolyline = GMSPolyline(path: path)
@@ -164,13 +145,7 @@ class CreateYourRoute : UIViewController, CLLocationManagerDelegate {
     
     func configureMapAndMarkersForRoute() {
         
-        // On recupere les coordonner des deux points
-        let oLat = mapTasks.originCoordinate.latitude
-        let oLong = mapTasks.originCoordinate.longitude
-        let dLat = mapTasks.destinationCoordinate.latitude
-        let dLong = mapTasks.destinationCoordinate.longitude
-        
-        self.calculationForMapDisplay.centerCalcul(xA: oLat, yA: oLong, xB: dLat, yB: dLong)
+        self.calculationForMapDisplay.centerCalcul(xA: latitudeOfOrigin, yA: longitudeOfOrigin, xB: latitudeOfDestination, yB: longitudeOfDestination)
         // On centre la camera par rapport au deux points
         // On applique le zoom en fonction de la distance
         let zoom : Float = self.calculationForMapDisplay.zoomCalcul(distance: Double(self.mapTasks.totalDistanceInMeters/1000))
@@ -179,28 +154,30 @@ class CreateYourRoute : UIViewController, CLLocationManagerDelegate {
         
         
         // Mise en place des marqueurs
-        originMarker = GMSMarker(position: self.mapTasks.originCoordinate)
+        let originCoordinate = CLLocationCoordinate2DMake(self.latitudeOfOrigin,self.longitudeOfOrigin)
+        originMarker = GMSMarker(position: originCoordinate)
         originMarker.map = self.viewMap
         originMarker.icon = GMSMarker.markerImage(with: UIColor.green)
-        originMarker.title = self.mapTasks.originAddress
+        originMarker.title = self.origin
         
-        destinationMarker = GMSMarker(position: self.mapTasks.destinationCoordinate)
+        let destinationCoordinate = CLLocationCoordinate2DMake(self.latitudeOfDestination,self.longitudeOfDestination)
+        destinationMarker = GMSMarker(position: destinationCoordinate)
         destinationMarker.map = self.viewMap
         destinationMarker.icon = GMSMarker.markerImage(with: UIColor.red)
-        destinationMarker.title = self.mapTasks.destinationAddress
+        destinationMarker.title = self.destination
         
         // Ajout des adresses dans la barre du haut
         DispatchQueue.main.async(execute: {
-            self.originLabel?.text = self.mapTasks.originAddress
-            self.destinationLabel?.text = self.mapTasks.destinationAddress
+            self.originLabel?.text = self.origin
+            self.destinationLabel?.text = self.destination
             
         })
     }
     
     func displayRouteInfo() {
         DispatchQueue.main.async() {
-            self.durationLabel?.text = self.mapTasks.totalDuration
-            self.distanceLabel?.text = self.mapTasks.totalDistance
+            self.durationLabel?.text = self.duration
+            self.distanceLabel?.text = self.distance
         }
     }
     

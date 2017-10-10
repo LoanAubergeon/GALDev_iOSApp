@@ -13,7 +13,7 @@ var myIndex : Int = 0
 class RouteList : UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     /// Date about the searched route
-    var searchedRoute : Route = SearchRoute.TransfertDonnee.routeTransfer
+    var searchedRoute : Route = SearchRoute.SearchedRoute.searchedRoute
     
     /// User's token
     var token = Home.UserConnectedInformations.userToken
@@ -38,8 +38,8 @@ class RouteList : UIViewController, UITableViewDataSource, UITableViewDelegate {
         
         self.routeTasks.route(date: fullDate, completionHandler: { (status, success) -> Void in
             if success {
+                self.routes = self.routeTasks.routes
                 DispatchQueue.main.async {
-                    self.routes = self.routeTasks.routes
                     self.routeTableView.reloadData()
                 }
             }
@@ -73,8 +73,8 @@ class RouteList : UIViewController, UITableViewDataSource, UITableViewDelegate {
             
             if (indexPath.row == i) {
                 DispatchQueue.main.async {
-                    cell.originLabel.text = self.routes[i].originName
-                    cell.destinationLabel.text = self.routes[i].destinationName
+                    cell.originLabel.text = self.routes[i].nameOfStartingPoint
+                    cell.destinationLabel.text = self.routes[i].nameOfEndpoint
                 }
                 
                 let id = routes[i].driver

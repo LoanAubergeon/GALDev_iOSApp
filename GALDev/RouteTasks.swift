@@ -46,7 +46,6 @@ class RouteTasks {
                 if (jsonResult).count > 0 {
                     for index in 0...(jsonResult).count-1 {
                         
-                        
                         let jsonObjects = (jsonResult[index]) as AnyObject
                         
                         let driverId = (jsonObjects["driver"] as! Int)
@@ -55,33 +54,35 @@ class RouteTasks {
                         let startingPoint = jsonObjects["startingPoint"] as AnyObject
                         let endPoint = jsonObjects["endPoint"] as AnyObject
                         
-                        let xStart = startingPoint["x"] as! Float
-                        let yStart = startingPoint["y"] as! Float
-                        let xEnd = endPoint["x"] as! Float
-                        let yEnd = endPoint["y"] as! Float
+                        let xStart = startingPoint["x"] as! Double
+                        let yStart = startingPoint["y"] as! Double
+                        let xEnd = endPoint["x"] as! Double
+                        let yEnd = endPoint["y"] as! Double
                         
-                        let addressStart = String(xStart)+" "+String(yStart)
-                        let addressEnd = String(xEnd)+" "+String(yEnd)
+                        let originName = jsonObjects["origin"] as! String
+                        let destinationName = jsonObjects["destination"] as! String
+                        let distance = jsonObjects["distance"] as! String
+                        let duration = jsonObjects["duration"] as! String
                         
-                        self.mapTasks.getDirections(origin: addressStart, destination: addressEnd, waypoints: nil, travelMode: nil, completionHandler: { (status, success) -> Void in
-                            if success{
-                                
-                                let originName = (self.mapTasks.originAddress)
-                                let destinationName = (self.mapTasks.destinationAddress)
-                                
-                                let route = Route.init(id: routeId, originName: originName!, destinationName: destinationName!, driver: driverId)
-                                self.routes.append(route)
-                                
-                                if compteur == (jsonResult).count-1 {
-                                    completionHandler("Ok", true)
-                                }
-                                
-                                compteur = compteur + 1
-                                
-                            } else {
-                                completionHandler(status, false)
-                            }
-                        })
+                        let route = Route.init(
+                            id : routeId,
+                            nameOfStartingPoint: originName,
+                            latitudeOfStartigPoint: xStart,
+                            longitudeOfStartingPoint: yStart,
+                            nameOfEndpoint: destinationName,
+                            latitudeOfEndPoint: xEnd,
+                            longitudeOfEndPoint: yEnd,
+                            driver: driverId,
+                            distance: distance,
+                            duration: duration
+                        )
+                        
+                        self.routes.append(route)
+                        
+                        if compteur == (jsonResult).count-1 {
+                            completionHandler("Ok", true)
+                        }
+                        compteur = compteur + 1
                         
                     }
                 }

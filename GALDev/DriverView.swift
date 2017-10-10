@@ -24,7 +24,7 @@ class DriverView : UIViewController, MFMailComposeViewControllerDelegate, MFMess
     
     var driver: [Int] = []
     
-    var searchedRoute : Route = SearchRoute.TransfertDonnee.routeTransfer
+    var searchedRoute : Route = SearchRoute.SearchedRoute.searchedRoute
     
     @IBOutlet var firstNameLabel : UILabel!
     @IBOutlet var lastNameLabel : UILabel!

@@ -54,7 +54,7 @@ class RouteView : UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.searchedRoute = SearchRoute.TransfertDonnee.routeTransfer
+        self.searchedRoute = SearchRoute.SearchedRoute.searchedRoute
         self.routeDisplay()
         
         
@@ -70,8 +70,8 @@ class RouteView : UIViewController {
                 let driverIndex = self.routes[myIndex].driver
                 
                 DispatchQueue.main.async() {
-                    self.originLabel?.text = self.routes[myIndex].originName
-                    self.destinationLabel?.text = self.routes[myIndex].destinationName
+                    self.originLabel?.text = self.routes[myIndex].nameOfStartingPoint
+                    self.destinationLabel?.text = self.routes[myIndex].nameOfEndpoint
                 }
                 
                 self.userTasks.user(driverId: driverIndex, completionHandler: { (status, success) -> Void in
@@ -80,8 +80,8 @@ class RouteView : UIViewController {
                             self.usernameDriverLabel?.text = self.userTasks.user.username
                         }
                         
-                        let origin = self.routes[myIndex].originName
-                        let destination = self.routes[myIndex].destinationName
+                        let origin = self.routes[myIndex].nameOfStartingPoint
+                        let destination = self.routes[myIndex].nameOfEndpoint
                         
                         //self.createRoute(origin: self.routes[myIndex].originName, destination: self.routes[myIndex].destinationName)
                         
