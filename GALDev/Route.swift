@@ -34,34 +34,7 @@ struct Route {
         
     }
     
-    init(id: Int, nameOfStartingPoint: String, nameOfEndpoint: String, driver: Int){
-        self.id = id
-        self.nameOfStartingPoint = nameOfStartingPoint
-        self.nameOfEndpoint = nameOfEndpoint
-        self.driver = driver
-    }
-    
-    init(nameOfStartingPoint: String, nameOfEndpoint : String, date : String, time : String, recurrence : Bool){
-        self.nameOfStartingPoint = nameOfStartingPoint
-        self.nameOfEndpoint = nameOfEndpoint
-        self.date = date
-        self.time = time
-        self.recurrence = recurrence
-    }
-    
-    init(nameOfStartingPoint : String, latitudeOfStartigPoint : Double, longitudeOfStartingPoint : Double, nameOfEndpoint : String, latitudeOfEndPoint : Double, longitudeOfEndPoint : Double, date : String, time : String, driver : Int, recurrence : Bool, distance : String, duration : String){
-        self.nameOfStartingPoint = nameOfStartingPoint
-        self.latitudeOfStartigPoint = latitudeOfStartigPoint
-        self.longitudeOfStartingPoint = longitudeOfStartingPoint
-        self.nameOfEndpoint = nameOfEndpoint
-        self.latitudeOfEndPoint = latitudeOfEndPoint
-        self.longitudeOfEndPoint = longitudeOfEndPoint
-        self.date = date
-        self.time = time
-        self.recurrence = recurrence
-        self.distance = distance
-        self.duration = duration
-    }
+
     
     // Route pour RouteTasks
     init(id : Int, nameOfStartingPoint : String, latitudeOfStartigPoint : Double, longitudeOfStartingPoint : Double, nameOfEndpoint : String, latitudeOfEndPoint : Double, longitudeOfEndPoint : Double, driver : Int, distance : String, duration : String){

@@ -35,19 +35,26 @@ class RouteList : UIViewController, UITableViewDataSource, UITableViewDelegate {
         routeTableView.delegate = self
         
         let fullDate : String = self.searchedRoute.date+""+self.searchedRoute.time
-        let startLat : Double = self.searchedRoute.latitudeOfStartigPoint
-        let startLong : Double = self.searchedRoute.longitudeOfStartingPoint
-        let endLat : Double = self.searchedRoute.longitudeOfEndPoint
-        let endLong : Double = self.searchedRoute.longitudeOfEndPoint
+        //let startLat : Double = self.searchedRoute.latitudeOfStartigPoint
+        //let startLong : Double = self.searchedRoute.longitudeOfStartingPoint
+        //let endLat : Double = self.searchedRoute.longitudeOfEndPoint
+        //let endLong : Double = self.searchedRoute.longitudeOfEndPoint
         
+        // Chargement de la liste des routes 
         self.routeTasks.route(date: fullDate, completionHandler: { (status, success) -> Void in
             if success {
                 self.routes = self.routeTasks.routes
+                
                 DispatchQueue.main.async {
                     self.routeTableView.reloadData()
                 }
+                
             }
         })
+        
+        
+        
+        
     }
     
     //Nombre de sections en tout
@@ -62,11 +69,11 @@ class RouteList : UIViewController, UITableViewDataSource, UITableViewDelegate {
         }
     }
     /*func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        switch section {
-        case 0: return "Routes : "
-        default: return ""
-        }
-    }*/
+     switch section {
+     case 0: return "Routes : "
+     default: return ""
+     }
+     }*/
     
     
     //Cellule à l'index concerné
@@ -79,29 +86,29 @@ class RouteList : UIViewController, UITableViewDataSource, UITableViewDelegate {
                 DispatchQueue.main.async {
                     cell.originLabel.text = self.routes[i].nameOfStartingPoint
                     cell.destinationLabel.text = self.routes[i].nameOfEndpoint
+                    
+                    let routeId : Int = self.routes[i].id
+                    self.dateTasks.date(routeId: routeId, completionHandler: { (status, success) -> Void in
+                        if success {
+                            DispatchQueue.main.async {
+                                cell.dateLabel.text = self.dateTasks.date
+                                cell.reccurence.isHidden = !self.dateTasks.weeklyReccurence
+                                
+                                let id = self.routes[i].driver
+                                self.userTasks.user(driverId: id, completionHandler: { (status, success) -> Void in
+                                    if success {
+                                        DispatchQueue.main.async {
+                                            cell.driverLabel.text = self.userTasks.user.username
+                                        }
+                                    }
+                                })
+                            }
+                        }
+                    })
                 }
-                
-                let id = routes[i].driver
-                self.userTasks.user(driverId: id, completionHandler: { (status, success) -> Void in
-                    if success {
-                        DispatchQueue.main.async {
-                            cell.driverLabel.text = self.userTasks.user.username
-                        }
-                    }
-                })
-                
-                let routeId : Int = routes[i].id
-                self.dateTasks.date(routeId: routeId, completionHandler: { (status, success) -> Void in
-                    if success {
-                        DispatchQueue.main.async {
-                            cell.dateLabel.text = self.dateTasks.date
-                            cell.reccurence.isHidden = !self.dateTasks.weeklyReccurence
-                        }
-                    }
-                })
-                cell.textLabel?.lineBreakMode = NSLineBreakMode.byWordWrapping
             }
         }
+        
         return cell
     }
     
@@ -109,5 +116,13 @@ class RouteList : UIViewController, UITableViewDataSource, UITableViewDelegate {
         myIndex = indexPath.row
         performSegue(withIdentifier: "segue", sender: self)
     }
-
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "segue" {
+            if let destination = segue.destination as? RouteView {
+                destination.routes = self.routes
+            }
+        }
+    }
+    
 }

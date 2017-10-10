@@ -56,59 +56,51 @@ class RouteView : UIViewController {
         super.viewDidLoad()
         self.searchedRoute = SearchRoute.SearchedRoute.searchedRoute
         self.routeDisplay()
-        
-        
     }
     
     func routeDisplay(){
         
-        let dateParameter : String = self.searchedRoute.date+""+self.searchedRoute.time
-        let startLat : Double = self.searchedRoute.latitudeOfStartigPoint
-        let startLong : Double = self.searchedRoute.longitudeOfStartingPoint
-        let endLat : Double = self.searchedRoute.longitudeOfEndPoint
-        let endLong : Double = self.searchedRoute.longitudeOfEndPoint
+        //let dateParameter : String = self.searchedRoute.date+""+self.searchedRoute.time
+        //let startLat : Double = self.searchedRoute.latitudeOfStartigPoint
+        //let startLong : Double = self.searchedRoute.longitudeOfStartingPoint
+        //let endLat : Double = self.searchedRoute.longitudeOfEndPoint
+        //let endLong : Double = self.searchedRoute.longitudeOfEndPoint
         
-        self.routeTasks.route(date: dateParameter, completionHandler: { (status, success) -> Void in
+        
+        let driverIndex = self.routes[myIndex].driver
+        
+        DispatchQueue.main.async() {
+            self.originLabel?.text = self.routes[myIndex].nameOfStartingPoint
+            self.destinationLabel?.text = self.routes[myIndex].nameOfEndpoint
+        }
+        
+        self.userTasks.user(driverId: driverIndex, completionHandler: { (status, success) -> Void in
             if success {
-                self.routes = self.routeTasks.routes
-                let driverIndex = self.routes[myIndex].driver
-                
                 DispatchQueue.main.async() {
-                    self.originLabel?.text = self.routes[myIndex].nameOfStartingPoint
-                    self.destinationLabel?.text = self.routes[myIndex].nameOfEndpoint
+                    self.usernameDriverLabel?.text = self.userTasks.user.username
                 }
                 
-                self.userTasks.user(driverId: driverIndex, completionHandler: { (status, success) -> Void in
+                let origin = self.routes[myIndex].nameOfStartingPoint
+                let destination = self.routes[myIndex].nameOfEndpoint
+
+                self.mapTasks.getDirections(origin: origin, destination: destination, waypoints: nil, travelMode: nil, completionHandler: { (status, success) -> Void in
                     if success {
                         DispatchQueue.main.async() {
-                            self.usernameDriverLabel?.text = self.userTasks.user.username
+                            self.viewMap?.clear()
+                            self.configureMapAndMarkersForRoute()
+                            self.drawRoute()
+                            self.displayRouteInfo()
                         }
                         
-                        let origin = self.routes[myIndex].nameOfStartingPoint
-                        let destination = self.routes[myIndex].nameOfEndpoint
+                        let routeId = self.routes[myIndex].id
                         
-                        //self.createRoute(origin: self.routes[myIndex].originName, destination: self.routes[myIndex].destinationName)
-                        
-                        self.mapTasks.getDirections(origin: origin, destination: destination, waypoints: nil, travelMode: nil, completionHandler: { (status, success) -> Void in
+                        self.dateTasks.date(routeId: routeId, completionHandler: { (status, success) -> Void in
                             if success {
                                 DispatchQueue.main.async() {
-                                    self.viewMap?.clear()
-                                    self.configureMapAndMarkersForRoute()
-                                    self.drawRoute()
-                                    self.displayRouteInfo()
+                                    self.dateLabel?.text = self.dateTasks.date
+                                    self.dateLabel?.sizeToFit()
+                                    self.weeklyReccurence.isHidden = !self.dateTasks.weeklyReccurence
                                 }
-                                
-                                let routeId = self.routes[myIndex].id
-                                
-                                self.dateTasks.date(routeId: routeId, completionHandler: { (status, success) -> Void in
-                                    if success {
-                                        DispatchQueue.main.async() {
-                                            self.dateLabel?.text = self.dateTasks.date
-                                            self.dateLabel?.sizeToFit()
-                                            self.weeklyReccurence.isHidden = !self.dateTasks.weeklyReccurence
-                                        }
-                                    }
-                                })
                             }
                         })
                     }
@@ -118,27 +110,6 @@ class RouteView : UIViewController {
     }
     
     
-    
-    func createRoute(origin : String!, destination : String!) {
-        // Requete à Google pour creer une route
-        self.mapTasks.getDirections(origin: origin, destination: destination, waypoints: nil, travelMode: nil, completionHandler: { (status, success) -> Void in
-            if success {
-                DispatchQueue.main.async() {
-                    self.viewMap?.clear()
-                    self.configureMapAndMarkersForRoute()
-                    self.drawRoute()
-                    self.displayRouteInfo()
-                }
-            }
-            else {
-                print(status)
-            }
-        })
-        
-    }
-    
- 
-
     func drawRoute() {
         let route = mapTasks.overviewPolyline["points"] as! String
         
@@ -173,16 +144,11 @@ class RouteView : UIViewController {
         destinationMarker.map = self.viewMap
         destinationMarker.icon = GMSMarker.markerImage(with: UIColor.red)
         destinationMarker.title = self.mapTasks.destinationAddress
-        
     }
     
     func displayRouteInfo() {
-        
         self.durationLabel?.text = self.mapTasks.totalDuration
         self.distanceLabel?.text = self.mapTasks.totalDistance
     }
-    
-    
-    
-    
+
 }

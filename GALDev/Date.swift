@@ -7,3 +7,20 @@
 //
 
 import Foundation
+
+struct Date {
+    
+    var routeId : Int!
+    var date : String!
+    var recurrence : Bool!
+    
+    init(){
+    }
+    
+    init(routeId : Int, date : String, recurrence : Bool){
+        self.routeId = routeId
+        self.date = date
+        self.recurrence = recurrence
+    }
+    
+}
