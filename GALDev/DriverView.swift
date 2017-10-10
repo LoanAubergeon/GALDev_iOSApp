@@ -36,6 +36,11 @@ class DriverView : UIViewController, MFMailComposeViewControllerDelegate, MFMess
     
     override func viewDidLoad() {
         
+        let startLat : Double = self.searchedRoute.latitudeOfStartigPoint
+        let startLong : Double = self.searchedRoute.longitudeOfStartingPoint
+        let endLat : Double = self.searchedRoute.longitudeOfEndPoint
+        let endLong : Double = self.searchedRoute.longitudeOfEndPoint
+        
         let fullDate : String = self.searchedRoute.date+""+self.searchedRoute.time
         self.routeTasks.route(date: fullDate, completionHandler: { (status, success) -> Void in
             

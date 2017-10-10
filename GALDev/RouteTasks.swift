@@ -20,7 +20,9 @@ class RouteTasks {
     
     func route(date: String, completionHandler: @escaping ((_ status: String, _ success: Bool) -> Void)) {
         
-        let url = NSURL(string: ServerAdress+":3000/api/search?date="+date)!
+        let url = NSURL(string: ServerAdress+":3000/api/search2?date=")!
+        
+        //let url = NSURL(string: ServerAdress+":3000/api/search2?date="+date+"&startLat="+String(startLat)+"&startLng="+String(startLong)+"&endLat="+String(endLat)+"&endLng="+String(endLong)
         
         var request = URLRequest(url: url as URL)
         
@@ -59,8 +61,8 @@ class RouteTasks {
                         let xEnd = endPoint["x"] as! Double
                         let yEnd = endPoint["y"] as! Double
                         
-                        let originName = jsonObjects["origin"] as! String
-                        let destinationName = jsonObjects["destination"] as! String
+                        let originName = jsonObjects["originAdress"] as! String
+                        let destinationName = jsonObjects["destinationAdress"] as! String
                         let distance = jsonObjects["distance"] as! String
                         let duration = jsonObjects["duration"] as! String
                         

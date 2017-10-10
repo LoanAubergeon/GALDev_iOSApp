@@ -148,7 +148,8 @@ class CreateYourRoute : UIViewController, CLLocationManagerDelegate {
         self.calculationForMapDisplay.centerCalcul(xA: latitudeOfOrigin, yA: longitudeOfOrigin, xB: latitudeOfDestination, yB: longitudeOfDestination)
         // On centre la camera par rapport au deux points
         // On applique le zoom en fonction de la distance
-        let zoom : Float = self.calculationForMapDisplay.zoomCalcul(distance: Double(self.mapTasks.totalDistanceInMeters/1000))
+        let distanceDouble = Double(String(self.distance.characters.prefix(distance.count-2).dropLast()))
+        let zoom : Float = self.calculationForMapDisplay.zoomCalcul(distance: distanceDouble!)
         
         viewMap?.camera = GMSCameraPosition.camera(withLatitude: self.calculationForMapDisplay.xCenter, longitude: self.calculationForMapDisplay.yCenter, zoom: zoom)
         

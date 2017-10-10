@@ -63,6 +63,10 @@ class RouteView : UIViewController {
     func routeDisplay(){
         
         let dateParameter : String = self.searchedRoute.date+""+self.searchedRoute.time
+        let startLat : Double = self.searchedRoute.latitudeOfStartigPoint
+        let startLong : Double = self.searchedRoute.longitudeOfStartingPoint
+        let endLat : Double = self.searchedRoute.longitudeOfEndPoint
+        let endLong : Double = self.searchedRoute.longitudeOfEndPoint
         
         self.routeTasks.route(date: dateParameter, completionHandler: { (status, success) -> Void in
             if success {
@@ -133,15 +137,8 @@ class RouteView : UIViewController {
         
     }
     
-    func sizeToFit(){
-        self.originLabel?.sizeToFit()
-        self.destinationLabel?.sizeToFit()
-        self.usernameDriverLabel?.sizeToFit()
-        self.dateLabel?.sizeToFit()
-        self.durationLabel?.sizeToFit()
-        self.distanceLabel?.sizeToFit()
-    }
-    
+ 
+
     func drawRoute() {
         let route = mapTasks.overviewPolyline["points"] as! String
         

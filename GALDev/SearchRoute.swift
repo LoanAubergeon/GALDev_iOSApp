@@ -79,6 +79,7 @@ class SearchRoute: UIViewController, CLLocationManagerDelegate {
         
         self.mapTasks.getDirections(origin: origin, destination: destination, waypoints: nil, travelMode: nil, completionHandler: { (status, success) -> Void in
             if success {
+                print("success")
                 let originAdress = self.mapTasks.originAddress!
                 let destinationAdress = self.mapTasks.destinationAddress!
                 let latitudeOfOrigin = self.mapTasks.originCoordinate.latitude
@@ -105,7 +106,9 @@ class SearchRoute: UIViewController, CLLocationManagerDelegate {
                     distance: distance,
                     duration: duration
                 )
-                
+                DispatchQueue.main.async() {
+                    self.performSegue(withIdentifier: "RouteListSegue", sender: nil)
+                }
             } else {
                 // Afficher une erreur
             }
@@ -182,4 +185,6 @@ class SearchRoute: UIViewController, CLLocationManagerDelegate {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
     }
+    
+    
 }

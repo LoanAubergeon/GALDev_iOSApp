@@ -35,6 +35,10 @@ class RouteList : UIViewController, UITableViewDataSource, UITableViewDelegate {
         routeTableView.delegate = self
         
         let fullDate : String = self.searchedRoute.date+""+self.searchedRoute.time
+        let startLat : Double = self.searchedRoute.latitudeOfStartigPoint
+        let startLong : Double = self.searchedRoute.longitudeOfStartingPoint
+        let endLat : Double = self.searchedRoute.longitudeOfEndPoint
+        let endLong : Double = self.searchedRoute.longitudeOfEndPoint
         
         self.routeTasks.route(date: fullDate, completionHandler: { (status, success) -> Void in
             if success {

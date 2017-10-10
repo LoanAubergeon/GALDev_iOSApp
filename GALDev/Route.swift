@@ -74,6 +74,7 @@ struct Route {
         self.longitudeOfEndPoint = longitudeOfEndPoint
         self.distance = distance
         self.duration = duration
+        self.driver = driver
     }
     
     // Route pour la route recherché

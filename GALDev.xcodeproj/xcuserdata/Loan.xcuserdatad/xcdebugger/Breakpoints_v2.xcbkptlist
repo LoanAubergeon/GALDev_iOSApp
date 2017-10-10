@@ -10,12 +10,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "GALDev/SearchRoute.swift"
-            timestampString = "529244108.942682"
+            timestampString = "529333553.758465"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "154"
-            endingLineNumber = "154"
-            landmarkName = "locationManager(_:didUpdateLocations:)"
+            startingLineNumber = "172"
+            endingLineNumber = "172"
+            landmarkName = "timePickerChanged(sender:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -26,13 +26,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "GALDev/SearchRoute.swift"
-            timestampString = "529244108.942857"
+            timestampString = "529333553.762552"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "157"
-            endingLineNumber = "157"
-            landmarkName = "locationManager(_:didUpdateLocations:)"
-            landmarkType = "7">
+            startingLineNumber = "175"
+            endingLineNumber = "175"
+            landmarkName = "SearchRoute"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -42,12 +42,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "GALDev/SearchRoute.swift"
-            timestampString = "529244108.943027"
+            timestampString = "529333553.762836"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "154"
-            endingLineNumber = "154"
-            landmarkName = "locationManager(_:didUpdateLocations:)"
+            startingLineNumber = "172"
+            endingLineNumber = "172"
+            landmarkName = "timePickerChanged(sender:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -106,13 +106,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "GALDev/SearchRoute.swift"
-            timestampString = "529244108.943242"
+            timestampString = "529333553.76463"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "100"
-            endingLineNumber = "100"
-            landmarkName = "go(sender:)"
-            landmarkType = "7">
+            startingLineNumber = "118"
+            endingLineNumber = "118"
+            landmarkName = "SearchRoute"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -122,7 +122,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "GALDev/Home.swift"
-            timestampString = "529232264.852453"
+            timestampString = "529333553.765018"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "94"
@@ -138,28 +138,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "GALDev/SearchRoute.swift"
-            timestampString = "529244108.943385"
+            timestampString = "529333553.765303"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "157"
-            endingLineNumber = "157"
-            landmarkName = "locationManager(_:didUpdateLocations:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "GALDev/RouteList.swift"
-            timestampString = "529003262.45816"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "109"
-            endingLineNumber = "109"
-            landmarkName = "RouteList"
+            startingLineNumber = "175"
+            endingLineNumber = "175"
+            landmarkName = "SearchRoute"
             landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
@@ -170,11 +154,29 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "GALDev/RouteList.swift"
-            timestampString = "529003262.458419"
+            timestampString = "529335426.332047"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "110"
-            endingLineNumber = "110">
+            startingLineNumber = "111"
+            endingLineNumber = "111"
+            landmarkName = "tableView(_:didSelectRowAt:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GALDev/RouteList.swift"
+            timestampString = "529335426.333613"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "112"
+            endingLineNumber = "112"
+            landmarkName = "RouteList"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -184,7 +186,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "GALDev/Home.swift"
-            timestampString = "529232264.856986"
+            timestampString = "529333553.766377"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "52"
@@ -200,7 +202,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "GALDev/Home.swift"
-            timestampString = "529232264.857161"
+            timestampString = "529333553.766586"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "39"
@@ -216,7 +218,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "GALDev/Home.swift"
-            timestampString = "529232264.857244"
+            timestampString = "529333553.766816"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "24"
@@ -232,7 +234,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "GALDev/DateTasks.swift"
-            timestampString = "529003262.459399"
+            timestampString = "529333553.767073"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "18"
@@ -248,7 +250,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "GALDev/DateTasks.swift"
-            timestampString = "529003262.459591"
+            timestampString = "529333553.767296"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "25"
