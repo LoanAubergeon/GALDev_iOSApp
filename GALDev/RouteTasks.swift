@@ -102,7 +102,7 @@ class RouteTasks {
     // Route par rapport a un driver.
     func route(driverId: Int, completionHandler: @escaping ((_ status: String, _ success: Bool) -> Void)) {
         
-        let url = NSURL(string: ServerAdress+":3000/api/routes/driverId="+String(driverId))!
+        let url = NSURL(string: ServerAdress+":3000/api/driverroutes/"+String(driverId))!
         
         //let url = NSURL(string: ServerAdress+":3000/api/search2?date="+date+"&startLat="+String(startLat)+"&startLng="+String(startLong)+"&endLat="+String(endLat)+"&endLng="+String(endLong)
         
@@ -176,6 +176,35 @@ class RouteTasks {
                 completionHandler(error as! String, false)
             }
             
+        }
+        task.resume()
+        
+    }
+    
+    
+    
+    // Pour supprimer une route à un identifiant donné
+    func deleteRoute(routeId: Int, completionHandler: @escaping ((_ status: String, _ success: Bool) -> Void)) {
+        
+        let url = NSURL(string: ServerAdress+":3000/api/routes/"+String(routeId))!
+        
+        //let url = NSURL(string: ServerAdress+":3000/api/search2?date="+date+"&startLat="+String(startLat)+"&startLng="+String(startLong)+"&endLat="+String(endLat)+"&endLng="+String(endLong)
+        
+        var request = URLRequest(url: url as URL)
+        
+        request.setValue(token, forHTTPHeaderField: "x-access-token")
+        
+        request.httpMethod = "DELETE"
+        
+        let task = URLSession.shared.dataTask(with: request as URLRequest) {
+            data, response, error in
+            
+            // Check for error
+            if error != nil
+            {
+                print("Error")
+                return
+            }
         }
         task.resume()
         
