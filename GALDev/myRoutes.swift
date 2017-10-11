@@ -16,7 +16,7 @@ class myRoutes : UIViewController, UITableViewDataSource, UITableViewDelegate {
     var token = Home.UserConnectedInformations.userToken
     
     /// Table for show the list of available route
-    @IBOutlet var myRouteTableView : UITableView!
+    @IBOutlet var routeTableView : UITableView!
     
     /// Data array for show routes one by one
     var routes : [Route] = []
@@ -37,8 +37,8 @@ class myRoutes : UIViewController, UITableViewDataSource, UITableViewDelegate {
             self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         }
         
-        myRouteTableView.dataSource = self
-        myRouteTableView.delegate = self
+        routeTableView.dataSource = self
+        routeTableView.delegate = self
         
         let driverId = Home.UserConnectedInformations.user.id
         
@@ -47,7 +47,7 @@ class myRoutes : UIViewController, UITableViewDataSource, UITableViewDelegate {
                 self.routes = self.routeTasks.routes
                 
                 DispatchQueue.main.async {
-                    self.myRouteTableView.reloadData()
+                    self.routeTableView.reloadData()
                 }
                 
             }
@@ -132,7 +132,7 @@ class myRoutes : UIViewController, UITableViewDataSource, UITableViewDelegate {
                 let routeId = self.routes[indexPath.row].id
                 self.routeTasks.deleteRoute(routeId: routeId!, completionHandler: { (status, success) -> Void in})
                 self.routes.remove(at: indexPath.row)
-                self.myRouteTableView.reloadData()
+                self.routeTableView.reloadData()
             })
             alert.addAction(delete)
             alert.addAction(ok)
