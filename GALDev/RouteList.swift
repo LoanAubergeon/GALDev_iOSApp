@@ -31,6 +31,7 @@ class RouteList : UIViewController, UITableViewDataSource, UITableViewDelegate {
     var dateTasks = DateTasks()
     
     override func viewDidLoad() {
+        
         routeTableView.dataSource = self
         routeTableView.delegate = self
         
