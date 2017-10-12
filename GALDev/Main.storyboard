@@ -699,8 +699,8 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Date" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q85-H8-lQ0">
-                                                    <rect key="frame" x="318" y="57" width="86" height="15"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q85-H8-lQ0">
+                                                    <rect key="frame" x="375.66666666666674" y="57" width="28.333333333333314" height="15"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -743,7 +743,6 @@
                                                 <constraint firstItem="SmL-Tl-IpX" firstAttribute="top" secondItem="XD5-ae-SiH" secondAttribute="bottom" constant="8" symbolic="YES" id="UWZ-MH-x1H"/>
                                                 <constraint firstItem="FlZ-A2-3we" firstAttribute="leading" secondItem="V4P-MB-42m" secondAttribute="leading" id="X6W-cT-Dac"/>
                                                 <constraint firstItem="SmL-Tl-IpX" firstAttribute="leading" secondItem="4U8-QB-65F" secondAttribute="leadingMargin" constant="17" id="XMn-5X-Jnm"/>
-                                                <constraint firstAttribute="trailing" secondItem="q85-H8-lQ0" secondAttribute="trailing" constant="10" id="YC3-Za-yx7"/>
                                                 <constraint firstItem="q85-H8-lQ0" firstAttribute="top" secondItem="SmL-Tl-IpX" secondAttribute="bottom" constant="7" id="bIF-HH-azI"/>
                                                 <constraint firstItem="q85-H8-lQ0" firstAttribute="leading" secondItem="fDf-6N-zIs" secondAttribute="trailing" constant="63" id="c89-Vb-L1y"/>
                                                 <constraint firstItem="FlZ-A2-3we" firstAttribute="top" secondItem="V4P-MB-42m" secondAttribute="bottom" constant="13" id="ce9-aD-tb6"/>
@@ -756,6 +755,7 @@
                                                 <constraint firstAttribute="bottom" secondItem="q85-H8-lQ0" secondAttribute="bottom" constant="12.5" id="pac-gs-6jZ"/>
                                                 <constraint firstItem="mFw-RS-Z4w" firstAttribute="top" secondItem="4U8-QB-65F" secondAttribute="topMargin" constant="4" id="qYp-oF-l6y"/>
                                                 <constraint firstItem="o9e-fl-x4K" firstAttribute="trailing" secondItem="4U8-QB-65F" secondAttribute="trailingMargin" constant="-238" id="sCM-YE-0jw"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="q85-H8-lQ0" secondAttribute="trailing" constant="2" id="si0-d5-i2B"/>
                                                 <constraint firstAttribute="bottom" secondItem="q85-H8-lQ0" secondAttribute="bottom" constant="12.5" id="u1U-bz-9sg"/>
                                                 <constraint firstItem="o9e-fl-x4K" firstAttribute="leading" secondItem="FlZ-A2-3we" secondAttribute="trailing" constant="7" id="vFV-hR-aep"/>
                                                 <constraint firstItem="f04-DU-z93" firstAttribute="leading" secondItem="4U8-QB-65F" secondAttribute="leadingMargin" constant="17" id="vWk-XX-KRe"/>

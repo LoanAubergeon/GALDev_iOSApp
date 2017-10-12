@@ -9,8 +9,6 @@
 import UIKit
 import GoogleMaps
 
-
-
 class SearchRoute: UIViewController, CLLocationManagerDelegate {
     
     var affichageJour = false
@@ -40,8 +38,6 @@ class SearchRoute: UIViewController, CLLocationManagerDelegate {
         self.view.layoutIfNeeded()
     }
     
-    
-    
     override func viewDidLoad() {
         // On reinitialise le transfert de donnée si jamais on veut refaire une nouvelle recherche 
         SearchedRoute.searchedRoute = Route.init()
@@ -50,7 +46,6 @@ class SearchRoute: UIViewController, CLLocationManagerDelegate {
         originTextField.theme = SearchTextFieldTheme.darkTheme()
         destinationTextField.theme = SearchTextFieldTheme.darkTheme()
         originTextField.filterStrings(["Attard","Balzan","Birgu","Birkirkara","Birzebbuga","Bormla","Dingli","Fgura","Fontana","Ghajnsielem","Gharb","Gharghur","Ghasri","Ghaxaq","Gudja","Gzira","Hamrun","Iklin","Imdina","Imgarr","Imqabba","Imsida","Imtarfa","Isla","Kalkara","Kercem","Kirkop","Lija","Luqa","Marsa","Marsaskala","Mellieha","Mosta","Munxar","Nadur","Naxxar","Paola","Pembroke","Pieta","Qala","Qormi","Qrendi","Rabat","Rabat","Safi","San Gwann","San Giljan","San Lawrenz","Saint Lucia","Saint Pauls Bay","Saint Venera","Sannat","Siggiewi","Sliema","Swieqi","Tarxien","Ta Xbiex","Valletta","Xaghra","Xewkija","Xghajra","Zabbar","Zebbug","Zebbug","Zejtun","Zurrieq"])
-        
         destinationTextField.filterStrings(["Attard","Balzan","Birgu","Birkirkara","Birzebbuga","Bormla","Dingli","Fgura","Fontana","Ghajnsielem","Gharb","Gharghur","Ghasri","Ghaxaq","Gudja","Gzira","Hamrun","Iklin","Imdina","Imgarr","Imqabba","Imsida","Imtarfa","Isla","Kalkara","Kercem","Kirkop","Lija","Luqa","Marsa","Marsaskala","Mellieha","Mosta","Munxar","Nadur","Naxxar","Paola","Pembroke","Pieta","Qala","Qormi","Qrendi","Rabat","Rabat","Safi","San Gwann","San Giljan","San Lawrenz","Saint Lucia","Saint Pauls Bay","Saint Venera","Sannat","Siggiewi","Sliema","Swieqi","Tarxien","Ta Xbiex","Valletta","Xaghra","Xewkija","Xghajra","Zabbar","Zebbug","Zebbug","Zejtun","Zurrieq"])
         
         locationManager.delegate = self

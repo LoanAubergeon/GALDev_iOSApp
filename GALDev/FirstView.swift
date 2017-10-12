@@ -13,8 +13,6 @@ import GoogleMaps
 /// The first view of the app when you are authenticated
 class FirstView: UIViewController, CLLocationManagerDelegate {
     
-    
-    
     //  #################### Variables ####################
     
     /// Initializes MapTasks
@@ -56,6 +54,7 @@ class FirstView: UIViewController, CLLocationManagerDelegate {
         let camera: GMSCameraPosition = GMSCameraPosition.camera(withLatitude: 48.857165, longitude: 2.354613, zoom: 8.0)
         viewMap?.camera = camera
         
+        /// Set up the location button on the view
         viewMap?.settings.myLocationButton = true
         
         /// Update the Map view with the current position of the user
@@ -63,9 +62,6 @@ class FirstView: UIViewController, CLLocationManagerDelegate {
         locationManager.requestWhenInUseAuthorization()
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.startUpdatingLocation()
-    }
-    @IBAction func getZoom(){
-        print(viewMap?.camera.zoom)
     }
     
     /// For change the type of the map

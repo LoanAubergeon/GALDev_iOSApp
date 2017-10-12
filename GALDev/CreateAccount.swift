@@ -8,8 +8,11 @@
 
 import UIKit
 
+
+/// View for create on account one the database
 class CreateAccount : UIViewController {
     
+    /// User's informations
     @IBOutlet var usernameF : UITextField!
     @IBOutlet var passwordF : UITextField!
     @IBOutlet var nameF : UITextField!
@@ -17,7 +20,7 @@ class CreateAccount : UIViewController {
     @IBOutlet var emailF : UITextField!
     @IBOutlet var mobileNumberF : UITextField!
     
-    
+    /// The requeste on the database
     @IBAction func createAccount (sender:UIButton){
         
         let username = usernameF.text?.replacingOccurrences(of:" ", with: "").replacingOccurrences(of: ",", with: "")
@@ -33,7 +36,7 @@ class CreateAccount : UIViewController {
         
         var request = URLRequest(url: url as URL)
         
-        
+        // All textfield must be completed
         if (username != "") && (password != "") && (name != "") && (surname != "") && (email != "") && (mobileNumber != ""){
             do {
                 // Set the request content type to JSON
@@ -64,12 +67,11 @@ class CreateAccount : UIViewController {
                             DispatchQueue.main.async() { // Permet de mettre a jour l'UI sans attendre la fin du task
                             
                                 let success = parseJSON["success"] as? Bool
+                                // Display an alert if the user has been created
                                 if success! {
-                                    let alertController = UIAlertController(title: "Success", message: "User has been added", preferredStyle: .alert)
-                                    let defaultAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
-                                    alertController.addAction(defaultAction)
+                                    self.errorAlert(title: "Success", message: "User has been added")
                                 }
-                            
+                                // After that we display the Home page
                                 self.performSegue(withIdentifier: "backSegue", sender: nil)
                             }
                         }
