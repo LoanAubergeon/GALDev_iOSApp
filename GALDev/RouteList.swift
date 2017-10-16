@@ -36,13 +36,13 @@ class RouteList : UIViewController, UITableViewDataSource, UITableViewDelegate {
         routeTableView.delegate = self
         
         let fullDate : String = self.searchedRoute.date+""+self.searchedRoute.time
-        //let startLat : Double = self.searchedRoute.latitudeOfStartigPoint
-        //let startLong : Double = self.searchedRoute.longitudeOfStartingPoint
-        //let endLat : Double = self.searchedRoute.longitudeOfEndPoint
-        //let endLong : Double = self.searchedRoute.longitudeOfEndPoint
+        let startLat : Double = self.searchedRoute.latitudeOfStartigPoint
+        let startLong : Double = self.searchedRoute.longitudeOfStartingPoint
+        let endLat : Double = self.searchedRoute.longitudeOfEndPoint
+        let endLong : Double = self.searchedRoute.longitudeOfEndPoint
         
         // Chargement de la liste des routes 
-        self.routeTasks.route(date: fullDate, completionHandler: { (status, success) -> Void in
+        self.routeTasks.route(date: fullDate, startLat : startLat, startLong : startLong, endLat : endLat, endLong : endLong,  completionHandler: { (status, success) -> Void in
             if success {
                 self.routes = self.routeTasks.routes
                 
@@ -115,11 +115,11 @@ class RouteList : UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         myIndex = indexPath.row
-        performSegue(withIdentifier: "segue", sender: self)
+        performSegue(withIdentifier: "routeViewSegue", sender: self)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "segue" {
+        if segue.identifier == "routeViewSegue" {
             if let destination = segue.destination as? RouteView {
                 destination.routes = self.routes
             }

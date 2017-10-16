@@ -58,14 +58,19 @@ class RouteView : UIViewController {
         self.routeDisplay()
     }
     
+    @IBAction func displayDriverView(sender: AnyObject){
+        performSegue(withIdentifier: "driverViewSegue", sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "driverViewSegue" {
+            if let destination = segue.destination as? DriverView {
+                destination.routes = self.routes
+            }
+        }
+    }
+    
     func routeDisplay(){
-        
-        //let dateParameter : String = self.searchedRoute.date+""+self.searchedRoute.time
-        //let startLat : Double = self.searchedRoute.latitudeOfStartigPoint
-        //let startLong : Double = self.searchedRoute.longitudeOfStartingPoint
-        //let endLat : Double = self.searchedRoute.longitudeOfEndPoint
-        //let endLong : Double = self.searchedRoute.longitudeOfEndPoint
-        
         
         let driverIndex = self.routes[myIndex].driver
         

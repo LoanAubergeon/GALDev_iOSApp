@@ -17,12 +17,10 @@ class DriverView : UIViewController, MFMailComposeViewControllerDelegate, MFMess
     
     var token = Home.UserConnectedInformations.userToken
     
-    var driverId : Int!
-    
     var driverEmail = ""
     var mobileNumber = ""
     
-    var driver: [Int] = []
+    var routes : [Route] = []
     
     var searchedRoute : Route = SearchRoute.SearchedRoute.searchedRoute
     
@@ -35,34 +33,23 @@ class DriverView : UIViewController, MFMailComposeViewControllerDelegate, MFMess
     
     
     override func viewDidLoad() {
+        let driverId = self.routes[myIndex].driver
         
-        let startLat : Double = self.searchedRoute.latitudeOfStartigPoint
-        let startLong : Double = self.searchedRoute.longitudeOfStartingPoint
-        let endLat : Double = self.searchedRoute.longitudeOfEndPoint
-        let endLong : Double = self.searchedRoute.longitudeOfEndPoint
-        
-        let fullDate : String = self.searchedRoute.date+""+self.searchedRoute.time
-        self.routeTasks.route(date: fullDate, completionHandler: { (status, success) -> Void in
-            
+        self.userTasks.user(driverId: driverId, completionHandler: { (status, success) -> Void in
             if success {
-                self.driverId = self.routeTasks.routes[myIndex].driver
-                
-                self.userTasks.user(driverId: self.driverId, completionHandler: { (status, success) -> Void in
-                    if success {
-                        DispatchQueue.main.async() {
-                            self.firstNameLabel?.text = self.userTasks.user.name
-                            self.lastNameLabel?.text = self.userTasks.user.surname
-                            self.usernameLabel?.text = self.userTasks.user.username
-                            self.mobileNumberLabel?.text = self.userTasks.user.mobileNumber
-                            self.emailLabel?.text = self.userTasks.user.email
-                        }
-                        self.driverEmail = self.userTasks.user.email
-                        self.mobileNumber = self.userTasks.user.mobileNumber
-                    }
-                })
+                DispatchQueue.main.async() {
+                    self.firstNameLabel?.text = self.userTasks.user.name
+                    self.lastNameLabel?.text = self.userTasks.user.surname
+                    self.usernameLabel?.text = self.userTasks.user.username
+                    self.mobileNumberLabel?.text = self.userTasks.user.mobileNumber
+                    self.emailLabel?.text = self.userTasks.user.email
+                }
+                self.driverEmail = self.userTasks.user.email
+                self.mobileNumber = self.userTasks.user.mobileNumber
             }
         })
     }
+    
     
     @IBAction func sendMessage(sender: AnyObject) {
         let messageVC = MFMessageComposeViewController()
