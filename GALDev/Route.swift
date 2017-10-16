@@ -31,7 +31,6 @@ struct Route {
     var duration : String!
     
     init(){
-        
     }
     
 

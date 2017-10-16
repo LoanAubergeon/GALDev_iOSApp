@@ -57,6 +57,7 @@
 		4CAA29251F86944B00813FA9 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAA29241F86944B00813FA9 /* User.swift */; };
 		4CAA29271F8695F200813FA9 /* Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAA29261F8695F200813FA9 /* Route.swift */; };
 		4CAA29291F8696E600813FA9 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAA29281F8696E600813FA9 /* Date.swift */; };
+		4CB63F271F94F4ED008E8881 /* RouteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB63F261F94F4ED008E8881 /* RouteTests.swift */; };
 		4CBC78921F8B847D00C9930F /* SearchTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CBC78911F8B847D00C9930F /* SearchTextField.swift */; };
 		4CF30A4C1F66A4D5001B3AF3 /* RouteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CF30A4B1F66A4D5001B3AF3 /* RouteView.swift */; };
 /* End PBXBuildFile section */
@@ -128,6 +129,7 @@
 		4CAA29241F86944B00813FA9 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		4CAA29261F8695F200813FA9 /* Route.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Route.swift; sourceTree = "<group>"; };
 		4CAA29281F8696E600813FA9 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
+		4CB63F261F94F4ED008E8881 /* RouteTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteTests.swift; sourceTree = "<group>"; };
 		4CBC78911F8B847D00C9930F /* SearchTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTextField.swift; sourceTree = "<group>"; };
 		4CF30A4B1F66A4D5001B3AF3 /* RouteView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouteView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -302,6 +304,7 @@
 				4C3F10711F86507300D10178 /* GALDevTests.swift */,
 				4C3F10791F8650C000D10178 /* HomeTests.swift */,
 				4C057C281F87DF75002178E5 /* UserTests.swift */,
+				4CB63F261F94F4ED008E8881 /* RouteTests.swift */,
 				4CA18F2F1F8829370055E327 /* CalculationForMapDisplayTests.swift */,
 				4C3F10731F86507300D10178 /* Info.plist */,
 			);
@@ -461,6 +464,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4C057C291F87DF75002178E5 /* UserTests.swift in Sources */,
+				4CB63F271F94F4ED008E8881 /* RouteTests.swift in Sources */,
 				4C3F107A1F8650C000D10178 /* HomeTests.swift in Sources */,
 				4C3F10721F86507300D10178 /* GALDevTests.swift in Sources */,
 				4CA18F301F8829370055E327 /* CalculationForMapDisplayTests.swift in Sources */,
