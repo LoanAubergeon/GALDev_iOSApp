@@ -78,7 +78,9 @@ class CreateAccount : UIViewController {
                                 let success = parseJSON["success"] as? Bool
                                 // Display an alert if the user has been created
                                 if success! {
-                                    self.errorAlert(title: "Success", message: "User has been added")
+                                    DispatchQueue.main.async() {
+                                        self.errorAlert(title: "Success", message: "User has been added")
+                                    }
                                 }
                                 // After that we display the Home page
                                 self.performSegue(withIdentifier: "backSegue", sender: nil)
