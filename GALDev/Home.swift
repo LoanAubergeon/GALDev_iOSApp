@@ -131,6 +131,7 @@ class Home: UIViewController {
                         }
                     }
                 }
+                // We execute the task 
                 task.resume()
             }
         }

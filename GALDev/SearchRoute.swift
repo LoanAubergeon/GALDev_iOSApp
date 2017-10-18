@@ -9,45 +9,53 @@
 import UIKit
 import GoogleMaps
 
+/// The view to search a route or create a route
 class SearchRoute: UIViewController, CLLocationManagerDelegate {
     
-    var affichageJour = false
+    //  #################### Variables ####################
     
+    /// Variables for the current location
     let locationManager = CLLocationManager()
     
     var locationMarker: GMSMarker!
     
+    /// Currrent location cordinates
     var myLocationLat : Float = 0
     var myLocationLng : Float = 0
     
+    /// The Maps who are displayed on the view
     @IBOutlet var viewMap : GMSMapView?
     
+    /// TexteFields to retrieve Route's informations
     @IBOutlet var hourTextField: UITextField!
     @IBOutlet var dateTextField: UITextField!
-    
     @IBOutlet var originTextField : SearchTextField!
     @IBOutlet var destinationTextField : SearchTextField!
     
+    /// The switch for the weekly recurrence, The default value is False
+    var affichageJour = false
+    
+    /// Tasks to retrieve informations with GoogleMaps
     var mapTasks = MapTasks()
     
+    //  #################### Structures ####################
+    
+    /// To save informations about the searched route
     struct SearchedRoute {
         static var searchedRoute : Route = Route.init()
     }
     
-    override func awakeFromNib() {
-        self.view.layoutIfNeeded()
-    }
+    
+    //  #################### Functions ####################
     
     override func viewDidLoad() {
-        // On reinitialise le transfert de donnée si jamais on veut refaire une nouvelle recherche 
+        /// The information of the route sought is reset
         SearchedRoute.searchedRoute = Route.init()
         
-       // Suggestions
-        originTextField.theme = SearchTextFieldTheme.darkTheme()
-        destinationTextField.theme = SearchTextFieldTheme.darkTheme()
-        originTextField.filterStrings(["Attard","Balzan","Birgu","Birkirkara","Birzebbuga","Bormla","Dingli","Fgura","Fontana","Ghajnsielem","Gharb","Gharghur","Ghasri","Ghaxaq","Gudja","Gzira","Hamrun","Iklin","Imdina","Imgarr","Imqabba","Imsida","Imtarfa","Isla","Kalkara","Kercem","Kirkop","Lija","Luqa","Marsa","Marsaskala","Mellieha","Mosta","Munxar","Nadur","Naxxar","Paola","Pembroke","Pieta","Qala","Qormi","Qrendi","Rabat","Rabat","Safi","San Gwann","San Giljan","San Lawrenz","Saint Lucia","Saint Pauls Bay","Saint Venera","Sannat","Siggiewi","Sliema","Swieqi","Tarxien","Ta Xbiex","Valletta","Xaghra","Xewkija","Xghajra","Zabbar","Zebbug","Zebbug","Zejtun","Zurrieq"])
-        destinationTextField.filterStrings(["Attard","Balzan","Birgu","Birkirkara","Birzebbuga","Bormla","Dingli","Fgura","Fontana","Ghajnsielem","Gharb","Gharghur","Ghasri","Ghaxaq","Gudja","Gzira","Hamrun","Iklin","Imdina","Imgarr","Imqabba","Imsida","Imtarfa","Isla","Kalkara","Kercem","Kirkop","Lija","Luqa","Marsa","Marsaskala","Mellieha","Mosta","Munxar","Nadur","Naxxar","Paola","Pembroke","Pieta","Qala","Qormi","Qrendi","Rabat","Rabat","Safi","San Gwann","San Giljan","San Lawrenz","Saint Lucia","Saint Pauls Bay","Saint Venera","Sannat","Siggiewi","Sliema","Swieqi","Tarxien","Ta Xbiex","Valletta","Xaghra","Xewkija","Xghajra","Zabbar","Zebbug","Zebbug","Zejtun","Zurrieq"])
+        /// We have city suggestions on textfields
+        citySuggestion()
         
+        /// We start the location of the user's current location
         locationManager.delegate = self
         locationManager.requestWhenInUseAuthorization()
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
@@ -55,6 +63,17 @@ class SearchRoute: UIViewController, CLLocationManagerDelegate {
         
     }
     
+    ///
+    func citySuggestion() {
+        originTextField.theme = SearchTextFieldTheme.darkTheme()
+        destinationTextField.theme = SearchTextFieldTheme.darkTheme()
+        originTextField.filterStrings(["Attard","Balzan","Birgu","Birkirkara","Birzebbuga","Bormla","Dingli","Fgura","Fontana","Ghajnsielem","Gharb","Gharghur","Ghasri","Ghaxaq","Gudja","Gzira","Hamrun","Iklin","Imdina","Imgarr","Imqabba","Imsida","Imtarfa","Isla","Kalkara","Kercem","Kirkop","Lija","Luqa","Marsa","Marsaskala","Mellieha","Mosta","Munxar","Nadur","Naxxar","Paola","Pembroke","Pieta","Qala","Qormi","Qrendi","Rabat","Rabat","Safi","San Gwann","San Giljan","San Lawrenz","Saint Lucia","Saint Pauls Bay","Saint Venera","Sannat","Siggiewi","Sliema","Swieqi","Tarxien","Ta Xbiex","Valletta","Xaghra","Xewkija","Xghajra","Zabbar","Zebbug","Zebbug","Zejtun","Zurrieq"])
+        destinationTextField.filterStrings(["Attard","Balzan","Birgu","Birkirkara","Birzebbuga","Bormla","Dingli","Fgura","Fontana","Ghajnsielem","Gharb","Gharghur","Ghasri","Ghaxaq","Gudja","Gzira","Hamrun","Iklin","Imdina","Imgarr","Imqabba","Imsida","Imtarfa","Isla","Kalkara","Kercem","Kirkop","Lija","Luqa","Marsa","Marsaskala","Mellieha","Mosta","Munxar","Nadur","Naxxar","Paola","Pembroke","Pieta","Qala","Qormi","Qrendi","Rabat","Rabat","Safi","San Gwann","San Giljan","San Lawrenz","Saint Lucia","Saint Pauls Bay","Saint Venera","Sannat","Siggiewi","Sliema","Swieqi","Tarxien","Ta Xbiex","Valletta","Xaghra","Xewkija","Xghajra","Zabbar","Zebbug","Zebbug","Zejtun","Zurrieq"])
+    }
+    
+    override func awakeFromNib() {
+        self.view.layoutIfNeeded()
+    }
     
     @IBAction func myLocationOrigin(sender: UIButton){
         originTextField.text = String(myLocationLat)+" , "+String(myLocationLng)
@@ -113,29 +132,19 @@ class SearchRoute: UIViewController, CLLocationManagerDelegate {
     
     
     @IBAction func textFieldEditingDate(sender: UITextField) {
-        
         let datePickerView:UIDatePicker = UIDatePicker()
-        
         datePickerView.datePickerMode = UIDatePickerMode.date
-        
         sender.inputView = datePickerView
-        
         datePickerView.addTarget(self, action: #selector(self.datePickerChanged), for: UIControlEvents.valueChanged)
-        
     }
     
     
     
     @IBAction func textFieldEditingTime(sender: UITextField) {
-        
         let datePickerView:UIDatePicker = UIDatePicker()
-        
         datePickerView.datePickerMode = UIDatePickerMode.time
-        
         sender.inputView = datePickerView
-        
         datePickerView.addTarget(self, action: #selector(self.timePickerChanged), for: UIControlEvents.valueChanged)
-        
     }
     
     @IBAction func autoOnOff (sender : UISwitch) {
