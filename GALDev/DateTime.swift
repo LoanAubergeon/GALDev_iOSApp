@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Date {
+struct DateTime {
     
     var routeId : Int!
     var date : String!

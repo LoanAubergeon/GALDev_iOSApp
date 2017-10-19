@@ -159,6 +159,19 @@ class SearchRoute: UIViewController, CLLocationManagerDelegate {
         datePickerView.datePickerMode = UIDatePickerMode.time
         sender.inputView = datePickerView
         datePickerView.addTarget(self, action: #selector(self.timePickerChanged), for: UIControlEvents.valueChanged)
+        
+        let toolbar = UIToolbar()
+        toolbar.barStyle = UIBarStyle.blackTranslucent
+        toolbar.tintColor = UIColor.white
+        toolbar.sizeToFit()
+        
+        let todayButton = UIBarButtonItem(title: "Now", style: UIBarButtonItemStyle.plain, target: self, action: #selector(SearchRoute.todayTimePressed(sender:)) )
+        let spaceButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.flexibleSpace, target: self, action: nil)
+        let doneButton = UIBarButtonItem(title: "Done", style: UIBarButtonItemStyle.done, target: self, action: #selector(SearchRoute.donePressed(sender:)) )
+        
+        toolbar.setItems([todayButton, spaceButton, doneButton], animated: false)
+        toolbar.isUserInteractionEnabled = true
+        sender.inputAccessoryView = toolbar
     }
     
     @IBAction func autoOnOff (sender : UISwitch) {
@@ -200,17 +213,19 @@ class SearchRoute: UIViewController, CLLocationManagerDelegate {
     }
     
     @objc func todayDatePressed(sender: Any){
-        let currentDateTime = Date()
+        let currentDate = Date()
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "YYYY-MM-dd"
-        dateTextField.text = dateFormatter.string(for: currentDateTime)
+        dateTextField.text = dateFormatter.string(for: currentDate)
+        dateTextField.resignFirstResponder()
     }
     
     @objc func todayTimePressed(sender: Any){
-        let currentDateTime = Date()
+        let currentTime = Date()
         let timeFormatter = DateFormatter()
         timeFormatter.timeStyle = DateFormatter.Style.short
-        hourTextField.text = timeFormatter.string(for: currentDateTime)
+        hourTextField.text = timeFormatter.string(for: currentTime)
+        hourTextField.resignFirstResponder()
     }
     
     @objc func donePressed(sender: UIBarButtonItem){
