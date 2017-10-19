@@ -125,6 +125,8 @@ class MapTasks : NSObject, CLLocationManagerDelegate {
                 let destinationLocation = destinationLocation.replacingOccurrences(of:" ", with: "+").replacingOccurrences(of: ",", with: "+")
                 let directionsURLString = baseURLDirections + "origin=" + originLocation + "&destination=" + destinationLocation
                 
+                
+            
                 let directionsURL = URL(string: directionsURLString)!
                 
                 let requestDirection = NSMutableURLRequest(url:directionsURL as URL)

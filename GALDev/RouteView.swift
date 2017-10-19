@@ -106,6 +106,7 @@ class RouteView : UIViewController {
                                     self.dateLabel?.sizeToFit()
                                     self.weeklyReccurence.isHidden = !self.dateTasks.weeklyReccurence
                                 }
+            
                             }
                         })
                     }

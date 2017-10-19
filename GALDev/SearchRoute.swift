@@ -133,9 +133,23 @@ class SearchRoute: UIViewController, CLLocationManagerDelegate {
     
     @IBAction func textFieldEditingDate(sender: UITextField) {
         let datePickerView:UIDatePicker = UIDatePicker()
+        
         datePickerView.datePickerMode = UIDatePickerMode.date
         sender.inputView = datePickerView
         datePickerView.addTarget(self, action: #selector(self.datePickerChanged), for: UIControlEvents.valueChanged)
+        
+        let toolbar = UIToolbar()
+        toolbar.barStyle = UIBarStyle.blackTranslucent
+        toolbar.tintColor = UIColor.white
+        toolbar.sizeToFit()
+        
+        let todayButton = UIBarButtonItem(title: "Now", style: UIBarButtonItemStyle.plain, target: self, action: #selector(SearchRoute.todayDatePressed(sender:)) )
+        let spaceButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.flexibleSpace, target: self, action: nil)
+        let doneButton = UIBarButtonItem(title: "Done", style: UIBarButtonItemStyle.done, target: self, action: #selector(SearchRoute.donePressed(sender:)) )
+        
+        toolbar.setItems([todayButton, spaceButton, doneButton], animated: false)
+        toolbar.isUserInteractionEnabled = true
+        sender.inputAccessoryView = toolbar
     }
     
     
@@ -183,6 +197,24 @@ class SearchRoute: UIViewController, CLLocationManagerDelegate {
         //dateFormatter.dateStyle = DateFormatter.Style.short
         dateFormatter.dateFormat = "YYYY-MM-dd"
         dateTextField.text = dateFormatter.string(for: sender.date)
+    }
+    
+    @objc func todayDatePressed(sender: Any){
+        let currentDateTime = Date()
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "YYYY-MM-dd"
+        dateTextField.text = dateFormatter.string(for: currentDateTime)
+    }
+    
+    @objc func todayTimePressed(sender: Any){
+        let currentDateTime = Date()
+        let timeFormatter = DateFormatter()
+        timeFormatter.timeStyle = DateFormatter.Style.short
+        hourTextField.text = timeFormatter.string(for: currentDateTime)
+    }
+    
+    @objc func donePressed(sender: UIBarButtonItem){
+        dateTextField.resignFirstResponder()
     }
     
     
