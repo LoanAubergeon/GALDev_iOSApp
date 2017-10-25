@@ -347,8 +347,8 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zhc-xm-U67">
-                                <rect key="frame" x="56" y="324" width="208" height="26"/>
-                                <state key="normal" image="email2"/>
+                                <rect key="frame" x="56" y="324" width="208" height="24"/>
+                                <state key="normal" image="email"/>
                                 <connections>
                                     <action selector="mailComposeWithSender:" destination="CB4-hJ-dC7" eventType="touchUpInside" id="Sn2-M2-klg"/>
                                 </connections>
@@ -358,7 +358,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="43" id="9I1-9N-ROS"/>
                                 </constraints>
-                                <state key="normal" image="email"/>
+                                <state key="normal" image="sms"/>
                                 <connections>
                                     <action selector="sendMessageWithSender:" destination="CB4-hJ-dC7" eventType="touchUpInside" id="ui2-mt-8Z2"/>
                                 </connections>
@@ -2095,7 +2095,6 @@
         <image name="direction" width="24" height="24"/>
         <image name="distance-1" width="48" height="48"/>
         <image name="email" width="24" height="24"/>
-        <image name="email2" width="26" height="26"/>
         <image name="exit" width="24" height="24"/>
         <image name="green-marker" width="50" height="50"/>
         <image name="help" width="24" height="24"/>
@@ -2111,6 +2110,7 @@
         <image name="red-marker" width="50" height="50"/>
         <image name="repeat" width="50" height="50"/>
         <image name="settings" width="24" height="24"/>
+        <image name="sms" width="24" height="24"/>
         <image name="user1" width="225" height="225"/>
     </resources>
     <inferredMetricsTieBreakers>
