@@ -29,6 +29,8 @@ class RouteList : UIViewController, UITableViewDataSource, UITableViewDelegate {
     var userTasks = UserTasks()
     var routeTasks = RouteTasks()
     var dateTasks = DateTasks()
+    var favoriteRouteTasks = FavoriteRouteTasks()
+    
     
     override func viewDidLoad() {
         
@@ -87,6 +89,7 @@ class RouteList : UIViewController, UITableViewDataSource, UITableViewDelegate {
                 DispatchQueue.main.async {
                     cell.originLabel.text = self.routes[i].nameOfStartingPoint
                     cell.destinationLabel.text = self.routes[i].nameOfEndpoint
+                    cell.favorite.isHidden = true
                     
                     let routeId : Int = self.routes[i].id
                     self.dateTasks.date(routeId: routeId, completionHandler: { (status, success) -> Void in
@@ -100,6 +103,16 @@ class RouteList : UIViewController, UITableViewDataSource, UITableViewDelegate {
                                     if success {
                                         DispatchQueue.main.async {
                                             cell.driverLabel.text = self.userTasks.user.username
+                                            
+                                            let userId = Home.UserConnectedInformations.user.id
+                                            self.favoriteRouteTasks.favoriteRoute(routeId: routeId, userId: userId!, completionHandler: { (status, success) -> Void in
+                                                if status == "Existing" {
+                                                    DispatchQueue.main.async {
+                                                        cell.favorite.isHidden = false
+                                                    }
+                                                }
+                                            })
+                                            
                                         }
                                     }
                                 })

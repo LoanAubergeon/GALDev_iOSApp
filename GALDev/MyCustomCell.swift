@@ -14,4 +14,5 @@ class MyCustomCell: UITableViewCell {
     @IBOutlet weak var driverLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var reccurence: UIImageView!
+    @IBOutlet weak var favorite: UIImageView!
 }
