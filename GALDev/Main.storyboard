@@ -304,7 +304,7 @@
                         <outlet property="hourTextField" destination="NLf-C8-4qg" id="cCY-yT-Qru"/>
                         <outlet property="originTextField" destination="2t7-Ns-gPw" id="1mX-cq-NNh"/>
                         <segue destination="y9Q-07-qPH" kind="show" identifier="RouteListSegue" id="DZs-Gi-YoS"/>
-                        <segue destination="33c-1M-W8l" kind="show" identifier="seeCurrentRoute" id="ZYt-W5-cVn"/>
+                        <segue destination="33c-1M-W8l" kind="show" identifier="seeCurrentRoute" animates="NO" id="ZYt-W5-cVn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jy7-09-Iqw" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -770,7 +770,7 @@
                                                     </constraints>
                                                 </imageView>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="clock" translatesAutoresizingMaskIntoConstraints="NO" id="fDf-6N-zIs">
-                                                    <rect key="frame" x="238" y="61" width="10" height="10"/>
+                                                    <rect key="frame" x="243" y="61" width="10" height="10"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="10" id="Tjf-xc-eTC"/>
                                                         <constraint firstAttribute="width" constant="10" id="XMs-no-PUw"/>
@@ -787,7 +787,7 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="trailingMargin" secondItem="XD5-ae-SiH" secondAttribute="trailing" constant="-2" id="64h-36-AqW"/>
-                                                <constraint firstItem="q85-H8-lQ0" firstAttribute="leading" secondItem="fDf-6N-zIs" secondAttribute="trailing" constant="4" id="7XE-Kw-KuS"/>
+                                                <constraint firstItem="q85-H8-lQ0" firstAttribute="leading" secondItem="fDf-6N-zIs" secondAttribute="trailing" constant="-1" id="7XE-Kw-KuS"/>
                                                 <constraint firstItem="q85-H8-lQ0" firstAttribute="centerX" secondItem="XD5-ae-SiH" secondAttribute="centerX" constant="-43" id="8kC-hx-WiO"/>
                                                 <constraint firstItem="FlZ-A2-3we" firstAttribute="trailing" secondItem="mFw-RS-Z4w" secondAttribute="trailing" id="9rA-A8-ngs"/>
                                                 <constraint firstAttribute="trailing" secondItem="q85-H8-lQ0" secondAttribute="trailing" constant="9" id="AsH-c3-gFl"/>

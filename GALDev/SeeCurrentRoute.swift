@@ -32,7 +32,6 @@ class SeeCurrentRoute : UIViewController{
         viewMap.delegate = self
         self.currentRoute = SearchRoute.SearchedRoute.seeCurrentRoute
         self.routeDisplay()
-    
     }
     
     func routeDisplay(){
