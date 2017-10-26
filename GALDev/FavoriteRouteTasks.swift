@@ -96,9 +96,9 @@ class FavoriteRouteTasks {
     }
     
     // Pour aviter d'ajouter des doublons
-    func favoriteRoute(routeId : Int, userId: Int, completionHandler: @escaping ((_ status: String, _ success: Bool) -> Void)) -> Bool {
+    func favoriteRoute(routeId : Int, userId: Int, completionHandler: @escaping ((_ status: String, _ success: Bool) -> Void)){
         
-        var existing = false
+        
         
         let url = NSURL(string: ServerAdress+":3000/api/favoriteRoute/?userId="+String(userId)+"&routeId="+String(routeId))!
         
@@ -120,19 +120,19 @@ class FavoriteRouteTasks {
             
             do {
                 let jsonResult = try JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions.mutableContainers) as! NSArray
-                
+                print((jsonResult).count)
                 if (jsonResult).count == 1 {
-                    existing = true
+                    completionHandler("Existing", true)
+                } else {
+                    completionHandler("No existing", false)
                 }
                 
             } catch { // On catch les erreurs potentielles
                 print(error)
                 completionHandler(error as! String, false)
             }
-            
         }
         task.resume()
-        return existing
     }
     
     // Pour supprimer une favoriteRoute à un identifiant donné
@@ -151,11 +151,14 @@ class FavoriteRouteTasks {
         let task = URLSession.shared.dataTask(with: request as URLRequest) {
             data, response, error in
             
+            do{
+                completionHandler("Ok", true)
+            }
+            
             // Check for error
             if error != nil
             {
                 print("Error")
-                return
             }
         }
         task.resume()
@@ -185,6 +188,10 @@ class FavoriteRouteTasks {
             {
                 print("Error")
                 return
+            }
+            
+            do{
+                completionHandler("Ok", true)
             }
         }
         task.resume()

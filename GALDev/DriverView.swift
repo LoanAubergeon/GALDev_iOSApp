@@ -14,6 +14,7 @@ class DriverView : UIViewController, MFMailComposeViewControllerDelegate, MFMess
     
     var userTasks = UserTasks()
     var routeTasks = RouteTasks()
+    var favoriteRouteTasks = FavoriteRouteTasks()
     
     var token = Home.UserConnectedInformations.userToken
     
@@ -46,6 +47,34 @@ class DriverView : UIViewController, MFMailComposeViewControllerDelegate, MFMess
                 }
                 self.driverEmail = self.userTasks.user.email
                 self.mobileNumber = self.userTasks.user.mobileNumber
+            }
+        })
+    }
+    
+    @IBAction func addToFavoriteRoute(sender: AnyObject){
+        let userId = Home.UserConnectedInformations.user.id
+        let routeId = self.routes[myIndex].id
+        
+        self.favoriteRouteTasks.favoriteRoute(routeId: routeId!, userId: userId!, completionHandler: { (status, success) -> Void in
+            if status == "Existing" {
+                 self.alert(title: "Already favorite", message: "The route is already in your favorite routes")
+            } else if status == "No existing" {
+                self.favoriteRouteTasks.addFavoriteRoute(userId: userId!, routeId: routeId!, completionHandler: { (status, success) -> Void in
+                    if success {
+                        DispatchQueue.main.async() {
+                            self.alert(title: "Route added", message: "The route has been added to your favorite routes")
+                        }
+                    } else {
+                        DispatchQueue.main.async() {
+                            self.alert(title: "Route didn't add", message: "The route hasn't been add to your favorite routes")
+                        }
+                        
+                    }
+                })
+            } else {
+                DispatchQueue.main.async() {
+                    self.alert(title: "Error", message: "")
+                }
             }
         })
     }
@@ -110,5 +139,12 @@ class DriverView : UIViewController, MFMailComposeViewControllerDelegate, MFMess
                 UIApplication.shared.openURL(url)
             }
         }
+    }
+    
+    func alert(title: String, message: String){
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let defaultAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
+        alertController.addAction(defaultAction)
+        present(alertController, animated: true, completion: nil)
     }
 }

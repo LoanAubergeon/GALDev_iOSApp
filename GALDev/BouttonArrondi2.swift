@@ -22,7 +22,7 @@ class BouttonArrondi2 : UIButton {
         layer.borderColor = UIColor.gray.cgColor
         
         //Epaisseur de la bordure
-        layer.borderWidth = 1.5
+        layer.borderWidth = 1
         
         //Couleur du texte
         setTitleColor(UIColor.black, for: .normal)
