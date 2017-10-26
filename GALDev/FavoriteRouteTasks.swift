@@ -120,7 +120,6 @@ class FavoriteRouteTasks {
             
             do {
                 let jsonResult = try JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions.mutableContainers) as! NSArray
-                print((jsonResult).count)
                 if (jsonResult).count == 1 {
                     completionHandler("Existing", true)
                 } else {

@@ -5,7 +5,7 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string></string>
 	<key>CFBundleDisplayName</key>
-	<string>Get a Lift</string>
+	<string>Get A Lift</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>

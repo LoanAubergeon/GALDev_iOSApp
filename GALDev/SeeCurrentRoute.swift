@@ -28,17 +28,12 @@ class SeeCurrentRoute : UIViewController{
     var calculationForMapDisplay = CalculationForMapDisplay()
     
     override func viewDidLoad() {
-        super.viewDidLoad()
+        self.viewMap?.clear()
+        viewMap.delegate = self
         self.currentRoute = SearchRoute.SearchedRoute.seeCurrentRoute
         self.routeDisplay()
     
     }
-    
-    func viewMap(_ mapView: GMSMapView, didEndDragging marker : GMSMarker){
-        print("Appelle de la fonction")
-    }
-    
-    
     
     func routeDisplay(){
         
@@ -57,28 +52,6 @@ class SeeCurrentRoute : UIViewController{
             })
         }
     }
-    
-    
-    
-    
-    
-    @IBAction func changeTheRoute(sender: AnyObject){
-        let origin = String(self.originMarker.position.latitude)+","+String(self.originMarker.position.longitude)
-        let destination = String(self.destinationMarker.position.latitude)+","+String(self.destinationMarker.position.longitude)
-        
-        self.mapTasks.getDirections(origin: origin, destination: destination, waypoints: nil, travelMode: nil, completionHandler: { (status, success) -> Void in
-            if success {
-                DispatchQueue.main.async() {
-                    self.viewMap?.clear()
-                    self.configureMapAndMarkersForRoute()
-                    self.drawRoute()
-                }
-            }
-        })
-        
-    }
-    
-    
     
     func drawRoute() {
         
@@ -127,16 +100,24 @@ class SeeCurrentRoute : UIViewController{
 }
 
 extension SeeCurrentRoute: GMSMapViewDelegate{
-    
-    //MARK - GMSMarker Dragging
-    func mapView(_ mapView: GMSMapView, didBeginDragging marker: GMSMarker) {
-        print("didBeginDragging")
-    }
-    func mapView(_ mapView: GMSMapView, didDrag marker: GMSMarker) {
-        print("didDrag")
-    }
     func mapView(_ mapView: GMSMapView, didEndDragging marker: GMSMarker) {
-        print("didEndDragging")
+        
+        SearchRoute.SearchedRoute.seeCurrentRoute.nameOfStartingPoint = String(self.originMarker.position.latitude)+","+String(self.originMarker.position.longitude)
+        SearchRoute.SearchedRoute.seeCurrentRoute.nameOfEndpoint = String(self.destinationMarker.position.latitude)+","+String(self.destinationMarker.position.longitude)
+  
+        let origin = String(self.originMarker.position.latitude)+","+String(self.originMarker.position.longitude)
+        let destination = String(self.destinationMarker.position.latitude)+","+String(self.destinationMarker.position.longitude)
+        
+        self.mapTasks.getDirections(origin: origin, destination: destination, waypoints: nil, travelMode: nil, completionHandler: { (status, success) -> Void in
+            if success {
+                DispatchQueue.main.async() {
+                    self.viewMap?.clear()
+                    self.configureMapAndMarkersForRoute()
+                    self.drawRoute()
+                }
+            }
+        })
+        
     }
 }
 

@@ -215,8 +215,16 @@
                                     <action selector="myLocationDestinationWithSender:" destination="hNO-41-sgw" eventType="touchUpInside" id="0q9-I8-Kl4"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U3r-DC-4pB">
-                                <rect key="frame" x="99" y="550" width="177" height="30"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="map" translatesAutoresizingMaskIntoConstraints="NO" id="dpy-d7-ndw">
+                                <rect key="frame" x="161" y="485" width="54" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="ast-Rn-ZYH"/>
+                                    <constraint firstAttribute="width" constant="54" id="sn4-jz-VxS"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U3r-DC-4pB">
+                                <rect key="frame" x="23" y="468" width="330" height="78"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <state key="normal" title="See and change the route"/>
                                 <connections>
                                     <action selector="seeCurrentRouteWithSender:" destination="hNO-41-sgw" eventType="touchUpInside" id="NUn-Un-MPW"/>
@@ -227,7 +235,7 @@
                         <constraints>
                             <constraint firstItem="6H2-op-FUR" firstAttribute="leading" secondItem="IGa-bT-mT1" secondAttribute="leading" constant="1" id="04k-Vo-eOe"/>
                             <constraint firstItem="2t7-Ns-gPw" firstAttribute="leading" secondItem="d5s-qz-fFa" secondAttribute="leading" id="0Pw-oE-0mE"/>
-                            <constraint firstItem="WVq-ha-Y1e" firstAttribute="top" secondItem="U3r-DC-4pB" secondAttribute="bottom" constant="32" id="1Ne-WB-vye"/>
+                            <constraint firstItem="WVq-ha-Y1e" firstAttribute="top" secondItem="U3r-DC-4pB" secondAttribute="bottom" constant="66" id="1Ne-WB-vye"/>
                             <constraint firstItem="6H2-op-FUR" firstAttribute="leading" secondItem="Sys-0u-r0g" secondAttribute="leadingMargin" id="1uy-dB-omM"/>
                             <constraint firstItem="6H2-op-FUR" firstAttribute="centerY" secondItem="SRV-B2-uqK" secondAttribute="centerY" constant="-8" id="5ET-UT-rG1"/>
                             <constraint firstItem="WSd-1e-nK1" firstAttribute="top" secondItem="2t7-Ns-gPw" secondAttribute="bottom" constant="20" id="6p1-Ei-GRi"/>
@@ -237,10 +245,12 @@
                             <constraint firstItem="BJZ-Fh-Myz" firstAttribute="trailing" secondItem="IGa-bT-mT1" secondAttribute="trailing" id="DAN-Du-At2"/>
                             <constraint firstItem="NLf-C8-4qg" firstAttribute="top" secondItem="SRV-B2-uqK" secondAttribute="bottom" constant="49" id="EWb-92-Unv"/>
                             <constraint firstItem="NLf-C8-4qg" firstAttribute="baseline" secondItem="d5s-qz-fFa" secondAttribute="baseline" id="Eb3-3r-aJM"/>
-                            <constraint firstItem="U3r-DC-4pB" firstAttribute="top" secondItem="lrD-1I-SbE" secondAttribute="bottom" constant="148" id="EgD-ZB-URw"/>
+                            <constraint firstItem="U3r-DC-4pB" firstAttribute="top" secondItem="lrD-1I-SbE" secondAttribute="bottom" constant="66" id="EgD-ZB-URw"/>
                             <constraint firstItem="yxK-Pl-wYO" firstAttribute="leading" secondItem="lrD-1I-SbE" secondAttribute="trailing" constant="89" id="GMD-gq-Yhi"/>
+                            <constraint firstItem="WVq-ha-Y1e" firstAttribute="top" secondItem="dpy-d7-ndw" secondAttribute="bottom" constant="83" id="Gt1-lI-w3o"/>
                             <constraint firstItem="2t7-Ns-gPw" firstAttribute="trailing" secondItem="SRV-B2-uqK" secondAttribute="trailing" id="IKS-jm-Vyq"/>
                             <constraint firstItem="6H2-op-FUR" firstAttribute="leading" secondItem="Rbd-jH-RgD" secondAttribute="leading" constant="1" id="Ki4-dc-Een"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="dpy-d7-ndw" secondAttribute="trailing" constant="144" id="Mjf-5Y-zrP"/>
                             <constraint firstItem="WSd-1e-nK1" firstAttribute="leading" secondItem="1vC-GW-Hwy" secondAttribute="leading" id="Pyi-Kv-Mpw"/>
                             <constraint firstItem="SRV-B2-uqK" firstAttribute="trailing" secondItem="yxK-Pl-wYO" secondAttribute="trailing" constant="-50" id="Qe1-ww-T7X"/>
                             <constraint firstItem="BJZ-Fh-Myz" firstAttribute="leading" secondItem="IGa-bT-mT1" secondAttribute="leading" id="RQg-Ae-o5V"/>
@@ -251,12 +261,13 @@
                             <constraint firstItem="2t7-Ns-gPw" firstAttribute="centerY" secondItem="Rbd-jH-RgD" secondAttribute="centerY" id="W9O-kN-NOd"/>
                             <constraint firstItem="0eu-wv-jkH" firstAttribute="leading" secondItem="Sys-0u-r0g" secondAttribute="leadingMargin" constant="42" id="Wct-A1-9hD"/>
                             <constraint firstItem="6H2-op-FUR" firstAttribute="trailing" secondItem="IGa-bT-mT1" secondAttribute="trailing" constant="1" id="Wds-2N-VXc"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="U3r-DC-4pB" secondAttribute="trailing" constant="83" id="XI3-8a-x8L"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="U3r-DC-4pB" secondAttribute="trailing" constant="6" id="XI3-8a-x8L"/>
+                            <constraint firstItem="dpy-d7-ndw" firstAttribute="leading" secondItem="Sys-0u-r0g" secondAttribute="leadingMargin" constant="145" id="YEO-wC-odA"/>
                             <constraint firstItem="lrD-1I-SbE" firstAttribute="top" secondItem="BJZ-Fh-Myz" secondAttribute="top" id="akW-Wh-D1Q"/>
                             <constraint firstItem="NLf-C8-4qg" firstAttribute="leading" secondItem="d5s-qz-fFa" secondAttribute="trailing" constant="8" symbolic="YES" id="bDh-Xc-cwe"/>
                             <constraint firstItem="6H2-op-FUR" firstAttribute="trailing" secondItem="Rbd-jH-RgD" secondAttribute="trailing" constant="1" id="biq-Gm-F0T"/>
                             <constraint firstItem="IGa-bT-mT1" firstAttribute="centerY" secondItem="d5s-qz-fFa" secondAttribute="centerY" id="dCM-JC-2tx"/>
-                            <constraint firstItem="U3r-DC-4pB" firstAttribute="leading" secondItem="Sys-0u-r0g" secondAttribute="leadingMargin" constant="83" id="dY1-Qh-xgd"/>
+                            <constraint firstItem="U3r-DC-4pB" firstAttribute="leading" secondItem="Sys-0u-r0g" secondAttribute="leadingMargin" constant="7" id="dY1-Qh-xgd"/>
                             <constraint firstItem="ca3-rk-UcI" firstAttribute="leading" secondItem="2t7-Ns-gPw" secondAttribute="trailing" constant="14" id="fp9-Sb-b20"/>
                             <constraint firstItem="WVq-ha-Y1e" firstAttribute="centerX" secondItem="TzL-qG-eXs" secondAttribute="centerX" id="goy-df-J4w"/>
                             <constraint firstItem="TzL-qG-eXs" firstAttribute="centerX" secondItem="Sys-0u-r0g" secondAttribute="centerX" id="hNv-7p-mME"/>
@@ -268,6 +279,7 @@
                             <constraint firstItem="1vC-GW-Hwy" firstAttribute="leading" secondItem="0eu-wv-jkH" secondAttribute="leading" id="ohd-zF-cRl"/>
                             <constraint firstItem="BJZ-Fh-Myz" firstAttribute="top" secondItem="IGa-bT-mT1" secondAttribute="bottom" constant="29" id="pFZ-DX-1p6"/>
                             <constraint firstItem="8T6-rf-lBS" firstAttribute="centerY" secondItem="SRV-B2-uqK" secondAttribute="centerY" id="q82-gF-66E"/>
+                            <constraint firstItem="dpy-d7-ndw" firstAttribute="top" secondItem="lrD-1I-SbE" secondAttribute="bottom" constant="83" id="r1K-f4-jGu"/>
                             <constraint firstItem="BJZ-Fh-Myz" firstAttribute="centerY" secondItem="yxK-Pl-wYO" secondAttribute="centerY" id="ubo-tV-C7o"/>
                             <constraint firstItem="yxK-Pl-wYO" firstAttribute="top" secondItem="SRV-B2-uqK" secondAttribute="bottom" constant="96" id="ugp-Hh-Zs0"/>
                             <constraint firstItem="WVq-ha-Y1e" firstAttribute="leading" secondItem="Sys-0u-r0g" secondAttribute="leadingMargin" constant="5" id="w7q-QD-L2u"/>
@@ -297,7 +309,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jy7-09-Iqw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="597" y="-913"/>
+            <point key="canvasLocation" x="596" y="-913.49325337331345"/>
         </scene>
         <!--Driver View-->
         <scene sceneID="4Sh-bh-0kB">
@@ -880,22 +892,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="V5G-bq-s5N" customClass="GMSMapView">
-                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TNz-58-JcN">
-                                <rect key="frame" x="13" y="626" width="53" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Refresh"/>
-                                <connections>
-                                    <action selector="changeTheRouteWithSender:" destination="33c-1M-W8l" eventType="touchUpInside" id="BXt-Yc-U4G"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="V5G-bq-s5N" firstAttribute="leading" secondItem="ehe-1T-2T9" secondAttribute="leading" id="5vD-8A-bzZ"/>
-                            <constraint firstItem="pOU-QN-hfe" firstAttribute="top" secondItem="V5G-bq-s5N" secondAttribute="bottom" constant="49" id="W2g-fC-11y"/>
+                            <constraint firstItem="pOU-QN-hfe" firstAttribute="top" secondItem="V5G-bq-s5N" secondAttribute="bottom" id="W2g-fC-11y"/>
                             <constraint firstItem="V5G-bq-s5N" firstAttribute="top" secondItem="g2l-mn-CF7" secondAttribute="bottom" id="Wnb-Xf-aq6"/>
                             <constraint firstAttribute="trailing" secondItem="V5G-bq-s5N" secondAttribute="trailing" id="jZ7-E4-oOy"/>
                         </constraints>
@@ -2187,6 +2191,7 @@
         <image name="lock-1" width="26" height="26"/>
         <image name="loveblack" width="48" height="48"/>
         <image name="lovered" width="48" height="48"/>
+        <image name="map" width="50" height="50"/>
         <image name="menu" width="24" height="24"/>
         <image name="person" width="24" height="24"/>
         <image name="phone" width="24" height="24"/>

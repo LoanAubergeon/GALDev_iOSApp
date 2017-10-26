@@ -64,6 +64,10 @@ class FirstView: UIViewController, CLLocationManagerDelegate {
         locationManager.startUpdatingLocation()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        SearchRoute.SearchedRoute.seeCurrentRoute = Route.init()
+    }
+    
     /// For change the type of the map
     /// Create a AlertController to choose the type of the map
     @IBAction func changeMapType(sender: AnyObject) {

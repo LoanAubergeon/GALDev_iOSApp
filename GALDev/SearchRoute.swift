@@ -63,6 +63,12 @@ class SearchRoute: UIViewController, CLLocationManagerDelegate {
         locationManager.startUpdatingLocation()
         
     }
+
+    override func viewDidAppear(_ animated: Bool) {
+        originTextField.text = SearchedRoute.seeCurrentRoute.nameOfStartingPoint
+        destinationTextField.text = SearchedRoute.seeCurrentRoute.nameOfEndpoint
+        //SearchedRoute.seeCurrentRoute = Route.init()
+    }
     
     ///
     func citySuggestion() {
@@ -98,6 +104,7 @@ class SearchRoute: UIViewController, CLLocationManagerDelegate {
         let time = hourTextField.text!
         let date = dateTextField.text!
         let recurrence : Bool = affichageJour ? true : false
+        
         
         self.mapTasks.getDirections(origin: origin, destination: destination, waypoints: nil, travelMode: nil, completionHandler: { (status, success) -> Void in
             if success {
