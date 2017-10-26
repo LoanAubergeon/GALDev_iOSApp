@@ -2,7 +2,7 @@
 //  routeSaved.swift
 //  GALDev
 //
-//  Created by Loan Aubergeon on 03/10/2017.
+//  Created by Loan Aubergeon on 23/10/2017.
 //  Copyright © 2017 Loan Aubergeon. All rights reserved.
 //
 
@@ -24,9 +24,8 @@ class routeSaved : UIViewController, UITableViewDataSource, UITableViewDelegate 
     /// Differents tasks
     var mapTasks = MapTasks()
     var userTasks = UserTasks()
-    var routeTasks = RouteTasks()
     var dateTasks = DateTasks()
-    
+    var favoriteRouteTasks = FavoriteRouteTasks()
     
     override func viewDidLoad() {
         
@@ -40,11 +39,11 @@ class routeSaved : UIViewController, UITableViewDataSource, UITableViewDelegate 
         routeTableView.dataSource = self
         routeTableView.delegate = self
         
-        let driverId = Home.UserConnectedInformations.user.id
+        let userId = Home.UserConnectedInformations.user.id
         
-        self.routeTasks.route(driverId : driverId!, completionHandler: { (status, success) -> Void in
+        self.favoriteRouteTasks.favoriteRoute(userId : userId!, completionHandler: { (status, success) -> Void in
             if success {
-                self.routes = self.routeTasks.routes
+                self.routes = self.favoriteRouteTasks.routes
                 
                 DispatchQueue.main.async {
                     self.routeTableView.reloadData()
@@ -61,19 +60,6 @@ class routeSaved : UIViewController, UITableViewDataSource, UITableViewDelegate 
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
-        /*let numOfSections = self.routes.count
-         if numOfSections == 0
-         {
-         routeTableView.separatorStyle = .singleLine
-         routeTableView.backgroundView = nil
-         }
-         else
-         {
-         routeTableView.separatorStyle  = .none
-         routeTableView.backgroundView = noItemsView
-         }
-         return numOfSections*/
         
         switch section {
         case 0: return self.routes.count
@@ -130,7 +116,7 @@ class routeSaved : UIViewController, UITableViewDataSource, UITableViewDelegate 
             let delete = UIAlertAction(title: "Delete", style: UIAlertActionStyle.destructive, handler: { action in
                 
                 let routeId = self.routes[indexPath.row].id
-                self.routeTasks.deleteRoute(routeId: routeId!, completionHandler: { (status, success) -> Void in})
+                self.favoriteRouteTasks.deleteFavoriteRoute(routeId: routeId!, completionHandler: { (status, success) -> Void in})
                 self.routes.remove(at: indexPath.row)
                 self.routeTableView.reloadData()
             })

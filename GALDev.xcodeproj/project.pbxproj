@@ -61,6 +61,8 @@
 		4CB63F271F94F4ED008E8881 /* RouteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB63F261F94F4ED008E8881 /* RouteTests.swift */; };
 		4CBC78921F8B847D00C9930F /* SearchTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CBC78911F8B847D00C9930F /* SearchTextField.swift */; };
 		4CF30A4C1F66A4D5001B3AF3 /* RouteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CF30A4B1F66A4D5001B3AF3 /* RouteView.swift */; };
+		C38644A61FA1CB6600EE7BD1 /* FavoriteRouteTasks.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38644A51FA1CB6600EE7BD1 /* FavoriteRouteTasks.swift */; };
+		C38644A81FA1FB0700EE7BD1 /* BouttonArrondi2.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38644A71FA1FB0700EE7BD1 /* BouttonArrondi2.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -134,6 +136,8 @@
 		4CB63F261F94F4ED008E8881 /* RouteTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteTests.swift; sourceTree = "<group>"; };
 		4CBC78911F8B847D00C9930F /* SearchTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTextField.swift; sourceTree = "<group>"; };
 		4CF30A4B1F66A4D5001B3AF3 /* RouteView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouteView.swift; sourceTree = "<group>"; };
+		C38644A51FA1CB6600EE7BD1 /* FavoriteRouteTasks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteRouteTasks.swift; sourceTree = "<group>"; };
+		C38644A71FA1FB0700EE7BD1 /* BouttonArrondi2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BouttonArrondi2.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -287,6 +291,7 @@
 				4C3EF1721F7E4513001F4F8C /* UserTasks.swift */,
 				4C3EF1741F7E6DDC001F4F8C /* RouteTasks.swift */,
 				4C56C9D01F7F991F005DFD99 /* DateTasks.swift */,
+				C38644A51FA1CB6600EE7BD1 /* FavoriteRouteTasks.swift */,
 			);
 			name = Tasks;
 			sourceTree = "<group>";
@@ -297,6 +302,7 @@
 				4C3EF1701F7E4050001F4F8C /* MyCustomCell.swift */,
 				4C312ADD1F4F3F2B00555D0E /* BoutonArrondi.swift */,
 				4C312AE61F50404A00555D0E /* SelectedButton.swift */,
+				C38644A71FA1FB0700EE7BD1 /* BouttonArrondi2.swift */,
 			);
 			name = CustomItem;
 			sourceTree = "<group>";
@@ -446,6 +452,8 @@
 				4C47EAFC1F56DA5A00FD60DC /* UserProfile.swift in Sources */,
 				4C312A891F4EE7F800555D0E /* CreateAccount.swift in Sources */,
 				4C312ADA1F4F341500555D0E /* SWRevealViewController.m in Sources */,
+				C38644A81FA1FB0700EE7BD1 /* BouttonArrondi2.swift in Sources */,
+				C38644A61FA1CB6600EE7BD1 /* FavoriteRouteTasks.swift in Sources */,
 				4C50CD711F6FD27800B7E14E /* DriverView.swift in Sources */,
 				4C76FAC41F838DF800A4FFF6 /* myRoutes.swift in Sources */,
 				4C057C2B1F87EC49002178E5 /* CalculationForMapDisplay.swift in Sources */,
