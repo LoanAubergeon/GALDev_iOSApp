@@ -33,6 +33,12 @@ struct Route {
     init(){
     }
     
+    
+    init(origin: String, destination: String){
+        self.nameOfStartingPoint = origin
+        self.nameOfEndpoint = destination
+    }
+    
 
     
     // Route pour RouteTasks

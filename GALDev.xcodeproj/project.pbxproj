@@ -61,6 +61,7 @@
 		4CB63F271F94F4ED008E8881 /* RouteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB63F261F94F4ED008E8881 /* RouteTests.swift */; };
 		4CBC78921F8B847D00C9930F /* SearchTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CBC78911F8B847D00C9930F /* SearchTextField.swift */; };
 		4CF30A4C1F66A4D5001B3AF3 /* RouteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CF30A4B1F66A4D5001B3AF3 /* RouteView.swift */; };
+		C301201B1FA2161600FCCE5E /* SeeCurrentRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = C301201A1FA2161600FCCE5E /* SeeCurrentRoute.swift */; };
 		C38644A61FA1CB6600EE7BD1 /* FavoriteRouteTasks.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38644A51FA1CB6600EE7BD1 /* FavoriteRouteTasks.swift */; };
 		C38644A81FA1FB0700EE7BD1 /* BouttonArrondi2.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38644A71FA1FB0700EE7BD1 /* BouttonArrondi2.swift */; };
 /* End PBXBuildFile section */
@@ -136,6 +137,7 @@
 		4CB63F261F94F4ED008E8881 /* RouteTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteTests.swift; sourceTree = "<group>"; };
 		4CBC78911F8B847D00C9930F /* SearchTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTextField.swift; sourceTree = "<group>"; };
 		4CF30A4B1F66A4D5001B3AF3 /* RouteView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouteView.swift; sourceTree = "<group>"; };
+		C301201A1FA2161600FCCE5E /* SeeCurrentRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeeCurrentRoute.swift; sourceTree = "<group>"; };
 		C38644A51FA1CB6600EE7BD1 /* FavoriteRouteTasks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteRouteTasks.swift; sourceTree = "<group>"; };
 		C38644A71FA1FB0700EE7BD1 /* BouttonArrondi2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BouttonArrondi2.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -280,6 +282,7 @@
 				4C47EAFB1F56DA5A00FD60DC /* UserProfile.swift */,
 				4C76FAC31F838DF800A4FFF6 /* myRoutes.swift */,
 				4C0916101F9E250E00E94F83 /* routeSaved.swift */,
+				C301201A1FA2161600FCCE5E /* SeeCurrentRoute.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -464,6 +467,7 @@
 				4C47EAF81F55743700FD60DC /* CreateYourRoute.swift in Sources */,
 				4C3EF1711F7E4050001F4F8C /* MyCustomCell.swift in Sources */,
 				4C312A8B1F4EE7FD00555D0E /* Home.swift in Sources */,
+				C301201B1FA2161600FCCE5E /* SeeCurrentRoute.swift in Sources */,
 				4C312AE71F50404A00555D0E /* SelectedButton.swift in Sources */,
 				4CAA29271F8695F200813FA9 /* Route.swift in Sources */,
 				4C312A4F1F4EE5B000555D0E /* AppDelegate.swift in Sources */,

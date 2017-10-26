@@ -43,6 +43,7 @@ class SearchRoute: UIViewController, CLLocationManagerDelegate {
     /// To save informations about the searched route
     struct SearchedRoute {
         static var searchedRoute : Route = Route.init()
+        static var seeCurrentRoute : Route = Route.init()
     }
     
     
@@ -81,6 +82,13 @@ class SearchRoute: UIViewController, CLLocationManagerDelegate {
     
     @IBAction func myLocationDestination(sender: UIButton){
         destinationTextField.text = String(myLocationLat)+" , "+String(myLocationLng)
+    }
+    
+    @IBAction func seeCurrentRoute(sender: UIButton){
+        let origin = originTextField.text!
+        let destination = destinationTextField.text!
+        SearchedRoute.seeCurrentRoute = Route.init(origin: origin, destination: destination)
+        self.performSegue(withIdentifier: "seeCurrentRoute", sender: nil)
     }
     
     @IBAction func go(sender: UIButton){
