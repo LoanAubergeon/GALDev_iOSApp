@@ -31,6 +31,8 @@ class RouteList : UIViewController, UITableViewDataSource, UITableViewDelegate {
     var dateTasks = DateTasks()
     var favoriteRouteTasks = FavoriteRouteTasks()
     
+    var refreshControl: UIRefreshControl!
+    
     override func viewDidLoad() {
         
         routeTableView.dataSource = self
@@ -53,8 +55,19 @@ class RouteList : UIViewController, UITableViewDataSource, UITableViewDelegate {
                 }
             }
         })
+        
+        // add pull to refresh
+        refreshControl = UIRefreshControl()
+        refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
+        refreshControl.addTarget(self, action: #selector(self.handleRefresh(_:)), for: UIControlEvents.valueChanged)
+        routeTableView.addSubview(refreshControl)
     }
     
+    /// Refresh the table view
+    @objc func handleRefresh(_ refreshControl: UIRefreshControl) {
+        self.routeTableView.reloadData()
+        self.refreshControl.endRefreshing()
+    }
 
     
     //Nombre de sections en tout

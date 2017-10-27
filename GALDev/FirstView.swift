@@ -10,8 +10,6 @@ import UIKit
 import GoogleMaps
 import NotificationBannerSwift
 
-
-
 /// The first view of the app when you are authenticated
 class FirstView: UIViewController, CLLocationManagerDelegate {
     
@@ -79,9 +77,10 @@ class FirstView: UIViewController, CLLocationManagerDelegate {
         
     }
     
+    
     /// For change the type of the map
     /// Create a AlertController to choose the type of the map
-    @IBAction func changeMapType(sender: AnyObject) {
+    /*@IBAction func changeMapType(sender: AnyObject) {
         
         let actionSheet = UIAlertController(title: "Map Types", message: "Select map type :", preferredStyle: UIAlertControllerStyle.actionSheet)
         
@@ -110,7 +109,7 @@ class FirstView: UIViewController, CLLocationManagerDelegate {
         actionSheet.addAction(cancelAction)
         
         present(actionSheet, animated: true, completion: nil)
-    }
+    }*/
     
     /// Verify the location authorization
     @nonobjc func locationManager(manager: CLLocationManager!, didChangeAuthorizationStatus status: CLAuthorizationStatus) {

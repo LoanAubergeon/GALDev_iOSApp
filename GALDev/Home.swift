@@ -43,6 +43,11 @@ class Home: UIViewController {
     
     //  #################### Functions ####################
     
+    override func viewDidLoad() {
+        
+    }
+    
+
     ///Function to manage the authentification
     @IBAction func authentification(sender :UIButton){
         

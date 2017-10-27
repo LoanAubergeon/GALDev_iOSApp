@@ -29,6 +29,8 @@ class myRoutes : UIViewController, UITableViewDataSource, UITableViewDelegate {
     var dateTasks = DateTasks()
     
     
+    var refreshControl: UIRefreshControl!
+    
     override func viewDidLoad() {
         
         super.viewDidLoad()
@@ -46,15 +48,24 @@ class myRoutes : UIViewController, UITableViewDataSource, UITableViewDelegate {
         self.routeTasks.route(driverId : driverId!, completionHandler: { (status, success) -> Void in
             if success {
                 self.routes = self.routeTasks.routes
-                
                 DispatchQueue.main.async {
                     self.routeTableView.reloadData()
                 }
                 
             }
         })
+        
+        // add pull to refresh 
+        refreshControl = UIRefreshControl()
+        refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
+        refreshControl.addTarget(self, action: #selector(self.handleRefresh(_:)), for: UIControlEvents.valueChanged)
+        routeTableView.addSubview(refreshControl)
     }
-    
+    /// Refresh the table view
+    @objc func handleRefresh(_ refreshControl: UIRefreshControl) {
+        self.routeTableView.reloadData()
+        self.refreshControl.endRefreshing()
+    }
     
     //Nombre de sections en tout
     func numberOfSections(in tableView: UITableView) -> Int {

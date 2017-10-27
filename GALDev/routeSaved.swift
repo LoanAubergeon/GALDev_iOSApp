@@ -28,6 +28,8 @@ class routeSaved : UIViewController, UITableViewDataSource, UITableViewDelegate 
     var dateTasks = DateTasks()
     var favoriteRouteTasks = FavoriteRouteTasks()
     
+    var refreshControl: UIRefreshControl!
+    
     override func viewDidLoad() {
         
         super.viewDidLoad()
@@ -52,6 +54,17 @@ class routeSaved : UIViewController, UITableViewDataSource, UITableViewDelegate 
                 
             }
         })
+        
+        refreshControl = UIRefreshControl()
+        refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
+        refreshControl.addTarget(self, action: #selector(self.handleRefresh(_:)), for: UIControlEvents.valueChanged)
+        routeTableView.addSubview(refreshControl)
+    }
+    
+    /// Refresh the table view
+    @objc func handleRefresh(_ refreshControl: UIRefreshControl) {
+        self.routeTableView.reloadData()
+        self.refreshControl.endRefreshing()
     }
     
     
