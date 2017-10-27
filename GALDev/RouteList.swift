@@ -31,11 +31,11 @@ class RouteList : UIViewController, UITableViewDataSource, UITableViewDelegate {
     var dateTasks = DateTasks()
     var favoriteRouteTasks = FavoriteRouteTasks()
     
-    
     override func viewDidLoad() {
         
         routeTableView.dataSource = self
         routeTableView.delegate = self
+
         
         let fullDate : String = self.searchedRoute.date+""+self.searchedRoute.time
         let startLat : Double = self.searchedRoute.latitudeOfStartigPoint
@@ -51,14 +51,11 @@ class RouteList : UIViewController, UITableViewDataSource, UITableViewDelegate {
                 DispatchQueue.main.async {
                     self.routeTableView.reloadData()
                 }
-                
             }
         })
-        
-        
-        
-        
     }
+    
+
     
     //Nombre de sections en tout
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -66,9 +63,15 @@ class RouteList : UIViewController, UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        switch section {
-        case 0: return self.routes.count
-        default: return 0
+        if self.routes.count == 0 {
+            let emptyStateLabel = UILabel(frame: tableView.frame)
+            emptyStateLabel.text = "No routes available !"
+            emptyStateLabel.textAlignment = NSTextAlignment.center
+            tableView.backgroundView = emptyStateLabel
+            return 0
+        } else {
+            tableView.backgroundView = nil
+            return self.routes.count
         }
     }
     /*func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {

@@ -67,7 +67,6 @@ class SearchRoute: UIViewController, CLLocationManagerDelegate {
     override func viewDidAppear(_ animated: Bool) {
         originTextField.text = SearchedRoute.seeCurrentRoute.nameOfStartingPoint
         destinationTextField.text = SearchedRoute.seeCurrentRoute.nameOfEndpoint
-        //SearchedRoute.seeCurrentRoute = Route.init()
     }
     
     ///
@@ -108,7 +107,13 @@ class SearchRoute: UIViewController, CLLocationManagerDelegate {
         
         self.mapTasks.getDirections(origin: origin, destination: destination, waypoints: nil, travelMode: nil, completionHandler: { (status, success) -> Void in
             if success {
-                print("success")
+                
+                // Pour ne pas supprimer les données du texteview quand on revient sur la page de recherche
+                let origin = self.originTextField.text!
+                let destination = self.destinationTextField.text!
+                SearchedRoute.seeCurrentRoute = Route.init(origin: origin, destination: destination)
+                
+                // On enregistre les données de recherche
                 let originAdress = self.mapTasks.originAddress!
                 let destinationAdress = self.mapTasks.destinationAddress!
                 let latitudeOfOrigin = self.mapTasks.originCoordinate.latitude

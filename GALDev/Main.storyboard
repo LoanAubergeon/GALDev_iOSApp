@@ -215,21 +215,21 @@
                                     <action selector="myLocationDestinationWithSender:" destination="hNO-41-sgw" eventType="touchUpInside" id="0q9-I8-Kl4"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="map" translatesAutoresizingMaskIntoConstraints="NO" id="dpy-d7-ndw">
-                                <rect key="frame" x="161" y="485" width="54" height="44"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U3r-DC-4pB">
+                                <rect key="frame" x="23" y="468" width="330" height="78"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <state key="normal" title="See and edit the route"/>
+                                <connections>
+                                    <action selector="seeCurrentRouteWithSender:" destination="hNO-41-sgw" eventType="touchUpInside" id="NUn-Un-MPW"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="map-editing" translatesAutoresizingMaskIntoConstraints="NO" id="dpy-d7-ndw">
+                                <rect key="frame" x="168" y="494" width="39" height="37"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="ast-Rn-ZYH"/>
                                     <constraint firstAttribute="width" constant="54" id="sn4-jz-VxS"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U3r-DC-4pB">
-                                <rect key="frame" x="23" y="468" width="330" height="78"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                <state key="normal" title="See and change the route"/>
-                                <connections>
-                                    <action selector="seeCurrentRouteWithSender:" destination="hNO-41-sgw" eventType="touchUpInside" id="NUn-Un-MPW"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -386,23 +386,6 @@
                                     <action selector="sendMessageWithSender:" destination="CB4-hJ-dC7" eventType="touchUpInside" id="ui2-mt-8Z2"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="46r-LJ-xGo" customClass="BoutonArrondi" customModule="GALDev" customModuleProvider="target">
-                                <rect key="frame" x="30" y="612" width="330" height="35"/>
-                                <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="0.253356073943662" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="330" id="JQ1-iV-mZi"/>
-                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="35" id="RU6-Td-tPi"/>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="35" id="qMV-WH-H5d"/>
-                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="330" id="qnV-oi-VgT"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <state key="normal" title="Save this route">
-                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="addToFavoriteRouteWithSender:" destination="CB4-hJ-dC7" eventType="touchUpInside" id="Vn0-4u-pRb"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mobile Number" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zEt-6b-Aqd">
                                 <rect key="frame" x="71" y="250" width="105" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
@@ -421,6 +404,23 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="46r-LJ-xGo" customClass="BoutonArrondi" customModule="GALDev" customModuleProvider="target">
+                                <rect key="frame" x="22" y="612" width="330" height="35"/>
+                                <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="0.253356073943662" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="330" id="JQ1-iV-mZi"/>
+                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="35" id="RU6-Td-tPi"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="35" id="qMV-WH-H5d"/>
+                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="330" id="qnV-oi-VgT"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <state key="normal" title="Save this route">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="addToFavoriteRouteWithSender:" destination="CB4-hJ-dC7" eventType="touchUpInside" id="Vn0-4u-pRb"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -433,7 +433,7 @@
                             <constraint firstItem="dnf-S8-hCL" firstAttribute="top" secondItem="kDm-41-3cV" secondAttribute="bottom" constant="36" id="HOv-9T-sbh"/>
                             <constraint firstItem="cGA-UQ-A7E" firstAttribute="top" secondItem="A5b-pS-YO6" secondAttribute="bottom" constant="36" id="JFh-qR-yTt"/>
                             <constraint firstItem="MvH-u5-3n9" firstAttribute="top" secondItem="dnf-S8-hCL" secondAttribute="bottom" constant="2" id="Lat-1M-1VC"/>
-                            <constraint firstItem="46r-LJ-xGo" firstAttribute="leading" secondItem="Rcu-ms-R3d" secondAttribute="leadingMargin" constant="14" id="Muz-N5-8xV"/>
+                            <constraint firstItem="46r-LJ-xGo" firstAttribute="leading" secondItem="Rcu-ms-R3d" secondAttribute="leadingMargin" constant="6" id="Muz-N5-8xV"/>
                             <constraint firstItem="IQY-0C-pIO" firstAttribute="leading" secondItem="zEt-6b-Aqd" secondAttribute="leading" id="Nb2-FP-FVu"/>
                             <constraint firstItem="Juy-r7-ePS" firstAttribute="top" secondItem="MvH-u5-3n9" secondAttribute="bottom" constant="2" id="Pln-0O-YBI"/>
                             <constraint firstItem="A5b-pS-YO6" firstAttribute="top" secondItem="PsO-XC-u2X" secondAttribute="bottom" constant="47" id="Qjc-kK-eka"/>
@@ -2191,7 +2191,7 @@
         <image name="lock-1" width="26" height="26"/>
         <image name="loveblack" width="48" height="48"/>
         <image name="lovered" width="48" height="48"/>
-        <image name="map" width="50" height="50"/>
+        <image name="map-editing" width="64" height="64"/>
         <image name="menu" width="24" height="24"/>
         <image name="person" width="24" height="24"/>
         <image name="phone" width="24" height="24"/>

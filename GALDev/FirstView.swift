@@ -62,10 +62,12 @@ class FirstView: UIViewController, CLLocationManagerDelegate {
         locationManager.requestWhenInUseAuthorization()
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.startUpdatingLocation()
+        
+        SearchRoute.SearchedRoute.seeCurrentRoute = Route.init()
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        SearchRoute.SearchedRoute.seeCurrentRoute = Route.init()
+        
     }
     
     /// For change the type of the map

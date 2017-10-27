@@ -62,22 +62,15 @@ class myRoutes : UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        /*let numOfSections = self.routes.count
-         if numOfSections == 0
-         {
-         routeTableView.separatorStyle = .singleLine
-         routeTableView.backgroundView = nil
-         }
-         else
-         {
-         routeTableView.separatorStyle  = .none
-         routeTableView.backgroundView = noItemsView
-         }
-         return numOfSections*/
-        
-        switch section {
-        case 0: return self.routes.count
-        default: return 0
+        if self.routes.count == 0 {
+            let emptyStateLabel = UILabel(frame: tableView.frame)
+            emptyStateLabel.text = "You don't have routes ! \n Add one to see it"
+            emptyStateLabel.textAlignment = NSTextAlignment.center
+            tableView.backgroundView = emptyStateLabel
+            return 0
+        } else {
+            tableView.backgroundView = nil
+            return self.routes.count
         }
     }
     /*func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
