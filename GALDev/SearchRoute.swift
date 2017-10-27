@@ -165,7 +165,7 @@ class SearchRoute: UIViewController, CLLocationManagerDelegate {
         
         let todayButton = UIBarButtonItem(title: "Now", style: UIBarButtonItemStyle.plain, target: self, action: #selector(SearchRoute.todayDatePressed(sender:)) )
         let spaceButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.flexibleSpace, target: self, action: nil)
-        let doneButton = UIBarButtonItem(title: "Done", style: UIBarButtonItemStyle.done, target: self, action: #selector(SearchRoute.donePressed(sender:)) )
+        let doneButton = UIBarButtonItem(title: "Done", style: UIBarButtonItemStyle.done, target: self, action: #selector(SearchRoute.dateDonePressed(sender:)) )
         
         toolbar.setItems([todayButton, spaceButton, doneButton], animated: false)
         toolbar.isUserInteractionEnabled = true
@@ -187,7 +187,7 @@ class SearchRoute: UIViewController, CLLocationManagerDelegate {
         
         let todayButton = UIBarButtonItem(title: "Now", style: UIBarButtonItemStyle.plain, target: self, action: #selector(SearchRoute.todayTimePressed(sender:)) )
         let spaceButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.flexibleSpace, target: self, action: nil)
-        let doneButton = UIBarButtonItem(title: "Done", style: UIBarButtonItemStyle.done, target: self, action: #selector(SearchRoute.donePressed(sender:)) )
+        let doneButton = UIBarButtonItem(title: "Done", style: UIBarButtonItemStyle.done, target: self, action: #selector(SearchRoute.timeDonePressed(sender:)) )
         
         toolbar.setItems([todayButton, spaceButton, doneButton], animated: false)
         toolbar.isUserInteractionEnabled = true
@@ -248,8 +248,12 @@ class SearchRoute: UIViewController, CLLocationManagerDelegate {
         hourTextField.resignFirstResponder()
     }
     
-    @objc func donePressed(sender: UIBarButtonItem){
+    @objc func dateDonePressed(sender: UIBarButtonItem){
         dateTextField.resignFirstResponder()
+    }
+    
+    @objc func timeDonePressed(sender: UIBarButtonItem){
+        hourTextField.resignFirstResponder()
     }
     
     

@@ -4,7 +4,6 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13526"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -1477,68 +1476,68 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jTX-JC-zA7">
-                                <rect key="frame" x="112" y="159" width="150" height="30"/>
+                                <rect key="frame" x="51" y="159" width="274" height="30"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="150" id="Kla-EO-Tg6"/>
+                                    <constraint firstAttribute="width" constant="274" id="Kla-EO-Tg6"/>
                                 </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YXO-Q0-qtw">
-                                <rect key="frame" x="112" y="197" width="150" height="30"/>
+                                <rect key="frame" x="51" y="197" width="274" height="30"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="150" id="0Lm-Ox-jSN"/>
+                                    <constraint firstAttribute="width" constant="274" id="0Lm-Ox-jSN"/>
                                 </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Nv9-GB-pkv">
-                                <rect key="frame" x="112" y="235" width="150" height="30"/>
+                                <rect key="frame" x="51" y="235" width="274" height="30"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="150" id="cqQ-1v-8Gh"/>
+                                    <constraint firstAttribute="width" constant="274" id="cqQ-1v-8Gh"/>
                                 </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Surname" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8X8-BW-40I">
-                                <rect key="frame" x="112" y="273" width="150" height="30"/>
+                                <rect key="frame" x="51" y="273" width="274" height="30"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="150" id="KyY-zT-ACZ"/>
+                                    <constraint firstAttribute="width" constant="274" id="KyY-zT-ACZ"/>
                                 </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lou-3V-jx2">
-                                <rect key="frame" x="112" y="311" width="150" height="30"/>
+                                <rect key="frame" x="51" y="311" width="274" height="30"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="150" id="agf-hM-htq"/>
+                                    <constraint firstAttribute="width" constant="274" id="agf-hM-htq"/>
                                 </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Mobile number" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PEB-gS-DUS">
-                                <rect key="frame" x="112" y="349" width="150" height="30"/>
+                                <rect key="frame" x="51" y="349" width="274" height="30"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="150" id="mQq-Z4-ZUD"/>
+                                    <constraint firstAttribute="width" constant="274" id="mQq-Z4-ZUD"/>
                                 </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cji-bV-ifZ" customClass="BoutonArrondi" customModule="GALDev" customModuleProvider="target">
-                                <rect key="frame" x="164" y="405" width="47" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cji-bV-ifZ" customClass="BouttonArrondi2" customModule="GALDev" customModuleProvider="target">
+                                <rect key="frame" x="55" y="405" width="270" height="30"/>
                                 <state key="normal" title="Sign in"/>
                                 <connections>
                                     <action selector="createAccountWithSender:" destination="D9E-tv-e65" eventType="touchUpInside" id="0ef-3S-k4c"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kiJ-kf-wz5" customClass="BoutonArrondi" customModule="GALDev" customModuleProvider="target">
-                                <rect key="frame" x="170.5" y="443" width="34" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kiJ-kf-wz5" customClass="BouttonArrondi2" customModule="GALDev" customModuleProvider="target">
+                                <rect key="frame" x="51" y="443" width="274" height="30"/>
                                 <state key="normal" title="Back"/>
                                 <connections>
                                     <segue destination="BYZ-38-t0r" kind="presentation" identifier="backSegue" id="mbS-uh-XRv"/>
@@ -1548,23 +1547,25 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="8X8-BW-40I" firstAttribute="leading" secondItem="Nv9-GB-pkv" secondAttribute="leading" id="0MZ-Mm-0IV"/>
-                            <constraint firstItem="kiJ-kf-wz5" firstAttribute="centerX" secondItem="3kI-B2-vJF" secondAttribute="centerX" id="2YP-ac-Hsh"/>
                             <constraint firstItem="YXO-Q0-qtw" firstAttribute="top" secondItem="jTX-JC-zA7" secondAttribute="bottom" constant="8" id="6lT-tC-vqH"/>
                             <constraint firstItem="9jD-57-t1Z" firstAttribute="centerX" secondItem="3kI-B2-vJF" secondAttribute="centerX" id="8M5-U2-vPB"/>
                             <constraint firstItem="8X8-BW-40I" firstAttribute="leading" secondItem="PEB-gS-DUS" secondAttribute="leading" id="91d-LM-bW7"/>
                             <constraint firstItem="8X8-BW-40I" firstAttribute="leading" secondItem="YXO-Q0-qtw" secondAttribute="leading" id="B4W-XU-7AH"/>
+                            <constraint firstItem="kiJ-kf-wz5" firstAttribute="top" secondItem="Cji-bV-ifZ" secondAttribute="bottom" constant="8" symbolic="YES" id="EEs-g0-lw8"/>
+                            <constraint firstItem="Cji-bV-ifZ" firstAttribute="top" secondItem="PEB-gS-DUS" secondAttribute="bottom" constant="26" id="LdX-G1-gyg"/>
                             <constraint firstItem="PEB-gS-DUS" firstAttribute="top" secondItem="lou-3V-jx2" secondAttribute="bottom" constant="8" id="NSn-LN-5fR"/>
-                            <constraint firstItem="8X8-BW-40I" firstAttribute="centerX" secondItem="Cji-bV-ifZ" secondAttribute="centerX" id="T48-Pm-jRD"/>
+                            <constraint firstItem="Cji-bV-ifZ" firstAttribute="leading" secondItem="3kI-B2-vJF" secondAttribute="leadingMargin" constant="39" id="PJ5-ty-MTz"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Cji-bV-ifZ" secondAttribute="trailing" constant="34" id="PQF-i5-XcK"/>
                             <constraint firstItem="8X8-BW-40I" firstAttribute="top" secondItem="Nv9-GB-pkv" secondAttribute="bottom" constant="8" id="aR7-tX-Igx"/>
                             <constraint firstItem="lou-3V-jx2" firstAttribute="top" secondItem="8X8-BW-40I" secondAttribute="bottom" constant="8" id="exo-Aq-uba"/>
-                            <constraint firstItem="Cji-bV-ifZ" firstAttribute="top" secondItem="PEB-gS-DUS" secondAttribute="bottom" constant="26" id="gF8-7m-o8W"/>
-                            <constraint firstItem="Cji-bV-ifZ" firstAttribute="centerX" secondItem="3kI-B2-vJF" secondAttribute="centerX" id="gn8-RF-t3D"/>
+                            <constraint firstItem="kiJ-kf-wz5" firstAttribute="leading" secondItem="PEB-gS-DUS" secondAttribute="leading" id="n9R-Ak-QRH"/>
+                            <constraint firstItem="Cji-bV-ifZ" firstAttribute="trailing" secondItem="kiJ-kf-wz5" secondAttribute="trailing" id="nlp-mo-jk0"/>
                             <constraint firstItem="Nv9-GB-pkv" firstAttribute="top" secondItem="YXO-Q0-qtw" secondAttribute="bottom" constant="8" id="oLT-ce-o7X"/>
                             <constraint firstItem="8X8-BW-40I" firstAttribute="leading" secondItem="lou-3V-jx2" secondAttribute="leading" id="oZ2-Sz-EHz"/>
+                            <constraint firstItem="kiJ-kf-wz5" firstAttribute="trailing" secondItem="PEB-gS-DUS" secondAttribute="trailing" id="sRj-LV-NLX"/>
                             <constraint firstItem="9jD-57-t1Z" firstAttribute="top" secondItem="2gH-bQ-1W9" secondAttribute="bottom" constant="25" id="u9g-OL-fit"/>
                             <constraint firstItem="8X8-BW-40I" firstAttribute="leading" secondItem="jTX-JC-zA7" secondAttribute="leading" id="uY5-3M-vnK"/>
                             <constraint firstItem="jTX-JC-zA7" firstAttribute="top" secondItem="9jD-57-t1Z" secondAttribute="bottom" constant="93" id="xE1-uY-OFh"/>
-                            <constraint firstItem="kiJ-kf-wz5" firstAttribute="top" secondItem="Cji-bV-ifZ" secondAttribute="bottom" constant="8" id="z68-0i-adS"/>
                         </constraints>
                     </view>
                     <connections>
@@ -1578,7 +1579,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xzo-QW-3OR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-4964" y="-201"/>
+            <point key="canvasLocation" x="-4964" y="-201.04947526236884"/>
         </scene>
         <!--Reveal View Controller-->
         <scene sceneID="8G9-jk-ypx">
@@ -2206,7 +2207,7 @@
         <segue reference="joo-0u-S9y"/>
         <segue reference="v9W-GP-9na"/>
         <segue reference="Wcv-Mm-O9M"/>
-        <segue reference="fSD-5N-xzF"/>
+        <segue reference="mbS-uh-XRv"/>
         <segue reference="mTJ-wW-0N0"/>
         <segue reference="qIk-Pg-8Xp"/>
         <segue reference="KBQ-go-8kH"/>

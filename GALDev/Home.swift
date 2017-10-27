@@ -6,6 +6,7 @@
 ///  Copyright © 2017 Loan Aubergeon. All rights reserved.
 ///
 
+import NotificationBannerSwift
 import UIKit
 
 /// The address of the server user
@@ -51,7 +52,11 @@ class Home: UIViewController {
         
         /// If they are null we display an error
         if (username == "") || (password == "") {
-            self.alert("Authentication failed", message: "Please complete all fields")
+            DispatchQueue.main.async() {
+                let imageView = UIImageView(image: #imageLiteral(resourceName: "failed"))
+                let banner = NotificationBanner(title: "Authentication failed", subtitle: "Please field all fields", leftView: imageView, style: .danger)
+                banner.show()
+            }
         } else {
             
             /// String to transmit the identifiers to the request
@@ -80,7 +85,11 @@ class Home: UIViewController {
                     /// Check for error
                     if error != nil
                     {
-                        self.alert("Error", message: "No connexion")
+                        DispatchQueue.main.async() {
+                            let imageView = UIImageView(image: #imageLiteral(resourceName: "failed"))
+                            let banner = NotificationBanner(title: "Bad connection", subtitle: "Retry", leftView: imageView, style: .warning)
+                            banner.show()
+                        }
                     } else {
                         /// Convert server json response to NSDictionary
                         do {
@@ -110,6 +119,10 @@ class Home: UIViewController {
                                     UserConnectedInformations.user = userObject
                                     
                                     DispatchQueue.main.async() {
+                                        let imageView = UIImageView(image: #imageLiteral(resourceName: "success"))
+                                        let banner = NotificationBanner(title: "Successful authentication", subtitle: "You are connected", leftView: imageView, style: .success)
+                                        banner.show()
+                                        
                                         /// Recovery Main.storyboard
                                         let storyboard = UIStoryboard(name: "Main", bundle: nil)
                                         
@@ -121,13 +134,16 @@ class Home: UIViewController {
                                     }
                                     
                                 } else { /// If the request hasn't worked we show the error
-                                    self.alert("Authentication failed", message: "Wrong identifiers")
+                                    DispatchQueue.main.async() {
+                                        let imageView = UIImageView(image: #imageLiteral(resourceName: "failed"))
+                                        let banner = NotificationBanner(title: "Authentication failed", subtitle: "Wrong identifiers", leftView: imageView, style: .danger)
+                                        banner.show()
+                                    }
                                 }
                                 
                             }
                         } catch let error as NSError { /// If the request hasn't worked we show the error
                             print(error.localizedDescription)
-                            self.alert("Error", message: "")
                         }
                     }
                 }

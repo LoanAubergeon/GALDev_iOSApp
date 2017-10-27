@@ -87,11 +87,11 @@ class CreateYourRoute : UIViewController, CLLocationManagerDelegate {
         let postString = "startLat="+String(self.latitudeOfOrigin)+"&endLat="+String(self.latitudeOfDestination)+"&startLng="+String(self.longitudeOfOrigin)+"&endLng="+String(self.longitudeOfDestination)+"&origin="+self.origin+"&destination="+self.destination+"&distance="+self.distance+"&duration="+self.duration+"&driverId="+String(driverId)+"&dates="+self.date+" "+self.time+";"+reccurenceString
         
         request.httpBody = postString.data(using: .utf8)
-        
-        let imageView = UIImageView(image: #imageLiteral(resourceName: "success"))
-        let banner = NotificationBanner(title: "Route added", subtitle: "The route has been added", leftView: imageView, style: .success)
-        banner.show()
-        
+        DispatchQueue.main.async() {
+            let imageView = UIImageView(image: #imageLiteral(resourceName: "success"))
+            let banner = NotificationBanner(title: "Route added", subtitle: "The route has been added", leftView: imageView, style: .success)
+            banner.show()
+        }
         let viewController = self.storyboard?.instantiateViewController(withIdentifier: "transitionPage")
         self.present(viewController!, animated: true, completion: nil)
         
