@@ -101,18 +101,18 @@ class SeeCurrentRoute : UIViewController{
 extension SeeCurrentRoute: GMSMapViewDelegate{
     func mapView(_ mapView: GMSMapView, didEndDragging marker: GMSMarker) {
         
-        SearchRoute.SearchedRoute.seeCurrentRoute.nameOfStartingPoint = String(self.originMarker.position.latitude)+","+String(self.originMarker.position.longitude)
-        SearchRoute.SearchedRoute.seeCurrentRoute.nameOfEndpoint = String(self.destinationMarker.position.latitude)+","+String(self.destinationMarker.position.longitude)
-  
+        
+
         let origin = String(self.originMarker.position.latitude)+","+String(self.originMarker.position.longitude)
         let destination = String(self.destinationMarker.position.latitude)+","+String(self.destinationMarker.position.longitude)
-        
         self.mapTasks.getDirections(origin: origin, destination: destination, waypoints: nil, travelMode: nil, completionHandler: { (status, success) -> Void in
             if success {
                 DispatchQueue.main.async() {
                     self.viewMap?.clear()
                     self.configureMapAndMarkersForRoute()
                     self.drawRoute()
+                    SearchRoute.SearchedRoute.seeCurrentRoute.nameOfStartingPoint = self.mapTasks.originAddress
+                    SearchRoute.SearchedRoute.seeCurrentRoute.nameOfEndpoint = self.mapTasks.destinationAddress
                 }
             }
         })

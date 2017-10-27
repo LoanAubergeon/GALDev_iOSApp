@@ -124,10 +124,6 @@ class Home: UIViewController {
                                     UserConnectedInformations.user = userObject
                                     
                                     DispatchQueue.main.async() {
-                                        let imageView = UIImageView(image: #imageLiteral(resourceName: "success"))
-                                        let banner = NotificationBanner(title: "Successful authentication", subtitle: "You are connected", leftView: imageView, style: .success)
-                                        banner.show()
-                                        
                                         /// Recovery Main.storyboard
                                         let storyboard = UIStoryboard(name: "Main", bundle: nil)
                                         
@@ -135,7 +131,13 @@ class Home: UIViewController {
                                         let transitionPage = storyboard.instantiateViewController(withIdentifier: "transitionPage") as! SWRevealViewController
                                         
                                         /// Acces to the main page
-                                        self.present(transitionPage, animated: true, completion: nil)
+                                        self.present(transitionPage, animated: true, completion: { () -> Void in
+                                            DispatchQueue.main.async() {
+                                                let imageView = UIImageView(image: #imageLiteral(resourceName: "success"))
+                                                let banner = NotificationBanner(title: "Successful authentication", subtitle: "You are connected", leftView: imageView, style: .success)
+                                                banner.show()
+                                            }
+                                        })
                                     }
                                     
                                 } else { /// If the request hasn't worked we show the error
