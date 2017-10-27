@@ -64,6 +64,7 @@
 		C301201B1FA2161600FCCE5E /* SeeCurrentRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = C301201A1FA2161600FCCE5E /* SeeCurrentRoute.swift */; };
 		C38644A61FA1CB6600EE7BD1 /* FavoriteRouteTasks.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38644A51FA1CB6600EE7BD1 /* FavoriteRouteTasks.swift */; };
 		C38644A81FA1FB0700EE7BD1 /* BouttonArrondi2.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38644A71FA1FB0700EE7BD1 /* BouttonArrondi2.swift */; };
+		E25BADAD8D0C8259BF27C13A /* Pods_GALDev.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CD298EB30D0053A94F0D44A /* Pods_GALDev.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +78,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1E5F2C1C8684E8B12309EE97 /* Pods-GALDev.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GALDev.release.xcconfig"; path = "Pods/Target Support Files/Pods-GALDev/Pods-GALDev.release.xcconfig"; sourceTree = "<group>"; };
 		4C057C281F87DF75002178E5 /* UserTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTests.swift; sourceTree = "<group>"; };
 		4C057C2A1F87EC49002178E5 /* CalculationForMapDisplay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculationForMapDisplay.swift; sourceTree = "<group>"; };
 		4C0916101F9E250E00E94F83 /* routeSaved.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = routeSaved.swift; sourceTree = "<group>"; };
@@ -137,6 +139,8 @@
 		4CB63F261F94F4ED008E8881 /* RouteTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteTests.swift; sourceTree = "<group>"; };
 		4CBC78911F8B847D00C9930F /* SearchTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTextField.swift; sourceTree = "<group>"; };
 		4CF30A4B1F66A4D5001B3AF3 /* RouteView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouteView.swift; sourceTree = "<group>"; };
+		9CD298EB30D0053A94F0D44A /* Pods_GALDev.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GALDev.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B4F0FD8CD784B4278919A266 /* Pods-GALDev.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GALDev.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GALDev/Pods-GALDev.debug.xcconfig"; sourceTree = "<group>"; };
 		C301201A1FA2161600FCCE5E /* SeeCurrentRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeeCurrentRoute.swift; sourceTree = "<group>"; };
 		C38644A51FA1CB6600EE7BD1 /* FavoriteRouteTasks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteRouteTasks.swift; sourceTree = "<group>"; };
 		C38644A71FA1FB0700EE7BD1 /* BouttonArrondi2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BouttonArrondi2.swift; sourceTree = "<group>"; };
@@ -163,6 +167,7 @@
 				4C312A651F4EE6C800555D0E /* GoogleMaps.framework in Frameworks */,
 				4C312A661F4EE6C800555D0E /* GoogleMapsCore.framework in Frameworks */,
 				4C312A621F4EE6AB00555D0E /* GoogleMapsBase.framework in Frameworks */,
+				E25BADAD8D0C8259BF27C13A /* Pods_GALDev.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -193,6 +198,7 @@
 				4C312A601F4EE69200555D0E /* Framework */,
 				4C312A4C1F4EE5B000555D0E /* Products */,
 				4C312A691F4EE70E00555D0E /* Frameworks */,
+				CDE3AF6853D5D0F432910420 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -251,6 +257,7 @@
 				4C312A6E1F4EE72000555D0E /* CoreLocation.framework */,
 				4C312A6F1F4EE72000555D0E /* CoreText.framework */,
 				4C312A6A1F4EE70F00555D0E /* Accelerate.framework */,
+				9CD298EB30D0053A94F0D44A /* Pods_GALDev.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -333,6 +340,15 @@
 			name = Models;
 			sourceTree = "<group>";
 		};
+		CDE3AF6853D5D0F432910420 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B4F0FD8CD784B4278919A266 /* Pods-GALDev.debug.xcconfig */,
+				1E5F2C1C8684E8B12309EE97 /* Pods-GALDev.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -340,9 +356,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4C312A5D1F4EE5B000555D0E /* Build configuration list for PBXNativeTarget "GALDev" */;
 			buildPhases = (
+				F47B84278357C761ECBEC847 /* [CP] Check Pods Manifest.lock */,
 				4C312A471F4EE5B000555D0E /* Sources */,
 				4C312A481F4EE5B000555D0E /* Frameworks */,
 				4C312A491F4EE5B000555D0E /* Resources */,
+				2195535EC3A2588C0A5ED4EB /* [CP] Embed Pods Frameworks */,
+				533A9837D6003B1F15ECA7A0 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -435,6 +454,64 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2195535EC3A2588C0A5ED4EB /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-GALDev/Pods-GALDev-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/MarqueeLabel/MarqueeLabel.framework",
+				"${BUILT_PRODUCTS_DIR}/NotificationBannerSwift/NotificationBannerSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MarqueeLabel.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NotificationBannerSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GALDev/Pods-GALDev-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		533A9837D6003B1F15ECA7A0 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GALDev/Pods-GALDev-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F47B84278357C761ECBEC847 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-GALDev-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		4C312A471F4EE5B000555D0E /* Sources */ = {
@@ -620,6 +697,7 @@
 		};
 		4C312A5E1F4EE5B000555D0E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B4F0FD8CD784B4278919A266 /* Pods-GALDev.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -629,6 +707,7 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = GALDev/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = aubergeon.GALDev;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -641,6 +720,7 @@
 		};
 		4C312A5F1F4EE5B000555D0E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1E5F2C1C8684E8B12309EE97 /* Pods-GALDev.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -650,6 +730,7 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = GALDev/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = aubergeon.GALDev;
 				PRODUCT_NAME = "$(TARGET_NAME)";

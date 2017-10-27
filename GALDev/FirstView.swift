@@ -8,6 +8,8 @@
 
 import UIKit
 import GoogleMaps
+import NotificationBannerSwift
+
 
 
 /// The first view of the app when you are authenticated
@@ -64,6 +66,13 @@ class FirstView: UIViewController, CLLocationManagerDelegate {
         locationManager.startUpdatingLocation()
         
         SearchRoute.SearchedRoute.seeCurrentRoute = Route.init()
+        
+        /*
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2){
+            let imageView = UIImageView(image: #imageLiteral(resourceName: "car"))
+            let banner = NotificationBanner(title: "Hi !", subtitle: "Tap on the car to search a route", leftView: imageView, style: .info)
+            banner.show()
+        }*/
     }
     
     override func viewDidAppear(_ animated: Bool) {

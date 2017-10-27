@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import NotificationBannerSwift
 
 class routeSaved : UIViewController, UITableViewDataSource, UITableViewDelegate {
     
@@ -125,6 +126,8 @@ class routeSaved : UIViewController, UITableViewDataSource, UITableViewDelegate 
                 self.favoriteRouteTasks.deleteFavoriteRoute(routeId: routeId!, completionHandler: { (status, success) -> Void in})
                 self.routes.remove(at: indexPath.row)
                 self.routeTableView.reloadData()
+                let banner = StatusBarNotificationBanner(title: "Route deleted", style: .danger)
+                banner.show()
             })
             alert.addAction(delete)
             alert.addAction(ok)

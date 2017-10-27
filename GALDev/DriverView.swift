@@ -8,6 +8,7 @@
 
 import UIKit
 import MessageUI
+import NotificationBannerSwift
 
 
 class DriverView : UIViewController, MFMailComposeViewControllerDelegate, MFMessageComposeViewControllerDelegate {
@@ -57,16 +58,25 @@ class DriverView : UIViewController, MFMailComposeViewControllerDelegate, MFMess
         
         self.favoriteRouteTasks.favoriteRoute(routeId: routeId!, userId: userId!, completionHandler: { (status, success) -> Void in
             if status == "Existing" {
-                 self.alert(title: "Already favorite", message: "The route is already in your favorite routes")
+                DispatchQueue.main.async() {
+                    let imageView = UIImageView(image: #imageLiteral(resourceName: "failed"))
+                    let banner = NotificationBanner(title: "Already favorite", subtitle: "The route is already in your favorite routes", leftView: imageView, style: .warning)
+                    banner.show()
+                }
             } else if status == "No existing" {
                 self.favoriteRouteTasks.addFavoriteRoute(userId: userId!, routeId: routeId!, completionHandler: { (status, success) -> Void in
                     if success {
                         DispatchQueue.main.async() {
-                            self.alert(title: "Route added", message: "The route has been added to your favorite routes")
+                            let imageView = UIImageView(image: #imageLiteral(resourceName: "success"))
+                            let banner = NotificationBanner(title: "Route added", subtitle: "The route has been added in your favorite", leftView: imageView, style: .success)
+                            banner.show()
                         }
                     } else {
                         DispatchQueue.main.async() {
-                            self.alert(title: "Route didn't add", message: "The route hasn't been add to your favorite routes")
+                            let imageView = UIImageView(image: #imageLiteral(resourceName: "failed"))
+                            let banner = NotificationBanner(title: "Route didn't add", subtitle: "The route hasn't been add to your favorite routes", leftView: imageView, style: .danger)
+                            banner.show()
+                            
                         }
                         
                     }

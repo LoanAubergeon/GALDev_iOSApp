@@ -8,6 +8,7 @@
 
 import UIKit
 import GoogleMaps
+import NotificationBannerSwift
 
 class CreateYourRoute : UIViewController, CLLocationManagerDelegate {
     
@@ -87,23 +88,12 @@ class CreateYourRoute : UIViewController, CLLocationManagerDelegate {
         
         request.httpBody = postString.data(using: .utf8)
         
-        /*do {
-         request.httpBody = try JSONSerialization.data(withJSONObject: parameters, options: .prettyPrinted) // pass dictionary to nsdata object and set it as request body
-         } catch let error {
-         print(error.localizedDescription)
-         }*/
+        let imageView = UIImageView(image: #imageLiteral(resourceName: "success"))
+        let banner = NotificationBanner(title: "Route added", subtitle: "The route has been added", leftView: imageView, style: .success)
+        banner.show()
         
-        let alertController = UIAlertController(title: "Route added", message: "The route has been added", preferredStyle: .alert)
-        let defaultAction = UIAlertAction(title: "Ok", style: .default, handler: {
-            action in
-            
-            let viewController = self.storyboard?.instantiateViewController(withIdentifier: "transitionPage")
-            self.present(viewController!, animated: true, completion: nil)
-            
-            
-        })
-        alertController.addAction(defaultAction)
-        self.present(alertController, animated: true, completion: nil)
+        let viewController = self.storyboard?.instantiateViewController(withIdentifier: "transitionPage")
+        self.present(viewController!, animated: true, completion: nil)
         
         
         do {
