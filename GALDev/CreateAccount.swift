@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import NotificationBannerSwift
 
 /// View for create on account one the database
 class CreateAccount : UIViewController {
@@ -23,6 +24,15 @@ class CreateAccount : UIViewController {
     
     
     //  #################### Functions ####################
+    
+    @IBAction func goToLoginPage (sender: Any){
+        // get parent view controller
+        let parentVC = self.parent as! PageViewController
+        
+        // change page of PageViewController
+        parentVC.setViewControllers([parentVC.orderedViewControllers[1]], direction: .reverse, animated: true, completion: nil)
+    }
+    
     
     /// The requeste on the database
     @IBAction func createAccount (sender:UIButton){
@@ -66,7 +76,12 @@ class CreateAccount : UIViewController {
                     if error != nil
                     {
                         print("Error")
-                        self.errorAlert(title: "Error",message: "Bad coonection")
+                        
+                        DispatchQueue.main.async() {
+                            let imageView = UIImageView(image: #imageLiteral(resourceName: "failed"))
+                            let banner = NotificationBanner(title: "Error", subtitle: "Bad connection", leftView: imageView, style: .danger)
+                            banner.show()
+                        }
                     }
                     // Convert server json response to NSDictionary
                     do {
@@ -78,12 +93,16 @@ class CreateAccount : UIViewController {
                                 let success = parseJSON["success"] as? Bool
                                 // Display an alert if the user has been created
                                 if success! {
-                                    DispatchQueue.main.async() {
-                                        self.errorAlert(title: "Success", message: "User has been added")
-                                    }
+                                    let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                                    let homePage = storyboard.instantiateViewController(withIdentifier: "home") as! SWRevealViewController
+                                    self.present(homePage, animated: true, completion: { () -> Void in
+                                        DispatchQueue.main.async() {
+                                            let imageView = UIImageView(image: #imageLiteral(resourceName: "success"))
+                                            let banner = NotificationBanner(title: "Succes", subtitle: "You have created your account", leftView: imageView, style: .success)
+                                            banner.show()
+                                        }
+                                    })
                                 }
-                                // After that we display the Home page
-                                self.performSegue(withIdentifier: "backSegue", sender: nil)
                             }
                         }
                     } catch let error as NSError {
@@ -95,7 +114,12 @@ class CreateAccount : UIViewController {
             }
         } else {
             // Display a error when all fields are not completed
-            self.errorAlert(title: "Error",message: "Please complete all fields")
+            DispatchQueue.main.async() {
+                let imageView = UIImageView(image: #imageLiteral(resourceName: "failed"))
+                let banner = NotificationBanner(title: "Error", subtitle: "Please field all fields", leftView: imageView, style: .danger)
+                banner.show()
+            }
+            
         }
     }
     
