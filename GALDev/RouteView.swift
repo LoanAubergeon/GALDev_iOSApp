@@ -22,9 +22,13 @@ class RouteView : UIViewController {
     
     /// Markers
     var originMarker: GMSMarker!
+    var userOriginMarker: GMSMarker!
     var destinationMarker: GMSMarker!
+    var userDestinationMarker: GMSMarker!
     
     /// The route (draw)
+    var routeOnePolyline: GMSPolyline!
+    var routeTwoPolyline: GMSPolyline!
     var routePolyline: GMSPolyline!
     
     
@@ -73,6 +77,11 @@ class RouteView : UIViewController {
     func routeDisplay(){
         
         let driverIndex = self.routes[myIndex].driver
+        let driverOrigin = self.routes[myIndex].nameOfStartingPoint
+        let driverDestination = self.routes[myIndex].nameOfEndpoint
+        //let searchedOrigin = SearchRoute.SearchedRoute.searchedRoute.nameOfStartingPoint
+        //let searchedDestination = SearchRoute.SearchedRoute.searchedRoute.nameOfEndpoint
+        let routeId = self.routes[myIndex].id
         
         DispatchQueue.main.async() {
             self.originLabel?.text = self.routes[myIndex].nameOfStartingPoint
@@ -84,11 +93,8 @@ class RouteView : UIViewController {
                 DispatchQueue.main.async() {
                     self.usernameDriverLabel?.text = self.userTasks.user.username
                 }
-                
-                let origin = self.routes[myIndex].nameOfStartingPoint
-                let destination = self.routes[myIndex].nameOfEndpoint
-
-                self.mapTasks.getDirections(origin: origin, destination: destination, waypoints: nil, travelMode: nil, completionHandler: { (status, success) -> Void in
+                // Chemin parcouru par le conducteur
+                self.mapTasks.getDirections(origin: driverOrigin, destination: driverDestination, waypoints: nil, travelMode: nil, completionHandler: { (status, success) -> Void in
                     if success {
                         DispatchQueue.main.async() {
                             self.viewMap?.clear()
@@ -97,7 +103,6 @@ class RouteView : UIViewController {
                             self.displayRouteInfo()
                         }
                         
-                        let routeId = self.routes[myIndex].id
                         
                         self.dateTasks.date(routeId: routeId, completionHandler: { (status, success) -> Void in
                             if success {
@@ -106,7 +111,6 @@ class RouteView : UIViewController {
                                     self.dateLabel?.sizeToFit()
                                     self.weeklyReccurence.isHidden = !self.dateTasks.weeklyReccurence
                                 }
-            
                             }
                         })
                     }
@@ -114,6 +118,7 @@ class RouteView : UIViewController {
             }
         })
     }
+    
     
     
     func drawRoute() {
@@ -156,5 +161,5 @@ class RouteView : UIViewController {
         self.durationLabel?.text = self.mapTasks.totalDuration
         self.distanceLabel?.text = self.mapTasks.totalDistance
     }
-
+    
 }
