@@ -111,8 +111,8 @@ extension SeeCurrentRoute: GMSMapViewDelegate{
                     self.viewMap?.clear()
                     self.configureMapAndMarkersForRoute()
                     self.drawRoute()
-                    SearchRoute.SearchedRoute.seeCurrentRoute.nameOfStartingPoint = self.mapTasks.originAddress
-                    SearchRoute.SearchedRoute.seeCurrentRoute.nameOfEndpoint = self.mapTasks.destinationAddress
+                    SearchRoute.SearchedRoute.seeCurrentRoute.nameOfStartingPoint = String(self.originMarker.position.latitude)+","+String(self.originMarker.position.longitude)
+                    SearchRoute.SearchedRoute.seeCurrentRoute.nameOfEndpoint = String(self.destinationMarker.position.latitude)+","+String(self.destinationMarker.position.longitude)
                 }
             }
         })
