@@ -44,10 +44,19 @@ class Home: UIViewController {
     //  #################### Functions ####################
     
     override func viewDidLoad() {
-        
+        UserConnectedInformations.userToken = ""
+        UserConnectedInformations.user = User.init()
     }
     
-
+    @IBAction func goToCreateAAccountPage (sender: Any){
+        // get parent view controller
+        let parentVC = self.parent as! PageViewController
+        
+        // change page of PageViewController
+        parentVC.setViewControllers([parentVC.orderedViewControllers[2]], direction: .forward, animated: true, completion: nil)
+    }
+    
+    
     ///Function to manage the authentification
     @IBAction func authentification(sender :UIButton){
         
