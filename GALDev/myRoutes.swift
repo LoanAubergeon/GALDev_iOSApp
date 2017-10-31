@@ -155,7 +155,7 @@ class myRoutes : UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "segueToDriverView" {
-            if let destination = segue.destination as? RouteView {
+            if let destination = segue.destination as? RouteViewForTheMenu {
                 destination.routes = self.routes
             }
         }

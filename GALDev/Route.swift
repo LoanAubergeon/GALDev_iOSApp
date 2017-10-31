@@ -70,6 +70,5 @@ struct Route {
         self.distance = distance
         self.duration = duration
     }
-    
-    
+       
 }

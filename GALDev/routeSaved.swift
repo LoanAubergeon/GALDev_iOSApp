@@ -156,7 +156,7 @@ class routeSaved : UIViewController, UITableViewDataSource, UITableViewDelegate 
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "segueFromFavoriteToDriverView" {
-            if let destination = segue.destination as? RouteView {
+            if let destination = segue.destination as? RouteViewForTheMenu {
                 destination.routes = self.routes
             }
         }

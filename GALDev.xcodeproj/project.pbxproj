@@ -64,6 +64,9 @@
 		4CBC78921F8B847D00C9930F /* SearchTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CBC78911F8B847D00C9930F /* SearchTextField.swift */; };
 		4CF30A4C1F66A4D5001B3AF3 /* RouteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CF30A4B1F66A4D5001B3AF3 /* RouteView.swift */; };
 		C301201B1FA2161600FCCE5E /* SeeCurrentRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = C301201A1FA2161600FCCE5E /* SeeCurrentRoute.swift */; };
+		C306DD5E1FA8D35800DA70A5 /* routeViewForTheMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = C306DD5D1FA8D35800DA70A5 /* routeViewForTheMenu.swift */; };
+		C306DD601FA8DE2800DA70A5 /* GetMoreInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C306DD5F1FA8DE2800DA70A5 /* GetMoreInformation.swift */; };
+		C306DD621FA8E4E600DA70A5 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = C306DD611FA8E4E600DA70A5 /* Settings.swift */; };
 		C38644A61FA1CB6600EE7BD1 /* FavoriteRouteTasks.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38644A51FA1CB6600EE7BD1 /* FavoriteRouteTasks.swift */; };
 		C38644A81FA1FB0700EE7BD1 /* BouttonArrondi2.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38644A71FA1FB0700EE7BD1 /* BouttonArrondi2.swift */; };
 		E25BADAD8D0C8259BF27C13A /* Pods_GALDev.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CD298EB30D0053A94F0D44A /* Pods_GALDev.framework */; };
@@ -146,6 +149,9 @@
 		9CD298EB30D0053A94F0D44A /* Pods_GALDev.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GALDev.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4F0FD8CD784B4278919A266 /* Pods-GALDev.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GALDev.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GALDev/Pods-GALDev.debug.xcconfig"; sourceTree = "<group>"; };
 		C301201A1FA2161600FCCE5E /* SeeCurrentRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeeCurrentRoute.swift; sourceTree = "<group>"; };
+		C306DD5D1FA8D35800DA70A5 /* routeViewForTheMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = routeViewForTheMenu.swift; sourceTree = "<group>"; };
+		C306DD5F1FA8DE2800DA70A5 /* GetMoreInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetMoreInformation.swift; sourceTree = "<group>"; };
+		C306DD611FA8E4E600DA70A5 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		C38644A51FA1CB6600EE7BD1 /* FavoriteRouteTasks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteRouteTasks.swift; sourceTree = "<group>"; };
 		C38644A71FA1FB0700EE7BD1 /* BouttonArrondi2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BouttonArrondi2.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -295,7 +301,10 @@
 				4C76FAC31F838DF800A4FFF6 /* myRoutes.swift */,
 				4C0916101F9E250E00E94F83 /* routeSaved.swift */,
 				C301201A1FA2161600FCCE5E /* SeeCurrentRoute.swift */,
+				C306DD5D1FA8D35800DA70A5 /* routeViewForTheMenu.swift */,
 				4C2E970A1FA6312100E31E49 /* PageViewController.swift */,
+				C306DD5F1FA8DE2800DA70A5 /* GetMoreInformation.swift */,
+				C306DD611FA8E4E600DA70A5 /* Settings.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -527,13 +536,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C306DD601FA8DE2800DA70A5 /* GetMoreInformation.swift in Sources */,
 				4C3EF1751F7E6DDC001F4F8C /* RouteTasks.swift in Sources */,
 				4C2E970D1FA665ED00E31E49 /* HomePage.swift in Sources */,
 				4C0916111F9E250E00E94F83 /* routeSaved.swift in Sources */,
 				4C312ADC1F4F364700555D0E /* Help.swift in Sources */,
 				4C312A851F4EE7E500555D0E /* MapTasks.swift in Sources */,
+				C306DD621FA8E4E600DA70A5 /* Settings.swift in Sources */,
 				4C312A951F4F157B00555D0E /* SearchRoute.swift in Sources */,
 				4CF30A4C1F66A4D5001B3AF3 /* RouteView.swift in Sources */,
+				C306DD5E1FA8D35800DA70A5 /* routeViewForTheMenu.swift in Sources */,
 				4C56C9D11F7F991F005DFD99 /* DateTasks.swift in Sources */,
 				4CAA29291F8696E600813FA9 /* DateTime.swift in Sources */,
 				4C312A871F4EE7F000555D0E /* FirstView.swift in Sources */,
