@@ -2393,36 +2393,6 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Contact : " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nZF-w8-HUk">
-                                <rect key="frame" x="62" y="308" width="63" height="21"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="63" id="Thk-hG-IMp"/>
-                                    <constraint firstAttribute="height" constant="21" id="rv0-9A-mPE"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="laubergeon@gmail.com" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4nY-AM-ZoO">
-                                <rect key="frame" x="96" y="341" width="142" height="15"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="15" id="GdA-Dd-HIx"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="laubergeon.fr" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1PA-5o-0z3">
-                                <rect key="frame" x="96" y="372" width="142" height="15"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="142" id="DZY-M9-kiI"/>
-                                    <constraint firstAttribute="height" constant="15" id="ajJ-YC-NUF"/>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="15" id="fqG-lz-eE0"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Get a Lift " textAlignment="center" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DIy-hE-Z60">
                                 <rect key="frame" x="96" y="100" width="279" height="107"/>
                                 <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="55"/>
@@ -2436,23 +2406,6 @@
                                     <constraint firstAttribute="width" constant="97" id="IeC-JO-cKJ"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TCw-o5-TZv">
-                                <rect key="frame" x="61" y="371" width="19" height="17"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="19" id="M0b-T5-02E"/>
-                                    <constraint firstAttribute="height" constant="17" id="gOs-JJ-eFT"/>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="17" id="iXX-iN-EcV"/>
-                                </constraints>
-                                <state key="normal" title="Button" image="public"/>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FEs-m4-bHC">
-                                <rect key="frame" x="62" y="340" width="16" height="16"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="16" id="oBS-ae-BGA"/>
-                                    <constraint firstAttribute="height" constant="16" id="uGr-mL-tRP"/>
-                                </constraints>
-                                <state key="normal" title="Button" image="email2"/>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This application was by Loan AUBERGEON as part of an " textAlignment="center" lineBreakMode="clip" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aJf-5p-4ke">
                                 <rect key="frame" x="0.0" y="220" width="375" height="31"/>
                                 <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="12"/>
@@ -2468,31 +2421,78 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Contact : " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nZF-w8-HUk">
+                                <rect key="frame" x="26" y="309" width="63" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="63" id="Thk-hG-IMp"/>
+                                    <constraint firstAttribute="height" constant="21" id="rv0-9A-mPE"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="laubergeon@gmail.com" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4nY-AM-ZoO">
+                                <rect key="frame" x="60" y="342" width="142" height="15"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="15" id="GdA-Dd-HIx"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="laubergeon.fr" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1PA-5o-0z3">
+                                <rect key="frame" x="60" y="373" width="142" height="15"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="142" id="DZY-M9-kiI"/>
+                                    <constraint firstAttribute="height" constant="15" id="ajJ-YC-NUF"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="15" id="fqG-lz-eE0"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TCw-o5-TZv">
+                                <rect key="frame" x="25" y="372" width="19" height="17"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="19" id="M0b-T5-02E"/>
+                                    <constraint firstAttribute="height" constant="17" id="gOs-JJ-eFT"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="17" id="iXX-iN-EcV"/>
+                                </constraints>
+                                <state key="normal" title="Button" image="public"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FEs-m4-bHC">
+                                <rect key="frame" x="26" y="341" width="16" height="16"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="16" id="oBS-ae-BGA"/>
+                                    <constraint firstAttribute="height" constant="16" id="uGr-mL-tRP"/>
+                                </constraints>
+                                <state key="normal" title="Button" image="email2"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="32v-nf-aaF" firstAttribute="top" secondItem="2hs-yE-8fn" secondAttribute="bottom" constant="36" id="0GI-5t-OpL"/>
-                            <constraint firstItem="nZF-w8-HUk" firstAttribute="leading" secondItem="t6V-OS-5B6" secondAttribute="leadingMargin" constant="46" id="3MW-78-v23"/>
+                            <constraint firstItem="nZF-w8-HUk" firstAttribute="leading" secondItem="t6V-OS-5B6" secondAttribute="leadingMargin" constant="10" id="3MW-78-v23"/>
                             <constraint firstAttribute="trailing" secondItem="DIy-hE-Z60" secondAttribute="trailing" id="6kR-jF-teK"/>
                             <constraint firstItem="ESt-s7-5wN" firstAttribute="top" secondItem="DIy-hE-Z60" secondAttribute="bottom" constant="42" id="8qa-z6-Rbw"/>
-                            <constraint firstItem="wmq-Xo-2eJ" firstAttribute="top" secondItem="1PA-5o-0z3" secondAttribute="bottom" constant="236" id="Ceh-1b-cW2"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="1PA-5o-0z3" secondAttribute="trailing" constant="121" id="HBR-Lq-CSz"/>
-                            <constraint firstItem="wmq-Xo-2eJ" firstAttribute="top" secondItem="4nY-AM-ZoO" secondAttribute="bottom" constant="267" id="OCs-Xu-YVc"/>
+                            <constraint firstItem="wmq-Xo-2eJ" firstAttribute="top" secondItem="1PA-5o-0z3" secondAttribute="bottom" constant="235" id="Ceh-1b-cW2"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="1PA-5o-0z3" secondAttribute="trailing" constant="157" id="HBR-Lq-CSz"/>
+                            <constraint firstItem="wmq-Xo-2eJ" firstAttribute="top" secondItem="4nY-AM-ZoO" secondAttribute="bottom" constant="266" id="OCs-Xu-YVc"/>
                             <constraint firstItem="1jZ-Xk-hQ0" firstAttribute="leading" secondItem="t6V-OS-5B6" secondAttribute="leading" id="SFk-T3-zxM"/>
                             <constraint firstItem="nZF-w8-HUk" firstAttribute="leading" secondItem="FEs-m4-bHC" secondAttribute="leading" id="Sdh-Kv-0bb"/>
-                            <constraint firstItem="nZF-w8-HUk" firstAttribute="top" secondItem="ESt-s7-5wN" secondAttribute="bottom" constant="29" id="T2i-wq-1a5"/>
+                            <constraint firstItem="nZF-w8-HUk" firstAttribute="top" secondItem="ESt-s7-5wN" secondAttribute="bottom" constant="30" id="T2i-wq-1a5"/>
                             <constraint firstAttribute="trailing" secondItem="1jZ-Xk-hQ0" secondAttribute="trailing" id="TZu-HP-aQn"/>
                             <constraint firstItem="FEs-m4-bHC" firstAttribute="top" secondItem="nZF-w8-HUk" secondAttribute="bottom" constant="11" id="WPb-ce-5Au"/>
                             <constraint firstItem="FEs-m4-bHC" firstAttribute="leading" secondItem="TCw-o5-TZv" secondAttribute="leading" constant="1" id="XKp-M5-uti"/>
                             <constraint firstItem="aJf-5p-4ke" firstAttribute="trailing" secondItem="ESt-s7-5wN" secondAttribute="trailing" id="Xhh-kY-nIN"/>
                             <constraint firstItem="1PA-5o-0z3" firstAttribute="leading" secondItem="TCw-o5-TZv" secondAttribute="trailing" constant="16" id="Xq0-VM-SnG"/>
-                            <constraint firstItem="wmq-Xo-2eJ" firstAttribute="top" secondItem="TCw-o5-TZv" secondAttribute="bottom" constant="235" id="YAE-yM-vvc"/>
+                            <constraint firstItem="wmq-Xo-2eJ" firstAttribute="top" secondItem="TCw-o5-TZv" secondAttribute="bottom" constant="234" id="YAE-yM-vvc"/>
                             <constraint firstItem="32v-nf-aaF" firstAttribute="top" secondItem="DIy-hE-Z60" secondAttribute="top" id="Z55-O1-S3o"/>
                             <constraint firstItem="DIy-hE-Z60" firstAttribute="trailing" secondItem="aJf-5p-4ke" secondAttribute="trailing" id="ZRh-d9-biw"/>
                             <constraint firstItem="4nY-AM-ZoO" firstAttribute="top" secondItem="nZF-w8-HUk" secondAttribute="bottom" constant="12" id="Zgj-4g-vRE"/>
                             <constraint firstItem="aJf-5p-4ke" firstAttribute="top" secondItem="DIy-hE-Z60" secondAttribute="bottom" constant="13" id="dBn-r6-imr"/>
                             <constraint firstItem="TCw-o5-TZv" firstAttribute="top" secondItem="FEs-m4-bHC" secondAttribute="bottom" constant="15" id="dXN-p7-jPX"/>
-                            <constraint firstItem="nZF-w8-HUk" firstAttribute="top" secondItem="aJf-5p-4ke" secondAttribute="bottom" constant="57" id="flA-A6-l0P"/>
+                            <constraint firstItem="nZF-w8-HUk" firstAttribute="top" secondItem="aJf-5p-4ke" secondAttribute="bottom" constant="58" id="flA-A6-l0P"/>
                             <constraint firstItem="1PA-5o-0z3" firstAttribute="top" secondItem="4nY-AM-ZoO" secondAttribute="bottom" constant="16" id="gEt-04-5GG"/>
                             <constraint firstItem="4nY-AM-ZoO" firstAttribute="leading" secondItem="FEs-m4-bHC" secondAttribute="trailing" constant="18" id="hLW-tc-fC3"/>
                             <constraint firstItem="32v-nf-aaF" firstAttribute="leading" secondItem="t6V-OS-5B6" secondAttribute="leadingMargin" id="lC8-wL-FEe"/>
@@ -2500,7 +2500,7 @@
                             <constraint firstItem="aJf-5p-4ke" firstAttribute="leading" secondItem="t6V-OS-5B6" secondAttribute="leading" id="njg-zz-EEe"/>
                             <constraint firstItem="wmq-Xo-2eJ" firstAttribute="top" secondItem="1jZ-Xk-hQ0" secondAttribute="bottom" id="qY5-Z6-pJr"/>
                             <constraint firstItem="aJf-5p-4ke" firstAttribute="top" secondItem="32v-nf-aaF" secondAttribute="bottom" constant="22" id="ukb-Zz-k0J"/>
-                            <constraint firstItem="1jZ-Xk-hQ0" firstAttribute="top" secondItem="TCw-o5-TZv" secondAttribute="bottom" constant="204" id="yTQ-Be-3ve"/>
+                            <constraint firstItem="1jZ-Xk-hQ0" firstAttribute="top" secondItem="TCw-o5-TZv" secondAttribute="bottom" constant="203" id="yTQ-Be-3ve"/>
                             <constraint firstItem="aJf-5p-4ke" firstAttribute="leading" secondItem="ESt-s7-5wN" secondAttribute="leading" id="yei-Vx-XQM"/>
                         </constraints>
                     </view>
