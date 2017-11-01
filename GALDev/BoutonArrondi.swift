@@ -15,8 +15,7 @@ class BoutonArrondi : UIButton {
         //Initialiseur de la classe parente
         super.init(coder: aDecoder)
         
-        //layer.backgroundColor = UIColor.white.cgColor
-
+        layer.backgroundColor = UIColor(white: 0.6, alpha: 0.10).cgColor
         //Coins arrondis
         layer.cornerRadius = 5
         
