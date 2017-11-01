@@ -56,6 +56,14 @@ class RouteViewForTheMenu : UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.routeDisplay()
+        
+        let rightButtonItem = UIBarButtonItem.init(
+            image: #imageLiteral(resourceName: "help"),
+            style: .done,
+            target: self,
+            action: #selector(displayDriverView(sender:))
+        )
+        self.navigationItem.rightBarButtonItem = rightButtonItem
     }
     
     @IBAction func displayDriverView(sender: AnyObject){

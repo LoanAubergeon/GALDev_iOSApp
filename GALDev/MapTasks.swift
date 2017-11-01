@@ -188,6 +188,75 @@ class MapTasks : NSObject, CLLocationManagerDelegate {
     }
     
     
+    func getDirectionsWalking(origin: String!, destination: String!, waypoints: Array<String>!, travelMode: AnyObject!, completionHandler: @escaping ((_ status: String, _ success: Bool) -> Void)) {
+        if let originLocation = origin {
+            if let destinationLocation = destination {
+                
+                let originLocation = originLocation.replacingOccurrences(of:" ", with: "+").replacingOccurrences(of: ",", with: "+")
+                let destinationLocation = destinationLocation.replacingOccurrences(of:" ", with: "+").replacingOccurrences(of: ",", with: "+")
+                let directionsURLString = baseURLDirections + "origin=" + originLocation + "&destination=" + destinationLocation + "&mode=walking"
+                
+                let directionsURL = URL(string: directionsURLString)!
+                
+                let requestDirection = NSMutableURLRequest(url:directionsURL as URL)
+                
+                requestDirection.httpMethod = "GET"
+                
+                let task = URLSession.shared.dataTask(with: requestDirection as URLRequest) {
+                    data, response, error in
+                    
+                    // Check for error
+                    if error != nil
+                    {
+                        print("error=\(String(describing: error))")
+                        return
+                    }
+                    
+                    do{
+                        let dictionary: NSDictionary = try JSONSerialization.jsonObject(with: data! as Data, options: JSONSerialization.ReadingOptions.mutableContainers) as! NSDictionary
+                        
+                        let status = dictionary["status"] as! String
+                        
+                        if status == "OK" {
+                            self.selectedRoute = (dictionary["routes"] as! Array<NSDictionary>)[0]
+                            self.overviewPolyline = self.selectedRoute["overview_polyline"] as! NSDictionary
+                            let legs = self.selectedRoute["legs"] as! Array<NSDictionary>
+                            
+                            let startLocationDictionary = legs[0]["start_location"] as! NSDictionary
+                            self.originCoordinate = CLLocationCoordinate2DMake(startLocationDictionary["lat"] as! Double, startLocationDictionary["lng"] as! Double)
+                            
+                            let endLocationDictionary = legs[legs.count - 1]["end_location"] as! NSDictionary
+                            self.destinationCoordinate = CLLocationCoordinate2DMake(endLocationDictionary["lat"] as! Double, endLocationDictionary["lng"] as! Double)
+                            
+                            self.originAddress = legs[0]["start_address"] as! String
+                            self.destinationAddress = legs[legs.count - 1]["end_address"] as! String
+                            
+                            self.calculateTotalDistanceAndDuration()
+                            
+                            completionHandler(status, true)
+                            
+                        }
+                        else {
+                            completionHandler(status, false)
+                        }
+                        
+                    } catch let error as NSError {
+                        print(error)
+                        completionHandler("", false)
+                    }
+                }
+                task.resume()
+            }
+            else {
+                completionHandler("Destination is nil.", false)
+            }
+        }
+        else {
+            completionHandler("Origin is nil", false)
+        }
+    }
+    
+    
     func calculateTotalDistanceAndDuration() {
         let legs = self.selectedRoute["legs"] as! Array<NSDictionary>
         
