@@ -106,6 +106,20 @@ class PageViewController: UIPageViewController, UIPageViewControllerDelegate, UI
         let pageContentViewController = pageViewController.viewControllers![0]
         self.pageControl.currentPage = orderedViewControllers.index(of: pageContentViewController)!
     }
+    
+    @IBAction func onButtonNextClick(sender: Any) {
+        self.setViewControllers(viewControllers,
+                                              direction: UIPageViewControllerNavigationDirection.forward,
+                                              animated: true,
+                                              completion: nil)
+    }
+    
+    @IBAction func onButtonPreviousClick(sender: Any) {
+        self.setViewControllers(viewControllers,
+                                              direction: UIPageViewControllerNavigationDirection.reverse,
+                                              animated: true,
+                                              completion: nil)
+    }
 
     /*
     // MARK: - Navigation
