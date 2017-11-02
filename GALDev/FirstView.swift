@@ -61,16 +61,15 @@ class FirstView: UIViewController, CLLocationManagerDelegate {
         locationManager.delegate = self
         locationManager.requestWhenInUseAuthorization()
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        
+        
         locationManager.startUpdatingLocation()
+        
+        
         
         SearchRoute.SearchedRoute.seeCurrentRoute = Route.init()
         
-        /*
-        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2){
-            let imageView = UIImageView(image: #imageLiteral(resourceName: "car"))
-            let banner = NotificationBanner(title: "Hi !", subtitle: "Tap on the car to search a route", leftView: imageView, style: .info)
-            banner.show()
-        }*/
+
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -127,7 +126,7 @@ class FirstView: UIViewController, CLLocationManagerDelegate {
                                               longitude: userLocation!.coordinate.longitude, zoom: 13.0)
         viewMap?.isMyLocationEnabled = true
         viewMap?.camera = camera
-        
+
         locationManager.stopUpdatingLocation()
     }
     

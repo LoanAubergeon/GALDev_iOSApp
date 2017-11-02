@@ -71,7 +71,7 @@ class RouteView : UIViewController {
         
         
         let rightButtonItem = UIBarButtonItem.init(
-            image: #imageLiteral(resourceName: "help"),
+            image: #imageLiteral(resourceName: "person"),
             style: .done,
             target: self,
             action: #selector(displayDriverView(sender:))
@@ -105,10 +105,14 @@ class RouteView : UIViewController {
         if (self.compteurForWalkDisplay % 2 == 0){
             DispatchQueue.main.async() {
                 self.drawDriverRoute()
+                self.navigationItem.rightBarButtonItems![1].image = #imageLiteral(resourceName: "walk2")
             }
         } else {
             // On affiche la route avec le chemin à pied
             self.canDrawRoute()
+            DispatchQueue.main.async() {
+                self.navigationItem.rightBarButtonItems![1].image = #imageLiteral(resourceName: "car")
+            }
         }
     }
     
@@ -157,7 +161,7 @@ class RouteView : UIViewController {
                 let longitudeOfEndPoint = self.mapTasks.destinationCoordinate.longitude
                 let overviewPolyline = self.mapTasks.overviewPolyline
                 let totalDistanceInMetter = self.mapTasks.totalDistanceInMeters
-                let distance = self.mapTasks.totalDuration
+                let distance = self.mapTasks.totalDistance
                 let duration = self.mapTasks.totalDuration
 
                 self.driverRoute = Route.init(nameOfStartingPoint: nameOfStartingPoint!,
@@ -284,6 +288,7 @@ class RouteView : UIViewController {
         let totalDistance = (self.driverRoute.totalDistanceInMetter!)
         let zoom : Float = self.calculationForMapDisplay.zoomCalcul(distance: Double(totalDistance/1000))
         viewMap?.camera = GMSCameraPosition.camera(withLatitude: self.calculationForMapDisplay.xCenter, longitude: self.calculationForMapDisplay.yCenter, zoom: zoom)
+        
     }
     
     

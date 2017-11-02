@@ -47,11 +47,10 @@ class routeSaved : UIViewController, UITableViewDataSource, UITableViewDelegate 
         self.favoriteRouteTasks.favoriteRoute(userId : userId!, completionHandler: { (status, success) -> Void in
             if success {
                 self.routes = self.favoriteRouteTasks.routes
-                
                 DispatchQueue.main.async {
                     self.routeTableView.reloadData()
                 }
-                
+
             }
         })
         
@@ -111,6 +110,16 @@ class routeSaved : UIViewController, UITableViewDataSource, UITableViewDelegate 
                             DispatchQueue.main.async {
                                 cell.dateLabel.text = self.dateTasks.date
                                 cell.reccurence.isHidden = !self.dateTasks.weeklyReccurence
+                                
+                                let id = self.routes[i].driver
+                                self.userTasks.user(driverId: id, completionHandler: { (status, success) -> Void in
+                                    if success {
+                                        DispatchQueue.main.async {
+                                            cell.driverLabel.text = self.userTasks.user.username
+                                        }
+                                    }
+                                })
+                                
                             }
                         }
                     })

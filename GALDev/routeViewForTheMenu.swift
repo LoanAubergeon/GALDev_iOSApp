@@ -58,7 +58,7 @@ class RouteViewForTheMenu : UIViewController {
         self.routeDisplay()
         
         let rightButtonItem = UIBarButtonItem.init(
-            image: #imageLiteral(resourceName: "help"),
+            image: #imageLiteral(resourceName: "person"),
             style: .done,
             target: self,
             action: #selector(displayDriverView(sender:))
