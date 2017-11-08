@@ -33,6 +33,15 @@ class CreateAccount : UIViewController {
         parentVC.setViewControllers([parentVC.orderedViewControllers[1]], direction: .reverse, animated: true, completion: nil)
     }
     
+    override func viewDidLoad() {
+        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillShow, object: self.view.window)
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillHide, object: self.view.window)
+    }
     
     /// The requeste on the database
     @IBAction func createAccount (sender:UIButton){
@@ -94,7 +103,7 @@ class CreateAccount : UIViewController {
                                 // Display an alert if the user has been created
                                 if success! {
                                     let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                                    let homePage = storyboard.instantiateViewController(withIdentifier: "home") as! SWRevealViewController
+                                    let homePage = storyboard.instantiateViewController(withIdentifier: "transitionPage") as! SWRevealViewController
                                     self.present(homePage, animated: true, completion: { () -> Void in
                                         DispatchQueue.main.async() {
                                             let imageView = UIImageView(image: #imageLiteral(resourceName: "success"))
@@ -120,6 +129,23 @@ class CreateAccount : UIViewController {
                 banner.show()
             }
             
+        }
+    }
+    
+    @objc func keyboardWillShow(notification: NSNotification) {
+        if ((notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue) != nil {
+            if self.view.frame.origin.y == 0{
+                self.view.frame.origin.y -= 150
+            }
+        }
+    }
+    
+    
+    @objc func keyboardWillHide(notification: NSNotification) {
+        if ((notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue) != nil {
+            if self.view.frame.origin.y != 0{
+                self.view.frame.origin.y += 150
+            }
         }
     }
     

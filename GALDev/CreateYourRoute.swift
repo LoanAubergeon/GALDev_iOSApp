@@ -131,7 +131,7 @@ class CreateYourRoute : UIViewController, CLLocationManagerDelegate {
         let path: GMSPath = GMSPath(fromEncodedPath: route)!
         routePolyline = GMSPolyline(path: path)
         routePolyline.strokeWidth = 5
-        routePolyline.strokeColor = UIColor.blue
+        routePolyline.strokeColor = UIColor.init(red: 6/255, green: 57/255, blue: 159/255, alpha: 1)
         routePolyline.map = viewMap
     }
     

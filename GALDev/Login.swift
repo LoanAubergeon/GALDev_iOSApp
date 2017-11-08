@@ -46,7 +46,15 @@ class Home: UIViewController {
     override func viewDidLoad() {
         UserConnectedInformations.userToken = ""
         UserConnectedInformations.user = User.init()
+        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
     }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillShow, object: self.view.window)
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillHide, object: self.view.window)
+    }
+    
     
     @IBAction func goToCreateAAccountPage (sender: Any){
         // get parent view controller
@@ -58,7 +66,7 @@ class Home: UIViewController {
     
     
     ///Function to manage the authentification
-    @IBAction func authentification(sender :UIButton){
+    @IBAction func authentification(sender :UIButton?){
         
         /// Recovery of identifiers
         let username = usernameField.text
@@ -169,6 +177,30 @@ class Home: UIViewController {
         }
     }
     
+    @objc func keyboardWillShow(notification: NSNotification) {
+        if ((notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue) != nil {
+            if self.view.frame.origin.y == 0{
+                self.view.frame.origin.y -= 150
+            }
+        }
+    }
+    
+    
+    @objc func keyboardWillHide(notification: NSNotification) {
+        if ((notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue) != nil {
+            if self.view.frame.origin.y != 0{
+                self.view.frame.origin.y += 150
+            }
+        }
+    }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        if (textField.returnKeyType==UIReturnKeyType.go)
+        {
+            authentification(sender: nil)
+        }
+        return true
+    }
     
     
     /// To create alerts in the app
