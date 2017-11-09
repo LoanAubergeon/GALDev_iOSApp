@@ -10,7 +10,7 @@ import NotificationBannerSwift
 import UIKit
 
 /// The address of the server user
-var ServerAdress : String = "http://10.68.126.168"
+var ServerAdress : String = "http://10.68.119.81"
 
 
 
@@ -76,7 +76,7 @@ class Home: UIViewController {
         if (username == "") || (password == "") {
             DispatchQueue.main.async() {
                 let imageView = UIImageView(image: #imageLiteral(resourceName: "failed"))
-                let banner = NotificationBanner(title: "Authentication failed", subtitle: "Please field all fields", leftView: imageView, style: .danger)
+                let banner = NotificationBanner(title: "Authentification failed", subtitle: "Please field all fields", leftView: imageView, style: .danger)
                 banner.show()
             }
         } else {
@@ -160,7 +160,7 @@ class Home: UIViewController {
                                 } else { /// If the request hasn't worked we show the error
                                     DispatchQueue.main.async() {
                                         let imageView = UIImageView(image: #imageLiteral(resourceName: "failed"))
-                                        let banner = NotificationBanner(title: "Authentication failed", subtitle: "Wrong identifiers", leftView: imageView, style: .danger)
+                                        let banner = NotificationBanner(title: "Authentification failed", subtitle: "Wrong identifiers", leftView: imageView, style: .danger)
                                         banner.show()
                                     }
                                 }
