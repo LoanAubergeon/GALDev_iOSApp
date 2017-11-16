@@ -8,11 +8,19 @@
 
 import UIKit
 
+/// Help page
 class Help: UIPageViewController, UIPageViewControllerDelegate, UIPageViewControllerDataSource {
     
+    //  #################### Variables ####################
+    
+    /// Menu button
     @IBOutlet weak var menuButton:UIBarButtonItem!
     
+    /// Page control to show the number of the page on pageviewcontroller
     var pageControl = UIPageControl()
+    
+    
+    //  #################### Functions ####################
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -113,15 +121,5 @@ class Help: UIPageViewController, UIPageViewControllerDelegate, UIPageViewContro
         let pageContentViewController = pageViewController.viewControllers![0]
         self.pageControl.currentPage = orderedViewControllers.index(of: pageContentViewController)!
     }
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destinationViewController.
-     // Pass the selected object to the new view controller.
-     }
-     */
-    
+        
 }

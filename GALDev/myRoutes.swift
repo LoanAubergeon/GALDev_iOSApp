@@ -11,6 +11,9 @@ import NotificationBannerSwift
 
 class myRoutes : UIViewController, UITableViewDataSource, UITableViewDelegate {
     
+    
+    //  #################### Variables ####################
+
     @IBOutlet weak var menuButton:UIBarButtonItem!
     
     /// User's token
@@ -28,8 +31,10 @@ class myRoutes : UIViewController, UITableViewDataSource, UITableViewDelegate {
     var routeTasks = RouteTasks()
     var dateTasks = DateTasks()
     
-    
     var refreshControl: UIRefreshControl!
+    
+    
+     //  #################### Functions ####################
     
     override func viewDidLoad() {
         

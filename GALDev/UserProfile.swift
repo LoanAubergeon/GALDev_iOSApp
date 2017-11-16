@@ -11,6 +11,9 @@ import UIKit
 
 class UserProfile : UIViewController {
     
+    
+    //  #################### Variables ####################
+
     @IBOutlet weak var menuButton:UIBarButtonItem!
     
     var user : User = Home.UserConnectedInformations.user
@@ -20,6 +23,9 @@ class UserProfile : UIViewController {
     @IBOutlet var usernameLabel : UILabel!
     @IBOutlet var mobileNumberLabel : UILabel!
     @IBOutlet var emailLabel : UILabel!
+    
+    
+     //  #################### Functions ####################
     
     override func viewDidLoad() {
         super.viewDidLoad()

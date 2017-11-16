@@ -53,6 +53,8 @@ class RouteViewForTheMenu : UIViewController {
     @IBOutlet var distanceLabel : UILabel?
     
     
+     //  #################### Functions ####################
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.routeDisplay()

@@ -25,6 +25,7 @@ class CreateAccount : UIViewController {
     
     //  #################### Functions ####################
     
+    /// Function to access the login page
     @IBAction func goToLoginPage (sender: Any){
         // get parent view controller
         let parentVC = self.parent as! PageViewController
@@ -132,6 +133,7 @@ class CreateAccount : UIViewController {
         }
     }
     
+    /// To move the screen when the keyboard is displayed
     @objc func keyboardWillShow(notification: NSNotification) {
         if ((notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue) != nil {
             if self.view.frame.origin.y == 0{

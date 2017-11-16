@@ -11,6 +11,9 @@ import NotificationBannerSwift
 
 class routeSaved : UIViewController, UITableViewDataSource, UITableViewDelegate {
     
+    
+    //  #################### Variables ####################
+
     @IBOutlet weak var menuButton:UIBarButtonItem!
     
     /// User's token
@@ -29,6 +32,9 @@ class routeSaved : UIViewController, UITableViewDataSource, UITableViewDelegate 
     var favoriteRouteTasks = FavoriteRouteTasks()
     
     var refreshControl: UIRefreshControl!
+    
+    
+     //  #################### Functions ####################
     
     override func viewDidLoad() {
         

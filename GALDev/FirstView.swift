@@ -76,7 +76,6 @@ class FirstView: UIViewController, CLLocationManagerDelegate {
         
     }
     
-    
     /// For change the type of the map
     /// Create a AlertController to choose the type of the map
     /*@IBAction func changeMapType(sender: AnyObject) {

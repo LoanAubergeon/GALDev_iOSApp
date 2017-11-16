@@ -10,7 +10,13 @@ import UIKit
 
 class PageViewController: UIPageViewController, UIPageViewControllerDelegate, UIPageViewControllerDataSource {
     
+    
+    //  #################### Variables ####################
+
     var pageControl = UIPageControl()
+    
+    
+     //  #################### Functions ####################
     
     override func viewDidLoad() {
         super.viewDidLoad()

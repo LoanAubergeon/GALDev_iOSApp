@@ -12,7 +12,13 @@ import MessageUI
 
 class GetMoreInformation: UIViewController, MFMailComposeViewControllerDelegate {
     
+    
+    //  #################### Variables ####################
+
     @IBOutlet weak var menuButton:UIBarButtonItem!
+    
+    
+     //  #################### Functions ####################
     
     override func viewDidLoad() {
         super.viewDidLoad()

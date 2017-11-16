@@ -10,7 +10,7 @@ import Foundation
 import GoogleMaps
 
 
-/// Classe permettant d'afficher les informations d'une route existente
+/// Class to display the information of an existing route
 class RouteView : UIViewController {
     
     //  #################### Variables ####################
@@ -63,13 +63,16 @@ class RouteView : UIViewController {
     var compteur : Int = 0
     var compteurForWalkDisplay : Int = 0
     
+    
+     //  #################### Functions ####################
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.searchedRoute = SearchRoute.SearchedRoute.searchedRoute
         self.routeDisplay()
         self.compteur = 0
         
-        
+        /// The right button to show the driver controller
         let rightButtonItem = UIBarButtonItem.init(
             image: #imageLiteral(resourceName: "person"),
             style: .done,
@@ -77,6 +80,7 @@ class RouteView : UIViewController {
             action: #selector(displayDriverView(sender:))
         )
         
+        /// The right button to show the path on foot
         let walkrightButtonItem = UIBarButtonItem.init(
             image: #imageLiteral(resourceName: "walk2"),
             style: .done,
@@ -87,6 +91,7 @@ class RouteView : UIViewController {
         self.navigationItem.rightBarButtonItems?.append(walkrightButtonItem)
     }
     
+    /// To diplay the driver view
     @IBAction func displayDriverView(sender: AnyObject){
         performSegue(withIdentifier: "driverViewSegue", sender: self)
     }
@@ -99,6 +104,7 @@ class RouteView : UIViewController {
         }
     }
     
+    /// Display the path on foot on the map
     @IBAction func displayWalkPath(sender: Any){
         self.compteurForWalkDisplay = self.compteurForWalkDisplay + 1
         
@@ -116,6 +122,7 @@ class RouteView : UIViewController {
         }
     }
     
+    /// If tasks are finished, we can display the maps with his informations
     func canDrawRoute (){
         print(self.compteur)
         if self.compteur >= 3 {
@@ -127,6 +134,7 @@ class RouteView : UIViewController {
         }
     }
     
+    /// Display informations on a route
     func routeDisplay(){
         
         let driverIndex = self.routes[myIndex].driver

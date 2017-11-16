@@ -42,7 +42,6 @@
 		4C312ADA1F4F341500555D0E /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C312AD91F4F341500555D0E /* SWRevealViewController.m */; };
 		4C312ADC1F4F364700555D0E /* Help.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C312ADB1F4F364700555D0E /* Help.swift */; };
 		4C312ADE1F4F3F2B00555D0E /* BoutonArrondi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C312ADD1F4F3F2B00555D0E /* BoutonArrondi.swift */; };
-		4C312AE51F5016E200555D0E /* UserList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C312AE41F5016E200555D0E /* UserList.swift */; };
 		4C312AE71F50404A00555D0E /* SelectedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C312AE61F50404A00555D0E /* SelectedButton.swift */; };
 		4C3EF1711F7E4050001F4F8C /* MyCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C3EF1701F7E4050001F4F8C /* MyCustomCell.swift */; };
 		4C3EF1731F7E4513001F4F8C /* UserTasks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C3EF1721F7E4513001F4F8C /* UserTasks.swift */; };
@@ -123,7 +122,6 @@
 		4C312AD91F4F341500555D0E /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
 		4C312ADB1F4F364700555D0E /* Help.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Help.swift; sourceTree = "<group>"; };
 		4C312ADD1F4F3F2B00555D0E /* BoutonArrondi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoutonArrondi.swift; sourceTree = "<group>"; };
-		4C312AE41F5016E200555D0E /* UserList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserList.swift; sourceTree = "<group>"; };
 		4C312AE61F50404A00555D0E /* SelectedButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectedButton.swift; sourceTree = "<group>"; };
 		4C3EF1701F7E4050001F4F8C /* MyCustomCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyCustomCell.swift; sourceTree = "<group>"; };
 		4C3EF1721F7E4513001F4F8C /* UserTasks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserTasks.swift; sourceTree = "<group>"; };
@@ -291,7 +289,6 @@
 				4C312A881F4EE7F800555D0E /* CreateAccount.swift */,
 				4C312A941F4F157B00555D0E /* SearchRoute.swift */,
 				4C312ADB1F4F364700555D0E /* Help.swift */,
-				4C312AE41F5016E200555D0E /* UserList.swift */,
 				4C47EAF51F5570A800FD60DC /* RouteList.swift */,
 				4CF30A4B1F66A4D5001B3AF3 /* RouteView.swift */,
 				4C50CD701F6FD27800B7E14E /* DriverView.swift */,
@@ -563,7 +560,6 @@
 				4C3EF1731F7E4513001F4F8C /* UserTasks.swift in Sources */,
 				4CBC78921F8B847D00C9930F /* SearchTextField.swift in Sources */,
 				4C47EAFA1F56B25300FD60DC /* Menu.swift in Sources */,
-				4C312AE51F5016E200555D0E /* UserList.swift in Sources */,
 				4C47EAF81F55743700FD60DC /* CreateYourRoute.swift in Sources */,
 				4C3EF1711F7E4050001F4F8C /* MyCustomCell.swift in Sources */,
 				4C312A8B1F4EE7FD00555D0E /* Login.swift in Sources */,

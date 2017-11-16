@@ -11,6 +11,9 @@ import GoogleMaps
 
 class SeeCurrentRoute : UIViewController{
     
+    
+    //  #################### Variables ####################
+
     /// The map
     @IBOutlet fileprivate weak var viewMap: GMSMapView!
     
@@ -26,6 +29,9 @@ class SeeCurrentRoute : UIViewController{
     
     var mapTasks = MapTasks()
     var calculationForMapDisplay = CalculationForMapDisplay()
+    
+    
+     //  #################### Functions ####################
     
     override func viewDidLoad() {
         self.viewMap?.clear()
@@ -90,12 +96,7 @@ class SeeCurrentRoute : UIViewController{
         destinationMarker.title = self.mapTasks.destinationAddress
         destinationMarker.isDraggable = true
     }
-    
-    
-    
-    
-    
-    
+   
 }
 
 extension SeeCurrentRoute: GMSMapViewDelegate{

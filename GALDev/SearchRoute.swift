@@ -77,7 +77,7 @@ class SearchRoute: UIViewController, CLLocationManagerDelegate {
         destinationTextField.text = SearchedRoute.seeCurrentRoute.nameOfEndpoint
     }
     
-    ///
+    /// The list of city who are suggest on textfield
     func citySuggestion() {
         originTextField.theme = SearchTextFieldTheme.darkTheme()
         destinationTextField.theme = SearchTextFieldTheme.darkTheme()

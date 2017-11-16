@@ -8,10 +8,15 @@
 
 import UIKit
 
+/// The index of the cell who are selected on the list
 var myIndex : Int = 0
 
+/// The page who displayed the list of the route after a research
 class RouteList : UIViewController, UITableViewDataSource, UITableViewDelegate {
     
+    
+    //  #################### Variables ####################
+
     /// Date about the searched route
     var searchedRoute : Route = SearchRoute.SearchedRoute.searchedRoute
     
@@ -31,14 +36,16 @@ class RouteList : UIViewController, UITableViewDataSource, UITableViewDelegate {
     var dateTasks = DateTasks()
     var favoriteRouteTasks = FavoriteRouteTasks()
     
+    /// Refresh control
     var refreshControl: UIRefreshControl!
     
+    
+    //  #################### Functions ####################
+
     override func viewDidLoad() {
-        
         routeTableView.dataSource = self
         routeTableView.delegate = self
 
-        
         let fullDate : String = self.searchedRoute.date+""+self.searchedRoute.time
         let startLat : Double = self.searchedRoute.latitudeOfStartigPoint
         let startLong : Double = self.searchedRoute.longitudeOfStartingPoint
@@ -87,15 +94,9 @@ class RouteList : UIViewController, UITableViewDataSource, UITableViewDelegate {
             return self.routes.count
         }
     }
-    /*func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-     switch section {
-     case 0: return "Routes : "
-     default: return ""
-     }
-     }*/
-    
-    
-    //Cellule à l'index concerné
+  
+
+    /// Index cell loading
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! MyCustomCell
         
@@ -103,8 +104,10 @@ class RouteList : UIViewController, UITableViewDataSource, UITableViewDelegate {
             
             if (indexPath.row == i) {
                 DispatchQueue.main.async {
+                    /// Display the origin and desitination label
                     cell.originLabel.text = self.routes[i].nameOfStartingPoint
                     cell.destinationLabel.text = self.routes[i].nameOfEndpoint
+                    /// Display a hearth if the route is favorite
                     cell.favorite.isHidden = true
                     
                     let routeId : Int = self.routes[i].id
@@ -142,6 +145,7 @@ class RouteList : UIViewController, UITableViewDataSource, UITableViewDelegate {
         return cell
     }
     
+    /// for display the nex controller 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         myIndex = indexPath.row
         performSegue(withIdentifier: "routeViewSegue", sender: self)

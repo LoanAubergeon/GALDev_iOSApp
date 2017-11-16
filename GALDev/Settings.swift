@@ -10,7 +10,13 @@ import Foundation
 
 class Settings: UIViewController {
     
+    
+    //  #################### Variables ####################
+
     @IBOutlet weak var menuButton:UIBarButtonItem!
+    
+    
+     //  #################### Functions ####################
     
     override func viewDidLoad() {
         super.viewDidLoad()

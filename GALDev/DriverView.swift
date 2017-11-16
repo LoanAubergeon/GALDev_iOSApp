@@ -10,15 +10,19 @@ import UIKit
 import MessageUI
 import NotificationBannerSwift
 
-
+/// Class to display information of the driver of the selected route
 class DriverView : UIViewController, MFMailComposeViewControllerDelegate, MFMessageComposeViewControllerDelegate {
     
+    //  #################### Variables ####################
+
     var userTasks = UserTasks()
     var routeTasks = RouteTasks()
     var favoriteRouteTasks = FavoriteRouteTasks()
     
+    /// User's token
     var token = Home.UserConnectedInformations.userToken
     
+    /// Driver's informations to call or send a email
     var driverEmail = ""
     var mobileNumber = ""
     
@@ -26,6 +30,7 @@ class DriverView : UIViewController, MFMailComposeViewControllerDelegate, MFMess
     
     var searchedRoute : Route = SearchRoute.SearchedRoute.searchedRoute
     
+    /// Driver's informations
     @IBOutlet var firstNameLabel : UILabel!
     @IBOutlet var lastNameLabel : UILabel!
     @IBOutlet var usernameLabel : UILabel!
@@ -33,6 +38,7 @@ class DriverView : UIViewController, MFMailComposeViewControllerDelegate, MFMess
     @IBOutlet var emailLabel : UILabel!
     
     
+     //  #################### Functions ####################
     
     override func viewDidLoad() {
         let driverId = self.routes[myIndex].driver

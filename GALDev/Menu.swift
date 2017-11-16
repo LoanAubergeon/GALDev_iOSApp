@@ -11,6 +11,9 @@ import MessageUI
 
 class Menu : UITableViewController, MFMailComposeViewControllerDelegate {
     
+    
+     //  #################### Functions ####################
+    
     @IBAction func mailCompose (sender: Any){
 
         //Envoie d'un mail

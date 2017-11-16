@@ -8,8 +8,12 @@
 
 import Foundation
 
+/// The home page when the user open the application.
 class HomePage : UIViewController {
     
+    //  #################### Functions ####################
+    
+    /// Function to access the login page
     @IBAction func goToLoginPage (sender: Any){
         // get parent view controller
         let parentVC = self.parent as! PageViewController
@@ -18,6 +22,7 @@ class HomePage : UIViewController {
         parentVC.setViewControllers([parentVC.orderedViewControllers[1]], direction: .forward, animated: true, completion: nil)
     }
     
+    /// Function to access the create a account page
     @IBAction func goToCreateAAccountPage (sender: Any){
         // get parent view controller
         let parentVC = self.parent as! PageViewController

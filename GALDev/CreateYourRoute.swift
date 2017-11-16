@@ -13,10 +13,13 @@ import NotificationBannerSwift
 class CreateYourRoute : UIViewController, CLLocationManagerDelegate {
     
     
+    //  #################### Variables ####################
+
     // Variables transmises par la requetes
     var user : User = Home.UserConnectedInformations.user
     var token = Home.UserConnectedInformations.userToken
     
+    /// Route's informations 
     var origin : String! = SearchRoute.SearchedRoute.searchedRoute.nameOfStartingPoint
     var latitudeOfOrigin : Double! = SearchRoute.SearchedRoute.searchedRoute.latitudeOfStartigPoint
     var longitudeOfOrigin : Double! = SearchRoute.SearchedRoute.searchedRoute.longitudeOfStartingPoint
@@ -57,6 +60,9 @@ class CreateYourRoute : UIViewController, CLLocationManagerDelegate {
     // Variable pour ajouter la route dans la base de donnée
     
     @IBOutlet var button : UIButton?
+    
+    
+     //  #################### Functions ####################
     
     override func viewDidLoad() {
         // Display
