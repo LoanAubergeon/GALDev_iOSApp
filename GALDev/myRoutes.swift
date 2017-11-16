@@ -48,8 +48,10 @@ class myRoutes : UIViewController, UITableViewDataSource, UITableViewDelegate {
         routeTableView.dataSource = self
         routeTableView.delegate = self
         
+        /// the driver's id
         let driverId = Home.UserConnectedInformations.user.id
         
+        /// Task to find routes of the user
         self.routeTasks.route(driverId : driverId!, completionHandler: { (status, success) -> Void in
             if success {
                 self.routes = self.routeTasks.routes
@@ -79,6 +81,7 @@ class myRoutes : UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
+        /// If the user haven't routes
         if self.routes.count == 0 {
             let emptyStateLabel = UILabel(frame: tableView.frame)
             emptyStateLabel.text = "You don't have routes ! \n Add one to see it"
@@ -90,15 +93,8 @@ class myRoutes : UIViewController, UITableViewDataSource, UITableViewDelegate {
             return self.routes.count
         }
     }
-    /*func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-     switch section {
-     case 0: return "Routes : "
-     default: return ""
-     }
-     }*/
-    
-    
-    //Cellule à l'index concerné
+
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! MyCustomCell
         

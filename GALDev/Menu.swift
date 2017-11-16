@@ -14,6 +14,7 @@ class Menu : UITableViewController, MFMailComposeViewControllerDelegate {
     
      //  #################### Functions ####################
     
+    /// Function to open the mail composer
     @IBAction func mailCompose (sender: Any){
 
         //Envoie d'un mail
