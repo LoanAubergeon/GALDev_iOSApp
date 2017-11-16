@@ -103,6 +103,7 @@ class RouteList : UIViewController, UITableViewDataSource, UITableViewDelegate {
         for i in 0...self.routes.count {
             
             if (indexPath.row == i) {
+                /// Update the view
                 DispatchQueue.main.async {
                     /// Display the origin and desitination label
                     cell.originLabel.text = self.routes[i].nameOfStartingPoint
@@ -110,22 +111,34 @@ class RouteList : UIViewController, UITableViewDataSource, UITableViewDelegate {
                     /// Display a hearth if the route is favorite
                     cell.favorite.isHidden = true
                     
+                    /// The route's Id
                     let routeId : Int = self.routes[i].id
+                    
+                    /// Task to retrieve the date of the route
                     self.dateTasks.date(routeId: routeId, completionHandler: { (status, success) -> Void in
                         if success {
+                            /// Update the view
                             DispatchQueue.main.async {
                                 cell.dateLabel.text = self.dateTasks.date
                                 cell.reccurence.isHidden = !self.dateTasks.weeklyReccurence
                                 
+                                /// Id of the driver of the route
                                 let id = self.routes[i].driver
+                                
+                                /// Task to retrieve informations about the driver
                                 self.userTasks.user(driverId: id, completionHandler: { (status, success) -> Void in
                                     if success {
+                                        
+                                        /// Update the view
                                         DispatchQueue.main.async {
                                             cell.driverLabel.text = self.userTasks.user.username
                                             
+                                            /// Driver's ID
                                             let userId = Home.UserConnectedInformations.user.id
+                                            /// Tasks to know it's a favorite route
                                             self.favoriteRouteTasks.favoriteRoute(routeId: routeId, userId: userId!, completionHandler: { (status, success) -> Void in
                                                 if status == "Existing" {
+                                                    /// Update the view
                                                     DispatchQueue.main.async {
                                                         cell.favorite.isHidden = false
                                                     }
@@ -145,7 +158,7 @@ class RouteList : UIViewController, UITableViewDataSource, UITableViewDelegate {
         return cell
     }
     
-    /// for display the nex controller 
+    /// for display the next controller to display the route view 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         myIndex = indexPath.row
         performSegue(withIdentifier: "routeViewSegue", sender: self)

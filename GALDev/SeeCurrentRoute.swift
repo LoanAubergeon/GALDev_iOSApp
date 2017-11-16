@@ -9,6 +9,7 @@
 import Foundation
 import GoogleMaps
 
+/// Class to show the route being edited on research interface
 class SeeCurrentRoute : UIViewController{
     
     
