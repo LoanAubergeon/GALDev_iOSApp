@@ -9,5 +9,3 @@ The application is ready, just open the workspace with xCode 9 and launch it on 
 ## Authors
 
 * **Loan AUBERGEON** - *Initial work* - [laubergeon.fr](http://laubergeon.fr)
-
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
